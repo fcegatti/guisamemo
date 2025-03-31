@@ -1,0 +1,85 @@
+/* Main container */
+.startscreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* Logo image */
+.startscreen__logo {
+  width: 60%;
+  max-width: 280px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+/* Player input form */
+.startscreen__form {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.startscreen__input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.startscreen__add-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.startscreen__add-btn:disabled {
+  background-color: #c1e0c1;
+  cursor: not-allowed;
+}
+
+/* Player list */
+.startscreen__players {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.startscreen__player {
+  background-color: #ffffff;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Start game button */
+.startscreen__start-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.startscreen__start-btn:disabled {
+  background-color: #b3d4fc;
+  cursor: not-allowed;
+}

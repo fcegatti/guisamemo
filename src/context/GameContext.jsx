@@ -40,6 +40,13 @@ export function GameProvider ({ children }) {
     setGameStarted(false)
   }
 
+  const nextTurn = () => {
+    setCurrentTurnIndex(prevIndex => {
+      const nextIndex = (prevIndex + 1) % players.length
+      return nextIndex
+    })
+  }
+
   const value = {
     players,
     addPlayer,
@@ -48,7 +55,8 @@ export function GameProvider ({ children }) {
     startGame,
     resetGame,
     currentTurnIndex,
-    setCurrentTurnIndex
+    setCurrentTurnIndex,
+    nextTurn
   }
 
   return (

@@ -20,7 +20,7 @@ function StartScreen () {
   return (
     <div className='startscreen'>
       <img
-        src='/guisamemo-logo.webp'
+        src='/logo.webp'
         alt='Logo Guisamemo'
         className='startscreen__logo'
       />

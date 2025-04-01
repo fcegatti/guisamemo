@@ -1,10 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
+    <!-- 1. Basic meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Guisamemo | Juego de memoria infantil</title>
+    <meta name="application-name" content="Guisamemo">
+    <meta name="author" content="Federico Gatti" />
+    <meta name="description" content="Guisamemo es un juego de memoria infantil del tipo Memorama. Juega solo o con amigos hasta 4 personas. Está creado para Roque, Telmo y Román." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- 2. Open Graph (for social sharing) -->
+    <meta property="og:title" content="Guisamemo | Juego de memoria infantil" />
+    <meta property="og:description" content="Juego de memoria inspirado en Memorama. Para 1 a 4 jugadores, pensado para niños." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content="/og-image.webp" />
+    <meta property="og:url" content="https://guisamemo.vercel.app/" />
+
+    <!-- 3. Twitter cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Guisamemo | Juego de memoria infantil" />
+    <meta name="twitter:description" content="Juego de memoria tipo Memorama. Hasta 4 jugadores. Gratis y sin anuncios molestos." />
+    <meta name="twitter:image" content="/og-image.webp" />
+    <meta name="twitter:creator" content="@tr4p0" />
+
+    <!-- 4. PWA + Icons -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#f9f9f9" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/maskable-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- 5. Canonical -->
+    <link rel="canonical" href="https://guisamemo.vercel.app/" />
   </head>
+  
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

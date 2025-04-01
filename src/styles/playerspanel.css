@@ -1,0 +1,18 @@
+.playerspanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.playerspanel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome */
+}
+
+@media (min-width: 768px) {
+  .playerspanel {
+    flex-direction: column;
+    overflow-x: visible;
+    max-width: 250px; /* Layout prepared for desktop positioning */
+  }
+}

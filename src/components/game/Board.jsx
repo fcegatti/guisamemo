@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { generateDeck } from '@utils/deck'
-import { handleCardClick } from '@utils/handleCardClick'
+import { handleCardClick } from '@handlers/handleCardClick'
 
 function Board () {
   const [cards, setCards] = useState([])

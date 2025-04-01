@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function StartScreen () {
+function StartScreen ({ onStartGame }) {
   const [playerName, setPlayerName] = useState('')
   const [players, setPlayers] = useState([])
   const [error, setError] = useState('')
@@ -28,8 +28,7 @@ function StartScreen () {
   }
 
   const handleStartGame = () => {
-    console.log('Comenzar juego con:', players)
-    // Aquí irá la navegación o lógica principal
+    onStartGame?.()
   }
 
   const isMaxPlayers = players.length >= 4

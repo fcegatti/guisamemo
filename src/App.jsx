@@ -1,9 +1,18 @@
-import StartScreen from '@components/StartScreen'
-import '@styles/startscreen.css'
+import { useState } from 'react'
+import StartScreen from './components/StartScreen'
+import GameBoard from './components/GameBoard'
 
 function App () {
+  const [isGameStarted, setIsGameStarted] = useState(false)
+
   return (
-    <StartScreen />
+    <>
+      {!isGameStarted && (
+        <StartScreen onStartGame={() => setIsGameStarted(true)} />
+      )}
+
+      {isGameStarted && <GameBoard />}
+    </>
   )
 }
 

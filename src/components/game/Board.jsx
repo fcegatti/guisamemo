@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function GameBoard () {
+function Board () {
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
 
@@ -96,4 +96,4 @@ function GameBoard () {
   )
 }
 
-export default GameBoard
+export default Board

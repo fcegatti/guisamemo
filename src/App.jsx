@@ -1,6 +1,6 @@
 import { GameProvider, useGame } from '@context/GameContext'
 import StartScreen from '@components/StartScreen'
-import GameBoard from '@components/GameBoard'
+import Board from '@components/game/Board'
 
 function AppContent () {
   const { gameStarted } = useGame()
@@ -8,7 +8,7 @@ function AppContent () {
   return (
     <>
       {!gameStarted && <StartScreen />}
-      {gameStarted && <GameBoard />}
+      {gameStarted && <Board />}
     </>
   )
 }

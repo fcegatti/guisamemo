@@ -1,9 +1,18 @@
 import { useState } from 'react'
+import { useGame } from '@context/GameContext'
 
-function StartScreen ({ onStartGame }) {
+function StartScreen () {
   const [playerName, setPlayerName] = useState('')
-  const [players, setPlayers] = useState([])
   const [error, setError] = useState('')
+
+  const {
+    players,
+    addPlayer,
+    removePlayer,
+    startGame
+  } = useGame()
+
+  const isMaxPlayers = players.length >= 4
 
   const handleAddPlayer = () => {
     const trimmed = playerName.trim()
@@ -13,25 +22,23 @@ function StartScreen ({ onStartGame }) {
       return
     }
 
-    if (players.length >= 4) {
+    if (isMaxPlayers) {
       setError('Máximo de 4 jugadores alcanzado')
       return
     }
 
-    setPlayers([...players, trimmed])
+    addPlayer(trimmed)
     setPlayerName('')
     setError('')
   }
 
-  const handleDeletePlayer = (indexToRemove) => {
-    setPlayers(players.filter((_, index) => index !== indexToRemove))
+  const handleDeletePlayer = (id) => {
+    removePlayer(id)
   }
 
   const handleStartGame = () => {
-    onStartGame?.()
+    startGame()
   }
-
-  const isMaxPlayers = players.length >= 4
 
   return (
     <div className='startscreen'>
@@ -67,13 +74,13 @@ function StartScreen ({ onStartGame }) {
       {error && <p className='startscreen__error'>{error}</p>}
 
       <ul className='startscreen__players'>
-        {players.map((name, index) => (
-          <li key={index} className='startscreen__player'>
-            {name}
+        {players.map((player) => (
+          <li key={player.id} className='startscreen__player'>
+            {player.name}
             <button
               className='startscreen__remove-btn'
-              onClick={() => handleDeletePlayer(index)}
-              aria-label={`Eliminar a ${name}`}
+              onClick={() => handleDeletePlayer(player.id)}
+              aria-label={`Eliminar a ${player.name}`}
             >
               ✖
             </button>

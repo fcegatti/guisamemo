@@ -1,18 +1,23 @@
-import { useState } from 'react'
-import StartScreen from './components/StartScreen'
-import GameBoard from './components/GameBoard'
+import { GameProvider, useGame } from '@context/GameContext'
+import StartScreen from '@components/StartScreen'
+import GameBoard from '@components/GameBoard'
 
-function App () {
-  const [isGameStarted, setIsGameStarted] = useState(false)
+function AppContent () {
+  const { gameStarted } = useGame()
 
   return (
     <>
-      {!isGameStarted && (
-        <StartScreen onStartGame={() => setIsGameStarted(true)} />
-      )}
-
-      {isGameStarted && <GameBoard />}
+      {!gameStarted && <StartScreen />}
+      {gameStarted && <GameBoard />}
     </>
+  )
+}
+
+function App () {
+  return (
+    <GameProvider>
+      <AppContent />
+    </GameProvider>
   )
 }
 

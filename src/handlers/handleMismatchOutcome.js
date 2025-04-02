@@ -1,7 +1,6 @@
-export function handleMismatchOutcome () {
-  console.log('[Mismatch] handleMismatchOutcome called')
+export function handleMismatchOutcome ({ nextTurn }) {
+  nextTurn()
   // TODO:
   // - Play error sound (?)
   // - Trigger animation
-  // - Advance to next player
 }

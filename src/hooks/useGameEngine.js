@@ -10,7 +10,8 @@ export function useGameEngine () {
   const {
     players,
     currentTurnIndex,
-    setPlayers
+    setPlayers,
+    nextTurn
   } = useGame()
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
@@ -60,7 +61,7 @@ export function useGameEngine () {
           checkEndGame(cards)
         },
         onMismatch: () => {
-          handleMismatchOutcome()
+          handleMismatchOutcome({ nextTurn })
         },
         lockBoard,
         unlockBoard

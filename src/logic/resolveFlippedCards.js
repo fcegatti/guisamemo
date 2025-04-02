@@ -5,8 +5,11 @@ export function resolveFlippedCards ({
   setCards,
   setFlippedCards,
   onMatch,
-  onMismatch
+  onMismatch,
+  lockBoard,
+  unlockBoard
 }) {
+  lockBoard?.()
   setTimeout(() => {
     const [first, second] = flippedCards
     const { isMatch, matchedImage } = evaluateMatch(first, second)
@@ -30,5 +33,6 @@ export function resolveFlippedCards ({
     }
 
     setFlippedCards([])
+    unlockBoard?.()
   }, 1000)
 }

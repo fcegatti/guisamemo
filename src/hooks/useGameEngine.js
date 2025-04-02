@@ -8,6 +8,10 @@ import { checkEndGame } from '@logic/checkEndGame'
 export function useGameEngine () {
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
+  const [isBoardLocked, setIsBoardLocked] = useState(false)
+
+  const lockBoard = () => setIsBoardLocked(true)
+  const unlockBoard = () => setIsBoardLocked(false)
 
   // Generate a new shuffled deck when the game starts
   useEffect(() => {
@@ -16,6 +20,7 @@ export function useGameEngine () {
 
   // Handle user clicking a card
   const handleCardClick = (cardId) => {
+    if (isBoardLocked) return
     const clickedCard = cards.find(card => card.id === cardId)
 
     // Ignore if the card is already flipped or matched
@@ -34,6 +39,7 @@ export function useGameEngine () {
 
     // Evaluate match only when two cards are flipped
     if (updatedFlipped.length === 2) {
+      lockBoard()
       resolveFlippedCards({
         flippedCards: updatedFlipped,
         setCards,
@@ -44,7 +50,9 @@ export function useGameEngine () {
         },
         onMismatch: () => {
           handleMismatchOutcome()
-        }
+        },
+        lockBoard,
+        unlockBoard
       })
     }
   }

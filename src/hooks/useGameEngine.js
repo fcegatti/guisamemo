@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import { generateDeck } from '@utils/deck'
 import { resolveFlippedCards } from '@logic/resolveFlippedCards'
+import { handleMatchOutcome } from '@handlers/handleMatchOutcome'
+import { handleMismatchOutcome } from '@handlers/handleMismatchOutcome'
+import { checkEndGame } from '@logic/checkEndGame'
 
 export function useGameEngine () {
   const [cards, setCards] = useState([])
@@ -34,7 +37,14 @@ export function useGameEngine () {
       resolveFlippedCards({
         flippedCards: updatedFlipped,
         setCards,
-        setFlippedCards
+        setFlippedCards,
+        onMatch: (matchedImage) => {
+          handleMatchOutcome({ matchedImage })
+          checkEndGame(cards)
+        },
+        onMismatch: () => {
+          handleMismatchOutcome()
+        }
       })
     }
   }

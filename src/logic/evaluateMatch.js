@@ -1,27 +1,6 @@
-export function evaluateMatch ({
-  flippedCards,
-  setCards,
-  onMatch,
-  onMismatch
-}) {
-  const [first, second] = flippedCards
-  const isMatch = first.image === second.image
+export function evaluateMatch (cardA, cardB) {
+  const isMatch = cardA.image === cardB.image
+  const matchedImage = cardA.image
 
-  if (isMatch) {
-    // Mark cards as matched
-    setCards(prevCards =>
-      prevCards.map(card =>
-        card.image === first.image ? { ...card, matched: true } : card
-      )
-    )
-    onMatch?.(first.image)
-  } else {
-    // Flip cards back if they don't match
-    setCards(prevCards =>
-      prevCards.map(card =>
-        card.matched ? card : { ...card, flipped: false }
-      )
-    )
-    onMismatch?.()
-  }
+  return { isMatch, matchedImage }
 }

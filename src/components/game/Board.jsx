@@ -1,27 +1,7 @@
-import { useState, useEffect } from 'react'
-import { generateDeck } from '@utils/deck'
-import { handleCardClick } from '@handlers/handleCardClick'
+import { useGameEngine } from '@hooks/useGameEngine'
 
 function Board () {
-  const [cards, setCards] = useState([])
-  const [flippedCards, setFlippedCards] = useState([])
-
-  useEffect(() => {
-    setCards(generateDeck())
-  }, [])
-
-  const handleClick = (cardId) => {
-    handleCardClick({
-      cardId,
-      cards,
-      flippedCards,
-      setCards,
-      setFlippedCards,
-      onMatch: () => {
-
-      }
-    })
-  }
+  const { cards, handleCardClick } = useGameEngine()
 
   return (
     <div className='gameboard'>
@@ -29,7 +9,7 @@ function Board () {
         <div
           key={card.id}
           className='gameboard__card'
-          onClick={() => handleClick(card.id)}
+          onClick={() => handleCardClick(card.id)}
         >
           <img
             src={card.flipped || card.matched ? card.image : '/cards/card-back.webp'}

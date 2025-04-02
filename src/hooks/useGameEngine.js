@@ -4,8 +4,14 @@ import { resolveFlippedCards } from '@logic/resolveFlippedCards'
 import { handleMatchOutcome } from '@handlers/handleMatchOutcome'
 import { handleMismatchOutcome } from '@handlers/handleMismatchOutcome'
 import { checkEndGame } from '@logic/checkEndGame'
+import { useGame } from '@context/GameContext'
 
 export function useGameEngine () {
+  const {
+    players,
+    currentTurnIndex,
+    setPlayers
+  } = useGame()
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
   const [isBoardLocked, setIsBoardLocked] = useState(false)
@@ -45,7 +51,12 @@ export function useGameEngine () {
         setCards,
         setFlippedCards,
         onMatch: (matchedImage) => {
-          handleMatchOutcome({ matchedImage })
+          handleMatchOutcome({
+            matchedImage,
+            players,
+            currentTurnIndex,
+            setPlayers
+          })
           checkEndGame(cards)
         },
         onMismatch: () => {

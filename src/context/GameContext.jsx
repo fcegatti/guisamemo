@@ -49,6 +49,7 @@ export function GameProvider ({ children }) {
 
   const value = {
     players,
+    setPlayers,
     addPlayer,
     removePlayer,
     gameStarted,

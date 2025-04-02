@@ -11,7 +11,8 @@ export function useGameEngine () {
     players,
     currentTurnIndex,
     setPlayers,
-    nextTurn
+    nextTurn,
+    setIsGameOver
   } = useGame()
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
@@ -52,13 +53,24 @@ export function useGameEngine () {
         setCards,
         setFlippedCards,
         onMatch: (matchedImage) => {
+          // Create updated version of cards with matched flag applied
+          const updatedCards = cards.map(card =>
+            card.image === matchedImage
+              ? { ...card, matched: true }
+              : card
+          )
+
+          setCards(updatedCards)
+
           handleMatchOutcome({
             matchedImage,
             players,
             currentTurnIndex,
             setPlayers
           })
-          checkEndGame(cards)
+          if (checkEndGame(updatedCards)) {
+            setIsGameOver(true)
+          }
         },
         onMismatch: () => {
           handleMismatchOutcome({ nextTurn })

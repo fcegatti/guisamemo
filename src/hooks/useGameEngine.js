@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { generateDeck } from '@utils/deck'
-import { resolveFlippedCards } from '@logic/resolveFlippedCards'
+import { handleFlipResolution } from '@handlers/handleFlipResolution'
 import { handleMatchOutcome } from '@handlers/handleMatchOutcome'
 import { handleMismatchOutcome } from '@handlers/handleMismatchOutcome'
 import { checkEndGame } from '@logic/checkEndGame'
@@ -48,12 +48,12 @@ export function useGameEngine () {
     // Evaluate match only when two cards are flipped
     if (updatedFlipped.length === 2) {
       lockBoard()
-      resolveFlippedCards({
+      handleFlipResolution({
         flippedCards: updatedFlipped,
+        cards,
         setCards,
         setFlippedCards,
         onMatch: (matchedImage) => {
-          // Create updated version of cards with matched flag applied
           const updatedCards = cards.map(card =>
             card.image === matchedImage
               ? { ...card, matched: true }
@@ -68,6 +68,7 @@ export function useGameEngine () {
             currentTurnIndex,
             setPlayers
           })
+
           if (checkEndGame(updatedCards)) {
             setIsGameOver(true)
           }

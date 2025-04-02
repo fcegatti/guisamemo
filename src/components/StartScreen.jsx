@@ -50,6 +50,8 @@ function StartScreen () {
 
       <div className='startscreen__form'>
         <input
+          name='player-name'
+          id='player-name'
           type='text'
           placeholder={
             isMaxPlayers

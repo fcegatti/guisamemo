@@ -62,6 +62,7 @@ export function useGameEngine () {
 
   return {
     cards,
+    flippedCards,
     handleCardClick
   }
 }

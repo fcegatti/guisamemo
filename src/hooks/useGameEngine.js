@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { generateDeck } from '@utils/deck'
-import { evaluateMatch } from '@logic/evaluateMatch'
+import { resolveFlippedCards } from '@logic/resolveFlippedCards'
 
 export function useGameEngine () {
   const [cards, setCards] = useState([])
@@ -31,32 +31,11 @@ export function useGameEngine () {
 
     // Evaluate match only when two cards are flipped
     if (updatedFlipped.length === 2) {
-      const [first, second] = updatedFlipped
-
-      setTimeout(() => {
-        const { isMatch, matchedImage } = evaluateMatch(first, second)
-
-        if (isMatch) {
-          // Mark matched cards
-          setCards(prevCards =>
-            prevCards.map(card =>
-              card.image === matchedImage
-                ? { ...card, matched: true }
-                : card
-            )
-          )
-        } else {
-          // Flip back unmatched cards
-          setCards(prevCards =>
-            prevCards.map(card =>
-              card.matched ? card : { ...card, flipped: false }
-            )
-          )
-        }
-
-        // Clear flipped cards
-        setFlippedCards([])
-      }, 1000)
+      resolveFlippedCards({
+        flippedCards: updatedFlipped,
+        setCards,
+        setFlippedCards
+      })
     }
   }
 

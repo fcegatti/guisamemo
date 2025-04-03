@@ -39,6 +39,7 @@ export function GameProvider ({ children }) {
     setPlayers([])
     setCurrentTurnIndex(0)
     setGameStarted(false)
+    setIsGameOver(false)
   }
 
   const nextTurn = () => {

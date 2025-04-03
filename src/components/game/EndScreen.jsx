@@ -1,7 +1,7 @@
 import { useGame } from '@context/GameContext'
 
 export default function EndScreen () {
-  const { players, restartGame } = useGame()
+  const { players, restartGame, resetGame } = useGame()
 
   if (!players || players.length === 0) {
     return <p>Error: No hay jugadores registrados.</p>
@@ -38,7 +38,12 @@ export default function EndScreen () {
         >
           Reiniciar partida
         </button>
-        <button className='endscreen__button'>Menú principal</button>
+        <button
+          className='endscreen__button'
+          onClick={resetGame}
+        >
+          Menú principal
+        </button>
         <button className='endscreen__button'>Salir</button>
       </div>
     </div>

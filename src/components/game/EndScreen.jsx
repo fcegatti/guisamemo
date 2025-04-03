@@ -44,7 +44,6 @@ export default function EndScreen () {
         >
           Menú principal
         </button>
-        <button className='endscreen__button'>Salir</button>
       </div>
     </div>
   )

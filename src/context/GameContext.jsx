@@ -48,6 +48,17 @@ export function GameProvider ({ children }) {
     })
   }
 
+  const restartGame = () => {
+    const resetPlayers = players.map(player => ({
+      ...player,
+      score: 0
+    }))
+
+    setPlayers(resetPlayers)
+    setCurrentTurnIndex(0)
+    setIsGameOver(false)
+  }
+
   const value = {
     players,
     setPlayers,
@@ -60,7 +71,8 @@ export function GameProvider ({ children }) {
     setCurrentTurnIndex,
     nextTurn,
     isGameOver,
-    setIsGameOver
+    setIsGameOver,
+    restartGame
   }
 
   return (

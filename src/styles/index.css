@@ -2,3 +2,9 @@
 @import './gamescreen.css';
 @import '@styles/board.css';
 @import './endscreen.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

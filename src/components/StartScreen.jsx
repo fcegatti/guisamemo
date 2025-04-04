@@ -78,13 +78,26 @@ function StartScreen () {
       <ul className='startscreen__players'>
         {players.map((player) => (
           <li key={player.id} className='startscreen__player'>
-            {player.name}
+            <span className='startscreen__player-name'>{player.name}</span>
+
+            <div className='startscreen__player-avatar-container'>
+              <img
+                src='/avatar-default.webp'
+                alt='Avatar'
+                className='startscreen__player-avatar'
+                onClick={() => {
+                  // open avatar selector
+                  console.log('open avatar selector')
+                }}
+              />
+            </div>
+
             <button
               className='startscreen__remove-btn'
               onClick={() => handleDeletePlayer(player.id)}
               aria-label={`Eliminar a ${player.name}`}
             >
-              ✖
+              🗑️
             </button>
           </li>
         ))}

@@ -58,14 +58,46 @@
 }
 
 .startscreen__player {
-  background-color: #ffffff;
-  padding: 0.75rem;
-  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+
+.startscreen__player-name {
+  flex-grow: 1;
+  text-align: left;
   font-weight: bold;
+  font-size: 1rem;
   color: #333;
+}
+
+.startscreen__player-avatar-container {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.startscreen__player-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.startscreen__remove-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
 }
 
 /* Start game button */

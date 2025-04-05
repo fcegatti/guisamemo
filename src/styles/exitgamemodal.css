@@ -1,0 +1,87 @@
+/* Overlay layer */
+.exitgamemodal__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 999;
+}
+
+/* Modal box */
+.exitgamemodal {
+  background-color: #fff;
+  border-radius: 16px 16px 0 0;
+  padding: 0.1rem 1rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Top drag handle */
+.exitgamemodal__handle {
+  width: 40px;
+  height: 5px;
+  background-color: #ccc;
+  border-radius: 3px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Avatar image */
+.exitgamemodal__avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* Message text */
+.exitgamemodal__message {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.exitgamemodal__warning {
+  font-size: 1rem;
+  color: #d22;
+  font-weight: 600;
+}
+
+/* Buttons */
+.exitgamemodal__stay-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+}
+
+.exitgamemodal__exit-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

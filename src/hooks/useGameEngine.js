@@ -70,7 +70,9 @@ export function useGameEngine () {
           })
 
           if (checkEndGame(updatedCards)) {
-            setIsGameOver(true)
+            setTimeout(() => {
+              setIsGameOver(true)
+            }, 1200)
           }
         },
         onMismatch: () => {

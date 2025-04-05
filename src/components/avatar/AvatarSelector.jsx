@@ -25,6 +25,28 @@ export default function AvatarSelector ({ onSelect }) {
     )
   }
 
+  const [touchStartX, setTouchStartX] = useState(null)
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX)
+  }
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return
+    const touchEndX = e.changedTouches[0].clientX
+    const deltaX = touchEndX - touchStartX
+
+    if (Math.abs(deltaX) > 40) {
+      if (deltaX < 0) {
+        goToNext()
+      } else {
+        goToPrev()
+      }
+    }
+
+    setTouchStartX(null)
+  }
+
   return (
     <div className='avatarselector__overlay'>
       <div className='avatarselector__modal'>
@@ -36,7 +58,11 @@ export default function AvatarSelector ({ onSelect }) {
           ◀
         </button>
 
-        <div className='avatarselector__image-container'>
+        <div
+          className='avatarselector__image-container'
+          onTouchStart={(e) => handleTouchStart(e)}
+          onTouchEnd={(e) => handleTouchEnd(e)}
+        >
           <img
             src={`/avatars/${currentAvatar.filename}`}
             alt={currentAvatar.name}

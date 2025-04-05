@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { useGame } from '@context/GameContext'
+import AvatarSelector from '@components/avatar/AvatarSelector'
 
 function StartScreen () {
   const [playerName, setPlayerName] = useState('')
   const [error, setError] = useState('')
+  const [selectingAvatarFor, setSelectingAvatarFor] = useState(null)
 
   const {
     players,
     addPlayer,
     removePlayer,
-    startGame
+    startGame,
+    setPlayers
   } = useGame()
 
   const isMaxPlayers = players.length >= 4
@@ -30,6 +33,17 @@ function StartScreen () {
     addPlayer(trimmed)
     setPlayerName('')
     setError('')
+  }
+
+  const handleAvatarSelect = (playerId, filename) => {
+    setPlayers(prev =>
+      prev.map(player =>
+        player.id === playerId
+          ? { ...player, avatar: filename }
+          : player
+      )
+    )
+    setSelectingAvatarFor(null)
   }
 
   const handleDeletePlayer = (id) => {
@@ -82,14 +96,21 @@ function StartScreen () {
 
             <div className='startscreen__player-avatar-container'>
               <img
-                src='/avatar-default.webp'
+                src={
+                player.avatar
+                  ? `/avatars/${player.avatar}`
+                  : '/avatar-default.webp'
+              }
                 alt='Avatar'
                 className='startscreen__player-avatar'
-                onClick={() => {
-                  // open avatar selector
-                  console.log('open avatar selector')
-                }}
+                onClick={() => setSelectingAvatarFor(player.id)}
               />
+              {selectingAvatarFor === player.id && (
+                <AvatarSelector
+                  onSelect={(filename) =>
+                    handleAvatarSelect(player.id, filename)}
+                />
+              )}
             </div>
 
             <button

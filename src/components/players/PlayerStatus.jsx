@@ -8,7 +8,9 @@ function PlayerStatus ({ player, index }) {
   return (
     <div className={`playerstatus ${isActive ? 'playerstatus--active' : ''}`}>
       <img
-        src={player.avatar || '/avatar-default.webp'}
+        src={player.avatar
+          ? `/avatars/${player.avatar}`
+          : '/avatar-default.webp'}
         alt={`Avatar de ${player.name}`}
         className='playerstatus__avatar'
       />

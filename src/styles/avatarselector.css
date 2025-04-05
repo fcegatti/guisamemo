@@ -1,24 +1,53 @@
-.avatar-selector {
+.avatarselector__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  background: #fff;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  position: absolute;
-  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 
-.avatar-selector__option {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.avatarselector__modal {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 90%;
+}
+
+.avatarselector__image-container {
+  text-align: center;
+}
+
+.avatarselector__image {
+  width: 100px;
+  height: 100px;
   object-fit: cover;
+  border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
-.avatar-selector__option:hover {
-  transform: scale(1.1);
+.avatarselector__name {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+.avatarselector__nav {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.avatarselector__nav:focus {
+  outline: none;
 }

@@ -1,23 +1,59 @@
-const AVATARS = [
-  'avatar-1.webp',
-  'avatar-2.webp',
-  'avatar-3.webp',
-  'avatar-4.webp',
-  'avatar-10.webp'
+import { useState } from 'react'
+
+// Local avatar data
+const AVATAR_INFO = [
+  { filename: 'avatar-1.webp', name: 'Messi' },
+  { filename: 'avatar-2.webp', name: 'Roque' },
+  { filename: 'avatar-3.webp', name: 'Telmo' },
+  { filename: 'avatar-4.webp', name: 'Román' },
+  { filename: 'avatar-10.webp', name: 'Maradona' }
 ]
 
 export default function AvatarSelector ({ onSelect }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const currentAvatar = AVATAR_INFO[currentIndex]
+
+  const goToNext = () => {
+    setCurrentIndex((prev) =>
+      prev === AVATAR_INFO.length - 1 ? 0 : prev + 1
+    )
+  }
+
+  const goToPrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? AVATAR_INFO.length - 1 : prev - 1
+    )
+  }
+
   return (
-    <div className='avatar-selector'>
-      {AVATARS.map((filename) => (
-        <img
-          key={filename}
-          src={`/avatars/${filename}`}
-          alt={`Avatar ${filename}`}
-          className='avatar-selector__option'
-          onClick={() => onSelect(filename)}
-        />
-      ))}
+    <div className='avatarselector__overlay'>
+      <div className='avatarselector__modal'>
+        <button
+          className='avatarselector__nav avatarselector__nav--left'
+          onClick={goToPrev}
+          aria-label='Anterior'
+        >
+          ◀
+        </button>
+
+        <div className='avatarselector__image-container'>
+          <img
+            src={`/avatars/${currentAvatar.filename}`}
+            alt={currentAvatar.name}
+            className='avatarselector__image'
+            onClick={() => onSelect(currentAvatar.filename)}
+          />
+          <span className='avatarselector__name'>{currentAvatar.name}</span>
+        </div>
+
+        <button
+          className='avatarselector__nav avatarselector__nav--right'
+          onClick={goToNext}
+          aria-label='Siguiente'
+        >
+          ▶
+        </button>
+      </div>
     </div>
   )
 }

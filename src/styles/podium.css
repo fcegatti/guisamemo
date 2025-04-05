@@ -1,0 +1,48 @@
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 1rem;
+  margin-top: 2rem;
+  height: 200px;
+  position: relative;
+}
+
+.podium__block {
+  width: 80px;
+  background-color: #eee;
+  border-radius: 12px 12px 0 0;
+  text-align: center;
+  padding: 0.5rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.podium__block img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.3rem;
+}
+
+.podium__block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.podium__first {
+  height: 140px;
+  background-color: #ffd700; /* oro */
+}
+
+.podium__second {
+  height: 100px;
+  background-color: #c0c0c0; /* plata */
+}
+
+.podium__third {
+  height: 80px;
+  background-color: #cd7f32; /* bronce */
+}

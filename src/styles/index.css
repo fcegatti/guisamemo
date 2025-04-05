@@ -4,6 +4,7 @@
 @import '@styles/board.css';
 @import './endscreen.css';
 @import './exitgamemodal.css';
+@import '@styles/podium.css';
 
 * {
   box-sizing: border-box;

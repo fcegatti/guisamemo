@@ -5,12 +5,11 @@ import PlayersPanel from '../players/PlayersPanel'
 import Board from './Board'
 
 function GameScreen () {
-  const { resetGame, setGameStarted } = useGame()
+  const { resetGame } = useGame()
   const [showExitModal, setShowExitModal] = useState(false)
 
   const handleExitGame = () => {
     resetGame()
-    setGameStarted(false)
     setShowExitModal(false)
   }
 

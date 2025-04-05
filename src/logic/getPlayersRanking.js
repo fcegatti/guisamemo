@@ -1,11 +1,10 @@
 export function getPlayersRanking (players) {
-  const sorted = [...players]
+  return [...players]
     .sort((a, b) => b.score - a.score)
-    .slice(0, 3)
-
-  return sorted.map(player => ({
-    name: player.name,
-    score: player.score,
-    avatar: player.avatar || '/avatar-default.webp'
-  }))
+    .map(player => ({
+      ...player,
+      avatar: player.avatar
+        ? `/avatars/${player.avatar}`
+        : '/avatar-default.webp'
+    }))
 }

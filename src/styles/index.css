@@ -6,6 +6,7 @@
 @import './exitgamemodal.css';
 @import '@styles/podium.css';
 @import '@styles/endgamemodal.css';
+@import './fireworks.css';
 
 * {
   box-sizing: border-box;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useGame } from '@context/GameContext'
 import { getPlayersRanking } from '@logic/getPlayersRanking'
+import EndGameModal from './EndGameModal'
 
 export default function Podium () {
   const { players } = useGame()
@@ -66,7 +67,7 @@ export default function Podium () {
       {/* Endgame modal */}
       {showFinalModal && (
         <div className='podium__final-modal'>
-          {/* Aquí irá ExitGameModal o uno nuevo */}
+          <EndGameModal />
         </div>
       )}
     </div>

@@ -14,7 +14,7 @@ export default function EndScreen () {
   useEffect(() => {
     const timers = [
       setTimeout(() => setShowFireworks(true), 4000),
-      setTimeout(() => setShowFinalModal(true), 5500)
+      setTimeout(() => setShowFinalModal(true), 11500)
     ]
     return () => timers.forEach(clearTimeout)
   }, [])
@@ -28,7 +28,12 @@ export default function EndScreen () {
       <h1 className='endscreen__title'>🏆 Resultados 🏆</h1>
       <Podium players={ranking} />
 
-      {showFireworks && <Fireworks />}
+      {showFireworks && (
+        <>
+          <div className='endscreen__dark-overlay' />
+          <Fireworks />
+        </>
+      )}
 
       {showFinalModal && (
         <EndGameModal />

@@ -14,8 +14,8 @@ const GameContext = createContext()
 // Custom hook for easy access
 export const useGame = () => useContext(GameContext)
 
-export function GameProvider ({ children }) {
-  const [players, setPlayers] = useState([])
+export function GameProvider ({ children, initialPlayesrs = [] }) {
+  const [players, setPlayers] = useState(initialPlayesrs)
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0)
   const [gameStarted, setGameStarted] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)

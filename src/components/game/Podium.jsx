@@ -6,13 +6,18 @@ export default function Podium () {
   const { players } = useGame()
   const [visibleRanks, setVisibleRanks] = useState([false, false, false])
   const rankedPlayers = getPlayersRanking(players)
+  const [showFireworks, setShowFireworks] = useState(false)
+  const [showFinalModal, setShowFinalModal] = useState(false)
 
   // Animación progresiva: tercera → segunda → primera posición
   useEffect(() => {
     const timers = [
       setTimeout(() => setVisibleRanks([true, false, false]), 500),
-      setTimeout(() => setVisibleRanks([true, true, false]), 1000),
-      setTimeout(() => setVisibleRanks([true, true, true]), 1500)
+      setTimeout(() => setVisibleRanks([true, true, false]), 1500),
+      setTimeout(() => setVisibleRanks([true, true, true]), 3000),
+      setTimeout(() => setShowFireworks([true, true, true]), 3500),
+      setTimeout(() => setShowFinalModal([true, true, true]), 5500)
+
     ]
     return () => timers.forEach(clearTimeout)
   }, [])
@@ -51,6 +56,19 @@ export default function Podium () {
           </>
         )}
       </div>
+      {/* Fireworks (placeholder visual por ahora) */}
+      {showFireworks && (
+        <div className='podium__fireworks'>
+          🎆🎇🎆
+        </div>
+      )}
+
+      {/* Endgame modal */}
+      {showFinalModal && (
+        <div className='podium__final-modal'>
+          {/* Aquí irá ExitGameModal o uno nuevo */}
+        </div>
+      )}
     </div>
   )
 }

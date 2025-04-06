@@ -19,9 +19,13 @@ export default function Podium ({ players }) {
       <div className={`podium__block podium__second ${visibleRanks[1] ? 'visible' : ''}`}>
         {players[1] && (
           <>
-            <img src={players[1].avatar} alt={`Avatar ${players[1].name}`} />
-            <p>{players[1].name}</p>
-            <span>{players[1].score} pts</span>
+            <img
+              src={players[1].avatar}
+              alt={`Avatar ${players[1].name}`}
+              className='podium__avatar'
+            />
+            <p className='podium__name'>{players[1].name}</p>
+            <span className='podium__points'>{players[1].score} pts</span>
           </>
         )}
       </div>
@@ -30,9 +34,13 @@ export default function Podium ({ players }) {
       <div className={`podium__block podium__first ${visibleRanks[2] ? 'visible' : ''}`}>
         {players[0] && (
           <>
-            <img src={players[0].avatar} alt={`Avatar ${players[0].name}`} />
-            <p>{players[0].name}</p>
-            <span>{players[0].score} pts</span>
+            <img
+              src={players[0].avatar}
+              alt={`Avatar ${players[0].name}`}
+              className='podium__avatar'
+            />
+            <p className='podium__name'>{players[0].name}</p>
+            <span className='podium__points'>{players[0].score} pts</span>
           </>
         )}
       </div>
@@ -41,9 +49,13 @@ export default function Podium ({ players }) {
       <div className={`podium__block podium__third ${visibleRanks[0] ? 'visible' : ''}`}>
         {players[2] && (
           <>
-            <img src={players[2].avatar} alt={`Avatar ${players[2].name}`} />
-            <p>{players[2].name}</p>
-            <span>{players[2].score} pts</span>
+            <img
+              src={players[2].avatar}
+              alt={`Avatar ${players[2].name}`}
+              className='podium__avatar'
+            />
+            <p className='podium__name'>{players[2].name}</p>
+            <span className='podium__points'>{players[2].score} pts</span>
           </>
         )}
       </div>

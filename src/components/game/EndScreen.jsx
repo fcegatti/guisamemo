@@ -29,10 +29,7 @@ export default function EndScreen () {
       <Podium players={ranking} />
 
       {showFireworks && (
-        <>
-          <div className='endscreen__dark-overlay' />
-          <Fireworks />
-        </>
+        <Fireworks />
       )}
 
       {showFinalModal && (

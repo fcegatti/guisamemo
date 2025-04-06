@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 2rem 1rem;
   text-align: center;
   background-color: #222;
@@ -11,139 +11,11 @@
   overflow-y: auto;
 }
 
-.endscreen__animation {
-  margin-bottom: 1.5rem;
-}
-
-.endscreen__placeholder {
-  font-size: 2rem;
-}
-
 .endscreen__title {
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #444;
+  color: #ddd;
   text-align: center;
 }
 
-.endscreen__ranking {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-  width: 100%;
-  max-width: 320px;
-}
-
-.endscreen__player {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background-color: #f5f5f5;
-  border-radius: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.endscreen__player--winner {
-  background-color: #ffe89a;
-  border: 2px solid gold;
-  font-weight: bold;
-}
-
-.endscreen__buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 2rem;
-  width: 100%;
-  max-width: 280px;
-}
-
-.endscreen__button {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  background-color: #55c97b;
-  color: white;
-  border: none;
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.endscreen__button:hover {
-  background-color: #47b16c;
-}
-
-
-/* ==== PODIUM ANIMATION BLOCKS ==== */
-
-.podium {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 160px;
-  margin-top: 1rem;
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  gap: 1rem;
-}
-
-.podium__block {
-  width: 80px;
-  border-radius: 1rem 1rem 0 0;
-  background-color: #e0e0e0;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0.5rem;
-}
-
-.podium__block.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.podium__first {
-  height: 110px;
-  background-color: #ffd700;
-  order: 2;
-}
-
-.podium__second {
-  height: 90px;
-  background-color: #c0c0c0;
-  order: 1;
-}
-
-.podium__third {
-  height: 70px;
-  background-color: #cd7f32;
-  order: 3;
-}
-
-.podium__block img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 0.5rem;
-}
-
-.podium__block p {
-  font-weight: bold;
-  margin: 0.25rem 0 0;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.podium__block span {
-  font-size: 0.85rem;
-  color: #666;
-}

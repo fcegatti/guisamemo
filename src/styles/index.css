@@ -1,12 +1,12 @@
 @import '@styles/startscreen.css';
-@import './avatarselector.css';
-@import './gamescreen.css';
+@import '@styles/avatarselector.css';
+@import '@styles/gamescreen.css';
 @import '@styles/board.css';
-@import './endscreen.css';
-@import './exitgamemodal.css';
+@import '@styles/endscreen.css';
+@import '@styles/exitgamemodal.css';
 @import '@styles/podium.css';
 @import '@styles/endgamemodal.css';
-@import './fireworks.css';
+@import '@styles/fireworks.css';
 
 * {
   box-sizing: border-box;

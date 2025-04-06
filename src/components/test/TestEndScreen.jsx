@@ -4,7 +4,7 @@ import { GameProvider } from '@context/GameContext'
 const mockPlayers = [
   {
     id: 'player-1',
-    name: 'Messi',
+    name: 'Maradona',
     score: 40,
     avatar: 'avatar-10.webp'
   },
@@ -18,7 +18,7 @@ const mockPlayers = [
     id: 'player-3',
     name: 'Telmo',
     score: 15,
-    avatar: 'avatar-1.webp'
+    avatar: 'avatar-3.webp'
   }
 ]
 

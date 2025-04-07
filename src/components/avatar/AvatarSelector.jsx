@@ -15,6 +15,7 @@ const AVATAR_INFO = [
   { filename: 'avatar-12.webp', name: 'Abuela' },
   { filename: 'avatar-13.webp', name: 'Abuelo' },
   { filename: 'avatar-14.webp', name: 'Tía Bea' },
+  { filename: 'avatar-15.webp', name: 'Tío Fede' },
   { filename: 'avatar-10.webp', name: 'Maradona' }
 ]
 

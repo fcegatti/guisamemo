@@ -67,6 +67,7 @@ const mockPlayers = [
 </GameProvider>
 
 ```
+
 ---
 This file should be updated alongside any significant decision to ensure alignment between contributors.
 

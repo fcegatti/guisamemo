@@ -50,6 +50,23 @@ All documentation must be written in **English**, including this file.
 - Do not leave console logs or commented-out code in committed files
 - Avoid magic numbers and comment any hardcoded values if needed
 
+## Context Testing Best Practices
+
+- When testing components that use context (like GameContext), wrap them in a provider with test data.
+- Do not modify the core context for testing purposes.
+- Instead, pass mock values using the initialPlayers prop of the GameProvider:
+
+```
+const mockPlayers = [
+  { id: 'p1', name: 'Test A', score: 40, avatar: 'avatar-1.webp' },
+  { id: 'p2', name: 'Test B', score: 30, avatar: 'avatar-2.webp' }
+]
+
+<GameProvider initialPlayers={mockPlayers}>
+  <EndScreen />
+</GameProvider>
+
+```
 ---
 This file should be updated alongside any significant decision to ensure alignment between contributors.
 

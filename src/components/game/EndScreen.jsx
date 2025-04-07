@@ -14,7 +14,7 @@ export default function EndScreen () {
   useEffect(() => {
     const timers = [
       setTimeout(() => setShowFireworks(true), 4000),
-      setTimeout(() => setShowFinalModal(true), 11500)
+      setTimeout(() => setShowFinalModal(true), 8500)
     ]
     return () => timers.forEach(clearTimeout)
   }, [])

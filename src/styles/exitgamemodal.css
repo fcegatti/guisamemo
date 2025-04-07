@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  z-index: 999;
+  z-index: 100;
 }
 
 /* Modal box */

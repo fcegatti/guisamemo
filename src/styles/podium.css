@@ -5,7 +5,7 @@
   align-items: flex-end;
   gap: 1rem;
   margin-top: 2rem;
-  height: 30vh;
+  height: 100dvh;
   width: 100%;
   max-width: 320px;
   position: relative;
@@ -19,8 +19,8 @@
   padding: 0.5rem;
   opacity: 0;
   bottom: 0;
-  transform: translateY(100%);
-  transition: transform 0.6s ease, opacity 0.6 ease;
+  transform: translate(-50%, 100%);
+  transition: transform 0.6s ease, opacity 0.6s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,6 @@
   background-color: #ffd700; /* gold */
   order: 2;
   left: 50%;
-  transform: translateX(-50%) translateY(100%);
 }
 
 .podium__second {
@@ -43,7 +42,6 @@
   background-color: #c0c0c0; /* silver */
   order: 1;
   left: 15%;
-  transform: translateX(-50%) translateY(100%);
 }
 
 .podium__third {
@@ -51,17 +49,16 @@
   background-color: #cd7f32; /* bronze */
   order: 3;
   left: 85%;
-  transform: translateX(-50%) translateY(100%);
 }
 
 /* ==== ANIMATION TRIGGER ==== */
 
 .podium__block.visible {
   opacity: 1;
-  transform: translate(-50%) translateY(0);
+  transform: translate(-50%, 0);
+}
 
   /* ==== PLAYER STYLES ==== */
-}
 
 .podium__avatar {
   width: 48px;

@@ -68,6 +68,22 @@ const mockPlayers = [
 
 ```
 
+## Public Assets
+
+### Card Images
+- Todas las cartas del juego se ubican en /public/cards/.
+- Se deben nombrar siguiendo el patrón: card-1.webp, card-2.webp, ..., hasta card-15.webp.
+- Las cartas especiales (como Maradona y Messi) también siguen la misma convención, pero se documenta internamente qué número corresponde a cuál.
+- Las imágenes deben tener resolución homogénea y fondo #f9f9f9 para consistencia visual.
+- Al reemplazar imágenes, se debe mantener el mismo nombre de archivo para evitar conflictos de rutas.
+
+### Avatar Images
+- Los avatares se ubican en /public/avatars/.
+- Se nombran como: avatar-1.webp, avatar-2.webp, ..., hasta avatar-15.webp.
+- Cada avatar debe corresponder visualmente a una de las cartas para mantener coherencia 1:1.
+- Las imágenes deben tener marco circular adecuado (rostro centrado, sin recortes).
+- Si el avatar no está disponible, se usa avatar-default.webp.
+
 ---
 This file should be updated alongside any significant decision to ensure alignment between contributors.
 

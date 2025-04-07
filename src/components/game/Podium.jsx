@@ -7,8 +7,8 @@ export default function Podium ({ players }) {
   useEffect(() => {
     const timers = [
       setTimeout(() => setVisibleRanks([true, false, false]), 500),
-      setTimeout(() => setVisibleRanks([true, true, false]), 1500),
-      setTimeout(() => setVisibleRanks([true, true, true]), 3000)
+      setTimeout(() => setVisibleRanks([true, true, false]), 2500),
+      setTimeout(() => setVisibleRanks([true, true, true]), 4500)
     ]
     return () => timers.forEach(clearTimeout)
   }, [])

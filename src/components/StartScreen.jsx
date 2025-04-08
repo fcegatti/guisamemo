@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useGame } from '@context/GameContext'
 import AvatarSelector from '@components/avatar/AvatarSelector'
+import { validatePlayerName } from '@logic/validatePlayerName'
 
 function StartScreen () {
   const [playerName, setPlayerName] = useState('')
@@ -18,19 +19,13 @@ function StartScreen () {
   const isMaxPlayers = players.length >= 4
 
   const handleAddPlayer = () => {
-    const trimmed = playerName.trim()
+    const result = validatePlayerName(playerName, players)
 
-    if (!trimmed) {
-      setError('El nombre no puede estar vacío')
+    if (!result.valid) {
+      setError(result.error)
       return
     }
-
-    if (isMaxPlayers) {
-      setError('Máximo de 4 jugadores alcanzado')
-      return
-    }
-
-    addPlayer(trimmed)
+    addPlayer(result.name)
     setPlayerName('')
     setError('')
   }

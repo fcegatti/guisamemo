@@ -36,6 +36,12 @@
   --podium-radius: 1rem;
 
   /* ========================
+     PLAYER STATUS
+     ======================== */
+  --accent-yellow: #ffe66d;
+  --status-radius: 1rem;
+
+  /* ========================
      SPACING
      ======================== */
   --spacing-xs: 0.2rem;
@@ -50,11 +56,6 @@
   --radius-md: 12px;
   --radius-lg: 1rem;
   --radius-full: 50%;
-
-  /* ========================
-     MISC
-     ======================== */
-  --accent-yellow: #ffe66d;
 }
 
   

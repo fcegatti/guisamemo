@@ -1,0 +1,50 @@
+/* ========================
+   COLOR VARIABLES
+   ======================== */
+
+   :root {
+    --color-primary-green: #5cb85c;
+    --color-primary-green-hover: #47b16c;
+    --color-primary-blue: #007bff;
+    --color-primary-blue-disabled: #b3d4fc;
+    --color-error: #d22;
+    --color-background-dark: #222;
+    --color-background-light: #f9f9f9;
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-accent-yellow: #ffe66d;
+    --color-border-grey: #ccc;
+  }
+  
+  /* ========================
+     PODIUM COLORS
+     ======================== */
+  
+  :root {
+    --podium-gold: #ffd700;
+    --podium-silver: #c0c0c0;
+    --podium-bronze: #cd7f32;
+  }
+  
+  /* ========================
+     BORDER RADIUS
+     ======================== */
+  
+  :root {
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 1rem;
+    --radius-full: 50%;
+  }
+  
+  /* ========================
+     SPACING
+     ======================== */
+  
+  :root {
+    --spacing-xs: 0.2rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+  }
+  

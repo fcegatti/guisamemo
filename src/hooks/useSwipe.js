@@ -1,30 +1,28 @@
-import { useState } from 'react'
+import { useRef } from 'react'
+
+const SWIPE_THRESHOLD = 30 // Minimum horizontal distance in px to count as swipe
 
 export function useSwipe (onSwipeLeft, onSwipeRight) {
-  const [touchStartX, setTouchStartX] = useState(null)
+  const touchStartX = useRef(null)
 
   const handleTouchStart = (e) => {
-    setTouchStartX(e.touches[0].clientX)
+    touchStartX.current = e.touches[0].clientX
   }
 
   const handleTouchEnd = (e) => {
-    if (touchStartX === null) return
     const touchEndX = e.changedTouches[0].clientX
-    const deltaX = touchEndX - touchStartX
+    const deltaX = touchEndX - touchStartX.current
 
-    if (Math.abs(deltaX) > 40) {
-      if (deltaX < 0) {
-        onSwipeLeft()
-      } else {
+    if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
+      if (deltaX > 0) {
         onSwipeRight()
+      } else {
+        onSwipeLeft()
       }
     }
 
-    setTouchStartX(null)
+    touchStartX.current = null
   }
 
-  return {
-    handleTouchStart,
-    handleTouchEnd
-  }
+  return { handleTouchStart, handleTouchEnd }
 }

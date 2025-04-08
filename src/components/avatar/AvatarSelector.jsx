@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSwipe } from '@hooks/useSwipe'
 
 // Local avatar data
 const AVATAR_INFO = [
@@ -35,27 +36,7 @@ export default function AvatarSelector ({ onSelect }) {
     )
   }
 
-  const [touchStartX, setTouchStartX] = useState(null)
-
-  const handleTouchStart = (e) => {
-    setTouchStartX(e.touches[0].clientX)
-  }
-
-  const handleTouchEnd = (e) => {
-    if (touchStartX === null) return
-    const touchEndX = e.changedTouches[0].clientX
-    const deltaX = touchEndX - touchStartX
-
-    if (Math.abs(deltaX) > 40) {
-      if (deltaX < 0) {
-        goToNext()
-      } else {
-        goToPrev()
-      }
-    }
-
-    setTouchStartX(null)
-  }
+  const { handleTouchStart, handleTouchEnd } = useSwipe(goToNext, goToPrev)
 
   return (
     <div className='avatarselector__overlay'>
@@ -70,8 +51,8 @@ export default function AvatarSelector ({ onSelect }) {
 
         <div
           className='avatarselector__image-container'
-          onTouchStart={(e) => handleTouchStart(e)}
-          onTouchEnd={(e) => handleTouchEnd(e)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <img
             src={`/avatars/${currentAvatar.filename}`}

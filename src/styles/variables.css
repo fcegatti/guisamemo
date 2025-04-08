@@ -1,50 +1,60 @@
-/* ========================
-   COLOR VARIABLES
-   ======================== */
+:root {
+  /* ========================
+     GENERAL COLORS
+     ======================== */
+  --color-background-dark: #222;
+  --color-background-light: #f9f9f9;
+  --color-text-dark: #333;
+  --color-text-light: #fff;
+  --color-border-grey: #ccc;
+  --color-error: #d22;
 
-   :root {
-    --color-primary-green: #5cb85c;
-    --color-primary-green-hover: #47b16c;
-    --color-primary-blue: #007bff;
-    --color-primary-blue-disabled: #b3d4fc;
-    --color-error: #d22;
-    --color-background-dark: #222;
-    --color-background-light: #f9f9f9;
-    --color-text-dark: #333;
-    --color-text-light: #fff;
-    --color-accent-yellow: #ffe66d;
-    --color-border-grey: #ccc;
-  }
-  
   /* ========================
-     PODIUM COLORS
+     BUTTONS
      ======================== */
-  
-  :root {
-    --podium-gold: #ffd700;
-    --podium-silver: #c0c0c0;
-    --podium-bronze: #cd7f32;
-  }
-  
+  --button-green: #5cb85c;
+  --button-green-hover: #47b16c;
+  --button-green-disabled: #c1e0c1;
+  --button-blue: #007bff;
+  --button-blue-hover: #3399ff;
+  --button-blue-disabled: #b3d4fc;
+  --button-radius: 0.5rem;
+  --button-padding: 0.75rem 1rem;
+
   /* ========================
-     BORDER RADIUS
+     FORM FIELDS
      ======================== */
-  
-  :root {
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 1rem;
-    --radius-full: 50%;
-  }
-  
+  --form-radius: 1rem;
+  --form-padding: 0.5rem;
+
+  /* ========================
+     PODIUM
+     ======================== */
+  --podium-gold: #ffd700;
+  --podium-silver: #c0c0c0;
+  --podium-bronze: #cd7f32;
+  --podium-radius: 1rem;
+
   /* ========================
      SPACING
      ======================== */
-  
-  :root {
-    --spacing-xs: 0.2rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-  }
+  --spacing-xs: 0.2rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  /* ========================
+     RADIUS UTILITIES
+     ======================== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 1rem;
+  --radius-full: 50%;
+
+  /* ========================
+     MISC
+     ======================== */
+  --accent-yellow: #ffe66d;
+}
+
   

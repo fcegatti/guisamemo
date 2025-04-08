@@ -1,4 +1,4 @@
-export function validatePlayerName (name, currentPlayers, maxPlayers = 4) {
+export function validatePlayerName (name, currentPlayers, maxPlayers) {
   const trimmed = name.trim()
 
   if (!trimmed) {

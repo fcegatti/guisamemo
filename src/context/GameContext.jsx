@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react'
+import { MAX_PLAYERS } from '@constants/game'
 
 // Initial state shape for a player
 const createPlayer = (name, index) => ({
@@ -21,7 +22,7 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   const [isGameOver, setIsGameOver] = useState(false)
 
   const addPlayer = (name) => {
-    if (players.length >= 4) return
+    if (players.length >= MAX_PLAYERS) return
     const newPlayer = createPlayer(name, players.length)
     setPlayers((prev) => [...prev, newPlayer])
   }

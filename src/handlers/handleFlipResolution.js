@@ -6,6 +6,7 @@
  * - Calls onMatch or onMismatch accordingly
  */
 import { resolveFlippedCards } from '@logic/resolveFlippedCards'
+import { FLIP_BACK_DELAY } from '@constants/game'
 
 export function handleFlipResolution ({
   flippedCards,
@@ -43,6 +44,6 @@ export function handleFlipResolution ({
       setFlippedCards([])
       onMismatch()
       unlockBoard()
-    }, 1000)
+    }, FLIP_BACK_DELAY)
   }
 }

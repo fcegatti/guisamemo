@@ -6,7 +6,7 @@ export function validatePlayerName (name, currentPlayers, maxPlayers) {
   }
 
   if (currentPlayers.length >= maxPlayers) {
-    return { valid: false, error: 'Máximo de 4 jugadores alcanzado' }
+    return { valid: false, error: `Máximo de ${maxPlayers} jugadores alcanzado` }
   }
 
   return { valid: true, name: trimmed }

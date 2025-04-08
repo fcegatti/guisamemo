@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useGame } from '@context/GameContext'
 import AvatarSelector from '@components/avatar/AvatarSelector'
 import { validatePlayerName } from '@logic/validatePlayerName'
-import { MAX_PLAYERS } from '@constants/game'
+import { MAX_PLAYERS, MAX_NAME_LENGTH } from '@constants/game'
 
 function StartScreen () {
   const [playerName, setPlayerName] = useState('')
@@ -71,7 +71,7 @@ function StartScreen () {
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
           disabled={isMaxPlayers}
-          maxLength={16}
+          maxLength={MAX_NAME_LENGTH}
           className='startscreen__input'
         />
         <button

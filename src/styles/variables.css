@@ -36,6 +36,11 @@
   --podium-radius: 1rem;
 
   /* ========================
+     PODIUM
+     ======================== */
+  --modal-handle: #ccc;
+
+  /* ========================
      PLAYER STATUS
      ======================== */
   --accent-yellow: #ffe66d;

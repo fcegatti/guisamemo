@@ -24,7 +24,7 @@
 .exitgamemodal__handle {
   width: 40px;
   height: 5px;
-  background-color: #ccc;
+  background-color: var(--modal-handle);
   border-radius: 3px;
   margin: 0 auto 1.5rem;
 }

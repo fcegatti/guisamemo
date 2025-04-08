@@ -1,6 +1,7 @@
+// ⚠️ Not used in MVP — kept for future scalability (player ranking panel)
+
 import { useGame } from '@context/GameContext'
 import PlayerStatus from './PlayerStatus'
-import '@styles/playerspanel.css'
 
 function PlayersPanel () {
   const { players, currentTurnIndex } = useGame()

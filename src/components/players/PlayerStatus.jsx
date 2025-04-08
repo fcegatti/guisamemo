@@ -1,5 +1,4 @@
 import { useGame } from '@context/GameContext'
-import '@styles/playerstatus.css'
 
 function PlayerStatus ({ player, index }) {
   const { currentTurnIndex } = useGame()

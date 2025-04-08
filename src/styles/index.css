@@ -7,6 +7,8 @@
 @import '@styles/podium.css';
 @import '@styles/endgamemodal.css';
 @import '@styles/fireworks.css';
+@import '@styles/playerspanel.css';
+@import '@styles/playerstatus.css';
 
 * {
   box-sizing: border-box;

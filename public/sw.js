@@ -10,7 +10,43 @@ const FILES_TO_CACHE = [
   '/favicon.ico',
   '/apple-icon-180x180.png',
   '/android-icon-192x192.png',
-  '/maskable-icon.png'
+  '/maskable-icon.png',
+
+  // Avatars
+  '/avatars/avatar-1.webp',
+  '/avatars/avatar-2.webp',
+  '/avatars/avatar-3.webp',
+  '/avatars/avatar-4.webp',
+  '/avatars/avatar-5.webp',
+  '/avatars/avatar-6.webp',
+  '/avatars/avatar-7.webp',
+  '/avatars/avatar-8.webp',
+  '/avatars/avatar-9.webp',
+  '/avatars/avatar-10.webp',
+  '/avatars/avatar-11.webp',
+  '/avatars/avatar-12.webp',
+  '/avatars/avatar-13.webp',
+  '/avatars/avatar-14.webp',
+  '/avatars/avatar-15.webp',
+  '/avatar-default.webp',
+
+  // Cards
+  '/cards/card-back.webp',
+  '/cards/card-1.webp',
+  '/cards/card-2.webp',
+  '/cards/card-3.webp',
+  '/cards/card-4.webp',
+  '/cards/card-5.webp',
+  '/cards/card-6.webp',
+  '/cards/card-7.webp',
+  '/cards/card-8.webp',
+  '/cards/card-9.webp',
+  '/cards/card-10.webp',
+  '/cards/card-11.webp',
+  '/cards/card-12.webp',
+  '/cards/card-13.webp',
+  '/cards/card-14.webp',
+  '/cards/card-15.webp'
 ]
 
 // ✅ Install event: cache essential files

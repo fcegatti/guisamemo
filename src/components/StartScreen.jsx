@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useGame } from '@context/GameContext'
 import AvatarSelector from '@components/avatar/AvatarSelector'
-import { validatePlayerName } from '@logic/validatePlayerName'
+import { handleAddPlayer } from '@handlers/handleAddPlayer'
 import { MAX_PLAYERS, MAX_NAME_LENGTH } from '@constants/game'
 
 function StartScreen () {
@@ -19,16 +19,14 @@ function StartScreen () {
 
   const isMaxPlayers = players.length >= MAX_PLAYERS
 
-  const handleAddPlayer = () => {
-    const result = validatePlayerName(playerName, players, MAX_PLAYERS)
-
-    if (!result.valid) {
-      setError(result.error)
-      return
-    }
-    addPlayer(result.name)
-    setPlayerName('')
-    setError('')
+  const handleAddPlayerWrapper = () => {
+    handleAddPlayer({
+      playerName,
+      players,
+      addPlayer,
+      setPlayerName,
+      setError
+    })
   }
 
   const handleAvatarSelect = (playerId, filename) => {
@@ -75,7 +73,7 @@ function StartScreen () {
           className='startscreen__input'
         />
         <button
-          onClick={handleAddPlayer}
+          onClick={handleAddPlayerWrapper}
           disabled={!playerName.trim() || isMaxPlayers}
           className='startscreen__add-btn'
         >

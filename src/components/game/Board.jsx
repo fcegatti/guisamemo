@@ -12,7 +12,11 @@ function Board () {
           onClick={() => handleCardClick(card.id)}
         >
           <img
-            src={card.flipped || card.matched ? card.image : '/cards/card-back.webp'}
+            src={
+              (card.flipped || card.matched)
+                ? card.image || '/cards/fallback.webp'
+                : '/cards/card-back.webp'
+            }
             alt='Card'
             className='gameboard__card-img'
           />

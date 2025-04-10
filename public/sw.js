@@ -1,6 +1,8 @@
 /* eslint-env serviceworker */
 
-const CACHE_NAME = 'guisamemo-cache-v1'
+// 🔁 Define version for cache busting
+const CACHE_VERSION = 'v1.0.0'
+const CACHE_NAME = `guisamemo-cache-${CACHE_VERSION}`
 
 const FILES_TO_CACHE = [
   '/',
@@ -46,7 +48,8 @@ const FILES_TO_CACHE = [
   '/cards/card-12.webp',
   '/cards/card-13.webp',
   '/cards/card-14.webp',
-  '/cards/card-15.webp'
+  '/cards/card-15.webp',
+  '/cards/fallback.webp'
 ]
 
 // ✅ Install event: cache essential files

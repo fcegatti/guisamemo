@@ -31,8 +31,14 @@ export function useGameEngine () {
     if (isBoardLocked) return
     const clickedCard = cards.find(card => card.id === cardId)
 
-    // Ignore if the card is already flipped or matched
     if (!clickedCard || clickedCard.flipped || clickedCard.matched) return
+
+    if (!clickedCard.image) {
+      if (import.meta.env.MODE === 'development') {
+        console.warn('[handleCardClick] Clicked card has no image:', clickedCard)
+      }
+      return
+    }
 
     const updatedFlipped = [...flippedCards, clickedCard]
 

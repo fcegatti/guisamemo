@@ -21,7 +21,11 @@ export default function AvatarSelector ({ onSelect }) {
   const { handleTouchStart, handleTouchEnd } = useSwipe(goToNext, goToPrev)
 
   return (
-    <div className='avatarselector__overlay'>
+    <div
+      className='avatarselector__overlay'
+      role='dialog'
+      aria-modal='true'
+    >
       <div className='avatarselector__modal'>
         <button
           className='avatarselector__nav avatarselector__nav--left'

@@ -4,7 +4,11 @@ export default function EndGameModal () {
   const { restartGame, resetGame } = useGame()
 
   return (
-    <div className='endgamemodal'>
+    <div
+      className='endgamemodal'
+      role='dialog'
+      aria-modal='true'
+    >
       <div className='endgamemodal__handle' />
 
       <p className='endgamemodal__message'>

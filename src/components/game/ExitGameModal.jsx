@@ -5,7 +5,11 @@ export default function ExitGameModal ({ onClose, onExit }) {
   const currentPlayer = players[currentTurnIndex]
 
   return (
-    <div className='exitgamemodal__overlay'>
+    <div
+      className='exitgamemodal__overlay'
+      role='dialog'
+      aria-modal='true'
+    >
       <div className='exitgamemodal'>
         <div className='exitgamemodal__handle' />
         <img
@@ -25,12 +29,14 @@ export default function ExitGameModal ({ onClose, onExit }) {
         <button
           className='exitgamemodal__stay-btn'
           onClick={onClose}
+          aria-label='Seguir jugando'
         >
           Seguir jugando
         </button>
         <button
           className='exitgamemodal__exit-btn'
           onClick={onExit}
+          aria-label='Salir de la partida'
         >
           Salir
         </button>

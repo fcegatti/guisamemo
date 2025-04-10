@@ -53,15 +53,7 @@ export function useGameEngine () {
         cards,
         setCards,
         setFlippedCards,
-        onMatch: (matchedImage) => {
-          const updatedCards = cards.map(card =>
-            card.image === matchedImage
-              ? { ...card, matched: true }
-              : card
-          )
-
-          setCards(updatedCards)
-
+        onMatch: (matchedImage, updatedCards) => {
           handleMatchOutcome({
             matchedImage,
             players,

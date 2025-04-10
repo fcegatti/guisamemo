@@ -56,6 +56,9 @@ function StartScreen () {
       />
 
       <div className='startscreen__form'>
+        <label htmlFor='player-name' className='sr-only'>
+          Nombre del jugador
+        </label>
         <input
           name='player-name'
           id='player-name'
@@ -75,6 +78,7 @@ function StartScreen () {
           onClick={handleAddPlayerWrapper}
           disabled={!playerName.trim() || isMaxPlayers}
           className='startscreen__add-btn'
+          aria-label='Añadir jugador'
         >
           Añadir
         </button>
@@ -121,6 +125,7 @@ function StartScreen () {
         onClick={handleStartGame}
         disabled={players.length === 0}
         className='startscreen__start-btn'
+        aria-label='Iniciar la partida'
       >
         Comenzar partida
       </button>

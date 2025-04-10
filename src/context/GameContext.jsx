@@ -1,13 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 import { MAX_PLAYERS } from '@constants/game'
-
-// Initial state shape for a player
-const createPlayer = (name, index) => ({
-  id: `player-${Date.now()}-${index}`,
-  name,
-  avatar: null,
-  score: 0
-})
+import { createPlayer } from '@logic/createPlayer'
 
 // Create the context
 const GameContext = createContext()

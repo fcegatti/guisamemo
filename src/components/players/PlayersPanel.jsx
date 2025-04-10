@@ -11,7 +11,7 @@ function PlayersPanel () {
 
   return (
     <div className='playerspanel'>
-      <PlayerStatus player={currentPlayer} index={currentTurnIndex} />
+      <PlayerStatus player={currentPlayer} />
     </div>
   )
 }

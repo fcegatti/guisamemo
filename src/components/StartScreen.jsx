@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useGame } from '@context/GameContext'
 import AvatarSelector from '@components/avatar/AvatarSelector'
-import { validatePlayerName } from '@logic/validatePlayerName'
+import { handleAddPlayer } from '@handlers/handleAddPlayer'
+import { handleAvatarSelect } from '@handlers/handleAvatarSelect'
 import { MAX_PLAYERS, MAX_NAME_LENGTH } from '@constants/game'
 
 function StartScreen () {
@@ -19,27 +20,23 @@ function StartScreen () {
 
   const isMaxPlayers = players.length >= MAX_PLAYERS
 
-  const handleAddPlayer = () => {
-    const result = validatePlayerName(playerName, players, MAX_PLAYERS)
-
-    if (!result.valid) {
-      setError(result.error)
-      return
-    }
-    addPlayer(result.name)
-    setPlayerName('')
-    setError('')
+  const handleAddPlayerWrapper = () => {
+    handleAddPlayer({
+      playerName,
+      players,
+      addPlayer,
+      setPlayerName,
+      setError
+    })
   }
 
-  const handleAvatarSelect = (playerId, filename) => {
-    setPlayers(prev =>
-      prev.map(player =>
-        player.id === playerId
-          ? { ...player, avatar: filename }
-          : player
-      )
-    )
-    setSelectingAvatarFor(null)
+  const handleAvatarSelectWrapper = (playerId, filename) => {
+    handleAvatarSelect({
+      playerId,
+      filename,
+      setPlayers,
+      setSelectingAvatarFor
+    })
   }
 
   const handleDeletePlayer = (id) => {
@@ -59,6 +56,9 @@ function StartScreen () {
       />
 
       <div className='startscreen__form'>
+        <label htmlFor='player-name' className='sr-only'>
+          Nombre del jugador
+        </label>
         <input
           name='player-name'
           id='player-name'
@@ -75,9 +75,10 @@ function StartScreen () {
           className='startscreen__input'
         />
         <button
-          onClick={handleAddPlayer}
+          onClick={handleAddPlayerWrapper}
           disabled={!playerName.trim() || isMaxPlayers}
           className='startscreen__add-btn'
+          aria-label='Añadir jugador'
         >
           Añadir
         </button>
@@ -104,7 +105,7 @@ function StartScreen () {
               {selectingAvatarFor === player.id && (
                 <AvatarSelector
                   onSelect={(filename) =>
-                    handleAvatarSelect(player.id, filename)}
+                    handleAvatarSelectWrapper(player.id, filename)}
                 />
               )}
             </div>
@@ -124,6 +125,7 @@ function StartScreen () {
         onClick={handleStartGame}
         disabled={players.length === 0}
         className='startscreen__start-btn'
+        aria-label='Iniciar la partida'
       >
         Comenzar partida
       </button>

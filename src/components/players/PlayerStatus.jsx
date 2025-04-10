@@ -1,8 +1,9 @@
 import { useGame } from '@context/GameContext'
 
-function PlayerStatus ({ player, index }) {
-  const { currentTurnIndex } = useGame()
-  const isActive = index === currentTurnIndex
+function PlayerStatus ({ player }) {
+  const { currentTurnIndex, players } = useGame()
+  const currentPlayer = players[currentTurnIndex]
+  const isActive = currentPlayer && currentPlayer.id === player.id
 
   return (
     <div className={`playerstatus ${isActive ? 'playerstatus--active' : ''}`}>

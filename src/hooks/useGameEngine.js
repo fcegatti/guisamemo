@@ -31,8 +31,14 @@ export function useGameEngine () {
     if (isBoardLocked) return
     const clickedCard = cards.find(card => card.id === cardId)
 
-    // Ignore if the card is already flipped or matched
     if (!clickedCard || clickedCard.flipped || clickedCard.matched) return
+
+    if (!clickedCard.image) {
+      if (import.meta.env.MODE === 'development') {
+        console.warn('[handleCardClick] Clicked card has no image:', clickedCard)
+      }
+      return
+    }
 
     const updatedFlipped = [...flippedCards, clickedCard]
 
@@ -53,15 +59,7 @@ export function useGameEngine () {
         cards,
         setCards,
         setFlippedCards,
-        onMatch: (matchedImage) => {
-          const updatedCards = cards.map(card =>
-            card.image === matchedImage
-              ? { ...card, matched: true }
-              : card
-          )
-
-          setCards(updatedCards)
-
+        onMatch: (matchedImage, updatedCards) => {
           handleMatchOutcome({
             matchedImage,
             players,

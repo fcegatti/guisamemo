@@ -1,17 +1,19 @@
-// ⚠️ Not used in MVP — kept for future scalability (player ranking panel)
-
 import { useGame } from '@context/GameContext'
 import PlayerStatus from './PlayerStatus'
 
 function PlayersPanel () {
-  const { players, currentTurnIndex } = useGame()
-  const currentPlayer = players[currentTurnIndex]
+  const { players } = useGame()
 
-  if (!currentPlayer) return null
+  if (!players.length) return null
 
   return (
     <div className='playerspanel'>
-      <PlayerStatus player={currentPlayer} />
+      {players.map((player) => (
+        <PlayerStatus
+          key={player.id}
+          player={player}
+        />
+      ))}
     </div>
   )
 }

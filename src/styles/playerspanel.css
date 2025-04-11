@@ -2,17 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
   margin-bottom: 1rem;
+  overflow-x: auto;
+  padding: 0 1rem;
 }
 
 .playerspanel::-webkit-scrollbar {
   display: none; /* Hide scrollbar in Chrome */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .playerspanel {
-    flex-direction: column;
-    overflow-x: visible;
-    max-width: 250px; /* Layout prepared for desktop positioning */
+    flex-wrap: nowrap;
+    justify-content: center;
   }
 }

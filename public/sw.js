@@ -7,6 +7,7 @@ const CACHE_NAME = `guisamemo-cache-${CACHE_VERSION}`
 const FILES_TO_CACHE = [
   '/',
   '/index.html',
+  '/offline.html',
   '/logo.webp',
   '/manifest.json',
   '/favicon.ico',
@@ -82,6 +83,7 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request)
+        .catch(() => caches.match('/offline.html'))
     })
   )
 })

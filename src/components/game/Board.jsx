@@ -17,7 +17,11 @@ function Board () {
                 ? card.image || '/cards/fallback.webp'
                 : '/cards/card-back.webp'
             }
-            alt='Card'
+            alt={
+              card.flipped || card.matched
+                ? `Carta descubierta: ${card.name || 'sin nombre'}`
+                : 'Carta oculta'
+            }
             className='gameboard__card-img'
           />
         </div>

@@ -1,13 +1,28 @@
+import { CARD_INFO } from '@constants/cards'
+
 export function generateDeck (totalPairs = 15) {
   const rawCards = []
 
-  for (let i = 1; i <= totalPairs; i++) {
-    const image = `/cards/card-${i}.webp`
+  for (let i = 0; i <= totalPairs; i++) {
+    const card = CARD_INFO[i]
+    if (!card) continue
 
     // Duplicate each image to form a pair
     rawCards.push(
-      { id: `${i}-a`, image, flipped: false, matched: false },
-      { id: `${i}-b`, image, flipped: false, matched: false }
+      {
+        id: `${i + 1}-a`,
+        image: card.image,
+        name: card.name,
+        flipped: false,
+        matched: false
+      },
+      {
+        id: `${i + 1}-b`,
+        image: card.image,
+        name: card.name,
+        flipped: false,
+        matched: false
+      }
     )
   }
 

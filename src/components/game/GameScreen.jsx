@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { useGame } from '@context/GameContext'
 import ExitGameModal from './ExitGameModal'
 import PlayersPanel from '../players/PlayersPanel'
+import PlayerStatus from '../players/PlayerStatus'
 import Board from './Board'
+import { useMediaQuery } from '@hooks/useMediaQuery'
 
 function GameScreen () {
-  const { resetGame } = useGame()
+  const { resetGame, players, currentTurnIndex } = useGame()
   const [showExitModal, setShowExitModal] = useState(false)
 
   const handleExitGame = () => {
@@ -15,7 +17,7 @@ function GameScreen () {
 
   return (
     <div className='gamescreen'>
-      {/* Botón salir arriba derecha */}
+      {/* Exit button top right */}
       <button
         className='gamescreen__exit-btn'
         onClick={() => setShowExitModal(true)}
@@ -24,7 +26,9 @@ function GameScreen () {
         ✕
       </button>
 
-      <PlayersPanel />
+      {useMediaQuery('(min-width: 600px)')
+        ? <PlayersPanel />
+        : <PlayerStatus player={players[currentTurnIndex]} />}
       <Board />
 
       {showExitModal && (

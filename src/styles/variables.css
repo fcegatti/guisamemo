@@ -61,6 +61,13 @@
   --radius-md: 12px;
   --radius-lg: 1rem;
   --radius-full: 50%;
+
+  /* ========================
+   RESPONSIVE BREAKPOINTS
+   ======================== */
+  --bp-tablet: 600px;
+  --bp-laptop: 900px;
+  --bp-desktop: 1200px;
 }
 
 /* ========================

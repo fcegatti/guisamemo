@@ -25,8 +25,11 @@ export const CARD_INFO = [
   { image: '/cards/card-24.webp', name: 'Tito' },
   { image: '/cards/card-25.webp', name: 'Leymita' },
   { image: '/cards/card-26.webp', name: 'Avispa velutina' },
-  { image: '/cards/card-27.webp', name: 'Moscaa' },
-  { image: '/cards/card-28.webp', name: 'Meme provisional' },
-  { image: '/cards/card-29.webp', name: 'La mano de Dios provisional' },
-  { image: '/cards/card-30.webp', name: 'Mate' }
+  { image: '/cards/card-27.webp', name: 'Mosca' },
+  { image: '/cards/card-28.webp', name: 'Escudo del Depor' },
+  { image: '/cards/card-29.webp', name: 'Yogurt de mosca' },
+  { image: '/cards/card-30.webp', name: 'Mate' },
+  { image: '/cards/card-31.webp', name: 'Roque, Telmo y Román' },
+  { image: '/cards/card-32.webp', name: 'Árbol de los niños' },
+  { image: '/cards/card-33.webp', name: 'Matamoscas' }
 ]

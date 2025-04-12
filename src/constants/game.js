@@ -10,7 +10,8 @@ export const PAIRS_BY_SIZE = {
   m: 21,
   l: 24,
   xl: 27,
-  xxl: 30
+  '2xl': 30,
+  '3xl': 33
 }
 
 export const SPECIAL_CARDS = [

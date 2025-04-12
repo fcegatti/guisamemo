@@ -28,7 +28,12 @@ function GameScreen () {
 
       {useMediaQuery('(min-width: 600px)')
         ? <PlayersPanel />
-        : <PlayerStatus player={players[currentTurnIndex]} />}
+        : (
+          <div className='gamescreen__playerstatus'>
+            <PlayerStatus player={players[currentTurnIndex]} />
+          </div>
+          )}
+
       <Board />
 
       {showExitModal && (

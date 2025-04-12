@@ -23,6 +23,13 @@
   color: var(--color-text-dark);
 }
 
+.gamescreen__playerstatus {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+
 @media (min-width: 600px) and (max-width: 1199px) {
   .gamescreen {
     flex-direction: column;

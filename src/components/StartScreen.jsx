@@ -53,88 +53,80 @@ function StartScreen () {
 
   return (
     <div className='startscreen'>
-      <img
-        src='/logo.webp'
-        alt='Logo Guisamemo'
-        className='startscreen__logo'
-      />
-      {isTabletOrLarger && <BoardSizeSelector />}
-      <div className='startscreen__form'>
-        <label htmlFor='player-name' className='sr-only'>
-          Nombre del jugador
-        </label>
-        <input
-          name='player-name'
-          id='player-name'
-          type='text'
-          placeholder={
-            isMaxPlayers
-              ? 'Máximo de jugadores alcanzado'
-              : 'Nombre del jugador'
-          }
-          value={playerName}
-          onChange={(e) => setPlayerName(e.target.value)}
-          disabled={isMaxPlayers}
-          maxLength={MAX_NAME_LENGTH}
-          className='startscreen__input'
+      <div className='startscreen__top'>
+        <img
+          src='/logo.webp'
+          alt='Logo Guisamemo'
+          className='startscreen__logo'
         />
-        <button
-          onClick={handleAddPlayerWrapper}
-          disabled={!playerName.trim() || isMaxPlayers}
-          className='startscreen__add-btn'
-          aria-label='Añadir jugador'
-        >
-          Añadir
-        </button>
+        {isTabletOrLarger && <BoardSizeSelector />}
+        <div className='startscreen__form'>
+          <label htmlFor='player-name' className='sr-only'>Nombre del jugador</label>
+          <input
+            name='player-name'
+            id='player-name'
+            type='text'
+            placeholder={isMaxPlayers ? 'Máximo de jugadores alcanzado' : 'Nombre del jugador'}
+            value={playerName}
+            onChange={(e) => setPlayerName(e.target.value)}
+            disabled={isMaxPlayers}
+            maxLength={MAX_NAME_LENGTH}
+            className='startscreen__input'
+          />
+          <button
+            onClick={handleAddPlayerWrapper}
+            disabled={!playerName.trim() || isMaxPlayers}
+            className='startscreen__add-btn'
+            aria-label='Añadir jugador'
+          >
+            Añadir
+          </button>
+        </div>
+        {error && <p className='startscreen__error'>{error}</p>}
       </div>
 
-      {error && <p className='startscreen__error'>{error}</p>}
-
-      <ul className='startscreen__players'>
-        {players.map((player) => (
-          <li key={player.id} className='startscreen__player'>
-            <span className='startscreen__player-name'>{player.name}</span>
-
-            <div className='startscreen__player-avatar-container'>
-              <img
-                src={
-                player.avatar
-                  ? `/avatars/${player.avatar}`
-                  : '/avatar-default.webp'
-              }
-                alt='Avatar'
-                className='startscreen__player-avatar'
-                onClick={() => setSelectingAvatarFor(player.id)}
-              />
-              {selectingAvatarFor === player.id && (
-                <AvatarSelector
-                  onSelect={(filename) =>
-                    handleAvatarSelectWrapper(player.id, filename)}
+      <div className='startscreen__middle'>
+        <ul className='startscreen__players'>
+          {players.map((player) => (
+            <li key={player.id} className='startscreen__player'>
+              <span className='startscreen__player-name'>{player.name}</span>
+              <div className='startscreen__player-avatar-container'>
+                <img
+                  src={player.avatar ? `/avatars/${player.avatar}` : '/avatar-default.webp'}
+                  alt='Avatar'
+                  className='startscreen__player-avatar'
+                  onClick={() => setSelectingAvatarFor(player.id)}
                 />
-              )}
-            </div>
+                {selectingAvatarFor === player.id && (
+                  <AvatarSelector
+                    onSelect={(filename) =>
+                      handleAvatarSelectWrapper(player.id, filename)}
+                  />
+                )}
+              </div>
+              <button
+                className='startscreen__remove-btn'
+                onClick={() => handleDeletePlayer(player.id)}
+                aria-label={`Eliminar a ${player.name}`}
+              >
+                🗑️
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-            <button
-              className='startscreen__remove-btn'
-              onClick={() => handleDeletePlayer(player.id)}
-              aria-label={`Eliminar a ${player.name}`}
-            >
-              🗑️
-            </button>
-          </li>
-        ))}
-      </ul>
-
-      <button
-        onClick={handleStartGame}
-        disabled={players.length === 0}
-        className='startscreen__start-btn'
-        aria-label='Iniciar la partida'
-      >
-        Comenzar partida
-      </button>
+      <div className='startscreen__bottom'>
+        <button
+          onClick={handleStartGame}
+          disabled={players.length === 0}
+          className='startscreen__start-btn'
+          aria-label='Iniciar la partida'
+        >
+          Comenzar partida
+        </button>
+      </div>
     </div>
   )
 }
-
 export default StartScreen

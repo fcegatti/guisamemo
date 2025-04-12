@@ -2,9 +2,10 @@
 .startscreen {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem 1rem;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--color-background-light);
 }
 
@@ -116,3 +117,28 @@
   background-color: var(--button-blue-disabled);
   cursor: not-allowed;
 }
+
+/* Layout zones */
+
+.startscreen__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startscreen__middle {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.startscreen__bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+

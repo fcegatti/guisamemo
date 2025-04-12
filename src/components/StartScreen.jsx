@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useGame } from '@context/GameContext'
+import BoardSizeSelector from '@components/game/BoardSizeSelector'
 import AvatarSelector from '@components/avatar/AvatarSelector'
 import { handleAddPlayer } from '@handlers/handleAddPlayer'
 import { handleAvatarSelect } from '@handlers/handleAvatarSelect'
@@ -54,7 +55,7 @@ function StartScreen () {
         alt='Logo Guisamemo'
         className='startscreen__logo'
       />
-
+      <BoardSizeSelector />
       <div className='startscreen__form'>
         <label htmlFor='player-name' className='sr-only'>
           Nombre del jugador

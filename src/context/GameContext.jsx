@@ -9,6 +9,7 @@ const GameContext = createContext()
 export const useGame = () => useContext(GameContext)
 
 export function GameProvider ({ children, initialPlayers = [] }) {
+  const [boardSize, setBoardSize] = useState('xs')
   const [players, setPlayers] = useState(initialPlayers)
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0)
   const [gameStarted, setGameStarted] = useState(false)
@@ -55,6 +56,8 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   }
 
   const value = {
+    boardSize,
+    setBoardSize,
     players,
     setPlayers,
     addPlayer,

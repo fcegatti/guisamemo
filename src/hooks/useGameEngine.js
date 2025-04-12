@@ -8,6 +8,7 @@ import { useGame } from '@context/GameContext'
 
 export function useGameEngine () {
   const {
+    boardSize,
     players,
     currentTurnIndex,
     setPlayers,
@@ -23,8 +24,8 @@ export function useGameEngine () {
 
   // Generate a new shuffled deck when the game starts
   useEffect(() => {
-    setCards(generateDeck())
-  }, [])
+    setCards(generateDeck(boardSize))
+  }, [boardSize])
 
   // Handle user clicking a card
   const handleCardClick = (cardId) => {

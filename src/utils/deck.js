@@ -1,9 +1,11 @@
+import { PAIRS_BY_SIZE } from '@constants/game'
 import { CARD_INFO } from '@constants/cards'
 
-export function generateDeck (totalPairs = 15) {
+export function generateDeck (boardSize = 'xs') {
+  const totalPairs = PAIRS_BY_SIZE[boardSize] || PAIRS_BY_SIZE.xs
   const rawCards = []
 
-  for (let i = 0; i <= totalPairs; i++) {
+  for (let i = 0; i < totalPairs; i++) {
     const card = CARD_INFO[i]
     if (!card) continue
 

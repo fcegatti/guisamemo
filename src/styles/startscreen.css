@@ -109,6 +109,7 @@
   border: none;
   border-radius: var(--button-radius);
   cursor: pointer;
+  margin-top: auto;
 }
 
 .startscreen__start-btn:disabled {

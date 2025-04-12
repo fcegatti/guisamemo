@@ -5,6 +5,7 @@ import AvatarSelector from '@components/avatar/AvatarSelector'
 import { handleAddPlayer } from '@handlers/handleAddPlayer'
 import { handleAvatarSelect } from '@handlers/handleAvatarSelect'
 import { MAX_PLAYERS, MAX_NAME_LENGTH } from '@constants/game'
+import { useMediaQuery } from '@hooks/useMediaQuery'
 
 function StartScreen () {
   const [playerName, setPlayerName] = useState('')
@@ -48,6 +49,8 @@ function StartScreen () {
     startGame()
   }
 
+  const isTabletOrLarger = useMediaQuery('(min-width: 600px)')
+
   return (
     <div className='startscreen'>
       <img
@@ -55,7 +58,7 @@ function StartScreen () {
         alt='Logo Guisamemo'
         className='startscreen__logo'
       />
-      <BoardSizeSelector />
+      {isTabletOrLarger && <BoardSizeSelector />}
       <div className='startscreen__form'>
         <label htmlFor='player-name' className='sr-only'>
           Nombre del jugador

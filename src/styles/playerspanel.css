@@ -19,3 +19,18 @@
     justify-content: center;
   }
 }
+
+@media (min-width: 900px) {
+  .playerspanel {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .playerspanel {
+    justify-content: space-evenly;
+    padding: 1rem 2rem;
+    gap: 2rem;
+  }
+}

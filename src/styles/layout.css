@@ -17,13 +17,20 @@
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 900px) and (max-width: 1199px) {
+  .gamescreen {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
   .startscreen {
     padding: 4rem 3rem;
   }
 
-  .gamescreen {
-    gap: 3rem;
+  .endscreen {
+    padding: 3rem 2rem;
   }
 }
 
@@ -31,5 +38,9 @@
   .gamescreen {
     max-width: 1200px;
     margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
   }
 }

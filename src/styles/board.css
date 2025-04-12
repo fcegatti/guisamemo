@@ -35,3 +35,19 @@
     padding: 1rem;
   }
 }
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .gameboard {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    max-width: 80vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gameboard {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1.2rem;
+    max-width: 1000px;
+  }
+}

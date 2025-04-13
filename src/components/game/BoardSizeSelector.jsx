@@ -1,5 +1,4 @@
 import { useGame } from '@context/GameContext'
-import { useMediaQuery } from '@hooks/useMediaQuery'
 
 const sizes = ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl']
 const labels = {
@@ -14,12 +13,10 @@ const labels = {
 
 function BoardSizeSelector () {
   const { boardSize, setBoardSize } = useGame()
-  const isLaptopOrLarger = useMediaQuery('(min-width: 900px)')
 
-  // Filter board size accordong to width
-  const visibleSizes = isLaptopOrLarger
-    ? sizes
-    : sizes.filter(size => size !== '3xl')
+  // All sizes are now shown starting from tablet (≥600px)
+  // Logic preserved in case future board sizes (e.g. 4xl+) are limited to larger screens
+  const visibleSizes = sizes
 
   return (
     <div className='boardsizeselector'>

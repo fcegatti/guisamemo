@@ -1,10 +1,18 @@
 import { useGameEngine } from '@hooks/useGameEngine'
+import { useGame } from '@context/GameContext'
+import { PAIRS_BY_SIZE } from '@constants/game'
 
 function Board () {
+  const { boardSize } = useGame()
   const { cards, handleCardClick } = useGameEngine()
 
+  const totalPairs = PAIRS_BY_SIZE[boardSize] || PAIRS_BY_SIZE.xs
+  const totalCards = totalPairs * 2
+  const columns = Math.ceil(totalCards / 6)
+  const boardClass = `gameboard gameboard--cols-${columns}`
+
   return (
-    <div className='gameboard'>
+    <div className={boardClass}>
       {cards.map((card) => (
         <div
           key={card.id}

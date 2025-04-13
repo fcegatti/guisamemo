@@ -1,9 +1,11 @@
 .gameboard {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-  padding: 16px;
+  gap: 0.75rem;
+  padding: 1rem;
   justify-items: center;
+  align-content: center;
+  height: calc(100dvh - 240px);
+  overflow: hidden;
 }
 
 .gameboard__card {
@@ -22,32 +24,38 @@
   object-fit: cover;
 }
 
-@media (min-width: 600px) and (max-width: 1199px) {
+/* Responsive board columns */
+.gameboard--cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.gameboard--cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.gameboard--cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+.gameboard--cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+.gameboard--cols-9 {
+  grid-template-columns: repeat(9, 1fr);
+}
+.gameboard--cols-10 {
+  grid-template-columns: repeat(10, 1fr);
+}
+.gameboard--cols-11 {
+  grid-template-columns: repeat(11, 1fr);
+}
+
+@media (max-width: 599px) {
   .gameboard {
+    height: calc(100dvh - 100px);
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    grid-auto-flow: column;
-    gap: 0.75rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
     justify-content: center;
     align-content: center;
-    height: calc(100dvh - 200px);
-    overflow-y: auto;
-    padding: 1rem;
   }
 }
 
-@media (min-width: 900px) and (max-width: 1199px) {
-  .gameboard {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-    max-width: 80vw;
-  }
-}
-
-@media (min-width: 1200px) {
-  .gameboard {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 1.2rem;
-    max-width: 1000px;
-  }
-}

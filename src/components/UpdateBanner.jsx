@@ -9,21 +9,12 @@ export default function UpdateBanner () {
     return () => window.removeEventListener('sw-update', onUpdate)
   }, [])
 
-  const reloadApp = () => {
-    navigator.serviceWorker.getRegistration().then((reg) => {
-      if (reg?.waiting) {
-        reg.waiting.postMessage({ type: 'SKIP_WAITING' })
-        window.location.reload()
-      }
-    })
-  }
-
   if (!showBanner) return null
 
   return (
     <div className='update-banner'>
-      <p>Nueva versión disponible</p>
-      <button onClick={reloadApp}>Actualizar</button>
+      <p>Hay una nueva versión disponible.</p>
+      <p className='update-banner__instruction'>Recarga la app para actualizar.</p>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import { useGame } from '@context/GameContext'
-
-const sizes = ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl']
+import { BOARD_SIZES, CARDS_PER_SIZE } from '@constants/game'
 
 function BoardSizeSelector () {
   const { boardSize, setBoardSize } = useGame()
@@ -8,14 +7,20 @@ function BoardSizeSelector () {
   return (
     <div className='boardsizeselector'>
       <label className='boardsizeselector__label'>Tamaño del tablero</label>
-      <div className='boardsizeselector__options'>
-        {sizes.map(size => (
+      <div
+        className='boardsizeselector__options'
+        role='radiogroup'
+        aria-label='Tamaño del tablero'
+      >
+        {BOARD_SIZES.map(size => (
           <button
             key={size}
             type='button'
+            role='radio'
+            aria-checked={boardSize === size}
+            title={`${CARDS_PER_SIZE[size]} tarjetas`}
             className={`boardsizeselector__option ${boardSize === size ? 'boardsizeselector__option--active' : ''}`}
             onClick={() => setBoardSize(size)}
-            aria-pressed={boardSize === size}
           >
             {size.toUpperCase()}
           </button>

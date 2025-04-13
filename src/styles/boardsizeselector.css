@@ -31,16 +31,18 @@
   font-weight: bold;
   text-transform: uppercase;
   background-color: #fff;
-  color: var(--color-text-dark);
-  border: 2px solid var(--button-blue);
+  color: var(--button-blue);
+  border: 2px solid var(--color-border-grey);
   border-radius: var(--button-radius);
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.boardsizeselector__option:hover {
+/* Hover only applies to non-active buttons */
+.boardsizeselector__option:not(.boardsizeselector__option--active):hover {
   background-color: var(--color-border-grey);
+  border: 2px solid var(--button-blue)
 }
 
 .boardsizeselector__option--active {

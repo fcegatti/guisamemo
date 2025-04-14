@@ -2,7 +2,7 @@
 
 **Guisamemo** is a playful, mobile-friendly memory game (Memorama-style), designed especially for kids. Play solo or with up to 4 players in a turn-based challenge where each correct pair scores points—and a few surprise cards score double!
 
-![Guisamemo logo](./logo.webp)
+![Guisamemo logo](./public/logo.webp)
 
 ---
 

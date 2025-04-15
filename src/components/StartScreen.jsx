@@ -59,6 +59,9 @@ function StartScreen () {
           alt='Logo Guisamemo'
           className='startscreen__logo'
         />
+      </div>
+
+      <div className='startscreen__middle'>
         {isTabletOrLarger && <BoardSizeSelector />}
         <div className='startscreen__form'>
           <label htmlFor='player-name' className='sr-only'>Nombre del jugador</label>
@@ -83,9 +86,6 @@ function StartScreen () {
           </button>
         </div>
         {error && <p className='startscreen__error'>{error}</p>}
-      </div>
-
-      <div className='startscreen__middle'>
         <ul className='startscreen__players'>
           {players.map((player) => (
             <li key={player.id} className='startscreen__player'>

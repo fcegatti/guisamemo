@@ -50,11 +50,30 @@ const FILES_TO_CACHE = [
   '/cards/card-13.webp',
   '/cards/card-14.webp',
   '/cards/card-15.webp',
+  '/cards/card-16.webp',
+  '/cards/card-17.webp',
+  '/cards/card-18.webp',
+  '/cards/card-19.webp',
+  '/cards/card-20.webp',
+  '/cards/card-21.webp',
+  '/cards/card-22.webp',
+  '/cards/card-23.webp',
+  '/cards/card-24.webp',
+  '/cards/card-25.webp',
+  '/cards/card-26.webp',
+  '/cards/card-27.webp',
+  '/cards/card-28.webp',
+  '/cards/card-29.webp',
+  '/cards/card-30.webp',
+  '/cards/card-31.webp',
+  '/cards/card-32.webp',
+  '/cards/card-33.webp',
   '/cards/fallback.webp'
 ]
 
 // ✅ Install event: cache essential files
 self.addEventListener('install', (event) => {
+  self.skipWaiting()
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(FILES_TO_CACHE)

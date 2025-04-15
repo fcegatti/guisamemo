@@ -1,5 +1,13 @@
 # 📦 Changelog
 
+## [1.0.1] - 2025-04-15
+
+### Changed
+- Improved responsive scaling of game board (cards now grow without distortion)
+- Adjusted vertical layout spacing in tablets and desktop
+- Refactored StartScreen layout: grouped form and player list into same block
+- Unified visual width of input, add button, and player list
+
 ## [1.0.0] – 2024-04-14
 
 ### 🚀 MVP Release – Guisamemo

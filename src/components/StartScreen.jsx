@@ -57,6 +57,8 @@ function StartScreen () {
         <h1 className='sr-only'>Guisamemo</h1>
         <img
           src='/logo.webp'
+          width='384'
+          height='384'
           alt='Logo Guisamemo'
           className='startscreen__logo'
         />

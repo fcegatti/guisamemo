@@ -6,7 +6,7 @@ function BoardSizeSelector () {
 
   return (
     <div className='boardsizeselector'>
-      <label className='boardsizeselector__label'>Tamaño del tablero</label>
+      <h2 className='boardsizeselector__label'>Tamaño del tablero</h2>
       <div
         className='boardsizeselector__options'
         role='radiogroup'

@@ -54,6 +54,7 @@ function StartScreen () {
   return (
     <div className='startscreen'>
       <div className='startscreen__top'>
+        <h1 className='sr-only'>Guisamemo</h1>
         <img
           src='/logo.webp'
           alt='Logo Guisamemo'

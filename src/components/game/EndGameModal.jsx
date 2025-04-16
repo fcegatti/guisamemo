@@ -19,6 +19,7 @@ export default function EndGameModal () {
         <button
           className='endgamemodal__button'
           onClick={restartGame}
+          aria-label='Repetir la partida desde el principio'
         >
           Repetir partida
         </button>
@@ -26,6 +27,7 @@ export default function EndGameModal () {
         <button
           className='endgamemodal__button'
           onClick={resetGame}
+          aria-label='Volver al inicio del juego'
         >
           Volver al inicio
         </button>

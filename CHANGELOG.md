@@ -1,5 +1,20 @@
 # 📦 Changelog
 
+## [1.0.2] - 2025-04-16
+
+### Added
+- Screen reader narration of podium winners, synchronized with podium animation
+- Announced current avatar name on change using `aria-live`
+- Semantic `aria-labelledby` support added to EndGameModal and ExitGameModal
+- Dedicated accessible `<h1>` (visually hidden) and replaced `label` with `heading` in board size selector
+
+### Changed
+- Clarified UpdateBanner message to reflect current version availability
+- Defined `width` and `height` for logo image to improve layout stability and Lighthouse performance
+
+### Removed
+- Cleaned up `console.log` and `console.error` traces from service worker registration
+
 ## [1.0.1] - 2025-04-15
 
 ### Changed

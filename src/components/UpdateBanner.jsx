@@ -13,8 +13,8 @@ export default function UpdateBanner () {
 
   return (
     <div className='update-banner'>
-      <p>Hay una nueva versión disponible.</p>
-      <p className='update-banner__instruction'>Recarga la app para actualizar.</p>
+      <p>Se actualizó la aplicación.</p>
+      <p className='update-banner__instruction'>Recarga la app para usar la nueva versión.</p>
     </div>
   )
 }

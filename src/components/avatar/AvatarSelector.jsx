@@ -47,7 +47,12 @@ export default function AvatarSelector ({ onSelect }) {
             className='avatarselector__image'
             onClick={() => onSelect(currentAvatar.filename)}
           />
-          <span className='avatarselector__name'>{currentAvatar.name}</span>
+          <span
+            className='avatarselector__name'
+            aria-live='polite'
+          >
+            {currentAvatar.name}
+          </span>
         </div>
 
         <button

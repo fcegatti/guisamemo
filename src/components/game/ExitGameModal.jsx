@@ -9,6 +9,7 @@ export default function ExitGameModal ({ onClose, onExit }) {
       className='exitgamemodal__overlay'
       role='dialog'
       aria-modal='true'
+      aria-labelledby='exit-message'
     >
       <div className='exitgamemodal'>
         <div className='exitgamemodal__handle' />
@@ -21,7 +22,7 @@ export default function ExitGameModal ({ onClose, onExit }) {
           alt={`Avatar de ${currentPlayer.name}`}
           className='exitgamemodal__avatar'
         />
-        <p className='exitgamemodal__message'>
+        <p id='exit-message' className='exitgamemodal__message'>
           ¿Seguro que quieres salir del juego?
           <br />
           <span className='exitmodal__warning'>Perderás el progreso de la partida.</span>

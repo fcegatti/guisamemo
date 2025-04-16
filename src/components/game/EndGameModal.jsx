@@ -8,10 +8,11 @@ export default function EndGameModal () {
       className='endgamemodal'
       role='dialog'
       aria-modal='true'
+      aria-labelledby='end-message'
     >
       <div className='endgamemodal__handle' />
 
-      <p className='endgamemodal__message'>
+      <p id='end-message' className='endgamemodal__message'>
         ¿Quieres jugar otra vez?
       </p>
 

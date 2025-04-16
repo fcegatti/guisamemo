@@ -25,6 +25,7 @@ export default function AvatarSelector ({ onSelect }) {
       className='avatarselector__overlay'
       role='dialog'
       aria-modal='true'
+      aria-label='Selector de avatar'
     >
       <div className='avatarselector__modal'>
         <button

@@ -21,9 +21,18 @@ if ('serviceWorker' in navigator) {
         registration.addEventListener('updatefound', () => {
           const newWorker = registration.installing
           newWorker?.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' &&
-               navigator.serviceWorker.controller &&
-               import.meta.env.MODE !== 'development') {
+            if (
+              newWorker.state === 'installed' &&
+              navigator.serviceWorker.controller &&
+              import.meta.env.MODE !== 'development'
+            ) {
+              window.dispatchEvent(new Event('sw-update'))
+            }
+
+            if (
+              newWorker.state === 'activated' &&
+              import.meta.env.MODE !== 'development'
+            ) {
               window.dispatchEvent(new Event('sw-update'))
             }
           })

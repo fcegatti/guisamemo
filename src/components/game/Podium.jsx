@@ -67,7 +67,10 @@ export default function Podium ({ players }) {
         </div>
       </div>
       {/* Synchronized screen reading */}
-      {readRankIndex !== null && (
+      {readRankIndex !== null &&
+      players.length > readRankIndex &&
+      players[players.length - 1 - readRankIndex] &&
+      (
         <p className='sr-only' aria-live='polite'>
           {(() => {
             const index = players.length - 1 - readRankIndex // invertir para coincidir con la animación

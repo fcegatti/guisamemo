@@ -18,7 +18,8 @@ export default defineConfig({
       '@handlers': path.resolve(__dirname, 'src/handlers'),
       '@logic': path.resolve(__dirname, 'src/logic'),
       '@constants': path.resolve(__dirname, 'src/constants'),
-      '@hooks': path.resolve(__dirname, 'src/hooks')
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@i18n': path.resolve(__dirname, 'src/i18n')
     }
   }
 })

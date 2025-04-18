@@ -1,0 +1,13 @@
+{
+  "start": {
+    "addPlayer": "Añadir",
+    "placeholder": "Nombre del jugador",
+    "maxReached": "Máximo de jugadores alcanzado",
+    "startGame": "Comenzar partida"
+  },
+  "update": {
+    "message": "Se actualizó la aplicación.",
+    "instruction": "Recarga la app para usar la nueva versión.",
+    "button": "Recargar ahora"
+  }
+}

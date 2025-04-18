@@ -1,5 +1,12 @@
 # 📦 Changelog
 
+## [1.0.3] - 2025-04-18
+
+### Fixed
+- Ensure update banner displays correctly when service worker activates directly
+- Added accessible "Reload now" button to inform users of available updates
+- Prevent crash in Podium when less than 3 players (screen reader fallback fix)
+
 ## [1.0.2] - 2025-04-16
 
 ### Added

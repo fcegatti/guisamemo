@@ -1,8 +1,10 @@
 import { useGame } from '@context/GameContext'
+import { useLanguage } from '@context/LanguageContext'
 
 export default function ExitGameModal ({ onClose, onExit }) {
   const { players, currentTurnIndex } = useGame()
   const currentPlayer = players[currentTurnIndex]
+  const { t } = useLanguage()
 
   return (
     <div
@@ -19,27 +21,29 @@ export default function ExitGameModal ({ onClose, onExit }) {
               ? `/avatars/${currentPlayer.avatar}`
               : '/avatar-default.webp'
           }
-          alt={`Avatar de ${currentPlayer.name}`}
+          alt={t.exitGame.avatarAlt.replace('{name}', currentPlayer.name)}
           className='exitgamemodal__avatar'
         />
         <p id='exit-message' className='exitgamemodal__message'>
-          ¿Seguro que quieres salir del juego?
+          {t.exitGame.question}
           <br />
-          <span className='exitmodal__warning'>Perderás el progreso de la partida.</span>
+          <span className='exitmodal__warning'>
+            {t.exitGame.warning}
+          </span>
         </p>
         <button
           className='exitgamemodal__stay-btn'
           onClick={onClose}
-          aria-label='Seguir jugando'
+          aria-label={t.exitGame.ariaStay}
         >
-          Seguir jugando
+          {t.exitGame.stay}
         </button>
         <button
           className='exitgamemodal__exit-btn'
           onClick={onExit}
-          aria-label='Salir de la partida'
+          aria-label={t.exitGame.ariaExit}
         >
-          Salir
+          {t.exitGame.exit}
         </button>
       </div>
     </div>

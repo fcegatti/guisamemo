@@ -29,7 +29,12 @@ function Board () {
             }
             alt={
               card.flipped || card.matched
-                ? t.board.cardAltRevealed.replace('{name}', card.name || '???')
+                ? t.board.cardAltRevealed.replace(
+                  '{name}',
+                  card.translationKey
+                    ? t.names[card.translationKey] || card.name
+                    : card.name
+                )
                 : t.board.cardAltHidden
             }
             className='gameboard__card-img'

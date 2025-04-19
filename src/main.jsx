@@ -1,13 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import AppRouter from './AppRouter.jsx'
 import { LanguageProvider } from '@context/LanguageContext'
 import '@styles/index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <LanguageProvider>
-      <App />
+      <AppRouter />
     </LanguageProvider>
   </StrictMode>
 )

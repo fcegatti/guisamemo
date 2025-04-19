@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
 import BoardSizeSelector from '@components/game/BoardSizeSelector'
@@ -16,9 +17,12 @@ function StartScreen () {
 
   const { t } = useLanguage()
   const { lang, setLang } = useLanguage()
+  const navigate = useNavigate()
 
   const toggleLang = () => {
-    setLang(lang === 'es' ? 'gl' : 'es')
+    const newLang = lang === 'es' ? 'gl' : 'es'
+    setLang(newLang)
+    navigate(`/${newLang}`, { replace: true })
   }
 
   const flagSrc = lang === 'es' ? '/galicia.webp' : '/spain.webp'
@@ -89,8 +93,8 @@ function StartScreen () {
           <img
             src={flagSrc}
             alt={flagAlt}
-            width='60'
-            height='40'
+            width='30'
+            height='20'
             className='startscreen__lang-flag'
           />
         </button>

@@ -1,5 +1,23 @@
 # 📦 Changelog
 
+## [1.1.0] – 2025-04-20
+
+### Added
+- Multilingual support (Spanish and Galician)
+- Language toggle button with flags and accessibility labels
+- Route-based language selection (`/es`, `/gl`)
+- Alternate hreflang tags and canonical URL for SEO
+- Dynamic `<html lang="">` and localized JSON-LD
+- Translation of all UI components and error messages
+- Screen reader support for translated content (`aria-label`, `aria-live`, tooltips)
+
+### Changed
+- Avatar and card names now support translation keys
+- Improved i18n strategy in validation handlers
+
+### Fixed
+- LocalStorage now stores selected language to persist across sessions
+
 ## [1.0.3] - 2025-04-18
 
 ### Fixed

@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import { createContext, useContext, useState, useEffect } from 'react'
 import { translations } from '@i18n'
 
@@ -8,8 +10,16 @@ export function LanguageProvider ({ children }) {
   const [t, setT] = useState(translations[lang])
 
   useEffect(() => {
+    const savedLang = localStorage.getItem('lang')
+    if (savedLang && translations[savedLang]) {
+      setLang(savedLang)
+    }
+  }, [])
+
+  useEffect(() => {
     setT(translations[lang] || translations.es)
     document.documentElement.lang = lang // updates <html lang="...">
+    localStorage.setItem('lang', lang)
   }, [lang])
 
   return (

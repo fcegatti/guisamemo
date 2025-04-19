@@ -15,6 +15,14 @@ function StartScreen () {
   const [selectingAvatarFor, setSelectingAvatarFor] = useState(null)
 
   const { t } = useLanguage()
+  const { lang, setLang } = useLanguage()
+
+  const toggleLang = () => {
+    setLang(lang === 'es' ? 'gl' : 'es')
+  }
+
+  const flagSrc = lang === 'es' ? '/galicia.webp' : '/spain.webp'
+  const flagAlt = lang === 'es' ? t.lang.switchToGl : t.lang.switchToEs
 
   const {
     players,
@@ -72,6 +80,20 @@ function StartScreen () {
           alt='Logo Guisamemo'
           className='startscreen__logo'
         />
+        <button
+          onClick={toggleLang}
+          className='startscreen__lang-btn'
+          aria-label={flagAlt}
+          title={flagAlt}
+        >
+          <img
+            src={flagSrc}
+            alt={flagAlt}
+            width='60'
+            height='40'
+            className='startscreen__lang-flag'
+          />
+        </button>
       </div>
 
       <div className='startscreen__middle'>

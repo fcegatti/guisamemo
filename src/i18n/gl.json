@@ -88,6 +88,10 @@
     "ariaExit": "Saír da partida",
     "avatarAlt": "Avatar de {name}"
   },
+  "lang": {
+    "switchToGl": "Mudar a galego",
+    "switchToEs": "Mudar a castelán"
+  },
   "update": {
     "message": "Actualizouse a aplicación.",
     "instruction": "Recarga a app para usar a nova versión.",

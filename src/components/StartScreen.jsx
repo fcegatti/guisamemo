@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useGame } from '@context/GameContext'
+import { useLanguage } from '@context/LanguageContext'
 import BoardSizeSelector from '@components/game/BoardSizeSelector'
 import AvatarSelector from '@components/avatar/AvatarSelector'
 import { handleAddPlayer } from '@handlers/handleAddPlayer'
@@ -11,6 +12,8 @@ function StartScreen () {
   const [playerName, setPlayerName] = useState('')
   const [error, setError] = useState('')
   const [selectingAvatarFor, setSelectingAvatarFor] = useState(null)
+
+  const { t } = useLanguage()
 
   const {
     players,
@@ -124,9 +127,9 @@ function StartScreen () {
           onClick={handleStartGame}
           disabled={players.length === 0}
           className='startscreen__start-btn'
-          aria-label='Iniciar la partida'
+          aria-label={t.start.startGame}
         >
-          Comenzar partida
+          {t.start.startGame}
         </button>
       </div>
     </div>

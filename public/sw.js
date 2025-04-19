@@ -14,6 +14,8 @@ const FILES_TO_CACHE = [
   '/apple-icon-180x180.png',
   '/android-icon-192x192.png',
   '/maskable-icon.png',
+  '/spain.webp',
+  '/galicia.webp',
 
   // Avatars
   '/avatars/avatar-1.webp',

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useLanguage } from '@context/LanguageContext'
 
 export default function UpdateBanner () {
   const [showBanner, setShowBanner] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const onUpdate = () => setShowBanner(true)
@@ -17,16 +19,16 @@ export default function UpdateBanner () {
       role='alert'
       aria-live='assertive'
     >
-      <p>Se actualizó la aplicación.</p>
+      <p>{t.update.message}</p>
       <p className='update-banner__instruction'>
-        Recarga la app para usar la nueva versión.
+        {t.update.instruction}
       </p>
       <button
         onClick={() => window.location.reload()}
         className='update-banner__button'
-        aria-label='Recargar la aplicación para usar la nueva versión'
+        aria-label={t.update.button}
       >
-        Recargar
+        {t.update.button}
       </button>
     </div>
   )

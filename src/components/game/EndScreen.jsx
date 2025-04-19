@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useGame } from '@context/GameContext'
 import { getPlayersRanking } from '@logic/getPlayersRanking'
+import { useLanguage } from '@context/LanguageContext'
 import Podium from './Podium'
 import Fireworks from './Fireworks'
 import EndGameModal from './EndGameModal'
 
 export default function EndScreen () {
   const { players } = useGame()
+  const { t } = useLanguage()
   const [showFireworks, setShowFireworks] = useState(false)
   const [showFinalModal, setShowFinalModal] = useState(false)
   const ranking = getPlayersRanking(players)
@@ -20,12 +22,12 @@ export default function EndScreen () {
   }, [])
 
   if (!players || players.length === 0) {
-    return <p>Error: No hay jugadores registrados.</p>
+    return <p>{t.endscreen.noPlayers}</p>
   }
 
   return (
     <div className='endscreen'>
-      <h1 className='endscreen__title'>🏆 Resultados 🏆</h1>
+      <h1 className='endscreen__title'>🏆 {t.endscreen.title} 🏆</h1>
       <Podium players={ranking} />
 
       {showFireworks && (

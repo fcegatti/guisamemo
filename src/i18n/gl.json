@@ -53,6 +53,10 @@
     "cardAltRevealed": "Carta descuberta: {name}",
     "cardAltHidden": "Carta oculta"
   },
+  "endscreen": {
+    "title": "Resultados",
+    "noPlayers": "Erro: Non hai xogadores rexistrados."
+  },
   "endGame": {
     "question": "Queres xogar outra vez?",
     "restart": "Repetir partida",

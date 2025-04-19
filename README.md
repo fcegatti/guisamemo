@@ -1,6 +1,6 @@
 # Guisamemo
 
-**Guisamemo** is a playful, mobile-friendly memory game (Memorama-style), designed especially for kids. Play solo or with up to 4 players in a turn-based challenge where each correct pair scores points—and a few surprise cards score double!
+**Guisamemo** is a joyful, mobile-first memory game (Memorama-style), designed for children and playable solo or with up to 4 players. Each correct pair earns points—and some special cards double your score!
 
 ![Guisamemo logo](./public/logo.webp)
 
@@ -8,44 +8,57 @@
 
 ## 🧩 About the Game
 
-Guisamemo is a progressive web app (PWA) where players take turns flipping cards in search of matching pairs. It's inspired by classic memory games but adapted with vibrant custom art, animations, and a friendly UI optimized for tablets and mobile devices.
-
-The project’s name is a tribute to **Guísamo**, a small village in Galicia, Spain—and to three very special people: **Roque, Telmo and Román**.
+Guisamemo is a turn-based progressive web app (PWA) that blends classic memory gameplay with modern accessibility, animations, and custom illustrations.  
+The project name is a tribute to **Guísamo**, a village in Galicia, Spain—and to three very special people: **Roque, Telmo and Román**.
 
 ---
 
 ## ✨ Features
 
-- 🎨 Custom card artwork with special scoring for rare pairs  
-- 📱 Mobile-first layout with responsive support for tablets and desktops  
-- 🧑‍🤝‍🧑 Multiplayer (1–4 players) with turn logic  
-- 🏆 Animated end screen and score display  
-- 🔊 Support for future sound effects and animations  
-- 🕹️ Progressive Web App (PWA): installable on Android, iOS, desktop  
-- ♿ Accessibility and semantic HTML (ongoing)
+- 🎨 Custom card art with special scoring logic  
+- 🌍 Full localization: Spanish and Galician (with `/es` and `/gl` routes)  
+- 📱 Responsive layout for mobile, tablets, and desktops  
+- 🧑‍🤝‍🧑 Multiplayer mode (1–4 players) with turn skipping on mismatch  
+- 🏆 Animated game-over screen: podium or victory message  
+- 🕹️ PWA support (installable, offline fallback, manifest, service worker)  
+- ♿ Accessibility and semantic HTML support (screen reader friendly)  
+- 🔧 Admin-friendly structure prepared for content expansion  
+
+---
+
+## 📌 Latest Version – v1.1.0
+
+- 🌐 Added full internationalization system (i18n) with Context API  
+- 🇪🇸🇬🇷 Language toggle on StartScreen with flag icons  
+- 🔁 Dynamic update of `<html lang="">` for SEO and accessibility  
+- 🏷️ All text content moved to translation files (`es.json`, `gl.json`)  
+- 🦮 Improved `aria-label` and tooltips across components  
+- 🗺️ Updated sitemap.xml with hreflang and alternate links for SEO  
+- ⚙️ Internal rewrites for multilingual SPA routing on Vercel
 
 ---
 
 ## 📌 MVP Highlights (v1.0.0)
 
-- Responsive layout for 6 board sizes (XS–3XL)  
-- Game loop with scoring and turn skipping on error  
-- Animated game over screen (1-player or multiplayer podium)  
-- Avatar selection per player  
-- Game engine hook (`useGameEngine`) and global context  
-- PWA support with Service Worker and offline fallback  
-- SEO optimizations and rich snippets (JSON-LD)
+- Responsive layout with 6 board sizes (XS–3XL)  
+- Game loop with match detection, score, and skip on fail  
+- Podium or solo end screen with animations and fireworks  
+- Avatar selector per player  
+- Game engine (`useGameEngine`) and shared context state  
+- Offline support with custom fallback  
+- Initial SEO with structured data and social sharing metadata  
 
 ---
 
 ## 🗺️ Roadmap (Post-MVP)
 
-- Sound effects and visual feedback on match/mismatch  
-- Configurable time limit per turn  
-- Ranking or history of games played  
-- Localization: Galician and other languages  
-- Accessibility enhancements  
-- Card sharing and social game invites  
+- 🔊 Sound effects and feedback animations  
+- 🌑 Dark mode theme toggle  
+- 🧠 Memory challenge timer or difficulty levels  
+- 📈 Ranking and score history  
+- 🤝 Social invites and card sharing  
+- 🧩 More card styles and visual themes  
+- 🧪 Accessibility and SEO refinements
 
 ---
 
@@ -72,14 +85,14 @@ npm run preview
 This project is licensed under the MIT License.
 
 > You are free to use, modify and distribute this project with attribution.  
-> If you plan to use it commercially or as a base for a similar product, please consider the intent behind the project and the creator's plans for a commercial version.
+> If you plan to use it commercially or as a base for a similar product, please consider the project’s original intention and respect the creator’s plans for a commercial edition.
 
 ---
 
 ## 👤 Credits
 
 No external assets currently require attribution.  
-Credits will be included when used in future versions.
+Credits will be included when external media are added in future releases.
 
 ---
 

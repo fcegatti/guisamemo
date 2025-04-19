@@ -4,7 +4,7 @@ export function validatePlayerName (name, currentPlayers, maxPlayers, t) {
   const trimmed = name.trim()
 
   if (!trimmed) {
-    return { valid: false, error: trimmed.start.errors.empty }
+    return { valid: false, error: t.start.errors.empty }
   }
 
   if (trimmed.length > MAX_NAME_LENGTH) {

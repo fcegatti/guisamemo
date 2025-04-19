@@ -7,6 +7,7 @@ import { handleAddPlayer } from '@handlers/handleAddPlayer'
 import { handleAvatarSelect } from '@handlers/handleAvatarSelect'
 import { MAX_PLAYERS, MAX_NAME_LENGTH } from '@constants/game'
 import { useMediaQuery } from '@hooks/useMediaQuery'
+import { AVATAR_INFO } from '@constants/avatars'
 
 function StartScreen () {
   const [playerName, setPlayerName] = useState('')
@@ -44,6 +45,11 @@ function StartScreen () {
     })
   }
 
+  const getAvatarName = (filename) => {
+    const found = AVATAR_INFO.find(a => a.filename === filename)
+    return found?.name || ''
+  }
+
   const handleDeletePlayer = (id) => {
     removePlayer(id)
   }
@@ -70,12 +76,14 @@ function StartScreen () {
       <div className='startscreen__middle'>
         {isTabletOrLarger && <BoardSizeSelector />}
         <div className='startscreen__form'>
-          <label htmlFor='player-name' className='sr-only'>Nombre del jugador</label>
+          <label htmlFor='player-name' className='sr-only'>
+            {t.start.label}
+          </label>
           <input
             name='player-name'
             id='player-name'
             type='text'
-            placeholder={isMaxPlayers ? 'Máximo de jugadores alcanzado' : 'Nombre del jugador'}
+            placeholder={isMaxPlayers ? t.start.maxReached : t.start.placeholder}
             value={playerName}
             onChange={(e) => setPlayerName(e.target.value)}
             disabled={isMaxPlayers}
@@ -86,9 +94,9 @@ function StartScreen () {
             onClick={handleAddPlayerWrapper}
             disabled={!playerName.trim() || isMaxPlayers}
             className='startscreen__add-btn'
-            aria-label='Añadir jugador'
+            aria-label={t.start.addPlayer}
           >
-            Añadir
+            {t.start.addPlayer}
           </button>
         </div>
         {error && <p className='startscreen__error'>{error}</p>}
@@ -99,7 +107,16 @@ function StartScreen () {
               <div className='startscreen__player-avatar-container'>
                 <img
                   src={player.avatar ? `/avatars/${player.avatar}` : '/avatar-default.webp'}
-                  alt='Avatar'
+                  alt={
+                    player.avatar
+                      ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
+                      : t.start.selectAvatar
+                  }
+                  title={
+                    player.avatar
+                      ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
+                      : t.start.selectAvatar
+                  }
                   className='startscreen__player-avatar'
                   onClick={() => setSelectingAvatarFor(player.id)}
                 />
@@ -113,7 +130,7 @@ function StartScreen () {
               <button
                 className='startscreen__remove-btn'
                 onClick={() => handleDeletePlayer(player.id)}
-                aria-label={`Eliminar a ${player.name}`}
+                aria-label={t.start.removePlayer.replace('{name}', player.name)}
               >
                 🗑️
               </button>

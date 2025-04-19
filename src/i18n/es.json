@@ -3,7 +3,12 @@
     "addPlayer": "Añadir",
     "placeholder": "Nombre del jugador",
     "maxReached": "Máximo de jugadores alcanzado",
-    "startGame": "Comenzar partida"
+    "startGame": "Comenzar partida",
+    "label": "Nombre del jugador",
+    "AvatarAlt": "Avatar",
+    "selectAvatar": "Seleccionar avatar",
+    "avatarSelected": "Avatar de {avatar}",
+    "removePlayer": "Eliminar a {name}"
   },
   "update": {
     "message": "Se actualizó la aplicación.",

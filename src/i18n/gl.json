@@ -3,7 +3,12 @@
     "addPlayer": "Engadir",
     "placeholder": "Nome do xogador",
     "maxReached": "Máximo de xogadores acadado",
-    "startGame": "Comezar partida"
+    "startGame": "Comezar partida",
+    "label": "Nome do xogador",
+    "avatarAlt": "Avatar",
+    "selectAvatar": "Seleccionar avatar",
+    "avatarSelected": "Avatar de {avatar}",
+    "removePlayer": "Eliminar a {name}"
   },
   "update": {
     "message": "Actualizouse a aplicación.",

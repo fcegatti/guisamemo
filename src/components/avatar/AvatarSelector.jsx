@@ -47,7 +47,12 @@ export default function AvatarSelector ({ onSelect }) {
         >
           <img
             src={`/avatars/${currentAvatar.filename}`}
-            alt={t.avatar.imageAlt.replace('{name}', currentAvatar.name)}
+            alt={t.avatar.imageAlt.replace(
+              '{name}',
+              currentAvatar.translationKey
+                ? t.names[currentAvatar.translationKey]
+                : currentAvatar.name
+            )}
             className='avatarselector__image'
             onClick={() => onSelect(currentAvatar.filename)}
           />
@@ -55,7 +60,9 @@ export default function AvatarSelector ({ onSelect }) {
             className='avatarselector__name'
             aria-live='polite'
           >
-            {currentAvatar.name}
+            {currentAvatar.translationKey
+              ? t.names[currentAvatar.translationKey]
+              : currentAvatar.name}
           </span>
         </div>
 

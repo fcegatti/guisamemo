@@ -22,6 +22,16 @@
   "next": "Seguinte",
   "imageAlt": "Avatar de {name}"
   },
+  "names": {
+  "mom": "Nai",
+  "dad": "Pai",
+  "grandma": "Avoa",
+  "grandpa": "Avó",
+  "auntBea": "Tía Bea",
+  "auntDalva": "Tía Dalva",
+  "uncleDiego": "Tío Diego",
+  "uncleFede": "Tío Fede"
+  },
   "update": {
     "message": "Actualizouse a aplicación.",
     "instruction": "Recarga a app para usar a nova versión.",

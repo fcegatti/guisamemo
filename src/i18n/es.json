@@ -35,7 +35,9 @@
   "board": {
   "label": "Tamaño del tablero",
   "ariaLabel": "Tamaño del tablero",
-  "tooltip": "{count} tarjetas"
+  "tooltip": "{count} tarjetas",
+  "cardAltRevealed": "Carta descubierta: {name}",
+  "cardAltHidden": "Carta oculta"
   },
   "update": {
     "message": "Se actualizó la aplicación.",

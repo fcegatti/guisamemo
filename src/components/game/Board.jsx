@@ -1,10 +1,12 @@
 import { useGameEngine } from '@hooks/useGameEngine'
 import { useGame } from '@context/GameContext'
 import { PAIRS_BY_SIZE } from '@constants/game'
+import { useLanguage } from '@context/LanguageContext'
 
 function Board () {
   const { boardSize } = useGame()
   const { cards, handleCardClick } = useGameEngine()
+  const { t } = useLanguage()
 
   const totalPairs = PAIRS_BY_SIZE[boardSize] || PAIRS_BY_SIZE.xs
   const totalCards = totalPairs * 2
@@ -27,8 +29,8 @@ function Board () {
             }
             alt={
               card.flipped || card.matched
-                ? `Carta descubierta: ${card.name || 'sin nombre'}`
-                : 'Carta oculta'
+                ? t.board.cardAltRevealed.replace('{name}', card.name || '???')
+                : t.board.cardAltHidden
             }
             className='gameboard__card-img'
           />

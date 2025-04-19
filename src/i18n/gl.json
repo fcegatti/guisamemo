@@ -35,7 +35,9 @@
   "board": {
   "label": "Tamaño do taboleiro",
   "ariaLabel": "Tamaño do taboleiro",
-  "tooltip": "{count} tarxetas"
+  "tooltip": "{count} tarxetas",
+  "cardAltRevealed": "Carta descuberta: {name}",
+  "cardAltHidden": "Carta oculta"
   },
   "update": {
     "message": "Actualizouse a aplicación.",

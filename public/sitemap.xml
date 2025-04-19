@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
-    <loc>https://guisamemo.vercel.app/</loc>
-    <lastmod>2024-04-18</lastmod>
+    <loc>https://guisamemo.vercel.app/es</loc>
+    <lastmod>2025-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guisamemo.vercel.app/es" />
+    <xhtml:link rel="alternate" hreflang="gl" href="https://guisamemo.vercel.app/gl" />
   </url>
+
+  <url>
+    <loc>https://guisamemo.vercel.app/gl</loc>
+    <lastmod>2025-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://guisamemo.vercel.app/es" />
+    <xhtml:link rel="alternate" hreflang="gl" href="https://guisamemo.vercel.app/gl" />
+  </url>
+
 </urlset>

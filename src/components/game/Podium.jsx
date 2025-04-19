@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useLanguage } from '@context/LanguageContext'
 
 export default function Podium ({ players }) {
   const [visibleRanks, setVisibleRanks] = useState([false, false, false])
   const [readRankIndex, setReadRankIndex] = useState(null)
+  const { t } = useLanguage()
 
   // Progressive animation: third → second → first place
   useEffect(() => {
@@ -27,11 +29,16 @@ export default function Podium ({ players }) {
             <div className='podium__content'>
               <img
                 src={players[1].avatar}
-                alt={`Avatar ${players[1].name}`}
+                alt={t.podium.avatarAlt.replace('{name}', players[1].name)}
                 className='podium__avatar'
               />
               <p className='podium__name'>{players[1].name}</p>
-              <span className='podium__points'>{players[1].score} pts</span>
+              <span
+                className='podium__points'
+                aria-label={`${players[1].score} ${t.podium.points}`}
+              >
+                {players[1].score} pts
+              </span>
             </div>
           )}
         </div>
@@ -42,11 +49,16 @@ export default function Podium ({ players }) {
             <div className='podium__content'>
               <img
                 src={players[0].avatar}
-                alt={`Avatar ${players[0].name}`}
+                alt={t.podium.avatarAlt.replace('{name}', players[0].name)}
                 className='podium__avatar'
               />
               <p className='podium__name'>{players[0].name}</p>
-              <span className='podium__points'>{players[0].score} pts</span>
+              <span
+                className='podium__points'
+                aria-label={`${players[0].score} ${t.podium.points}`}
+              >
+                {players[0].score} pts
+              </span>
             </div>
           )}
         </div>
@@ -57,11 +69,16 @@ export default function Podium ({ players }) {
             <div className='podium__content'>
               <img
                 src={players[2].avatar}
-                alt={`Avatar ${players[2].name}`}
+                alt={t.podium.avatarAlt.replace('{name}', players[2].name)}
                 className='podium__avatar'
               />
               <p className='podium__name'>{players[2].name}</p>
-              <span className='podium__points'>{players[2].score} pts</span>
+              <span
+                className='podium__points'
+                aria-label={`${players[2].score} ${t.podium.points}`}
+              >
+                {players[2].score} pts
+              </span>
             </div>
           )}
         </div>
@@ -78,13 +95,13 @@ export default function Podium ({ players }) {
             const rank = readRankIndex + 1
             const label =
               rank === 1
-                ? 'Tercer lugar'
+                ? t.podium.third
                 : rank === 2
-                  ? 'Segundo lugar'
+                  ? t.podium.second
                   : rank === 3
-                    ? 'Primer lugar'
-                    : `${rank}º lugar`
-            return `${label}: ${player.name}, ${player.score} puntos`
+                    ? t.podium.first
+                    : t.podium.generic.replace('{rank}', rank)
+            return `${label}: ${player.name}, ${player.score} ${t.podium.points}`
           })()}
         </p>
       )}

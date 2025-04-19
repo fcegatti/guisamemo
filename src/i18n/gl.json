@@ -61,6 +61,14 @@
     "title": "Resultados",
     "noPlayers": "Erro: Non hai xogadores rexistrados."
   },
+  "podium": {
+    "avatarAlt": "Avatar de {name}",
+    "points": "puntos",
+    "first": "Primeiro lugar",
+    "second": "Segundo lugar",
+    "third": "Terceiro lugar",
+    "generic": "{rank}º lugar"
+  },
   "endGame": {
     "question": "Queres xogar outra vez?",
     "restart": "Repetir partida",

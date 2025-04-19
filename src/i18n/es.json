@@ -32,6 +32,11 @@
   "uncleDiego": "Tío Diego",
   "uncleFede": "Tío Fede"
   },
+  "board": {
+  "label": "Tamaño del tablero",
+  "ariaLabel": "Tamaño del tablero",
+  "tooltip": "{count} tarjetas"
+  },
   "update": {
     "message": "Se actualizó la aplicación.",
     "instruction": "Recarga la app para usar la nueva versión.",

@@ -32,6 +32,11 @@
   "uncleDiego": "Tío Diego",
   "uncleFede": "Tío Fede"
   },
+  "board": {
+  "label": "Tamaño do taboleiro",
+  "ariaLabel": "Tamaño do taboleiro",
+  "tooltip": "{count} tarxetas"
+  },
   "update": {
     "message": "Actualizouse a aplicación.",
     "instruction": "Recarga a app para usar a nova versión.",

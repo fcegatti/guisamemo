@@ -16,6 +16,12 @@
       "duplicate": "Ese nombre ya está en uso"
     }
   },
+  "avatar": {
+  "dialogLabel": "Selector de avatar",
+  "prev": "Anterior",
+  "next": "Siguiente",
+  "imageAlt": "Avatar de {name}"
+  },
   "update": {
     "message": "Se actualizó la aplicación.",
     "instruction": "Recarga la app para usar la nueva versión.",

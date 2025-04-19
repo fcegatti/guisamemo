@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { useSwipe } from '@hooks/useSwipe'
 import { AVATAR_INFO } from '@constants/avatars'
+import { useLanguage } from '@context/LanguageContext'
 
 export default function AvatarSelector ({ onSelect }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const currentAvatar = AVATAR_INFO[currentIndex]
+
+  const { t } = useLanguage()
 
   const goToNext = () => {
     setCurrentIndex((prev) =>
@@ -25,13 +28,14 @@ export default function AvatarSelector ({ onSelect }) {
       className='avatarselector__overlay'
       role='dialog'
       aria-modal='true'
-      aria-label='Selector de avatar'
+      aria-label={t.avatar.dialogLabel}
     >
       <div className='avatarselector__modal'>
         <button
           className='avatarselector__nav avatarselector__nav--left'
           onClick={goToPrev}
-          aria-label='Anterior'
+          aria-label={t.avatar.prev}
+          title={t.avatar.prev}
         >
           ◀
         </button>
@@ -43,7 +47,7 @@ export default function AvatarSelector ({ onSelect }) {
         >
           <img
             src={`/avatars/${currentAvatar.filename}`}
-            alt={currentAvatar.name}
+            alt={t.avatar.imageAlt.replace('{name}', currentAvatar.name)}
             className='avatarselector__image'
             onClick={() => onSelect(currentAvatar.filename)}
           />
@@ -58,7 +62,8 @@ export default function AvatarSelector ({ onSelect }) {
         <button
           className='avatarselector__nav avatarselector__nav--right'
           onClick={goToNext}
-          aria-label='Siguiente'
+          aria-label={t.avatar.next}
+          title={t.avatar.next}
         >
           ▶
         </button>

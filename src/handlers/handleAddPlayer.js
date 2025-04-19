@@ -6,9 +6,10 @@ export function handleAddPlayer ({
   players,
   addPlayer,
   setPlayerName,
-  setError
+  setError,
+  t
 }) {
-  const result = validatePlayerName(playerName, players, MAX_PLAYERS)
+  const result = validatePlayerName(playerName, players, MAX_PLAYERS, t)
 
   if (!result.valid) {
     setError(result.error)

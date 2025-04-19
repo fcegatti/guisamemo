@@ -8,7 +8,13 @@
     "AvatarAlt": "Avatar",
     "selectAvatar": "Seleccionar avatar",
     "avatarSelected": "Avatar de {avatar}",
-    "removePlayer": "Eliminar a {name}"
+    "removePlayer": "Eliminar a {name}",
+    "errors": {
+      "empty": "El nombre no puede estar vacío",
+      "tooLong": "El nombre no puede superar los {max} caracteres",
+      "full": "Máximo de {max} jugadores alcanzado",
+      "duplicate": "Ese nombre ya está en uso"
+    }
   },
   "update": {
     "message": "Se actualizó la aplicación.",

@@ -32,7 +32,8 @@ function StartScreen () {
       players,
       addPlayer,
       setPlayerName,
-      setError
+      setError,
+      t
     })
   }
 
@@ -117,6 +118,11 @@ function StartScreen () {
                       ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
                       : t.start.selectAvatar
                   }
+                  aria-label={
+                    player.avatar
+                      ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
+                      : t.start.selectAvatar
+                  }
                   className='startscreen__player-avatar'
                   onClick={() => setSelectingAvatarFor(player.id)}
                 />
@@ -131,6 +137,7 @@ function StartScreen () {
                 className='startscreen__remove-btn'
                 onClick={() => handleDeletePlayer(player.id)}
                 aria-label={t.start.removePlayer.replace('{name}', player.name)}
+                title={t.start.removePlayer.replace('{name}', player.name)}
               >
                 🗑️
               </button>

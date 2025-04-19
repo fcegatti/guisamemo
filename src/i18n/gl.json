@@ -8,7 +8,13 @@
     "avatarAlt": "Avatar",
     "selectAvatar": "Seleccionar avatar",
     "avatarSelected": "Avatar de {avatar}",
-    "removePlayer": "Eliminar a {name}"
+    "removePlayer": "Eliminar a {name}",
+    "errors": {
+      "empty": "O nome non pode estar baleiro",
+      "tooLong": "O nome non pode superar os {max} caracteres",
+      "full": "Máximo de {max} xogadores acadado",
+      "duplicate": "Ese nome xa está en uso"
+    }
   },
   "update": {
     "message": "Actualizouse a aplicación.",

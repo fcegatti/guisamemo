@@ -46,6 +46,9 @@
     "tree": "Árbol de los niños",
     "flyswatter": "Matamoscas"
   },
+  "players": {
+    "panelLabel": "Panel de jugadores"
+  },
   "board": {
     "label": "Tamaño del tablero",
     "ariaLabel": "Tamaño del tablero",

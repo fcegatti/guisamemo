@@ -1,7 +1,9 @@
 import { useGame } from '@context/GameContext'
+import { useLanguage } from '@context/LanguageContext'
 
 function PlayerStatus ({ player }) {
   const { currentTurnIndex, players } = useGame()
+  const { t } = useLanguage()
   const currentPlayer = players[currentTurnIndex]
   const isActive = currentPlayer && currentPlayer.id === player.id
 
@@ -16,7 +18,12 @@ function PlayerStatus ({ player }) {
       />
       <div className='playerstatus__info'>
         <span className='playerstatus__name'>{player.name}</span>
-        <span className='playerstatus__score'>{player.score} pts</span>
+        <span
+          className='playerstatus__score'
+          aria-label={`${player.score} ${t.podium.points}`}
+        >
+          {player.score} pts
+        </span>
       </div>
     </div>
   )

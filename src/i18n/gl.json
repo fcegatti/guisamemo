@@ -46,6 +46,9 @@
     "tree": "Árbore dos nenos",
     "flyswatter": "Matamoscas"
   },
+  "players": {
+    "panelLabel": "Panel de xogadores"
+  },
   "board": {
     "label": "Tamaño do taboleiro",
     "ariaLabel": "Tamaño do taboleiro",

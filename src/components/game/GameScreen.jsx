@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import { useGame } from '@context/GameContext'
+import { useMediaQuery } from '@hooks/useMediaQuery'
+import { useLanguage } from '@context/LanguageContext'
 import ExitGameModal from './ExitGameModal'
 import PlayersPanel from '../players/PlayersPanel'
 import PlayerStatus from '../players/PlayerStatus'
 import Board from './Board'
-import { useMediaQuery } from '@hooks/useMediaQuery'
 
 function GameScreen () {
   const { resetGame, players, currentTurnIndex } = useGame()
   const [showExitModal, setShowExitModal] = useState(false)
+  const { t } = useLanguage()
 
   const handleExitGame = () => {
     resetGame()
@@ -21,7 +23,8 @@ function GameScreen () {
       <button
         className='gamescreen__exit-btn'
         onClick={() => setShowExitModal(true)}
-        aria-label='Salir del juego'
+        aria-label={t.game.exitAria}
+        title={t.game.exitTooltip}
       >
         ✕
       </button>

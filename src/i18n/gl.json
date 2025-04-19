@@ -53,6 +53,10 @@
     "cardAltRevealed": "Carta descuberta: {name}",
     "cardAltHidden": "Carta oculta"
   },
+  "game": {
+    "exitAria": "Saír do xogo",
+    "exitTooltip": "Saír"
+},
   "endscreen": {
     "title": "Resultados",
     "noPlayers": "Erro: Non hai xogadores rexistrados."

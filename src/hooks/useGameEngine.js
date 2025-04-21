@@ -77,7 +77,6 @@ export function useGameEngine () {
         onMismatch: () => {
           handleMismatchOutcome({ nextTurn })
         },
-        lockBoard,
         unlockBoard
       })
     }

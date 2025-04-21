@@ -1,4 +1,6 @@
-export default function Fireworks () {
+import React, { memo } from 'react'
+
+function Fireworks () {
   return (
     <div className='fireworks'>
       <div className='firework fireworks--1' />
@@ -7,3 +9,5 @@ export default function Fireworks () {
     </div>
   )
 }
+
+export default memo(Fireworks)

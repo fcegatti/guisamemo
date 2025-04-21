@@ -1,3 +1,4 @@
+import React, { memo } from 'react'
 import { useGameEngine } from '@hooks/useGameEngine'
 import { useGame } from '@context/GameContext'
 import { PAIRS_BY_SIZE } from '@constants/game'
@@ -45,4 +46,4 @@ function Board () {
   )
 }
 
-export default Board
+export default memo(Board)

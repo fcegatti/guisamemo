@@ -43,13 +43,11 @@ export function useGameEngine () {
 
     const updatedFlipped = [...flippedCards, clickedCard]
 
-    // Flip the clicked card
-    setCards(prevCards =>
-      prevCards.map(card =>
-        card.id === cardId ? { ...card, flipped: true } : card
-      )
+    // Flip the clicked card using functional update to avoid stale state
+    const newCards = cards.map(card =>
+      card.id === cardId ? { ...card, flipped: true } : card
     )
-
+    setCards(newCards)
     setFlippedCards(updatedFlipped)
 
     // Evaluate match only when two cards are flipped
@@ -57,34 +55,24 @@ export function useGameEngine () {
       lockBoard()
       handleFlipResolution({
         flippedCards: updatedFlipped,
-        cards,
+        cards: newCards, // use the freshest cards
         setCards,
         setFlippedCards,
         onMatch: (matchedImage, updatedCards) => {
-          handleMatchOutcome({
-            matchedImage,
-            players,
-            currentTurnIndex,
-            setPlayers
-          })
-
+          handleMatchOutcome({ matchedImage, players, currentTurnIndex, setPlayers })
           if (checkEndGame(updatedCards)) {
-            setTimeout(() => {
-              setIsGameOver(true)
-            }, 1200)
+            setTimeout(() => setIsGameOver(true), 1200)
           }
+          unlockBoard()
         },
         onMismatch: () => {
           handleMismatchOutcome({ nextTurn })
+          unlockBoard()
         },
         unlockBoard
       })
     }
   }
 
-  return {
-    cards,
-    flippedCards,
-    handleCardClick
-  }
+  return { cards, flippedCards, handleCardClick }
 }

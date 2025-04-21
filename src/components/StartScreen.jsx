@@ -15,8 +15,7 @@ function StartScreen () {
   const [error, setError] = useState('')
   const [selectingAvatarFor, setSelectingAvatarFor] = useState(null)
 
-  const { t } = useLanguage()
-  const { lang, setLang } = useLanguage()
+  const { t, lang, setLang } = useLanguage()
   const navigate = useNavigate()
 
   const toggleLang = () => {

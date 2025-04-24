@@ -5,6 +5,7 @@
     "maxReached": "Máximo de jugadores alcanzado",
     "startGame": "Comenzar partida",
     "label": "Nombre del jugador",
+    "playerListLabel": "Lista de jugadores añadidos",
     "AvatarAlt": "Avatar",
     "selectAvatar": "Seleccionar avatar",
     "avatarSelected": "Avatar de {avatar}",

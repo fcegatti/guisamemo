@@ -127,10 +127,23 @@ function StartScreen () {
           </button>
         </div>
         {error && <p className='startscreen__error'>{error}</p>}
-        <ul className='startscreen__players'>
+        <ul
+          className='startscreen__players'
+          role='list'
+          aria-label={t.start.playerListLabel}
+        >
           {players.map((player) => (
-            <li key={player.id} className='startscreen__player'>
-              <span className='startscreen__player-name'>{player.name}</span>
+            <li
+              key={player.id}
+              className='startscreen__player'
+              role='listitem'
+            >
+              <span
+                id={`player-name-${player.id}`}
+                className='startscreen__player-name'
+              >
+                {player.name}
+              </span>
               <div className='startscreen__player-avatar-container'>
                 <img
                   src={player.avatar ? `/avatars/${player.avatar}` : '/avatar-default.webp'}
@@ -144,13 +157,9 @@ function StartScreen () {
                       ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
                       : t.start.selectAvatar
                   }
-                  aria-label={
-                    player.avatar
-                      ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
-                      : t.start.selectAvatar
-                  }
                   className='startscreen__player-avatar'
                   onClick={() => setSelectingAvatarFor(player.id)}
+                  aria-labelledby={`player-name-${player.id}`}
                 />
                 {selectingAvatarFor === player.id && (
                   <AvatarSelector

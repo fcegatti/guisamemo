@@ -5,6 +5,7 @@
     "maxReached": "Máximo de xogadores acadado",
     "startGame": "Comezar partida",
     "label": "Nome do xogador",
+    "playerListLabel": "Lista de xogadores engadidos",
     "avatarAlt": "Avatar",
     "selectAvatar": "Seleccionar avatar",
     "avatarSelected": "Avatar de {avatar}",

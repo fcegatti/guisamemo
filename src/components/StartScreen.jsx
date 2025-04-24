@@ -144,7 +144,17 @@ function StartScreen () {
               >
                 {player.name}
               </span>
-              <div className='startscreen__player-avatar-container'>
+              <button
+                type='button'
+                className='startscreen__player-avatar-btn'
+                onClick={() => setSelectingAvatarFor(player.id)}
+                aria-labelledby={`player-name-${player.id}`}
+                title={
+                  player.avatar
+                    ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
+                    : t.start.selectAvatar
+                }
+              >
                 <img
                   src={player.avatar ? `/avatars/${player.avatar}` : '/avatar-default.webp'}
                   alt={
@@ -152,22 +162,15 @@ function StartScreen () {
                       ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
                       : t.start.selectAvatar
                   }
-                  title={
-                    player.avatar
-                      ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
-                      : t.start.selectAvatar
-                  }
                   className='startscreen__player-avatar'
-                  onClick={() => setSelectingAvatarFor(player.id)}
-                  aria-labelledby={`player-name-${player.id}`}
                 />
-                {selectingAvatarFor === player.id && (
-                  <AvatarSelector
-                    onSelect={(filename) =>
-                      handleAvatarSelectWrapper(player.id, filename)}
-                  />
-                )}
-              </div>
+              </button>
+              {selectingAvatarFor === player.id && (
+                <AvatarSelector
+                  onSelect={(filename) =>
+                    handleAvatarSelectWrapper(player.id, filename)}
+                />
+              )}
               <button
                 className='startscreen__remove-btn'
                 onClick={() => handleDeletePlayer(player.id)}

@@ -122,7 +122,6 @@ function StartScreen () {
             onClick={handleAddPlayerWrapper}
             disabled={!playerName.trim() || isMaxPlayers}
             className='startscreen__add-btn'
-            aria-label={t.start.addPlayer}
           >
             {t.start.addPlayer}
           </button>

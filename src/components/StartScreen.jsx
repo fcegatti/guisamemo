@@ -85,6 +85,7 @@ function StartScreen () {
           aria-hidden='true'
         />
         <button
+          type='button'
           onClick={toggleLang}
           className='startscreen__lang-btn'
           aria-label={flagAlt}
@@ -119,6 +120,7 @@ function StartScreen () {
             className='startscreen__input'
           />
           <button
+            type='button'
             onClick={handleAddPlayerWrapper}
             disabled={!playerName.trim() || isMaxPlayers}
             className='startscreen__add-btn'
@@ -172,6 +174,7 @@ function StartScreen () {
                 />
               )}
               <button
+                type='button'
                 className='startscreen__remove-btn'
                 onClick={() => handleDeletePlayer(player.id)}
                 aria-label={t.start.removePlayer.replace('{name}', player.name)}
@@ -186,6 +189,7 @@ function StartScreen () {
 
       <div className='startscreen__bottom'>
         <button
+          type='button'
           onClick={handleStartGame}
           disabled={players.length === 0}
           className='startscreen__start-btn'

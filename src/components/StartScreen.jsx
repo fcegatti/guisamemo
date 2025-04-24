@@ -189,7 +189,6 @@ function StartScreen () {
           onClick={handleStartGame}
           disabled={players.length === 0}
           className='startscreen__start-btn'
-          aria-label={t.start.startGame}
         >
           {t.start.startGame}
         </button>

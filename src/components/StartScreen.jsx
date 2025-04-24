@@ -82,6 +82,7 @@ function StartScreen () {
           height='384'
           alt='Logo Guisamemo'
           className='startscreen__logo'
+          aria-hidden='true'
         />
         <button
           onClick={toggleLang}
@@ -95,6 +96,7 @@ function StartScreen () {
             width='30'
             height='20'
             className='startscreen__lang-flag'
+            aria-hidden='true'
           />
         </button>
       </div>
@@ -120,7 +122,6 @@ function StartScreen () {
             onClick={handleAddPlayerWrapper}
             disabled={!playerName.trim() || isMaxPlayers}
             className='startscreen__add-btn'
-            aria-label={t.start.addPlayer}
           >
             {t.start.addPlayer}
           </button>

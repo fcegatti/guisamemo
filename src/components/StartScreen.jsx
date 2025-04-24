@@ -96,6 +96,7 @@ function StartScreen () {
             width='30'
             height='20'
             className='startscreen__lang-flag'
+            aria-hidden='true'
           />
         </button>
       </div>

@@ -82,6 +82,7 @@ function StartScreen () {
           height='384'
           alt='Logo Guisamemo'
           className='startscreen__logo'
+          aria-hidden='true'
         />
         <button
           onClick={toggleLang}

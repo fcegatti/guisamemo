@@ -5,6 +5,7 @@ import { handleMatchOutcome } from '@handlers/handleMatchOutcome'
 import { handleMismatchOutcome } from '@handlers/handleMismatchOutcome'
 import { checkEndGame } from '@logic/checkEndGame'
 import { useGame } from '@context/GameContext'
+import { useLanguage } from '@context/LanguageContext'
 
 export function useGameEngine () {
   const {
@@ -18,7 +19,8 @@ export function useGameEngine () {
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
   const [isBoardLocked, setIsBoardLocked] = useState(false)
-
+  const [ariaMessage, setAriaMessage] = useState('')
+  const { t } = useLanguage()
   const lockBoard = () => setIsBoardLocked(true)
   const unlockBoard = () => setIsBoardLocked(false)
 
@@ -50,6 +52,12 @@ export function useGameEngine () {
     setCards(newCards)
     setFlippedCards(updatedFlipped)
 
+    // Accesible message only when card is revealed
+    const cardName = clickedCard.translationKey
+      ? t.names[clickedCard.translationKey] || clickedCard.name
+      : clickedCard.name
+    setAriaMessage(t.board.cardAltRevealed.replace('{name}', cardName))
+
     // Evaluate match only when two cards are flipped
     if (updatedFlipped.length === 2) {
       lockBoard()
@@ -74,5 +82,5 @@ export function useGameEngine () {
     }
   }
 
-  return { cards, flippedCards, handleCardClick }
+  return { cards, flippedCards, handleCardClick, ariaMessage }
 }

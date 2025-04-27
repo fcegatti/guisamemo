@@ -29,6 +29,13 @@ function GameScreen () {
         ✕
       </button>
 
+      {/* 🔵 ARIA-LIVE: turn annoucement */}
+      {players.length > 0 && players[currentTurnIndex] && (
+        <div className='sr-only' aria-live='polite'>
+          {t.players.turnAnnounce.replace('{name}', players[currentTurnIndex].name)}
+        </div>
+      )}
+
       {useMediaQuery('(min-width: 600px)')
         ? <PlayersPanel />
         : (

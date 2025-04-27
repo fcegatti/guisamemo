@@ -48,7 +48,8 @@
     "flyswatter": "Matamoscas"
   },
   "players": {
-    "panelLabel": "Panel de jugadores"
+    "panelLabel": "Panel de jugadores",
+    "turnAnnounce": "Turno de {name}"
   },
   "board": {
     "label": "Tamaño del tablero",

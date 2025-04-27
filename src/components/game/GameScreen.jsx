@@ -11,6 +11,7 @@ function GameScreen () {
   const { resetGame, players, currentTurnIndex } = useGame()
   const [showExitModal, setShowExitModal] = useState(false)
   const { t } = useLanguage()
+  const isTabletOrLarger = useMediaQuery('(min-width: 600px)')
 
   const handleExitGame = () => {
     resetGame()
@@ -36,7 +37,7 @@ function GameScreen () {
         </div>
       )}
 
-      {useMediaQuery('(min-width: 600px)')
+      {isTabletOrLarger
         ? <PlayersPanel />
         : (
           <div className='gamescreen__playerstatus'>

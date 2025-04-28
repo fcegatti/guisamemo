@@ -21,10 +21,11 @@ export function useGameEngine () {
   const [isBoardLocked, setIsBoardLocked] = useState(false)
   const [ariaMessage, setAriaMessage] = useState('')
   const { t } = useLanguage()
+
   const lockBoard = () => setIsBoardLocked(true)
   const unlockBoard = () => setIsBoardLocked(false)
 
-  // Generate a new shuffled deck when the game starts
+  // Generate deck when board size changes
   useEffect(() => {
     setCards(generateDeck(boardSize))
   }, [boardSize])

@@ -30,6 +30,7 @@ function Board () {
             type='button'
             className='gameboard__card'
             onClick={() => handleCardClick(card.id)}
+            aria-roledescription={t.board.cardRoleDescription}
           >
             <img
               src={

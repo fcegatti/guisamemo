@@ -56,7 +56,8 @@
     "ariaLabel": "Tamaño del tablero",
     "tooltip": "{count} tarjetas",
     "cardAltRevealed": "Carta descubierta: {name}",
-    "cardAltHidden": "Carta oculta"
+    "cardAltHidden": "Carta oculta",
+    "cardRoleDescription": "carta"
   },
   "game": {
     "exitAria": "Salir del juego",

@@ -54,6 +54,7 @@
   "board": {
     "label": "Tamaño del tablero",
     "ariaLabel": "Tamaño del tablero",
+    "sizeLabel": "Tamaño {size}",
     "tooltip": "{count} tarjetas",
     "cardAltRevealed": "Carta descubierta: {name}",
     "cardAltHidden": "Carta oculta",

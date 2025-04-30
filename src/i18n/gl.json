@@ -54,6 +54,7 @@
   "board": {
     "label": "Tamaño do taboleiro",
     "ariaLabel": "Tamaño do taboleiro",
+    "sizeLabel": "Tamaño {size}",
     "tooltip": "{count} tarxetas",
     "cardAltRevealed": "Carta descuberta: {name}",
     "cardAltHidden": "Carta oculta",

@@ -22,6 +22,7 @@ function BoardSizeSelector () {
             type='button'
             role='radio'
             aria-checked={boardSize === size}
+            aria-label={t.board.sizeLabel.replace('{size}', size.toUpperCase())}
             title={t.board.tooltip.replace('{count}', CARDS_PER_SIZE[size])}
             className={`boardsizeselector__option ${boardSize === size ? 'boardsizeselector__option--active' : ''}`}
             onClick={() => setBoardSize(size)}

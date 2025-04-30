@@ -18,7 +18,7 @@ if ('serviceWorker' in navigator) {
       .register('/sw.js')
       .then((registration) => {
         if (registration.waiting && navigator.serviceWorker.controller) {
-          window.dispatchEvent(new Event('sw-update'))
+          window.dispatchEvent(new CustomEvent('sw-update'))
         }
 
         registration.addEventListener('updatefound', () => {
@@ -29,14 +29,14 @@ if ('serviceWorker' in navigator) {
               navigator.serviceWorker.controller &&
               import.meta.env.MODE !== 'development'
             ) {
-              window.dispatchEvent(new Event('sw-update'))
+              window.dispatchEvent(new CustomEvent('sw-update'))
             }
 
             if (
               newWorker.state === 'activated' &&
               import.meta.env.MODE !== 'development'
             ) {
-              window.dispatchEvent(new Event('sw-update'))
+              window.dispatchEvent(new CustomEvent('sw-update'))
             }
           })
         })

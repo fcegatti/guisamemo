@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
+import { useFocusTrap } from '@hooks/useFocusTrap'
 
 export default function ExitGameModal ({ onClose, onExit }) {
   const { players, currentTurnIndex } = useGame()
@@ -8,6 +9,8 @@ export default function ExitGameModal ({ onClose, onExit }) {
   const { t } = useLanguage()
 
   const messageRef = useRef(null)
+  const modalRef = useRef(null)
+  useFocusTrap(modalRef)
 
   useEffect(() => {
     if (messageRef.current) {
@@ -22,7 +25,7 @@ export default function ExitGameModal ({ onClose, onExit }) {
       aria-modal='true'
       aria-labelledby='exit-message'
     >
-      <div className='exitgamemodal'>
+      <div className='exitgamemodal' ref={modalRef}>
         <div className='exitgamemodal__handle' />
         <img
           src={

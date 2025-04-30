@@ -54,6 +54,12 @@
   border-radius: var(--radius-sm);
 }
 
+.startscreen__error {
+  color: var(--color-error);
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
 .startscreen__add-btn {
   padding: 0.5rem 1rem;
   font-size: 1rem;

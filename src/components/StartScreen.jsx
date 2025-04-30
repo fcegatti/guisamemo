@@ -128,7 +128,15 @@ function StartScreen () {
             {t.start.addPlayer}
           </button>
         </div>
-        {error && <p className='startscreen__error'>{error}</p>}
+        {error && (
+          <p
+            className='startscreen__error'
+            role='alert'
+            aria-live='assertive'
+            id='player-error'
+          >
+            {error}
+          </p>)}
         <ul
           className='startscreen__players'
           role='list'

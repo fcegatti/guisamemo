@@ -15,8 +15,7 @@ function StartScreen () {
   const [error, setError] = useState('')
   const [selectingAvatarFor, setSelectingAvatarFor] = useState(null)
 
-  const { t } = useLanguage()
-  const { lang, setLang } = useLanguage()
+  const { t, lang, setLang } = useLanguage()
   const navigate = useNavigate()
 
   const toggleLang = () => {
@@ -83,8 +82,10 @@ function StartScreen () {
           height='384'
           alt='Logo Guisamemo'
           className='startscreen__logo'
+          aria-hidden='true'
         />
         <button
+          type='button'
           onClick={toggleLang}
           className='startscreen__lang-btn'
           aria-label={flagAlt}
@@ -96,6 +97,7 @@ function StartScreen () {
             width='30'
             height='20'
             className='startscreen__lang-flag'
+            aria-hidden='true'
           />
         </button>
       </div>
@@ -116,22 +118,54 @@ function StartScreen () {
             disabled={isMaxPlayers}
             maxLength={MAX_NAME_LENGTH}
             className='startscreen__input'
+            aria-describedby='player-error'
           />
           <button
+            type='button'
             onClick={handleAddPlayerWrapper}
             disabled={!playerName.trim() || isMaxPlayers}
             className='startscreen__add-btn'
-            aria-label={t.start.addPlayer}
           >
             {t.start.addPlayer}
           </button>
         </div>
-        {error && <p className='startscreen__error'>{error}</p>}
-        <ul className='startscreen__players'>
+        {error && (
+          <p
+            className='startscreen__error'
+            role='alert'
+            aria-live='assertive'
+            id='player-error'
+          >
+            {error}
+          </p>)}
+        <ul
+          className='startscreen__players'
+          role='list'
+          aria-label={t.start.playerListLabel}
+        >
           {players.map((player) => (
-            <li key={player.id} className='startscreen__player'>
-              <span className='startscreen__player-name'>{player.name}</span>
-              <div className='startscreen__player-avatar-container'>
+            <li
+              key={player.id}
+              className='startscreen__player'
+              role='listitem'
+            >
+              <span
+                id={`player-name-${player.id}`}
+                className='startscreen__player-name'
+              >
+                {player.name}
+              </span>
+              <button
+                type='button'
+                className='startscreen__player-avatar-btn'
+                onClick={() => setSelectingAvatarFor(player.id)}
+                aria-labelledby={`player-name-${player.id}`}
+                title={
+                  player.avatar
+                    ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
+                    : t.start.selectAvatar
+                }
+              >
                 <img
                   src={player.avatar ? `/avatars/${player.avatar}` : '/avatar-default.webp'}
                   alt={
@@ -139,27 +173,17 @@ function StartScreen () {
                       ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
                       : t.start.selectAvatar
                   }
-                  title={
-                    player.avatar
-                      ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
-                      : t.start.selectAvatar
-                  }
-                  aria-label={
-                    player.avatar
-                      ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
-                      : t.start.selectAvatar
-                  }
                   className='startscreen__player-avatar'
-                  onClick={() => setSelectingAvatarFor(player.id)}
                 />
-                {selectingAvatarFor === player.id && (
-                  <AvatarSelector
-                    onSelect={(filename) =>
-                      handleAvatarSelectWrapper(player.id, filename)}
-                  />
-                )}
-              </div>
+              </button>
+              {selectingAvatarFor === player.id && (
+                <AvatarSelector
+                  onSelect={(filename) =>
+                    handleAvatarSelectWrapper(player.id, filename)}
+                />
+              )}
               <button
+                type='button'
                 className='startscreen__remove-btn'
                 onClick={() => handleDeletePlayer(player.id)}
                 aria-label={t.start.removePlayer.replace('{name}', player.name)}
@@ -174,10 +198,10 @@ function StartScreen () {
 
       <div className='startscreen__bottom'>
         <button
+          type='button'
           onClick={handleStartGame}
           disabled={players.length === 0}
           className='startscreen__start-btn'
-          aria-label={t.start.startGame}
         >
           {t.start.startGame}
         </button>

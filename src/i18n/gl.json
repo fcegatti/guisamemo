@@ -5,6 +5,7 @@
     "maxReached": "Máximo de xogadores acadado",
     "startGame": "Comezar partida",
     "label": "Nome do xogador",
+    "playerListLabel": "Lista de xogadores engadidos",
     "avatarAlt": "Avatar",
     "selectAvatar": "Seleccionar avatar",
     "avatarSelected": "Avatar de {avatar}",
@@ -47,14 +48,17 @@
     "flyswatter": "Matamoscas"
   },
   "players": {
-    "panelLabel": "Panel de xogadores"
+    "panelLabel": "Panel de xogadores",
+    "turnAnnounce": "Quenda de {name}"
   },
   "board": {
     "label": "Tamaño do taboleiro",
     "ariaLabel": "Tamaño do taboleiro",
+    "sizeLabel": "Tamaño {size}",
     "tooltip": "{count} tarxetas",
     "cardAltRevealed": "Carta descuberta: {name}",
-    "cardAltHidden": "Carta oculta"
+    "cardAltHidden": "Carta oculta",
+    "cardRoleDescription": "carta"
   },
   "game": {
     "exitAria": "Saír do xogo",

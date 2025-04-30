@@ -5,6 +5,7 @@
     "maxReached": "Máximo de jugadores alcanzado",
     "startGame": "Comenzar partida",
     "label": "Nombre del jugador",
+    "playerListLabel": "Lista de jugadores añadidos",
     "AvatarAlt": "Avatar",
     "selectAvatar": "Seleccionar avatar",
     "avatarSelected": "Avatar de {avatar}",
@@ -47,14 +48,17 @@
     "flyswatter": "Matamoscas"
   },
   "players": {
-    "panelLabel": "Panel de jugadores"
+    "panelLabel": "Panel de jugadores",
+    "turnAnnounce": "Turno de {name}"
   },
   "board": {
     "label": "Tamaño del tablero",
     "ariaLabel": "Tamaño del tablero",
+    "sizeLabel": "Tamaño {size}",
     "tooltip": "{count} tarjetas",
     "cardAltRevealed": "Carta descubierta: {name}",
-    "cardAltHidden": "Carta oculta"
+    "cardAltHidden": "Carta oculta",
+    "cardRoleDescription": "carta"
   },
   "game": {
     "exitAria": "Salir del juego",

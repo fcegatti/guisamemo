@@ -11,6 +11,7 @@ function GameScreen () {
   const { resetGame, players, currentTurnIndex } = useGame()
   const [showExitModal, setShowExitModal] = useState(false)
   const { t } = useLanguage()
+  const isTabletOrLarger = useMediaQuery('(min-width: 600px)')
 
   const handleExitGame = () => {
     resetGame()
@@ -29,7 +30,14 @@ function GameScreen () {
         ✕
       </button>
 
-      {useMediaQuery('(min-width: 600px)')
+      {/* 🔵 ARIA-LIVE: turn annoucement */}
+      {players.length > 0 && players[currentTurnIndex] && (
+        <div className='sr-only' aria-live='polite'>
+          {t.players.turnAnnounce.replace('{name}', players[currentTurnIndex].name)}
+        </div>
+      )}
+
+      {isTabletOrLarger
         ? <PlayersPanel />
         : (
           <div className='gamescreen__playerstatus'>

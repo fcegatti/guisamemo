@@ -1,5 +1,29 @@
 # 📦 Changelog
 
+## [1.1.1] – 2025-04-30
+
+### Added
+- Focus trap hook (`useFocusTrap`) to prevent focus escaping from modals
+- Automatic screen reader focus on modal messages (`EndGameModal`, `ExitGameModal`)
+- `aria-live` announcement for revealed cards and player turn changes
+- Role description `"carta"` and alt text fallback for flipped cards
+- Semantic `aria-labelledby` and `aria-describedby` patterns for input validation messages
+- Accessible error alerts using `role="alert"` on StartScreen
+
+### Changed
+- Prioritized URL-based language detection over `localStorage` fallback
+- Removed redundant language `useEffect` logic in routing and cleaned up router component
+- Added Open Graph `og:locale:alternate` tag for Galician to improve social sharing previews
+- Cards are now rendered as accessible `<button>` elements
+- Player avatars are no longer read by screen readers during modal prompts
+- Language is now read correctly when entering from `/gl` route directly
+- Board size selector now uses descriptive `aria-label` (e.g. “Tamaño L”)
+- Ensure update banner appears correctly when new service worker is installed
+
+### Fixed
+- Tab navigation is now correctly restricted to modal controls
+- Focus no longer escapes to background components while modal is open
+
 ## [1.1.0] – 2025-04-20
 
 ### Added

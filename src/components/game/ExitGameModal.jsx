@@ -1,10 +1,22 @@
+import { useEffect, useRef } from 'react'
 import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
+import { useFocusTrap } from '@hooks/useFocusTrap'
 
 export default function ExitGameModal ({ onClose, onExit }) {
   const { players, currentTurnIndex } = useGame()
   const currentPlayer = players[currentTurnIndex]
   const { t } = useLanguage()
+
+  const messageRef = useRef(null)
+  const modalRef = useRef(null)
+  useFocusTrap(modalRef)
+
+  useEffect(() => {
+    if (messageRef.current) {
+      messageRef.current.focus()
+    }
+  }, [])
 
   return (
     <div
@@ -13,7 +25,7 @@ export default function ExitGameModal ({ onClose, onExit }) {
       aria-modal='true'
       aria-labelledby='exit-message'
     >
-      <div className='exitgamemodal'>
+      <div className='exitgamemodal' ref={modalRef}>
         <div className='exitgamemodal__handle' />
         <img
           src={
@@ -23,14 +35,21 @@ export default function ExitGameModal ({ onClose, onExit }) {
           }
           alt={t.exitGame.avatarAlt.replace('{name}', currentPlayer.name)}
           className='exitgamemodal__avatar'
+          aria-hidden='true'
         />
-        <p id='exit-message' className='exitgamemodal__message'>
-          {t.exitGame.question}
-          <br />
-          <span className='exitmodal__warning'>
+
+        <div
+          id='exit-message'
+          className='exitgamemodal__message'
+          ref={messageRef}
+          tabIndex='-1'
+        >
+          <p>{t.exitGame.question}</p>
+          <p className='exitmodal__warning'>
             {t.exitGame.warning}
-          </span>
-        </p>
+          </p>
+        </div>
+
         <button
           className='exitgamemodal__stay-btn'
           onClick={onClose}

@@ -1,7 +1,7 @@
 /* eslint-env serviceworker */
 
 // 🔁 Define version for cache busting
-const CACHE_VERSION = 'v1.1.0'
+const CACHE_VERSION = 'v1.1.1'
 const CACHE_NAME = `guisamemo-cache-${CACHE_VERSION}`
 
 const FILES_TO_CACHE = [

@@ -26,15 +26,14 @@ The project name is a tribute to **Guísamo**, a village in Galicia, Spain—and
 
 ---
 
-## 📌 Latest Version – v1.1.0
+## 📌 Latest Version – v1.1.1
 
-- 🌐 Added full internationalization system (i18n) with Context API  
-- 🇪🇸🇬🇷 Language toggle on StartScreen with flag icons  
-- 🔁 Dynamic update of `<html lang="">` for SEO and accessibility  
-- 🏷️ All text content moved to translation files (`es.json`, `gl.json`)  
-- 🦮 Improved `aria-label` and tooltips across components  
-- 🗺️ Updated sitemap.xml with hreflang and alternate links for SEO  
-- ⚙️ Internal rewrites for multilingual SPA routing on Vercel
+- 🌐 Added full internationalization system with canonical and alternate hreflang routing (/es, /gl)
+- 🏷️ Open Graph metadata now includes Galician alternate locale for better social visibility
+- ♿ Improved accessibility: modals, keyboard navigation, screen reader support
+- 📣 Automatic announcements of card reveals and player turns
+- 🧭 Focus trap implemented in modals to restrict keyboard navigation
+- 🧼 Visual consistency maintained, behavior improved across devices
 
 ---
 

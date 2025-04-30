@@ -118,6 +118,7 @@ function StartScreen () {
             disabled={isMaxPlayers}
             maxLength={MAX_NAME_LENGTH}
             className='startscreen__input'
+            aria-describedby='player-error'
           />
           <button
             type='button'

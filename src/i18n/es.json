@@ -92,6 +92,10 @@
     "ariaExit": "Salir de la partida",
     "avatarAlt": "Avatar de {name}"
   },
+  "orientation": {
+    "message": "Para una mejor experiencia, gira tu dispositivo a modo horizontal",
+    "dismiss": "Cerrar aviso de orientación"
+  },
   "lang": {
     "switchToGl": "Cambiar a gallego",
     "switchToEs": "Cambiar a español"

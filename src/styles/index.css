@@ -5,6 +5,7 @@
 @import '@styles/boardsizeselector.css';
 @import '@styles/gamescreen.css';
 @import '@styles/board.css';
+@import '@styles/orientationhint.css';
 @import '@styles/endscreen.css';
 @import '@styles/exitgamemodal.css';
 @import '@styles/podium.css';

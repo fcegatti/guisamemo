@@ -1,20 +1,12 @@
 /* Layout adjustments for larger viewports */
 
 @media (min-width: 600px) and (max-width: 899px) {
-  .startscreen {
-    padding: 3rem 2rem;
-  }
-
   .endscreen {
     padding: 3rem 2rem;
   }
 }
 
 @media (min-width: 900px) and (max-width: 1199px) {
-  .startscreen {
-    padding: 4rem 3rem;
-  }
-
   .endscreen {
     padding: 3rem 2rem;
   }

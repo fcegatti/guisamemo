@@ -176,6 +176,8 @@
   justify-content: center;
 }
 
+/* ==== RESPONSIVE ADJUSTMENTS ==== */
+
 /* Compact layout for short tablets (height ≤ 768px) */
 @media (max-height: 768px) and (min-width: 600px) {
   .startscreen__logo {
@@ -200,6 +202,18 @@
   .startscreen__player {
     padding: 0.4rem 0.75rem;
     margin-bottom: 0.4rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .startscreen {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .startscreen {
+    padding: 4rem 3rem;
   }
 }
 

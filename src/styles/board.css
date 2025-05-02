@@ -1,11 +1,11 @@
 .gameboard {
   display: grid;
-  gap: 0.75rem;
-  padding: 1rem;
+  gap: 0.5rem;
+  padding: 0.5rem;
   justify-items: center;
   align-content: center;
   height: 100%;
-  height: calc(100dvh - 180px);
+  height: calc(100dvh - 120px);
   overflow: hidden;
   grid-auto-rows: auto;
 }

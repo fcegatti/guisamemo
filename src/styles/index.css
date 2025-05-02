@@ -12,7 +12,6 @@
 @import '@styles/fireworks.css';
 @import '@styles/playerspanel.css';
 @import '@styles/playerstatus.css';
-@import '@styles/layout.css';
 
 * {
   box-sizing: border-box;

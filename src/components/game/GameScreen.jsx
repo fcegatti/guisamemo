@@ -8,7 +8,7 @@ import ExitGameModal from './ExitGameModal'
 import PlayersPanel from '../players/PlayersPanel'
 import PlayerStatus from '../players/PlayerStatus'
 import Board from './Board'
-import OrientationHint from '../interface/OrientationHint'
+import OrientationModal from '../interface/OrientationModal'
 
 function GameScreen () {
   const { resetGame, players, currentTurnIndex, boardSize } = useGame()
@@ -39,7 +39,7 @@ function GameScreen () {
       </button>
 
       {/* ℹ️ Orientation hint for tablets in portrait */}
-      <OrientationHint />
+      <OrientationModal />
 
       {/* 🔵 ARIA-LIVE: turn annoucement */}
       {players.length > 0 && players[currentTurnIndex] && (

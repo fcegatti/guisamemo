@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
 
-export default function OrientationHint () {
+export default function OrientationModal () {
   const { boardSize } = useGame()
   const { t } = useLanguage()
   const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth)

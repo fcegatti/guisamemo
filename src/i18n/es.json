@@ -93,9 +93,10 @@
     "avatarAlt": "Avatar de {name}"
   },
   "orientation": {
-    "message": "Para una mejor experiencia, gira tu dispositivo a modo horizontal",
-    "dismiss": "Cerrar aviso de orientación"
-  },
+  "message": "El tamaño de tablero seleccionado es más óptimo para pantallas horizontales. Para una mejor experiencia, gira tu dispositivo", 
+  "confirm": "Entendido",
+  "dismiss": "Rechazar" 
+},
   "lang": {
     "switchToGl": "Cambiar a gallego",
     "switchToEs": "Cambiar a español"

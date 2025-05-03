@@ -10,6 +10,7 @@ export default function OrientationHint () {
   const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth)
   const [dismissed, setDismissed] = useState(() =>
     sessionStorage.getItem('hideOrientationHint') === 'true')
+  const [visible, setVisible] = useState(false)
 
   // Monitor orientation changes
   useEffect(() => {
@@ -27,9 +28,21 @@ export default function OrientationHint () {
   // Minimum height threshold (exclude phones)
   const isTabletSize = window.innerHeight >= 800
 
-  const shouldShow = isPortrait && isTabletSize && isLargeBoard && !dismissed
+  useEffect(() => {
+    const shouldShow = isPortrait && isTabletSize && isLargeBoard && !dismissed
+    setVisible(shouldShow)
+  }, [isPortrait, isTabletSize, isLargeBoard, dismissed])
 
-  if (!shouldShow) return null
+  if (!visible) return null
+
+  const handleDismiss = () => {
+    sessionStorage.setItem('hideOrientationHint', 'true')
+    setDismissed(true)
+  }
+
+  const handleConfirm = () => {
+    setVisible(false)
+  }
 
   return (
     <div
@@ -40,16 +53,20 @@ export default function OrientationHint () {
       <p className='orientationhint__message'>
         {t.orientation.message}
       </p>
-      <button
-        className='orientationhint__close'
-        aria-label={t.orientation.dismiss}
-        onClick={() => {
-          sessionStorage.setItem('hideOrientationHint', 'true')
-          setDismissed(true)
-        }}
-      >
-        ✕
-      </button>
+      <div className='orientationhint__buttons'>
+        <button
+          className='orientationhint__ok'
+          onClick={handleConfirm}
+        >
+          {t.orientation.confirm}
+        </button>
+        <button
+          className='orientationhint__dismiss'
+          onClick={handleDismiss}
+        >
+          {t.orientation.dismiss}
+        </button>
+      </div>
     </div>
   )
 }

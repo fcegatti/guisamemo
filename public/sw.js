@@ -16,6 +16,7 @@ const FILES_TO_CACHE = [
   '/maskable-icon.png',
   '/spain.webp',
   '/galicia.webp',
+  '/mobile-rotate.svg',
 
   // Avatars
   '/avatars/avatar-1.webp',

@@ -1,16 +1,20 @@
 /* global sessionStorage */
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
+import { useFocusTrap } from '@hooks/useFocusTrap'
 
 export default function OrientationModal () {
   const { boardSize } = useGame()
   const { t } = useLanguage()
+  const modalRef = useRef(null)
+  const messageRef = useRef(null)
   const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth)
-  const [dismissed, setDismissed] = useState(() =>
-    sessionStorage.getItem('hideOrientationHint') === 'true')
+  const [dismissed, setDismissed] = useState(() => sessionStorage.getItem('hideOrientationHint') === 'true')
   const [visible, setVisible] = useState(false)
+
+  useFocusTrap(modalRef)
 
   // Monitor orientation changes
   useEffect(() => {
@@ -46,26 +50,41 @@ export default function OrientationModal () {
 
   return (
     <div
-      className='orientationhint'
-      role='status'
-      aria-live='polite'
+      className='orientationmodal__overlay'
+      role='dialog'
+      aria-modal='true'
+      aria-labelledby='orientation-message'
     >
-      <p className='orientationhint__message'>
-        {t.orientation.message}
-      </p>
-      <div className='orientationhint__buttons'>
+      <div className='orientationmodal' ref={modalRef}>
+        <img
+          src='/mobile-rotate.svg'
+          alt='Icono de rotación de dispositivo'
+          className='orientationmodal__icon'
+          aria-hidden='true'
+        />
+
+        <div
+          id='orientation-message'
+          className='orientationmodal__message'
+          ref={messageRef}
+          tabIndex='-1'
+        >
+          <p>{t.orientation.message}</p>
+        </div>
+
         <button
-          className='orientationhint__ok'
+          className='orientationmodal__ok-btn'
           onClick={handleConfirm}
         >
           {t.orientation.confirm}
         </button>
         <button
-          className='orientationhint__dismiss'
+          className='orientationmodal__dismiss-btn'
           onClick={handleDismiss}
         >
           {t.orientation.dismiss}
         </button>
+        <div className='orientationmodal__handle' />
       </div>
     </div>
   )

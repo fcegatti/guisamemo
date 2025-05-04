@@ -3,7 +3,7 @@ import { useGame } from '@context/GameContext'
 import { getPlayersRanking } from '@logic/getPlayersRanking'
 import { useLanguage } from '@context/LanguageContext'
 import Podium from './Podium'
-import Fireworks from './Fireworks'
+import Fireworks from '@components/effects/Fireworks'
 import EndGameModal from './EndGameModal'
 
 export default function EndScreen () {

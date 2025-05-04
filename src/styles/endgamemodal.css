@@ -56,3 +56,7 @@
 .endgamemodal__button:hover {
   background-color: #47b16c;
 }
+
+.endgamemodal__message:focus {
+  outline: none;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useGame } from '@context/GameContext'
 import { getPlayersRanking } from '@logic/getPlayersRanking'
 import { useLanguage } from '@context/LanguageContext'
+import { useTheme } from '@context/ThemeContext'
 import Podium from './Podium'
 import Confetti from '@components/effects/Confetti'
 import Fireworks from '@components/effects/Fireworks'
@@ -10,12 +11,10 @@ import EndGameModal from './EndGameModal'
 export default function EndScreen () {
   const { players } = useGame()
   const { t } = useLanguage()
+  const { theme } = useTheme()
   const [showEffects, setShowEffects] = useState(false)
   const [showFinalModal, setShowFinalModal] = useState(false)
   const ranking = getPlayersRanking(players)
-
-  // TODO: Replace this with real theme detection when implementing dark/light mode
-  const theme = 'light' // 👈 TEMPORARY FIX
 
   useEffect(() => {
     const timers = [

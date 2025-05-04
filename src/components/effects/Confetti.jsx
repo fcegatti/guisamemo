@@ -12,10 +12,10 @@ export default function Confetti () {
       useWorker: true
     })
 
-    const colors = ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93']
-    const duration = 5000
+    const colors = ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93', '#ff9f1c', '#2ec4b6']
+    const duration = 11000
     const animationEnd = Date.now() + duration
-    const interval = 250
+    const interval = 180
 
     const intervalId = setInterval(() => {
       const timeLeft = animationEnd - Date.now()
@@ -26,13 +26,14 @@ export default function Confetti () {
       }
 
       confettiInstance({
-        particleCount: 5 + Math.floor(Math.random() * 5),
-        angle: 60 + Math.random() * 60,
-        spread: 55 + Math.random() * 25,
+        particleCount: 10 + Math.floor(Math.random() * 10),
+        angle: 55 + Math.random() * 70,
+        spread: 50 + Math.random() * 40,
         origin: {
           x: Math.random(),
           y: Math.random() * 0.6
         },
+        scalar: 0.9 + Math.random() * 0.3,
         colors
       })
     }, interval)

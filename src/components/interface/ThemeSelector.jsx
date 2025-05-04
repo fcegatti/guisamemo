@@ -1,11 +1,13 @@
 import { useTheme } from '@context/ThemeContext'
+import { useLanguage } from '@context/LanguageContext'
 
 export default function ThemeSelector () {
   const { theme, toggleTheme } = useTheme()
+  const { t } = useLanguage()
 
   const isLight = theme === 'light'
   const icon = isLight ? '🌙' : '☀️'
-  const label = isLight ? 'Activar modo oscuro' : 'Activar modo claro'
+  const label = isLight ? t.theme.switchToDark : t.theme.switchToLight
 
   return (
     <button

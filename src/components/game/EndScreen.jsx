@@ -3,19 +3,23 @@ import { useGame } from '@context/GameContext'
 import { getPlayersRanking } from '@logic/getPlayersRanking'
 import { useLanguage } from '@context/LanguageContext'
 import Podium from './Podium'
+import Confetti from '@components/effects/Confetti'
 import Fireworks from '@components/effects/Fireworks'
 import EndGameModal from './EndGameModal'
 
 export default function EndScreen () {
   const { players } = useGame()
   const { t } = useLanguage()
-  const [showFireworks, setShowFireworks] = useState(false)
+  const [showEffects, setShowEffects] = useState(false)
   const [showFinalModal, setShowFinalModal] = useState(false)
   const ranking = getPlayersRanking(players)
 
+  // TODO: Replace this with real theme detection when implementing dark/light mode
+  const theme = 'light' // 👈 TEMPORARY FIX
+
   useEffect(() => {
     const timers = [
-      setTimeout(() => setShowFireworks(true), 5900),
+      setTimeout(() => setShowEffects(true), 5900),
       setTimeout(() => setShowFinalModal(true), 8500)
     ]
     return () => timers.forEach(clearTimeout)
@@ -30,8 +34,11 @@ export default function EndScreen () {
       <h1 className='endscreen__title'>🏆 {t.endscreen.title} 🏆</h1>
       <Podium players={ranking} />
 
-      {showFireworks && (
-        <Fireworks />
+      {showEffects && (
+        <>
+          {theme === 'light' && <Confetti />}
+          {theme === 'dark' && <Fireworks />}
+        </>
       )}
 
       {showFinalModal && (

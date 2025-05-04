@@ -1,0 +1,12 @@
+.themeselector__btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.themeselector__icon {
+  display: inline-block;
+  line-height: 1;
+}

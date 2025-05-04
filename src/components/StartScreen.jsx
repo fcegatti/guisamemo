@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
+import ThemeSelector from '@components/interface/ThemeSelector'
 import BoardSizeSelector from '@components/game/BoardSizeSelector'
 import AvatarSelector from '@components/avatar/AvatarSelector'
 import { handleAddPlayer } from '@handlers/handleAddPlayer'
@@ -84,6 +85,7 @@ function StartScreen () {
           className='startscreen__logo'
           aria-hidden='true'
         />
+        <ThemeSelector />
         <button
           type='button'
           onClick={toggleLang}

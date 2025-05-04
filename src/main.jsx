@@ -2,13 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import AppRouter from './AppRouter.jsx'
 import { LanguageProvider } from '@context/LanguageContext'
+import { ThemeProvider } from '@context/ThemeContext'
 import '@styles/index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <LanguageProvider>
-      <AppRouter />
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppRouter />
+      </LanguageProvider>
+    </ThemeProvider>
   </StrictMode>
 )
 

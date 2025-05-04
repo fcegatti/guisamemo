@@ -1,12 +1,22 @@
 .themeselector__btn {
-  background: none;
+  position: absolute;
+  top: 1rem;
+  right: 3.5rem; /* Space to the left of lang-btn */
+  background: transparent;
   border: none;
-  font-size: 1.5rem;
+  padding: 0;
   cursor: pointer;
-  margin-right: 0.5rem;
+  z-index: 50;
+  width: 30px;
+  height: 20px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .themeselector__icon {
   display: inline-block;
   line-height: 1;
 }
+

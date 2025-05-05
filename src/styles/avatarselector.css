@@ -51,3 +51,16 @@
 .avatarselector__nav:focus {
   outline: none;
 }
+
+/* 🌙 DARK MODE - AvatarSelector */
+.theme--dark .avatarselector__modal {
+  background: var(--color-background-dark);
+}
+
+.theme--dark .avatarselector__name {
+  color: var(--color-text-light);
+}
+
+.theme--dark .avatarselector__nav {
+  color: var(--color-text-light);
+}

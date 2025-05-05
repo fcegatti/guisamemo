@@ -30,6 +30,8 @@
   --button-blue-disabled: #b3d4fc;
   --button-radius: 0.5rem;
   --button-padding: 0.75rem 1rem;
+  --button-disabled-dark: #444;
+   --button-disabled-light: #c0c0c0;
 
   /* ========================
      FORM FIELDS

@@ -258,5 +258,10 @@
   background-color: var(--color-background-light);
 }
 
+.theme--dark .startscreen__add-btn:disabled {
+  background-color: var(--button-disabled-dark);
+}
 
-
+.theme--dark .startscreen__start-btn:disabled {
+  background-color: var(--button-disabled-dark);
+}

@@ -87,3 +87,18 @@
   }
 }
 
+/* 🌙 DARK MODE - BoardSizeSelector */
+.theme--dark .boardsizeselector__label {
+  color: var(--color-text-light);
+}
+
+.theme--dark .boardsizeselector__option {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+  border-color: var(--color-border-grey);
+}
+
+.theme--dark .boardsizeselector__option--active {
+  background-color: var(--button-blue);
+  color: var(--color-text-light);
+}

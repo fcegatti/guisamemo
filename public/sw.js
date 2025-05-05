@@ -109,7 +109,10 @@ self.addEventListener('fetch', (event) => {
       }
 
       return fetch(event.request).catch(() => {
-        if (event.request.mode === 'navigate') {
+        if (
+          event.request.mode === 'navigate' ||
+          event.request.destination === 'document'
+        ) {
           return caches.match('/offline.html')
         }
       })

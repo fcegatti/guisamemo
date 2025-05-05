@@ -12,12 +12,15 @@
 /* Modal box */
 .orientationmodal {
   background-color: var(--color-background-light);
+  color: var(--color-text-dark);
   border-radius: 0 0 16px 16px;
   padding: 1rem 1rem 0.1rem;
   width: 100%;
   text-align: center;
   animation: slideDown 0.3s ease-out;
   margin-top: 0;
+  border: 1px solid var(--color-border-light);
+  border-top: none;
 }
 
 /* Top drag handle */
@@ -77,4 +80,28 @@
   to {
     transform: translateY(0);
   }
+}
+
+/* 🌙 DARK MODE - OrientationModal */
+.theme--dark .orientationmodal {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+  border-color: var(--color-border-grey);
+}
+
+.theme--dark .orientationmodal__message {
+  color: var(--color-text-light);
+}
+
+.theme--dark .orientationmodal__ok-btn {
+  background-color: var(--button-blue);
+  color: var(--color-text-light);
+}
+
+.theme--dark .orientationmodal__ok-btn:hover {
+  background-color: var(--button-blue-hover);
+}
+
+.theme--dark .orientationmodal__dismiss-btn {
+  color: var(--color-error);
 }

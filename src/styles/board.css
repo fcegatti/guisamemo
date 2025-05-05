@@ -62,3 +62,9 @@
   }
 }
 
+/* 🌙 DARK MODE - GameBoard */
+.theme--dark .gameboard__card {
+  background-color: var(--color-background-dark);
+  box-shadow: 0 2px 6px var(--color-shadow-dark);
+}
+

@@ -16,6 +16,18 @@
 @import '@styles/playerspanel.css';
 @import '@styles/playerstatus.css';
 
+/* 🌍 Global background for full viewport */
+html,
+body {
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
+}
+
+body.theme--dark {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

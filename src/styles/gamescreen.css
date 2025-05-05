@@ -58,3 +58,17 @@
     padding-top: 0.5rem;
   }
 }
+
+/* 🌙 DARK MODE - GameScreen */
+.theme--dark .gamescreen {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+.theme--dark .gamescreen__exit-btn {
+  color: var(--color-text-light);
+}
+
+.theme--dark .gamescreen__exit-btn:hover {
+  color: var(--accent-yellow);
+}

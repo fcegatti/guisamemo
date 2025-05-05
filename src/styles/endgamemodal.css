@@ -60,3 +60,19 @@
 .endgamemodal__message:focus {
   outline: none;
 }
+
+/* 🌙 DARK MODE - EndGameModal */
+.theme--dark .endgamemodal {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+  border-color: var(--color-border-grey);
+}
+
+.theme--dark .endgamemodal__button {
+  background-color: var(--button-green);
+  color: var(--color-text-light);
+}
+
+.theme--dark .endgamemodal__button:hover {
+  background-color: var(--button-green-hover);
+}

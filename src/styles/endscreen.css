@@ -33,3 +33,13 @@
   }
 }
 
+/* 🌙 DARK MODE - EndScreen */
+.theme--dark .endscreen {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+.theme--dark .endscreen__title {
+  color: var(--color-text-light);
+}
+

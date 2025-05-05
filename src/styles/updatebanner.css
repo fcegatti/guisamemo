@@ -2,8 +2,8 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: #333;
-  color: white;
+  background: var(--color-background-light);
+  color: var(--color-text-dark);
   text-align: center;
   padding: 1rem;
   z-index: 999;
@@ -11,8 +11,8 @@
 
 .update-banner button {
   margin-left: 1rem;
-  background: #fff;
-  color: #333;
+  background: var(--color-background-dark);
+  color:  var(--color-text-light);
   border: none;
   padding: 0.5rem 1rem;
   font-weight: bold;
@@ -24,4 +24,15 @@
   font-size: 0.9rem;
   opacity: 0.9;
   margin-top: 0.3rem;
+}
+
+/* 🌙 DARK MODE - Update Banner */
+.theme--dark .update-banner {
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+.theme--dark .update-banner button {
+  background: var(--color-text-light);
+  color: var(--color-background-dark);
 }

@@ -1,0 +1,22 @@
+.startscreen__lang-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.startscreen__lang-flag {
+  width: 30px;
+  height: 20px;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+/* 🌙 DARK MODE */
+.theme--dark .startscreen__lang-flag {
+  border: 1px solid var(--color-border-dark);
+}

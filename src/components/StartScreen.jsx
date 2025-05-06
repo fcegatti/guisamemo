@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
 import ThemeSelector from '@components/interface/ThemeSelector'
+import LanguageSelector from '@components/interface/LanguageSelector'
 import BoardSizeSelector from '@components/game/BoardSizeSelector'
 import AvatarSelector from '@components/avatar/AvatarSelector'
 import { handleAddPlayer } from '@handlers/handleAddPlayer'
@@ -16,17 +16,7 @@ function StartScreen () {
   const [error, setError] = useState('')
   const [selectingAvatarFor, setSelectingAvatarFor] = useState(null)
 
-  const { t, lang, setLang } = useLanguage()
-  const navigate = useNavigate()
-
-  const toggleLang = () => {
-    const newLang = lang === 'es' ? 'gl' : 'es'
-    setLang(newLang)
-    navigate(`/${newLang}`, { replace: true })
-  }
-
-  const flagSrc = lang === 'es' ? '/galicia.webp' : '/spain.webp'
-  const flagAlt = lang === 'es' ? t.lang.switchToGl : t.lang.switchToEs
+  const { t } = useLanguage()
 
   const {
     players,
@@ -86,22 +76,7 @@ function StartScreen () {
           aria-hidden='true'
         />
         <ThemeSelector />
-        <button
-          type='button'
-          onClick={toggleLang}
-          className='startscreen__lang-btn'
-          aria-label={flagAlt}
-          title={flagAlt}
-        >
-          <img
-            src={flagSrc}
-            alt={flagAlt}
-            width='30'
-            height='20'
-            className='startscreen__lang-flag'
-            aria-hidden='true'
-          />
-        </button>
+        <LanguageSelector />
       </div>
 
       <div className='startscreen__middle'>

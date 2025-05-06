@@ -18,25 +18,6 @@
   margin-bottom: 1rem;
 }
 
-/* 🌐 Language button */
-.startscreen__lang-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  z-index: 50;
-}
-
-.startscreen__lang-flag {
-  width: 30px;
-  height: 20px;
-  object-fit: cover;
-  border: 1px solid black;
-}
-
 /* Player input form */
 .startscreen__form {
   display: flex;
@@ -243,10 +224,6 @@
 
 .theme--dark .startscreen__player-name {
   color: var(--color-text-light);
-}
-
-.theme--dark .startscreen__lang-flag {
-  border: 1px solid var(--color-border-dark);
 }
 
 .theme--dark .startscreen__remove-btn {

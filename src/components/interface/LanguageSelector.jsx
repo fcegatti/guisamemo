@@ -18,7 +18,7 @@ export default function LanguageSelector () {
     <button
       type='button'
       onClick={toggleLang}
-      className='startscreen__lang-btn'
+      className='languageselector__button'
       aria-label={flagAlt}
       title={flagAlt}
     >
@@ -27,7 +27,7 @@ export default function LanguageSelector () {
         alt={flagAlt}
         width='30'
         height='20'
-        className='startscreen__lang-flag'
+        className='languageselector__flag'
         aria-hidden='true'
       />
     </button>

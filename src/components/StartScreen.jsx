@@ -3,15 +3,15 @@ import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
 import ThemeSelector from '@components/interface/ThemeSelector'
 import LanguageSelector from '@components/interface/LanguageSelector'
+import BoardSizeSelector from '@components/game/BoardSizeSelector'
 import PlayerForm from '@components/players/PlayerForm'
 import PlayerList from '@components/players/PlayerList'
-import BoardSizeSelector from '@components/game/BoardSizeSelector'
+import { getAvatarName } from '@logic/getAvatarName'
 import StartGameButton from '@components/interface/StartGameButton'
 import { handleAddPlayer } from '@handlers/handleAddPlayer'
 import { handleAvatarSelect } from '@handlers/handleAvatarSelect'
 import { MAX_PLAYERS } from '@constants/game'
 import { useMediaQuery } from '@hooks/useMediaQuery'
-import { AVATAR_INFO } from '@constants/avatars'
 
 function StartScreen () {
   const [playerName, setPlayerName] = useState('')
@@ -47,11 +47,6 @@ function StartScreen () {
       setPlayers,
       setSelectingAvatarFor
     })
-  }
-
-  const getAvatarName = (filename) => {
-    const found = AVATAR_INFO.find(a => a.filename === filename)
-    return found?.name || ''
   }
 
   const handleDeletePlayer = (id) => {

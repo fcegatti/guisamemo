@@ -6,6 +6,7 @@ import LanguageSelector from '@components/interface/LanguageSelector'
 import PlayerForm from '@components/players/PlayerForm'
 import PlayerList from '@components/players/PlayerList'
 import BoardSizeSelector from '@components/game/BoardSizeSelector'
+import StartGameButton from '@components/interface/StartGameButton'
 import { handleAddPlayer } from '@handlers/handleAddPlayer'
 import { handleAvatarSelect } from '@handlers/handleAvatarSelect'
 import { MAX_PLAYERS } from '@constants/game'
@@ -23,7 +24,6 @@ function StartScreen () {
     players,
     addPlayer,
     removePlayer,
-    startGame,
     setPlayers
   } = useGame()
 
@@ -56,10 +56,6 @@ function StartScreen () {
 
   const handleDeletePlayer = (id) => {
     removePlayer(id)
-  }
-
-  const handleStartGame = () => {
-    startGame()
   }
 
   const isTabletOrLarger = useMediaQuery('(min-width: 600px)')
@@ -100,14 +96,7 @@ function StartScreen () {
       </div>
 
       <div className='startscreen__bottom'>
-        <button
-          type='button'
-          onClick={handleStartGame}
-          disabled={players.length === 0}
-          className='startscreen__start-btn'
-        >
-          {t.start.startGame}
-        </button>
+        <StartGameButton />
       </div>
     </div>
   )

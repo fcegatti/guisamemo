@@ -1,0 +1,21 @@
+/* Start game button */
+.startgamebutton {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  background-color: var(--button-blue);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.startgamebutton:disabled {
+  background-color: var(--button-blue-disabled);
+  cursor: not-allowed;
+}
+
+/* 🌙 DARK MODE - StartScreen */
+.theme--dark .startgamebutton:disabled {
+  background-color: var(--button-disabled-dark);
+}

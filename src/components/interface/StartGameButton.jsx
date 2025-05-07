@@ -10,7 +10,7 @@ function StartGameButton () {
       type='button'
       onClick={startGame}
       disabled={players.length === 0}
-      className='startscreen__start-btn'
+      className='startgamebutton'
     >
       {t.start.startGame}
     </button>

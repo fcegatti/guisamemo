@@ -1,10 +1,11 @@
 @import '@styles/variables.css';
 @import '@styles/updatebanner.css';
 @import '@styles/startscreen.css';
-@import '@styles/languageselector.css';
 @import '@styles/themeselector.css';
-@import '@styles/avatarselector.css';
+@import '@styles/languageselector.css';
 @import '@styles/boardsizeselector.css';
+@import '@styles/avatarselector.css';
+/* @import '@styles/playerform.css'; */
 @import '@styles/gamescreen.css';
 @import '@styles/board.css';
 @import '@styles/orientationmodal.css';

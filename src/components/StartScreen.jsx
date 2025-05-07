@@ -3,11 +3,12 @@ import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
 import ThemeSelector from '@components/interface/ThemeSelector'
 import LanguageSelector from '@components/interface/LanguageSelector'
+import PlayerForm from '@components/players/PlayerForm'
 import BoardSizeSelector from '@components/game/BoardSizeSelector'
 import AvatarSelector from '@components/avatar/AvatarSelector'
 import { handleAddPlayer } from '@handlers/handleAddPlayer'
 import { handleAvatarSelect } from '@handlers/handleAvatarSelect'
-import { MAX_PLAYERS, MAX_NAME_LENGTH } from '@constants/game'
+import { MAX_PLAYERS } from '@constants/game'
 import { useMediaQuery } from '@hooks/useMediaQuery'
 import { AVATAR_INFO } from '@constants/avatars'
 
@@ -81,40 +82,13 @@ function StartScreen () {
 
       <div className='startscreen__middle'>
         {isTabletOrLarger && <BoardSizeSelector />}
-        <div className='startscreen__form'>
-          <label htmlFor='player-name' className='sr-only'>
-            {t.start.label}
-          </label>
-          <input
-            name='player-name'
-            id='player-name'
-            type='text'
-            placeholder={isMaxPlayers ? t.start.maxReached : t.start.placeholder}
-            value={playerName}
-            onChange={(e) => setPlayerName(e.target.value)}
-            disabled={isMaxPlayers}
-            maxLength={MAX_NAME_LENGTH}
-            className='startscreen__input'
-            aria-describedby='player-error'
-          />
-          <button
-            type='button'
-            onClick={handleAddPlayerWrapper}
-            disabled={!playerName.trim() || isMaxPlayers}
-            className='startscreen__add-btn'
-          >
-            {t.start.addPlayer}
-          </button>
-        </div>
-        {error && (
-          <p
-            className='startscreen__error'
-            role='alert'
-            aria-live='assertive'
-            id='player-error'
-          >
-            {error}
-          </p>)}
+        <PlayerForm
+          playerName={playerName}
+          setPlayerName={setPlayerName}
+          onAddPlayer={handleAddPlayerWrapper}
+          isDisabled={isMaxPlayers}
+          error={error}
+        />
         <ul
           className='startscreen__players'
           role='list'

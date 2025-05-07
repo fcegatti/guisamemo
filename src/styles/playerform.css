@@ -1,0 +1,69 @@
+/* Player input form */
+.playerform {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  gap: var(--spacing-sm);
+  margin-bottom: 1rem;
+}
+
+.playerform__input {
+  flex: 1;
+  padding: var(--form-padding);
+  font-size: 1rem;
+  border: 2px solid var(--color-border-grey);
+  border-radius: var(--radius-sm);
+}
+
+.playerform__error {
+  color: var(--color-error);
+  margin: 0.5rem;
+  font-weight: bold;
+}
+
+.playerform__button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: var(--button-green);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+}
+
+.playerform__button:disabled {
+  background-color: var(--button-green-disabled);
+  cursor: not-allowed;
+}
+
+@media (max-height: 768px) and (min-width: 600px) {
+  .playerform {
+    gap: var(--spacing-xs);
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+/* 🌙 DARK MODE - StartScreen */
+
+.theme--dark .playerform__input {
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-light);
+  border-color: var(--color-border-light);
+}
+
+.theme--dark .playerform__input:focus {
+  outline: none;
+  border: 2px solid var(--accent-red);
+  background-color: #2e2e2e;
+}
+
+.theme--dark .playerform__error {
+  color: var(--color-error);
+  background-color: var(--color-background-light);
+}
+
+.theme--dark .playerform__button:disabled {
+  background-color: var(--button-disabled-dark);
+}

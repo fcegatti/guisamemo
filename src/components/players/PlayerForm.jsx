@@ -12,7 +12,7 @@ function PlayerForm ({
 
   return (
     <>
-      <div className='startscreen__form'>
+      <div className='playerform'>
         <label htmlFor='player-name' className='sr-only'>
           {t.start.label}
         </label>
@@ -25,21 +25,21 @@ function PlayerForm ({
           onChange={(e) => setPlayerName(e.target.value)}
           disabled={isDisabled}
           maxLength={MAX_NAME_LENGTH}
-          className='startscreen__input'
+          className='playerform__input'
           aria-describedby='player-error'
         />
         <button
           type='button'
           onClick={onAddPlayer}
           disabled={!playerName.trim() || isDisabled}
-          className='startscreen__add-btn'
+          className='playerform__button'
         >
           {t.start.addPlayer}
         </button>
       </div>
       {error && (
         <p
-          className='startscreen__error'
+          className='playerform__error'
           role='alert'
           aria-live='assertive'
           id='player-error'

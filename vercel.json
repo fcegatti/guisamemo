@@ -2,7 +2,22 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/es", "destination": "/index.html" },
-    { "source": "/gl", "destination": "/index.html" }
+    { "source": "/gl", "destination": "/index.html" },
+
+    { "source": "/es/manifest.json", "destination": "/manifest.json" },
+    { "source": "/gl/manifest.json", "destination": "/manifest.json" },
+
+    { "source": "/es/sw.js", "destination": "/sw.js" },
+    { "source": "/gl/sw.js", "destination": "/sw.js" },
+
+    { "source": "/es/favicon.ico", "destination": "/favicon.ico" },
+    { "source": "/gl/favicon.ico", "destination": "/favicon.ico" },
+
+    { "source": "/es/robots.txt", "destination": "/robots.txt" },
+    { "source": "/gl/robots.txt", "destination": "/robots.txt" },
+
+    { "source": "/es/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/gl/sitemap.xml", "destination": "/sitemap.xml" }
   ],
   "headers": [
     {

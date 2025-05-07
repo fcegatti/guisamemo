@@ -3,6 +3,8 @@ import {
   PAIR_POINTS,
   SPECIAL_PAIR_POINTS
 } from '@constants/game'
+import { handlePlaySound } from './handlePlaySound'
+import { handleTriggerAnimation } from './handleTriggerAnimation'
 
 /**
  * Updates the current player's score based on the matched image.
@@ -19,6 +21,7 @@ export function handleMatchOutcome ({
 }) {
   const isSpecialPair = SPECIAL_CARDS.includes(matchedImage)
   const points = isSpecialPair ? SPECIAL_PAIR_POINTS : PAIR_POINTS
+
   setPlayers(prevPlayers =>
     prevPlayers.map((player, index) => {
       if (index === currentTurnIndex) {
@@ -30,7 +33,6 @@ export function handleMatchOutcome ({
       return player
     })
   )
-  // TODO:
-  // - Reproduce sounds
-  // - Activate animations
+  handlePlaySound('match')
+  handleTriggerAnimation('match')
 }

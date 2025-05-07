@@ -1,6 +1,8 @@
+import { handlePlaySound } from './handlePlaySound'
+import { HandleTriggerAnimation } from './handleTriggerAnimation'
+
 export function handleMismatchOutcome ({ nextTurn }) {
   nextTurn()
-  // TODO:
-  // - Play error sound (?)
-  // - Trigger animation
+  handlePlaySound('mismatch')
+  HandleTriggerAnimation('mismatch')
 }

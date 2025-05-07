@@ -13,25 +13,25 @@ function PlayerList ({
 
   return (
     <ul
-      className='startscreen__players'
+      className='playerlist'
       role='list'
       aria-label={t.start.playerListLabel}
     >
       {players.map((player) => (
         <li
           key={player.id}
-          className='startscreen__player'
+          className='playerlist__item'
           role='listitem'
         >
           <span
             id={`player-name-${player.id}`}
-            className='startscreen__player-name'
+            className='playerlist__name'
           >
             {player.name}
           </span>
           <button
             type='button'
-            className='startscreen__player-avatar-btn'
+            className='playerlist__avatar-button'
             onClick={() => setSelectingAvatarFor(player.id)}
             aria-labelledby={`player-name-${player.id}`}
             title={
@@ -47,7 +47,7 @@ function PlayerList ({
                   ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
                   : t.start.selectAvatar
               }
-              className='startscreen__player-avatar'
+              className='playerlist__avatar'
             />
           </button>
           {selectingAvatarFor === player.id && (
@@ -58,7 +58,7 @@ function PlayerList ({
           )}
           <button
             type='button'
-            className='startscreen__remove-btn'
+            className='playerlist__remove-button'
             onClick={() => handleDeletePlayer(player.id)}
             aria-label={t.start.removePlayer.replace('{name}', player.name)}
             title={t.start.removePlayer.replace('{name}', player.name)}

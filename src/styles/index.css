@@ -6,7 +6,7 @@
 @import '@styles/boardsizeselector.css';
 @import '@styles/avatarselector.css';
 @import '@styles/playerform.css';
-/* @import '@styles/playerform.css'; */
+@import '@styles/playerlist.css';
 @import '@styles/gamescreen.css';
 @import '@styles/board.css';
 @import '@styles/orientationmodal.css';

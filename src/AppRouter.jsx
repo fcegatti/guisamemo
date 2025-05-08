@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App'
+import LanguageRedirector from '@components/LanguageRedirector'
 
 function LanguageWrapper () {
   return <App />
@@ -10,7 +11,7 @@ export default function AppRouter () {
     <BrowserRouter>
       <Routes>
         {/* R<Automatic redirection from '/' to '/es' */}
-        <Route path='/' element={<Navigate to='/es' replace />} />
+        <Route path='/' element={<LanguageRedirector />} />
 
         {/* Routes per language */}
         <Route path='/:lang' element={<LanguageWrapper />} />

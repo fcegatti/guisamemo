@@ -103,6 +103,53 @@ export default defineConfig({
             type: 'image/png',
             purpose: 'maskable'
           }
+        ],
+        screenshots: [
+          {
+            src: '/screenshot-1.webp',
+            sizes: '360x642',
+            type: 'image/webp'
+          },
+          {
+            src: '/screenshot-2.webp',
+            sizes: '360x642',
+            type: 'image/webp'
+          },
+          {
+            src: '/screenshot-3.webp',
+            sizes: '360x642',
+            type: 'image/webp'
+          },
+          {
+            src: '/screenshot-4.webp',
+            sizes: '1024x768',
+            type: 'image/webp'
+          },
+          {
+            src: '/screenshot-5.webp',
+            sizes: '1024x768',
+            type: 'image/webp'
+          },
+          {
+            src: '/screenshot-6.webp',
+            sizes: '1024x768',
+            type: 'image/webp'
+          },
+          {
+            src: '/screenshot-7.webp',
+            sizes: '1440x900',
+            type: 'image/webp'
+          },
+          {
+            src: '/screenshot-8.webp',
+            sizes: '1440x900',
+            type: 'image/webp'
+          },
+          {
+            src: '/screenshot-9.webp',
+            sizes: '1440x900',
+            type: 'image/webp'
+          }
         ]
       },
       workbox: {

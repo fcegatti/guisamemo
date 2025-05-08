@@ -5,7 +5,15 @@
   "description": "Guisamemo es un juego de memoria infantil visual, accesible y compatible como PWA.",
   "author": "tr4p0.dev",
   "license": "MIT",
-  "keywords": ["memoria", "infantil", "PWA", "React", "juego", "multijugador", "Guisamemo"],
+  "keywords": [
+    "memoria",
+    "infantil",
+    "PWA",
+    "React",
+    "juego",
+    "multijugador",
+    "Guisamemo"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/fcegatti/guisamemo.git"
@@ -15,7 +23,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "standard",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "serve dist"
   },
   "dependencies": {
     "canvas-confetti": "1.9.3",
@@ -29,6 +38,7 @@
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "globals": "^15.15.0",
+    "serve": "^14.2.4",
     "standard": "^17.1.2",
     "vite": "^6.2.0",
     "vite-plugin-pwa": "^1.0.0"

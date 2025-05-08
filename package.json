@@ -1,7 +1,15 @@
 {
   "name": "guisamemo",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.2.0",
+  "description": "Guisamemo es un juego de memoria infantil visual, accesible y compatible como PWA.",
+  "author": "tr4p0.dev",
+  "license": "MIT",
+  "keywords": ["memoria", "infantil", "PWA", "React", "juego", "multijugador", "Guisamemo"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fcegatti/guisamemo.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

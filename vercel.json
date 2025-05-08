@@ -3,6 +3,8 @@
     { "source": "/", "destination": "/index.html" },
     { "source": "/es", "destination": "/index.html" },
     { "source": "/gl", "destination": "/index.html" },
+    { "source": "/es/", "destination": "/index.html" },
+    { "source": "/gl/", "destination": "/index.html" },
     { "source": "/es/(.*)", "destination": "/index.html" },
     { "source": "/gl/(.*)", "destination": "/index.html" },
     {

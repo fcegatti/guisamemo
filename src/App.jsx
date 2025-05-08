@@ -9,6 +9,11 @@ function AppContent () {
 
   return (
     <>
+      {!navigator.onLine && (
+        <div style={{ background: 'red', color: 'white', padding: '10px' }}>
+          ¡Modo offline! (Aviso temporal - luego lo mejoraremos)
+        </div>
+      )}
       {!gameStarted && <StartScreen />}
       {gameStarted && !isGameOver && <GameScreen />}
       {isGameOver && <EndScreen />}

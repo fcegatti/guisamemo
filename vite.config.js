@@ -18,7 +18,6 @@ export default defineConfig({
         'apple-icon-180x180.png',
         'android-icon-192x192.png',
         'maskable-icon.png',
-        'offline.html',
         'logo.webp',
         'spain.webp',
         'galicia.webp',
@@ -155,13 +154,21 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,webp,png,ico}'],
-        navigateFallback: 'offline.html',
+        navigateFallback: 'index.html',
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/guisamemo\.vercel\.app\/.*$/,
+            urlPattern: ({ request }) => request.destination === 'document',
             handler: 'NetworkFirst',
             options: {
-              cacheName: 'guisamemo-pages'
+              cacheName: 'guisamemo-pages',
+              networkTimeoutSeconds: 3
+            }
+          },
+          {
+            urlPattern: /^https:\/\/guisamemo\.vercel\.app\/.*$/,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'guisamemo-assets'
             }
           }
         ]

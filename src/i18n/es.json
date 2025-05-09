@@ -109,5 +109,8 @@
     "message": "Se actualizó la aplicación.",
     "instruction": "Recarga la app para usar la nueva versión.",
     "button": "Recargar ahora"
+  },
+  "offline": {
+    "message": "Modo sin conexión"
   }
 }

@@ -1,5 +1,6 @@
 import { GameProvider, useGame } from '@context/GameContext'
 import UpdateBanner from '@components/UpdateBanner'
+import { OfflineBanner } from '@components/interface/OfflineBanner'
 import StartScreen from '@components/StartScreen'
 import GameScreen from '@components/game/GameScreen'
 import EndScreen from '@components/game/EndScreen'
@@ -11,11 +12,7 @@ function AppContent () {
 
   return (
     <>
-      {!isOnline && (
-        <div style={{ background: 'red', color: 'white', padding: '10px' }}>
-          ¡Modo offline! (Aviso temporal - luego lo mejoraremos)
-        </div>
-      )}
+      {!isOnline && <OfflineBanner />}
       {!gameStarted && <StartScreen />}
       {gameStarted && !isGameOver && <GameScreen />}
       {isGameOver && <EndScreen />}

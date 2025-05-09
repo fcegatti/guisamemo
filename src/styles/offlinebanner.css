@@ -1,0 +1,29 @@
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  display: inline-flex;
+  justify-content: center;
+  transform: translateX(-50%) translateY(-100%);
+  background-color: var(--color-error);
+  color: var(--color-text-light);
+  border-radius: 0 0 16px 16px;
+  padding: 0.75rem;
+  text-align: center;
+  animation: slideDown 0.3s ease-out forwards;
+  z-index: 100;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border-light);
+  border-top: none;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%) }
+  to { transform: translateY(0) }
+}
+
+/* 🌙 DARK MODE - offlinebanner */
+.theme--dark .offline-banner {
+  border-color: var(--color-border-dark);
+}

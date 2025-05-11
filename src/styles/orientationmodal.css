@@ -89,6 +89,10 @@
   border-color: var(--color-border-grey);
 }
 
+.theme--dark .orientationmodal__icon {
+  filter: brightness(0) invert(1);
+}
+
 .theme--dark .orientationmodal__message {
   color: var(--color-text-light);
 }

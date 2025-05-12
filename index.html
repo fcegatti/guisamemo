@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="es">
   <head>
+    <script>
+    const stored = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (stored === 'dark' || (!theme && prefersDark)) {
+      document.documentElement.classList.add('theme--dark')
+    } else {
+    document.documentElement.classList.remove('theme--dark')
+  }
+
+    // FUTURE: override from platform
+    // if (window.GP_THEME) {
+    //   localStorage.setItem('theme', window.GP_THEME)
+    // }
+  </script>
     <!-- 1. Google verification -->
     <meta name="google-site-verification" content="zWeV9gavnmkMbiW5a7s3pQ8QaMrgNHBC0JJrZdLxvxo" />
 

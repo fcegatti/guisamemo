@@ -14,7 +14,6 @@ export function ThemeProvider ({ children }) {
   })
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
 
     if (theme === 'dark') {

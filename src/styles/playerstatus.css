@@ -54,6 +54,10 @@
   border-color: var(--color-border-dark);
 }
 
+.theme--dark .playerstatus:not(.playerstatus--active) {
+border: 1px solid var(--color-border-light)
+}
+
 .theme--dark .playerstatus:not(.playerstatus--active) .playerstatus__name,
 .theme--dark .playerstatus:not(.playerstatus--active) .playerstatus__score {
   color: var(--color-text-light);

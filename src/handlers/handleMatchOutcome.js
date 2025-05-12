@@ -3,7 +3,7 @@ import { handlePlaySound } from './handlePlaySound'
 import { handleTriggerAnimation } from './handleTriggerAnimation'
 
 /**
- * Applies score update aftera correct match.
+ * Applies score update after a correct match.
  * Special cards grant extra points.
  * Does NOT change the turn — match = repeat turn.
  */

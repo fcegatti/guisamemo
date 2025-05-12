@@ -28,7 +28,7 @@ function Board () {
           <button
             key={card.id}
             type='button'
-            className='gameboard__card'
+            className={`gameboard__card ${card.justMatched ? 'gameboard__card--matched' : ''}`}
             onClick={() => handleCardClick(card.id)}
             aria-roledescription={t.board.cardRoleDescription}
           >

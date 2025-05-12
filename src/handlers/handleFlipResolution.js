@@ -23,12 +23,22 @@ export function handleFlipResolution ({
     const matchedImage = flippedCards[0].image
     const updatedCards = cards.map(card =>
       card.image === matchedImage
-        ? { ...card, matched: true }
+        ? { ...card, matched: true, justMatched: true }
         : card
     )
 
     setCards(updatedCards)
     setFlippedCards([])
+
+    setTimeout(() => {
+      setCards(prev =>
+        prev.map(card =>
+          card.justMatched
+            ? { ...card, justMatched: false }
+            : card
+        )
+      )
+    }, 700)
     onMatch(matchedImage, updatedCards)
     unlockBoard()
   } else {

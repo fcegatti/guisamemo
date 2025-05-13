@@ -4,7 +4,7 @@
     <script>
     const stored = localStorage.getItem('theme')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (stored === 'dark' || (!theme && prefersDark)) {
+    if (stored === 'dark' || (!stored && prefersDark)) {
       document.documentElement.classList.add('theme--dark')
     } else {
     document.documentElement.classList.remove('theme--dark')

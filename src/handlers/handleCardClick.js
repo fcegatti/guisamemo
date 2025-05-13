@@ -41,6 +41,9 @@ export function handleCardClick ({
   )
   setCards(newCards)
   setFlippedCards(updatedFlipped)
+  if (updatedFlipped.length === 1) {
+    handlePlaySound('flip')
+  }
 
   // Accesible message only when card is revealed
   const cardName = clickedCard.translationKey

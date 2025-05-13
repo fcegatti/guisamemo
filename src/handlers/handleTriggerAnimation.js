@@ -5,6 +5,10 @@
  */
 
 export function handleTriggerAnimation (type, element = null) {
+  if (type === 'mismatch' && 'vibrate' in navigator) {
+    navigator.vibrate([30, 40, 30])
+  }
+
   if (import.meta.env.MODE === 'development') {
     console.log(`[triggerAnimation] Triggered animation: ${type}`, element)
   }

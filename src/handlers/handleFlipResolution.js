@@ -39,17 +39,28 @@ export function handleFlipResolution ({
         )
       )
     }, 700)
+
     onMatch(matchedImage, updatedCards)
     unlockBoard()
   } else {
+    const mismatchedIds = flippedCards.map(fc => fc.id)
+
+    const updatedCards = cards.map(card =>
+      mismatchedIds.includes(card.id)
+        ? { ...card, justMismatched: true }
+        : card
+    )
+
+    setCards(updatedCards)
+
     setTimeout(() => {
-      const updatedCards = cards.map(card =>
-        flippedCards.some(fc => fc.id === card.id)
-          ? { ...card, flipped: false }
+      const revertedCards = updatedCards.map(card =>
+        mismatchedIds.includes(card.id)
+          ? { ...card, flipped: false, justMismatched: false }
           : card
       )
 
-      setCards(updatedCards)
+      setCards(revertedCards)
       setFlippedCards([])
       onMismatch()
       unlockBoard()

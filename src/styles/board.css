@@ -8,6 +8,7 @@
   height: calc(100dvh - 120px);
   overflow: hidden;
   grid-auto-rows: auto;
+  box-sizing: border-box;
 }
 
 .gameboard__card {
@@ -28,9 +29,34 @@
 }
 
 .gameboard__card--matched {
-  animation: match-glow 600ms ease-out;
-  z-index: 1; /* ensure glow is visible */
+  animation: match-glow 600ms ease-in;
+  z-index: 1;
   position: relative;
+}
+
+.gameboard__card--mismatched {
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 300ms ease;
+}
+
+.gameboard__card--mismatched-active {
+  box-shadow: 0 0 0 2px #ff4444;
+}
+
+.gameboard__card--mismatched::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 0, 0, 0.15);
+  pointer-events: none;
+  opacity: 0;
+  transition: box-shadow 300ms ease;
+}
+
+.gameboard__card--mismatched-active::after {
+  opacity: 1;
 }
 
 /* Responsive board columns */
@@ -96,6 +122,15 @@
   .gameboard__card--matched {
     animation: none;
     transform: none;
+  }
+
+    .gameboard__card--mismatched::after {
+    transition: none;
+  }
+
+  .gameboard__card--mismatched::after {
+    transition: none;
+    opacity: 0.4;
   }
 }
 

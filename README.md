@@ -90,8 +90,38 @@ This project is licensed under the MIT License.
 
 ## 👤 Credits
 
-No external assets currently require attribution.  
-Credits will be included when external media are added in future releases.
+### 🎧 Audio Credits
+
+This project uses the following sound resources under their respective licenses:
+
+---
+
+#### ✅ Correct Match Sound
+
+- 🎵 Sound: "Complete Chime" by [FoolBoyMedia](https://freesound.org/people/FoolBoyMedia/)
+- 🔗 https://freesound.org/people/FoolBoyMedia/sounds/352661/  
+- 📜 License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+
+#### ❌ Incorrect Match Sound
+
+- 🎵 Sound: "Bad Beep (Incorrect)" by [RICHERlandTV](https://freesound.org/people/RICHERlandTV/)
+- 🔗 https://freesound.org/people/RICHERlandTV/sounds/216090/  
+- 📜 License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+#### 🏁 End Game Transition Sound
+
+- 🎵 Sound: "Tada Fanfare A" [plasterbrain](https://freesound.org/people/plasterbrain/)  
+- 🔗 https://freesound.org/people/plasterbrain/sounds/397355/  
+- 📜 License: [CC0 1.0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+#### 🔄 Card Flip Sound
+
+- 🎵 Sound: "Deal.ogg" (edited) by [egomassive](https://freesound.org/people/egomassive/) 
+  based on "Card Flip" by [f4ngy](https://freesound.org/people/f4ngy/) 
+- 🔗 https://freesound.org/people/egomassive/sounds/536784/  
+- 🔗 https://freesound.org/people/f4ngy/sounds/240776/  
+- 📜 License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 ---
 

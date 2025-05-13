@@ -4,6 +4,10 @@ const sounds = {
   match: new Howl({
     src: ['/sounds/card-match.ogg', '/sounds/card-match.mp3'],
     volume: 1.0
+  }),
+  mismatch: new Howl({
+    src: ['/sounds/card-mismatch.ogg', '/sounds/card-mismatch.mp3'],
+    volume: 1.0
   })
 }
 

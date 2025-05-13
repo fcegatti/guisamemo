@@ -12,6 +12,10 @@ const sounds = {
   end: new Howl({
     src: ['/sounds/end-game.ogg', '/sounds/end-game.mp3'],
     volume: 1.0
+  }),
+  flip: new Howl({
+    src: ['/sounds/card-flip.ogg', '/sounds/card-flip.mp3'],
+    volume: 1.0
   })
 }
 

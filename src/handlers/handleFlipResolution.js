@@ -15,7 +15,8 @@ export function handleFlipResolution ({
   setFlippedCards,
   onMatch,
   onMismatch,
-  unlockBoard
+  unlockBoard,
+  nextTurn
 }) {
   const isMatch = resolveFlippedCards(flippedCards)
 
@@ -64,6 +65,7 @@ export function handleFlipResolution ({
       setCards(revertedCards)
       setFlippedCards([])
       unlockBoard()
+      nextTurn()
     }, FLIP_BACK_DELAY)
   }
 }

@@ -63,9 +63,9 @@ export function handleCardClick ({
         unlockBoard()
       },
       onMismatch: () => {
-        handleMismatchOutcome({ nextTurn })
-        unlockBoard()
+        handleMismatchOutcome()
       },
+      nextTurn,
       unlockBoard
     })
   }

@@ -6,7 +6,7 @@
 
 export function handleTriggerAnimation (type, element = null) {
   if (type === 'mismatch' && 'vibrate' in navigator) {
-    navigator.vibrate([30, 40, 30])
+    navigator.vibrate([200])
   }
 
   if (import.meta.env.MODE === 'development') {

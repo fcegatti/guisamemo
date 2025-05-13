@@ -8,7 +8,19 @@ const sounds = {
 }
 
 export function playSound (type) {
-  if (sounds[type]) {
-    sounds[type].play()
+  const sound = sounds[type]
+  if (!sound) {
+    if (import.meta.env.MODE === 'development') {
+      console.warn(`[playSound] Unknown sound type: ${type}`)
+    }
+    return
   }
+
+  const id = sound.play()
+
+  sound.once('playerror', (failedId, error) => {
+    if (failedId === id && import.meta.env.MODE === 'development') {
+      console.warn(`[SoundError] Failed to play "${type}":`, error)
+    }
+  })
 }

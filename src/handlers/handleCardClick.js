@@ -1,6 +1,7 @@
 import { handleFlipResolution } from '@handlers/handleFlipResolution'
 import { handleMatchOutcome } from '@handlers/handleMatchOutcome'
 import { handleMismatchOutcome } from '@handlers/handleMismatchOutcome'
+import { handlePlaySound } from '@handlers/handlePlaySound'
 import { checkEndGame } from '@logic/checkEndGame'
 
 export function handleCardClick ({
@@ -58,7 +59,10 @@ export function handleCardClick ({
       onMatch: (matchedImage, updatedCards) => {
         handleMatchOutcome({ matchedImage, players, currentTurnIndex, setPlayers })
         if (checkEndGame(updatedCards)) {
-          setTimeout(() => setIsGameOver(true), 1200)
+          setTimeout(() => {
+            handlePlaySound('end')
+          }, 800)
+          setTimeout(() => setIsGameOver(true), 1800)
         }
         unlockBoard()
       },

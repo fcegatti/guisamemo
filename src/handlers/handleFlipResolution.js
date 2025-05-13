@@ -52,6 +52,7 @@ export function handleFlipResolution ({
     )
 
     setCards(updatedCards)
+    onMismatch()
 
     setTimeout(() => {
       const revertedCards = updatedCards.map(card =>
@@ -62,7 +63,6 @@ export function handleFlipResolution ({
 
       setCards(revertedCards)
       setFlippedCards([])
-      onMismatch()
       unlockBoard()
     }, FLIP_BACK_DELAY)
   }

@@ -1,12 +1,14 @@
+import { vibrateFeedback } from '@utils/vibration'
+import { VIBRATION_PATTERN } from '@constants/game'
+
 /**
  * Triggers an animation based on the event type.
  * Optionally accepts a DOM node or identifier.
- * To be implemented in future versions.
  */
 
 export function handleTriggerAnimation (type, element = null) {
-  if (type === 'mismatch' && 'vibrate' in navigator) {
-    navigator.vibrate([200])
+  if (type === 'mismatch') {
+    vibrateFeedback(VIBRATION_PATTERN.mismatch)
   }
 
   if (import.meta.env.MODE === 'development') {

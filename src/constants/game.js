@@ -30,3 +30,7 @@ export const SPECIAL_CARDS = [
   '/cards/card-1.webp', // Messi
   '/cards/card-10.webp' // Maradona
 ]
+
+export const VIBRATION_PATTERN = {
+  mismatch: [200]
+}

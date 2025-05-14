@@ -105,9 +105,9 @@ This project uses the following sound resources under their respective licenses:
 
 #### ❌ Incorrect Match Sound
 
-- 🎵 Sound: "Bad Beep (Incorrect)" by [RICHERlandTV](https://freesound.org/people/RICHERlandTV/)
-- 🔗 https://freesound.org/people/RICHERlandTV/sounds/216090/  
-- 📜 License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- 🎵 Sound: "ui-mistake.wav" by [StavSounds](https://freesound.org/people/StavSounds/)  
+- 🔗 https://freesound.org/people/StavSounds/sounds/701703/  
+- 📜 License: [CC0 1.0 (Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 #### 🏁 End Game Transition Sound
 

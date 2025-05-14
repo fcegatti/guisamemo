@@ -1,8 +1,5 @@
 import { handleFlipResolution } from '@handlers/handleFlipResolution'
-import { handleMatchOutcome } from '@handlers/handleMatchOutcome'
-import { handleMismatchOutcome } from '@handlers/handleMismatchOutcome'
 import { handlePlaySound } from '@handlers/handlePlaySound'
-import { checkEndGame } from '@logic/checkEndGame'
 
 export function handleCardClick ({
   cardId,
@@ -59,21 +56,14 @@ export function handleCardClick ({
       cards: newCards, // use the freshest cards
       setCards,
       setFlippedCards,
-      onMatch: (matchedImage, updatedCards) => {
-        handleMatchOutcome({ matchedImage, players, currentTurnIndex, setPlayers })
-        if (checkEndGame(updatedCards)) {
-          setTimeout(() => {
-            handlePlaySound('end')
-          }, 800)
-          setTimeout(() => setIsGameOver(true), 1800)
-        }
-        unlockBoard()
-      },
-      onMismatch: () => {
-        handleMismatchOutcome()
-      },
+      onMatch: () => {},
+      onMismatch: () => {},
       nextTurn,
-      unlockBoard
+      unlockBoard,
+      setIsGameOver,
+      players,
+      currentTurnIndex,
+      setPlayers
     })
   }
 }

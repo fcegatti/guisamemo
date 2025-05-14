@@ -1,12 +1,19 @@
 /**
  * Controls the full resolution flow after two cards are flipped:
  * - Uses resolveFlippedCards (pure logic)
- * - Sets matched state
+ * - Sets matched or mismatched state
+ * - Applies scoring logic (via updatePlayerScore)
  * - Delays flipping back unmatched cards
+ * - Triggers sound/animation feedback via handlers
  * - Calls onMatch or onMismatch accordingly
  */
 import { resolveFlippedCards } from '@logic/resolveFlippedCards'
 import { FLIP_BACK_DELAY } from '@constants/game'
+import { handleMatchOutcome } from './handleMatchOutcome'
+import { handleMismatchOutcome } from './handleMismatchOutcome'
+import { updatePlayerScore } from '@logic/updatePlayerScore'
+import { checkEndGame } from '@logic/checkEndGame'
+import { handlePlaySound } from './handlePlaySound'
 
 export function handleFlipResolution ({
   flippedCards,
@@ -16,7 +23,11 @@ export function handleFlipResolution ({
   onMatch,
   onMismatch,
   unlockBoard,
-  nextTurn
+  nextTurn,
+  players,
+  currentTurnIndex,
+  setPlayers,
+  setIsGameOver
 }) {
   const isMatch = resolveFlippedCards(flippedCards)
 
@@ -31,6 +42,17 @@ export function handleFlipResolution ({
     setCards(updatedCards)
     setFlippedCards([])
 
+    const updatedPlayers = updatePlayerScore({
+      players,
+      currentTurnIndex,
+      matchedImage,
+      result: 'match'
+    })
+
+    setPlayers(updatedPlayers)
+
+    handleMatchOutcome()
+
     setTimeout(() => {
       setCards(prev =>
         prev.map(card =>
@@ -42,6 +64,13 @@ export function handleFlipResolution ({
     }, 700)
 
     onMatch(matchedImage, updatedCards)
+
+    if (checkEndGame(updatedCards)) {
+      setTimeout(() => {
+        handlePlaySound('end')
+      }, 800)
+      setTimeout(() => setIsGameOver(true), 1800)
+    }
     unlockBoard()
   } else {
     const mismatchedIds = flippedCards.map(fc => fc.id)
@@ -53,6 +82,7 @@ export function handleFlipResolution ({
     )
 
     setCards(updatedCards)
+    handleMismatchOutcome()
     onMismatch()
 
     setTimeout(() => {

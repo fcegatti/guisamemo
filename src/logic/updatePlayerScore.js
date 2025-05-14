@@ -16,9 +16,12 @@ export function updatePlayerScore ({ players, currentTurnIndex, matchedImage, re
     ? -1
     : basePoints
 
-  return players.map((player, index) =>
-    index === currentTurnIndex
-      ? { ...player, score: player.score + points }
-      : player
-  )
+  return players.map((player, index) => {
+    if (index !== currentTurnIndex) return player
+    const newScore = result === 'mismatch'
+      ? Math.max(0, player.score + points)
+      : player.score + points
+
+    return { ...player, score: newScore }
+  })
 }

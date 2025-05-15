@@ -14,6 +14,7 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0)
   const [gameStarted, setGameStarted] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)
+  const [turnCount, setTurnCount] = useState(1)
 
   const addPlayer = (name) => {
     if (players.length >= MAX_PLAYERS) return
@@ -33,6 +34,7 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   const resetGame = () => {
     setPlayers([])
     setCurrentTurnIndex(0)
+    setTurnCount(1)
     setGameStarted(false)
     setIsGameOver(false)
   }
@@ -52,6 +54,7 @@ export function GameProvider ({ children, initialPlayers = [] }) {
 
     setPlayers(resetPlayers)
     setCurrentTurnIndex(0)
+    setTurnCount(1)
     setIsGameOver(false)
   }
 
@@ -67,6 +70,8 @@ export function GameProvider ({ children, initialPlayers = [] }) {
     resetGame,
     currentTurnIndex,
     setCurrentTurnIndex,
+    turnCount,
+    setTurnCount,
     nextTurn,
     isGameOver,
     setIsGameOver,

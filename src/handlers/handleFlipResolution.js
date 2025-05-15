@@ -27,6 +27,7 @@ export function handleFlipResolution ({
   players,
   currentTurnIndex,
   setPlayers,
+  setTurnCount,
   setIsGameOver
 }) {
   const isMatch = resolveFlippedCards(flippedCards)
@@ -101,6 +102,14 @@ export function handleFlipResolution ({
       setCards(revertedCards)
       setFlippedCards([])
       unlockBoard()
+      setTurnCount(prev => {
+        const next = prev + 1
+        if (import.meta.env.MODE === 'development') {
+          console.log('[turnCount] New value:', next)
+        }
+        return next
+      })
+
       nextTurn()
     }, FLIP_BACK_DELAY)
   }

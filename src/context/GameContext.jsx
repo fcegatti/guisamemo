@@ -49,7 +49,8 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   const restartGame = () => {
     const resetPlayers = players.map(player => ({
       ...player,
-      score: 0
+      score: 0,
+      turns: 1
     }))
 
     setPlayers(resetPlayers)

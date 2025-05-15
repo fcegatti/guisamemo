@@ -3,6 +3,7 @@ export function createPlayer (name, index) {
     id: `player-${Date.now()}-${index}`,
     name,
     avatar: null,
-    score: 0
+    score: 0,
+    turns: 1
   }
 }

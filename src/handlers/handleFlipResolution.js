@@ -85,12 +85,19 @@ export function handleFlipResolution ({
     setCards(updatedCards)
     handleMismatchOutcome()
     onMismatch()
-    const updatedPlayers = updatePlayerScore({
+    const scoredPlayers = updatePlayerScore({
       players,
       currentTurnIndex,
       result: 'mismatch'
     })
+
+    const updatedPlayers = scoredPlayers.map((player, index) =>
+      index === currentTurnIndex
+        ? { ...player, turns: player.turns + 1 }
+        : player
+    )
     setPlayers(updatedPlayers)
+    console.log('[players] Turns per player:', updatedPlayers.map(p => `${p.name}: ${p.turns}`))
 
     setTimeout(() => {
       const revertedCards = updatedCards.map(card =>

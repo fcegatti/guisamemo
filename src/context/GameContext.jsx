@@ -14,7 +14,7 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0)
   const [gameStarted, setGameStarted] = useState(false)
   const [isGameOver, setIsGameOver] = useState(false)
-  const [turnCount, setTurnCount] = useState(1)
+  const [turnCount, setTurnCount] = useState(0)
 
   const addPlayer = (name) => {
     if (players.length >= MAX_PLAYERS) return
@@ -28,34 +28,49 @@ export function GameProvider ({ children, initialPlayers = [] }) {
 
   const startGame = () => {
     if (players.length === 0) return
+
+    setPlayers(prevPlayers =>
+      prevPlayers.map((player, index) =>
+        index === currentTurnIndex
+          ? { ...player, turns: 1 }
+          : player
+      )
+    )
+
     setGameStarted(true)
   }
 
   const resetGame = () => {
     setPlayers([])
     setCurrentTurnIndex(0)
-    setTurnCount(1)
+    setTurnCount(0)
     setGameStarted(false)
     setIsGameOver(false)
   }
 
   const nextTurn = () => {
-    setCurrentTurnIndex(prevIndex => {
-      const nextIndex = (prevIndex + 1) % players.length
-      return nextIndex
-    })
+    const nextIndex = (currentTurnIndex + 1) % players.length
+
+    setPlayers(prevPlayers =>
+      prevPlayers.map((player, index) =>
+        index === nextIndex
+          ? { ...player, turns: player.turns + 1 }
+          : player
+      )
+    )
+    setCurrentTurnIndex(nextIndex)
   }
 
   const restartGame = () => {
     const resetPlayers = players.map(player => ({
       ...player,
       score: 0,
-      turns: 1
+      turns: 0
     }))
 
     setPlayers(resetPlayers)
     setCurrentTurnIndex(0)
-    setTurnCount(1)
+    setTurnCount(0)
     setIsGameOver(false)
   }
 

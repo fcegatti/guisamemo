@@ -70,6 +70,18 @@ export function handleFlipResolution ({
       setTimeout(() => {
         handlePlaySound('end')
       }, 800)
+      setPlayers(prev =>
+        prev.map((player, index) =>
+          index === currentTurnIndex
+            ? { ...player, turns: player.turns + 1 }
+            : player
+        )
+      )
+      setTurnCount(prev => prev + 1)
+      console.log('[END GAME - MATCH]', {
+        player: players[currentTurnIndex].name,
+        turnIncremented: true
+      })
       setTimeout(() => setIsGameOver(true), 1800)
     }
     unlockBoard()
@@ -85,17 +97,13 @@ export function handleFlipResolution ({
     setCards(updatedCards)
     handleMismatchOutcome()
     onMismatch()
-    const scoredPlayers = updatePlayerScore({
+
+    const updatedPlayers = updatePlayerScore({
       players,
       currentTurnIndex,
       result: 'mismatch'
     })
 
-    const updatedPlayers = scoredPlayers.map((player, index) =>
-      index === currentTurnIndex
-        ? { ...player, turns: player.turns + 1 }
-        : player
-    )
     setPlayers(updatedPlayers)
     console.log('[players] Turns per player:', updatedPlayers.map(p => `${p.name}: ${p.turns}`))
 

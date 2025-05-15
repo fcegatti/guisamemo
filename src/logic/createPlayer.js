@@ -4,6 +4,6 @@ export function createPlayer (name, index) {
     name,
     avatar: null,
     score: 0,
-    turns: 1
+    turns: 0
   }
 }

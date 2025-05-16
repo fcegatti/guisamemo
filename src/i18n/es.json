@@ -68,6 +68,14 @@
     "title": "Resultados",
     "noPlayers": "Error: No hay jugadores registrados."
   },
+    "singleSummary": {
+    "title": "¡Felicidades!",
+    "summary": "Has completado el tablero de tamaño {boardSize} en {turns} turnos.",
+    "points": "Puntos: {points}",
+    "prompt": "¿Puedes mejorar tu puntuación?",
+    "share": "Compartir",
+    "avatarAlt": "Avatar del jugador {name}"
+  },
   "podium": {
     "avatarAlt": "Avatar de {name}",
     "points": "puntos",

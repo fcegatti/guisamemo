@@ -7,6 +7,7 @@ import Podium from './Podium'
 import Confetti from '@components/effects/Confetti'
 import Fireworks from '@components/effects/Fireworks'
 import EndGameModal from './EndGameModal'
+import SinglePlayerSummary from './SinglePlayerSummary'
 
 export default function EndScreen () {
   const { players } = useGame()
@@ -17,12 +18,17 @@ export default function EndScreen () {
   const ranking = getPlayersRanking(players)
 
   useEffect(() => {
-    const timers = [
-      setTimeout(() => setShowEffects(true), 5900),
-      setTimeout(() => setShowFinalModal(true), 8500)
-    ]
-    return () => timers.forEach(clearTimeout)
-  }, [])
+    if (players.length > 1) {
+      const timers = [
+        setTimeout(() => setShowEffects(true), 5900),
+        setTimeout(() => setShowFinalModal(true), 8500)
+      ]
+      return () => timers.forEach(clearTimeout)
+    } else {
+      const timer = setTimeout(() => setShowFinalModal(true), 8500)
+      return () => clearTimeout(timer)
+    }
+  }, [players])
 
   if (!players || players.length === 0) {
     return <p>{t.endscreen.noPlayers}</p>
@@ -30,8 +36,14 @@ export default function EndScreen () {
 
   return (
     <div className='endscreen'>
-      <h1 className='endscreen__title'>🏆 {t.endscreen.title} 🏆</h1>
-      <Podium players={ranking} />
+      {players.length === 1
+        ? <SinglePlayerSummary />
+        : (
+          <>
+            <h1 className='endscreen__title'>🏆 {t.endscreen.title} 🏆</h1>
+            <Podium players={ranking} />
+          </>
+          )}
 
       {showEffects && (
         <>

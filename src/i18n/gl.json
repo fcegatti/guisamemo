@@ -63,10 +63,18 @@
   "game": {
     "exitAria": "Saír do xogo",
     "exitTooltip": "Saír"
-},
+  },
   "endscreen": {
     "title": "Resultados",
     "noPlayers": "Erro: Non hai xogadores rexistrados."
+  },
+  "singleSummary": {
+    "title": "Parabéns!",
+    "summary": "Completaches o taboleiro de tamaño {boardSize} en {turns} turnos.",
+    "points": "Puntos: {points}",
+    "prompt": "Serás quen de mellorar a túa puntuación?",
+    "share": "Compartir",
+    "avatarAlt": "Avatar do xogador {name}"
   },
   "podium": {
     "avatarAlt": "Avatar de {name}",

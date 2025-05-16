@@ -12,8 +12,9 @@
 @import '@styles/gamescreen.css';
 @import '@styles/board.css';
 @import '@styles/orientationmodal.css';
-@import '@styles/endscreen.css';
 @import '@styles/exitgamemodal.css';
+@import '@styles/endscreen.css';
+@import '@styles/singleplayersummary.css';
 @import '@styles/podium.css';
 @import '@styles/endgamemodal.css';
 @import '@styles/confetti.css';

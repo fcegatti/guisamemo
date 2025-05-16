@@ -105,8 +105,9 @@ export function handleFlipResolution ({
     })
 
     setPlayers(updatedPlayers)
-    console.log('[players] Turns per player:', updatedPlayers.map(p => `${p.name}: ${p.turns}`))
-
+    if (import.meta.env.MODE === 'development') {
+      console.log('[players] Turns per player:', updatedPlayers.map(p => `${p.name}: ${p.turns}`))
+    }
     setTimeout(() => {
       const revertedCards = updatedCards.map(card =>
         mismatchedIds.includes(card.id)

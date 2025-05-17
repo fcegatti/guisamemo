@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100dvh;
   padding: 2rem 1rem;
   text-align: center;
@@ -11,11 +10,27 @@
 
 .summary__card {
   max-width: 320px;
+  margin-top: o;
   background-color: var(--color-surface-light);
   color: var(--color-text-dark);
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.summary__card {
+  animation: slideUpFade 1s ease-out;
 }
 
 .summary__title {

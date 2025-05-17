@@ -19,6 +19,21 @@
   text-align: center;
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.endscreen__title {
+  animation: fadeInDown 1s ease-out;
+}
+
 /* Layout adjustments for larger viewports */
 
 @media (min-width: 600px) and (max-width: 899px) {

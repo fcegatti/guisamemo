@@ -13,11 +13,18 @@ const mockPlayers = [
     score: 40,
     avatar: 'avatar-10.webp',
     turns: 18
+  },
+  {
+    id: 'player-2',
+    name: 'Messi',
+    score: 30,
+    avatar: 'avatar-1.webp',
+    turns: 18
   }
 ]
 
-localStorage.setItem('theme', 'dark')
-localStorage.setItem('lang', 'es')
+localStorage.setItem('theme', 'light')
+localStorage.setItem('lang', 'gl')
 
 export default function TestEndScreen () {
   return (

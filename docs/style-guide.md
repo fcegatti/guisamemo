@@ -52,21 +52,36 @@ All documentation must be written in **English**, including this file.
 
 ## Context Testing Best Practices
 
-- When testing components that use context (like GameContext), wrap them in a provider with test data.
-- Do not modify the core context for testing purposes.
-- Instead, pass mock values using the initialPlayers prop of the GameProvider:
+- When testing components that use context (like `GameContext`, `LanguageContext`, or `ThemeContext`), always wrap them in their corresponding providers.
+- Use mock data via `initialPlayers` in `GameProvider` to control the game state (single or multiplayer).
+- Set language and theme explicitly via `localStorage` **before render** to avoid side effects or context branching.
+- Avoid modifying production contexts to support test behavior. Instead, use the existing localStorage-based logic to simulate desired conditions.
 
-```
+### ✅ Recommended Pattern
+
+```jsx
+localStorage.setItem('lang', 'gl')
+localStorage.setItem('theme', 'dark')
+
 const mockPlayers = [
-  { id: 'p1', name: 'Test A', score: 40, avatar: 'avatar-1.webp' },
-  { id: 'p2', name: 'Test B', score: 30, avatar: 'avatar-2.webp' }
+  { id: 'p1', name: 'Test A', score: 40, avatar: 'avatar-1.webp', turns: 12 },
+  { id: 'p2', name: 'Test B', score: 30, avatar: 'avatar-2.webp', turns: 10 }
 ]
 
 <GameProvider initialPlayers={mockPlayers}>
-  <EndScreen />
+  <LanguageProvider>
+    <ThemeProvider>
+      <EndScreen />
+    </ThemeProvider>
+  </LanguageProvider>
 </GameProvider>
-
 ```
+
+- Use route-level isolation for testing components:
+  - `src/components/test/TestEndScreen.jsx` → accessed via `/test-end`
+- Only mount dev routes when `import.meta.env.MODE === 'development'`
+- Never push test components to production builds
+
 
 ## Public Assets
 

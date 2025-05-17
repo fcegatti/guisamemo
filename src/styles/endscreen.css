@@ -30,8 +30,12 @@
   }
 }
 
-.endscreen__title {
+.endscreen__title--slow {
   animation: fadeInDown 1s ease-out;
+}
+
+.endscreen__title--fast {
+  animation: fadeInDown 0.3s ease-out;
 }
 
 /* Layout adjustments for larger viewports */

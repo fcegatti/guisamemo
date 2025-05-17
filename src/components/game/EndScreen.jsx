@@ -36,7 +36,10 @@ export default function EndScreen () {
 
   return (
     <div className='endscreen'>
-      <h1 className='endscreen__title'>{title}</h1>
+      <h1
+        className={`endscreen__title ${players.length === 1 ? 'endscreen__title--slow' : 'endscreen__title--fast'}`}
+      >{title}
+      </h1>
 
       {players.length === 1
         ? <SinglePlayerSummary />

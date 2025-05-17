@@ -21,16 +21,13 @@ export default function EndScreen () {
     : t.endscreen.titleMulti
 
   useEffect(() => {
-    if (players.length > 1) {
-      const timers = [
-        setTimeout(() => setShowEffects(true), 5900),
-        setTimeout(() => setShowFinalModal(true), 8500)
-      ]
-      return () => timers.forEach(clearTimeout)
-    } else {
-      const timer = setTimeout(() => setShowFinalModal(true), 8500)
-      return () => clearTimeout(timer)
-    }
+    const isSinglePlayer = players.length === 1
+    const timers = []
+
+    timers.push(setTimeout(() => setShowEffects(true), isSinglePlayer ? 1500 : 5900))
+    timers.push(setTimeout(() => setShowFinalModal(true), 8500))
+
+    return () => timers.forEach(clearTimeout)
   }, [players])
 
   if (!players || players.length === 0) {

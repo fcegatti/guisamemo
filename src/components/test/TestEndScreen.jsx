@@ -13,13 +13,6 @@ const mockPlayers = [
     score: 40,
     avatar: 'avatar-10.webp',
     turns: 18
-  },
-  {
-    id: 'player-2',
-    name: 'Messi',
-    score: 30,
-    avatar: 'avatar-1.webp',
-    turns: 18
   }
 ]
 

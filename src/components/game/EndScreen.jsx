@@ -47,8 +47,8 @@ export default function EndScreen () {
 
       {showEffects && (
         <>
-          {theme === 'light' && <Confetti />}
-          {theme === 'dark' && <Fireworks />}
+          {(theme === 'light' || players.length === 1) && <Confetti />}
+          {theme === 'dark' && players.length > 1 && <Fireworks />}
         </>
       )}
 

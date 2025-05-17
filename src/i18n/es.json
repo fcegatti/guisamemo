@@ -65,11 +65,11 @@
     "exitTooltip": "Salir"
   },
   "endscreen": {
-    "title": "Resultados",
+    "titleSingle": "🎉 ¡Felicidades! 🎉",
+    "titleMulti": "🏆 Resultados 🏆",
     "noPlayers": "Error: No hay jugadores registrados."
   },
-    "singleSummary": {
-    "title": "¡Felicidades!",
+  "singleSummary": {
     "summary": "Has completado el tablero de tamaño {boardSize} en {turns} turnos.",
     "points": "Puntos: {points}",
     "prompt": "¿Puedes mejorar tu puntuación?",

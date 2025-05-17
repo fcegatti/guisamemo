@@ -16,6 +16,9 @@ export default function EndScreen () {
   const [showEffects, setShowEffects] = useState(false)
   const [showFinalModal, setShowFinalModal] = useState(false)
   const ranking = getPlayersRanking(players)
+  const title = players.length === 1
+    ? t.endscreen.titleSingle
+    : t.endscreen.titleMulti
 
   useEffect(() => {
     if (players.length > 1) {
@@ -36,14 +39,11 @@ export default function EndScreen () {
 
   return (
     <div className='endscreen'>
+      <h1 className='endscreen__title'>{title}</h1>
+
       {players.length === 1
         ? <SinglePlayerSummary />
-        : (
-          <>
-            <h1 className='endscreen__title'>🏆 {t.endscreen.title} 🏆</h1>
-            <Podium players={ranking} />
-          </>
-          )}
+        : <Podium players={ranking} />}
 
       {showEffects && (
         <>

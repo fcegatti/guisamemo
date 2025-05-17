@@ -1,3 +1,5 @@
+/* global localStorage */
+
 import EndScreen from '../game/EndScreen'
 import { GameProvider } from '@context/GameContext'
 import { LanguageProvider } from '@context/LanguageContext'
@@ -11,11 +13,18 @@ const mockPlayers = [
     score: 40,
     avatar: 'avatar-10.webp',
     turns: 18
+  },
+  {
+    id: 'player-2',
+    name: 'Messi',
+    score: 30,
+    avatar: 'avatar-1.webp',
+    turns: 18
   }
 ]
 
-localStorage.setItem('theme', 'light')
-localStorage.setItem('lang', 'gl')
+localStorage.setItem('theme', 'dark')
+localStorage.setItem('lang', 'es')
 
 export default function TestEndScreen () {
   return (

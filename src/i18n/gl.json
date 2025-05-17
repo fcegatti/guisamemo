@@ -65,11 +65,11 @@
     "exitTooltip": "Saír"
   },
   "endscreen": {
-    "title": "Resultados",
+    "titleSingle": " 🎉 Parabéns! 🎉",
+    "titleMulti": "🏆 Resultados 🏆",
     "noPlayers": "Erro: Non hai xogadores rexistrados."
   },
   "singleSummary": {
-    "title": "Parabéns!",
     "summary": "Completaches o taboleiro de tamaño {boardSize} en {turns} turnos.",
     "points": "Puntos: {points}",
     "prompt": "Serás quen de mellorar a túa puntuación?",

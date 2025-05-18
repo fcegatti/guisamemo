@@ -70,7 +70,12 @@
     "noPlayers": "Erro: Non hai xogadores rexistrados."
   },
   "singleSummary": {
-    "summary": "Completaches o taboleiro de tamaño {boardSize} en {turns} turnos.",
+    "summary": {
+      "part1": "Completaches o taboleiro de",
+      "cards": "tarxetas",
+      "part2": "en",
+      "turns": "quendas"
+    },
     "points": "Puntos: {points}",
     "prompt": "Serás quen de mellorar a túa puntuación?",
     "share": "Compartir",

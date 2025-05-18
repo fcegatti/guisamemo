@@ -70,7 +70,12 @@
     "noPlayers": "Error: No hay jugadores registrados."
   },
   "singleSummary": {
-    "summary": "Has completado el tablero de tamaño {boardSize} en {turns} turnos.",
+    "summary": {
+      "part1": "Has completado el tablero de",
+      "cards": "tarjetas",
+      "part2": "en",
+      "turns": "turnos"
+    },
     "points": "Puntos: {points}",
     "prompt": "¿Puedes mejorar tu puntuación?",
     "share": "Compartir",

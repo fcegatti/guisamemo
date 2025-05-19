@@ -11,13 +11,13 @@ function AppContent () {
   const isOnline = useNetworkStatus()
 
   return (
-    <>
+    <main id='main-content'>
       {!isOnline && <OfflineBanner />}
       {!gameStarted && <StartScreen />}
       {gameStarted && !isGameOver && <GameScreen />}
       {isGameOver && <EndScreen />}
       <UpdateBanner />
-    </>
+    </main>
   )
 }
 

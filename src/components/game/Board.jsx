@@ -23,7 +23,11 @@ function Board () {
         </div>
       )}
 
-      <div className={boardClass}>
+      <div
+        className={boardClass}
+        role='grid'
+        aria-label={t.access.boardGrid}
+      >
         {cards.map((card) => (
           <button
             key={card.id}
@@ -33,6 +37,8 @@ function Board () {
               ${card.justMismatched ? 'gameboard__card--mismatched gameboard__card--mismatched-active' : ''}`}
             onClick={() => handleCardClick(card.id)}
             aria-roledescription={t.board.cardRoleDescription}
+            // Prep only: tabindex logic and row/col in v1.2.1
+            // aria-rowindex and aria-colindex will go here
           >
             <img
               src={

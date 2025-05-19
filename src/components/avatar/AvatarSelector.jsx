@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useSwipe } from '@hooks/useSwipe'
 import { AVATAR_INFO } from '@constants/avatars'
 import { useLanguage } from '@context/LanguageContext'
+import { useFocusTrap } from '@hooks/useFocusTrap'
 
 export default function AvatarSelector ({ onSelect }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const currentAvatar = AVATAR_INFO[currentIndex]
 
   const { t } = useLanguage()
+
+  const modalRef = useRef(null)
+  useFocusTrap(modalRef)
 
   const goToNext = () => {
     setCurrentIndex((prev) =>
@@ -23,6 +27,22 @@ export default function AvatarSelector ({ onSelect }) {
 
   const { handleTouchStart, handleTouchEnd } = useSwipe(goToNext, goToPrev)
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onSelect(null)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [onSelect])
+
+  useEffect(() => {
+    if (modalRef.current) {
+      modalRef.current.focus()
+    }
+  }, [])
+
   return (
     <div
       className='avatarselector__overlay'
@@ -30,7 +50,11 @@ export default function AvatarSelector ({ onSelect }) {
       aria-modal='true'
       aria-label={t.avatar.dialogLabel}
     >
-      <div className='avatarselector__modal'>
+      <div
+        className='avatarselector__modal'
+        ref={modalRef}
+        tabIndex='-1'
+      >
         <button
           className='avatarselector__nav avatarselector__nav--left'
           onClick={goToPrev}

@@ -27,20 +27,20 @@ export default function EndGameModal () {
     >
       <div className='endgamemodal__handle' />
 
-      <p
+      <h2
         id='end-message'
         className='endgamemodal__message'
         ref={messageRef}
         tabIndex='-1'
       >
         {t.endGame.question}
-      </p>
+      </h2>
 
       <div className='endgamemodal__buttons'>
         <button
           className='endgamemodal__button'
           onClick={restartGame}
-          aria-label={t.endGame.ariaRestart}
+          aria-label={t.access.restartButton}
         >
           {t.endGame.restart}
         </button>
@@ -48,7 +48,7 @@ export default function EndGameModal () {
         <button
           className='endgamemodal__button'
           onClick={resetGame}
-          aria-label={t.endGame.ariaReset}
+          aria-label={t.access.resetButton}
         >
           {t.endGame.reset}
         </button>

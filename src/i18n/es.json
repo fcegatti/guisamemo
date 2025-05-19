@@ -50,7 +50,9 @@
   "access": {
     "gameArea": "Zona de juego",
     "playersPanel": "Panel de jugadores",
-    "boardGrid": "Tablero de tarjetas"
+    "boardGrid": "Tablero de tarjetas",
+    "restartButton": "Repetir partida",
+    "resetButton": "Volver al inicio"
   },
   "players": {
     "turnAnnounce": "Turno de {name}"
@@ -95,8 +97,6 @@
   },
   "endGame": {
     "question": "¿Quieres jugar otra vez?",
-    "restart": "Repetir partida",
-    "reset": "Volver al inicio",
     "ariaRestart": "Repetir la partida desde el principio",
     "ariaReset": "Volver al inicio del juego"
   },

@@ -64,12 +64,13 @@ export default function OrientationModal () {
         />
 
         <div
-          id='orientation-message'
           className='orientationmodal__message'
           ref={messageRef}
           tabIndex='-1'
         >
-          <p>{t.orientation.message}</p>
+          <h2 id='orientation-message'>
+            {t.orientation.message}
+          </h2>
         </div>
 
         <button

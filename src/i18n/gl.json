@@ -110,6 +110,9 @@
     "confirm": "Entendido",
     "dismiss": "Rexectar"
   },
+  "nav": {
+    "selectors": "Selector de idioma e tema"
+  },
   "lang": {
     "switchToGl": "Mudar a galego",
     "switchToEs": "Mudar a castelán"

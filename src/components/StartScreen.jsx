@@ -56,8 +56,8 @@ function StartScreen () {
   const isTabletOrLarger = useMediaQuery('(min-width: 600px)')
 
   return (
-    <div className='startscreen'>
-      <div className='startscreen__top'>
+    <main className='startscreen'>
+      <header className='startscreen__top'>
         <h1 className='sr-only'>Guisamemo</h1>
         <img
           src='/logo.webp'
@@ -67,9 +67,11 @@ function StartScreen () {
           className='startscreen__logo'
           aria-hidden='true'
         />
-        <ThemeSelector />
-        <LanguageSelector />
-      </div>
+        <nav aria-label={t.nav.selectors}>
+          <ThemeSelector />
+          <LanguageSelector />
+        </nav>
+      </header>
 
       <div className='startscreen__middle'>
         {isTabletOrLarger && <BoardSizeSelector />}
@@ -93,7 +95,7 @@ function StartScreen () {
       <div className='startscreen__bottom'>
         <StartGameButton />
       </div>
-    </div>
+    </main>
   )
 }
 export default StartScreen

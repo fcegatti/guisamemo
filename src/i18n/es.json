@@ -52,7 +52,9 @@
     "playersPanel": "Panel de jugadores",
     "boardGrid": "Tablero de tarjetas",
     "restartButton": "Repetir partida",
-    "resetButton": "Volver al inicio"
+    "resetButton": "Volver al inicio",
+    "exitStay": "Seguir jugando",
+    "exitExit": "Salir de la partida"
   },
   "players": {
     "turnAnnounce": "Turno de {name}"
@@ -105,8 +107,6 @@
     "warning": "Perderás el progreso de la partida.",
     "stay": "Seguir jugando",
     "exit": "Salir",
-    "ariaStay": "Seguir jugando",
-    "ariaExit": "Salir de la partida",
     "avatarAlt": "Avatar de {name}"
   },
   "orientation": {

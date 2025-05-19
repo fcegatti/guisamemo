@@ -44,7 +44,7 @@ export default function ExitGameModal ({ onClose, onExit }) {
           ref={messageRef}
           tabIndex='-1'
         >
-          <p>{t.exitGame.question}</p>
+          <h2>{t.exitGame.question}</h2>
           <p className='exitmodal__warning'>
             {t.exitGame.warning}
           </p>
@@ -53,14 +53,14 @@ export default function ExitGameModal ({ onClose, onExit }) {
         <button
           className='exitgamemodal__stay-btn'
           onClick={onClose}
-          aria-label={t.exitGame.ariaStay}
+          aria-label={t.access.exitStay}
         >
           {t.exitGame.stay}
         </button>
         <button
           className='exitgamemodal__exit-btn'
           onClick={onExit}
-          aria-label={t.exitGame.ariaExit}
+          aria-label={t.access.exitExit}
         >
           {t.exitGame.exit}
         </button>

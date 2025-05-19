@@ -52,7 +52,9 @@
     "playersPanel":"Panel de xogadores",
     "boardGrid": "Taboleiro de tarxetas",
     "restartButton": "Repetir partida",
-    "resetButton": "Volver ao inicio"
+    "resetButton": "Volver ao inicio",
+    "exitStay": "Seguir xogando",
+    "exitExit": "Saír da partida"
   },
   "players": {
     "turnAnnounce": "Quenda de {name}"
@@ -105,8 +107,6 @@
     "warning": "Perderás o progreso da partida.",
     "stay": "Seguir xogando",
     "exit": "Saír",
-    "ariaStay": "Seguir xogando",
-    "ariaExit": "Saír da partida",
     "avatarAlt": "Avatar de {name}"
   },
   "orientation": {

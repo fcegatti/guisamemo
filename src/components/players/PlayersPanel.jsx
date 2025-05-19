@@ -9,10 +9,10 @@ function PlayersPanel () {
   if (!players.length) return null
 
   return (
-    <div
+    <aside
       className='playerspanel'
-      role='region'
-      aria-label={t.players.panelLabel}
+      role='complementary'
+      aria-label={t.access.playersPanel}
     >
       {players.map((player) => (
         <PlayerStatus
@@ -20,7 +20,7 @@ function PlayersPanel () {
           player={player}
         />
       ))}
-    </div>
+    </aside>
   )
 }
 

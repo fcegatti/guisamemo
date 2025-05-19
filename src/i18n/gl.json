@@ -48,10 +48,10 @@
     "flyswatter": "Matamoscas"
   },
   "access": {
-    "gameArea": "Zona de xogo"
+    "gameArea": "Zona de xogo",
+    "playersPanel":"Panel de xogadores"
   },
   "players": {
-    "panelLabel": "Panel de xogadores",
     "turnAnnounce": "Quenda de {name}"
   },
   "board": {

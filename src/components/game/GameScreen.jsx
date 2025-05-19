@@ -27,7 +27,11 @@ function GameScreen () {
   }, [boardSize])
 
   return (
-    <div className='gamescreen'>
+    <section
+      className='gamescreen'
+      role='region'
+      aria-label='t.access.gameArea'
+    >
       {/* Exit button top right */}
       <button
         className='gamescreen__exit-btn'
@@ -64,7 +68,7 @@ function GameScreen () {
           onExit={handleExitGame}
         />
       )}
-    </div>
+    </section>
   )
 }
 

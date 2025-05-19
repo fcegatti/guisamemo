@@ -47,6 +47,9 @@
     "tree": "Árbol de los niños",
     "flyswatter": "Matamoscas"
   },
+  "access": {
+    "gameArea": "Zona de juego"
+  },
   "players": {
     "panelLabel": "Panel de jugadores",
     "turnAnnounce": "Turno de {name}"

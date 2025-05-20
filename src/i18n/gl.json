@@ -51,8 +51,8 @@
     "gameArea": "Zona de xogo",
     "playersPanel":"Panel de xogadores",
     "boardGrid": "Taboleiro de tarxetas",
-    "restartButton": "Repetir partida",
-    "resetButton": "Volver ao inicio",
+    "restartButton": "Repetir a partida desde o principio",
+    "resetButton": "Volver á pantalla inicial",
     "exitStay": "Seguir xogando",
     "exitExit": "Saír da partida"
   },
@@ -99,8 +99,8 @@
   },
   "endGame": {
     "question": "Queres xogar outra vez?",
-    "ariaRestart": "Repetir a partida desde o principio",
-    "ariaReset": "Volver á pantalla inicial"
+    "restart": "Repetir partida",
+    "reset": "Volver ao inicio"
   },
   "exitGame": {
     "question": "Estás seguro de que queres saír do xogo?",

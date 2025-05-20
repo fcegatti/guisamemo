@@ -59,6 +59,11 @@ function StartScreen () {
     <main className='startscreen'>
       <header className='startscreen__top'>
         <h1 className='sr-only'>Guisamemo</h1>
+        {/*
+            ✅ Decorative logo with fallback: alt provides visible text if image fails.
+            Screen readers skip it (aria-hidden), but <h1> ensures semantic and accessible title.
+            See WCAG: https://www.w3.org/WAI/tutorials/images/decorative/
+        */}
         <img
           src='/logo.webp'
           width='384'

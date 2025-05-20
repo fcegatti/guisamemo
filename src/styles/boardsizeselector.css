@@ -30,7 +30,7 @@
   font-size: 0.9rem;
   font-weight: bold;
   text-transform: uppercase;
-  background-color: #fff;
+  background-color: #fefefe;
   color: var(--button-blue);
   border: 2px solid var(--color-border-grey);
   border-radius: var(--button-radius);

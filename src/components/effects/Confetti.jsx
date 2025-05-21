@@ -1,11 +1,13 @@
+import { useMediaQuery } from '@hooks/useMediaQuery'
 import { useEffect, useRef } from 'react'
 import confetti from 'canvas-confetti'
 
 export default function Confetti () {
+  const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   const canvasRef = useRef(null)
 
   useEffect(() => {
-    if (!canvasRef.current) return
+    if (reduceMotion || !canvasRef.current) return
 
     const confettiInstance = confetti.create(canvasRef.current, {
       resize: true,

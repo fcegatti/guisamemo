@@ -188,5 +188,8 @@ export default defineConfig({
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@i18n': path.resolve(__dirname, 'src/i18n')
     }
+  },
+  build: {
+    sourcemap: true
   }
 })

@@ -102,3 +102,9 @@
   background-color: var(--button-blue);
   color: var(--color-text-light);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .boardsizeselector__option {
+    transition: none;
+  }
+}

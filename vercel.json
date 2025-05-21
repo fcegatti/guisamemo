@@ -8,6 +8,14 @@
   ],
   "headers": [
     {
+      "key": "Access-Control-Allow-Origin",
+      "value": "https://guisamemo.vercel.app"
+    },
+    {
+      "key": "Content-Type",
+      "value": "application/manifest+json"
+    },
+    {
       "source": "/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }

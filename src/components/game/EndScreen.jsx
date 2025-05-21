@@ -8,6 +8,7 @@ import Confetti from '@components/effects/Confetti'
 import Fireworks from '@components/effects/Fireworks'
 import EndGameModal from './EndGameModal'
 import SinglePlayerSummary from './SinglePlayerSummary'
+import { useMediaQuery } from '@hooks/useMediaQuery'
 
 export default function EndScreen () {
   const { players } = useGame()
@@ -15,6 +16,7 @@ export default function EndScreen () {
   const { theme } = useTheme()
   const [showEffects, setShowEffects] = useState(false)
   const [showFinalModal, setShowFinalModal] = useState(false)
+  const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   const ranking = getPlayersRanking(players)
   const title = players.length === 1
     ? t.endscreen.titleSingle
@@ -24,11 +26,17 @@ export default function EndScreen () {
     const isSinglePlayer = players.length === 1
     const timers = []
 
-    timers.push(setTimeout(() => setShowEffects(true), isSinglePlayer ? 1500 : 5900))
+    if (reduceMotion) {
+      // Skip animation delays entirely
+      setShowEffects(false)
+    } else {
+      timers.push(setTimeout(() => setShowEffects(true), isSinglePlayer ? 1500 : 5900))
+    }
+
     timers.push(setTimeout(() => setShowFinalModal(true), 8500))
 
     return () => timers.forEach(clearTimeout)
-  }, [players])
+  }, [players, reduceMotion])
 
   if (!players || players.length === 0) {
     return <p>{t.endscreen.noPlayers}</p>

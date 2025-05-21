@@ -89,3 +89,16 @@
   font-size: 0.85rem;
   color: #111;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  /* TEMPORARY: disable transitions until refactor with podium__block--static in v1.2.1 */
+  .podium__block {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .podium__content {
+    transition: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { useGame } from '@context/GameContext'
 import { getPlayersRanking } from '@logic/getPlayersRanking'
 import { useLanguage } from '@context/LanguageContext'
 import { useTheme } from '@context/ThemeContext'
 import Podium from './Podium'
-import Confetti from '@components/effects/Confetti'
-import Fireworks from '@components/effects/Fireworks'
 import EndGameModal from './EndGameModal'
 import SinglePlayerSummary from './SinglePlayerSummary'
 import { useMediaQuery } from '@hooks/useMediaQuery'
@@ -14,6 +12,8 @@ export default function EndScreen () {
   const { players } = useGame()
   const { t } = useLanguage()
   const { theme } = useTheme()
+  const Confetti = lazy(() => import('@components/effects/Confetti'))
+  const Fireworks = lazy(() => import('@components/effects/Fireworks'))
   const [showEffects, setShowEffects] = useState(false)
   const [showFinalModal, setShowFinalModal] = useState(false)
   const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
@@ -54,10 +54,10 @@ export default function EndScreen () {
         : <Podium players={ranking} />}
 
       {showEffects && (
-        <>
+        <Suspense fallback={null}>
           {(theme === 'light' || players.length === 1) && <Confetti />}
           {theme === 'dark' && players.length > 1 && <Fireworks />}
-        </>
+        </Suspense>
       )}
 
       {showFinalModal && (

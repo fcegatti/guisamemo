@@ -76,12 +76,12 @@ export default defineConfig({
         'cards/card-33.webp',
         'cards/fallback.webp',
         // Sounds
-        'card-flip.mp3',
-        'card-flip.ogg',
-        'card-match.mp3',
-        'card-match.ogg',
-        'card-mismatch.mp3',
-        'card-mismatch.ogg'
+        'sounds/card-flip.mp3',
+        'sounds/card-flip.ogg',
+        'sounds/card-match.mp3',
+        'sounds/card-match.ogg',
+        'sounds/card-mismatch.mp3',
+        'sounds/card-mismatch.ogg'
       ],
       manifest: {
         name: 'Guisamemo',

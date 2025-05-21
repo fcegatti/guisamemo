@@ -6,14 +6,23 @@ import { LanguageProvider } from '@context/LanguageContext'
 import { ThemeProvider, useTheme } from '@context/ThemeContext'
 import '@styles/index.css'
 
-registerSW({
-  onNeedRefresh () {
-    window.dispatchEvent(new CustomEvent('sw-update'))
-  },
-  onOfflineReady () {
-    console.log('[PWA] App ready to work offline')
-  }
-})
+function registerServiceWorker () {
+  setTimeout(() => {
+    const updateSW = registerSW({
+      onNeedRefresh () {
+        window.dispatchEvent(new CustomEvent('sw-update'))
+      },
+      onOfflineReady () {
+        console.log('[PWA] App ready to work offline')
+      },
+      scope: '/'
+    })
+
+    window.updateSW = updateSW
+  }, 1000)
+}
+
+window.addEventListener('load', registerServiceWorker)
 
 function RootWrapper () {
   const { theme } = useTheme()

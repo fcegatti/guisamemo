@@ -159,6 +159,10 @@ export default defineConfig({
           }
         ]
       },
+      injectRegister: 'auto',
+      strategies: 'generateSW',
+      manifestFilename: 'manifest.webmanifest',
+      scope: '/',
       workbox: {
         globPatterns: ['**/*.{js,css,html,webp,png,ico,ogg}'],
         navigateFallback: 'index.html',
@@ -176,6 +180,13 @@ export default defineConfig({
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'guisamemo-assets'
+            }
+          },
+          {
+            urlPattern: /manifest\.webmanifest$/i,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'guisamemo-manifest'
             }
           }
         ]

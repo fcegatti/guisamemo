@@ -1,22 +1,32 @@
 /* global localStorage */
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function LanguageRedirector () {
   const navigate = useNavigate()
+  const [isRedirecting, setIsRedirecting] = useState(true)
 
   useEffect(() => {
-    const storedLang = localStorage.getItem('lang')
-    const browserLang = navigator.language || navigator.userLanguage
-    const preferred = storedLang || browserLang
+    const handleRedirection = () => {
+      const storedLang = localStorage.getItem('lang')
+      const browserLang = navigator.language || navigator.userLanguage
+      const preferred = storedLang || browserLang
 
-    if (preferred.startsWith('gl')) {
-      navigate('/gl', { replace: true })
+      const targetLang = preferred.startsWith('gl') ? 'gl' : 'es'
+
+      navigate(`/${targetLang}`, { replace: true })
+      setIsRedirecting(false)
+
+      document.documentElement.lang = targetLang
+    }
+
+    if (window.location.pathname === '/') {
+      handleRedirection()
     } else {
-      navigate('/es', { replace: true })
+      setIsRedirecting(false)
     }
   }, [navigate])
 
-  return null
+  return isRedirecting ? null : null
 }

@@ -2,39 +2,21 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/(es|gl)/(.*)", "destination": "/index.html" },
-    { "source": "/(es|gl)", "destination": "/index.html" },
-    { "source": "/(es|gl)/manifest.webmanifest", "destination": "/manifest.webmanifest" },
-    { "source": "/manifest.webmanifest", "destination": "/manifest.webmanifest" },
-    { "source": "/sw.js", "destination": "/sw.js" },
-    { "source": "/workbox-(.+)\\.js", "destination": "/workbox-$1.js" }
+    { "source": "/(es|gl)", "destination": "/index.html" }
   ],
   "headers": [
-    {
-      "source": "/manifest.webmanifest",
-      "headers": [
-        { "key": "Content-Type", "value": "application/manifest+json" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    },
-    {
-      "source": "/sw.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
-        { "key": "Service-Worker-Allowed", "value": "/" }
-      ]
-    },
-    {
-      "source": "/workbox-(.+)\\.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    },
     {
       "source": "/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/manifest.webmanifest", "dest": "/manifest.webmanifest", "status": 200 },
+    { "src": "/(es|gl)/manifest.webmanifest", "dest": "/manifest.webmanifest", "status": 200 },
+    { "src": "/(.*)\\.(js|css|webp|png|jpg|svg|ico|json|mp3|ogg)", "dest": "/$1.$2", "status": 200 },
+    { "src": "/(.*)", "dest": "/index.html", "status": 200 }
   ]
 }

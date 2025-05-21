@@ -71,6 +71,8 @@ function StartScreen () {
           alt='Logo Guisamemo'
           className='startscreen__logo'
           aria-hidden='true'
+          decoding='async'
+          loading='eager'
         />
         <nav aria-label={t.nav.selectors}>
           <ThemeSelector />

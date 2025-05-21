@@ -4,6 +4,8 @@
   font-size: 1.1rem;
   background-color: var(--button-blue);
   color: var(--color-text-light);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
   border: none;
   border-radius: var(--button-radius);
   cursor: pointer;
@@ -13,6 +15,8 @@
 .startgamebutton:disabled {
   background-color: var(--button-blue-disabled);
   cursor: not-allowed;
+  text-shadow: none;
+  font-weight: normal;
 }
 
 /* 🌙 DARK MODE - StartScreen */

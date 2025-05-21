@@ -5,7 +5,7 @@
   --color-background-dark: #222;
   --color-background-light: #f9f9f9;
   --color-text-dark: #111;
-  --color-text-light: #f2f2f2;
+  --color-text-light: #fff;
   --color-border-grey: #ccc;
   --color-border-light: grey;
   --color-error: #d22;
@@ -22,10 +22,10 @@
   /* ========================
      BUTTONS
      ======================== */
-  --button-green: #5cb85c;
+  --button-green: #377d37;
   --button-green-hover: #47b16c;
   --button-green-disabled: #c1e0c1;
-  --button-blue: #006adb;
+  --button-blue: #007bff;
   --button-blue-hover: #3399ff;
   --button-blue-disabled: #b3d4fc;
   --button-radius: 0.5rem;
@@ -97,6 +97,3 @@
   white-space: nowrap;
   border: 0;
 }
-
-
-  

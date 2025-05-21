@@ -26,6 +26,8 @@
   font-size: 1rem;
   background-color: var(--button-green);
   color: var(--color-text-light);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
   border: none;
   border-radius: var(--button-radius);
   cursor: pointer;
@@ -34,6 +36,8 @@
 .playerform__button:disabled {
   background-color: var(--button-green-disabled);
   cursor: not-allowed;
+  font-weight: normal;
+  text-shadow: none;
 }
 
 @media (max-height: 768px) and (min-width: 600px) {

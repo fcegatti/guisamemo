@@ -74,7 +74,14 @@ export default defineConfig({
         'cards/card-31.webp',
         'cards/card-32.webp',
         'cards/card-33.webp',
-        'cards/fallback.webp'
+        'cards/fallback.webp',
+        // Sounds
+        'card-flip.mp3',
+        'card-flip.ogg',
+        'card-match.mp3',
+        'card-match.ogg',
+        'card-mismatch.mp3',
+        'card-mismatch.ogg'
       ],
       manifest: {
         name: 'Guisamemo',
@@ -153,7 +160,7 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,webp,png,ico}'],
+        globPatterns: ['**/*.{js,css,html,webp,png,ico,ogg}'],
         navigateFallback: 'index.html',
         runtimeCaching: [
           {

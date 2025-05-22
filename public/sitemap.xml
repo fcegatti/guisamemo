@@ -3,30 +3,30 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://guisamemo.vercel.app/</loc>
+    <loc>https://guisamemo.com/</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://guisamemo.vercel.app/es" />
-    <xhtml:link rel="alternate" hreflang="gl" href="https://guisamemo.vercel.app/gl" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://guisamemo.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://guisamemo.com/es" />
+    <xhtml:link rel="alternate" hreflang="gl" href="https://guisamemo.com/gl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guisamemo.com/" />
   </url>
   <url>
-    <loc>https://guisamemo.vercel.app/es</loc>
+    <loc>https://guisamemo.com/es</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://guisamemo.vercel.app/es" />
-    <xhtml:link rel="alternate" hreflang="gl" href="https://guisamemo.vercel.app/gl" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://guisamemo.com/es" />
+    <xhtml:link rel="alternate" hreflang="gl" href="https://guisamemo.com/gl" />
   </url>
 
   <url>
-    <loc>https://guisamemo.vercel.app/gl</loc>
+    <loc>https://guisamemo.com/gl</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://guisamemo.vercel.app/es" />
-    <xhtml:link rel="alternate" hreflang="gl" href="https://guisamemo.vercel.app/gl" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://guisamemo.com/es" />
+    <xhtml:link rel="alternate" hreflang="gl" href="https://guisamemo.com/gl" />
   </url>
 
 </urlset>

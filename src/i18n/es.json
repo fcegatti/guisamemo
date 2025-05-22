@@ -125,6 +125,10 @@
     "switchToDark": "Activar modo oscuro",
     "switchToLight": "Activar modo claro"
   },
+  "errors": {
+    "notFound": "Página no encontrada",
+    "backHome": "Volver al inicio"
+  },
   "update": {
     "message": "Se actualizó la aplicación.",
     "instruction": "Recarga la app para usar la nueva versión.",

@@ -1,0 +1,55 @@
+.notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+  height: 100dvh;
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
+}
+
+.notfound__code {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+}
+
+.notfound__message {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.notfound__image {
+  width: 160px;
+  max-width: 80%;
+  margin-bottom: 1rem;
+}
+
+.notfound__button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: var(--button-radius);
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.notfound__button:hover {
+  background-color: var(--color-accent-hover, #479d63);
+}
+
+/* 🌙 DARK MODE */
+.theme--dark .notfound {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+.theme--dark .notfound__button {
+  color: white;
+}

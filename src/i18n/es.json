@@ -136,5 +136,8 @@
   },
   "offline": {
     "message": "Modo sin conexión"
+  },
+  "meta": {
+    "title": "Guisamemo | Juego de memoria infantil"
   }
 }

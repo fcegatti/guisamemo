@@ -92,6 +92,7 @@ export default defineConfig({
         display: 'standalone',
         orientation: 'portrait',
         start_url: '/',
+        id: '/',
         scope: '/',
         icons: [
           {
@@ -115,47 +116,56 @@ export default defineConfig({
           {
             src: '/screenshot-1.webp',
             sizes: '360x642',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'narrow'
           },
           {
             src: '/screenshot-2.webp',
             sizes: '360x642',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'narrow'
           },
           {
             src: '/screenshot-3.webp',
             sizes: '360x642',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'narrow'
           },
           {
             src: '/screenshot-4.webp',
             sizes: '1024x768',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'wide'
           },
           {
             src: '/screenshot-5.webp',
             sizes: '1024x768',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'wide'
           },
           {
             src: '/screenshot-6.webp',
             sizes: '1024x768',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'wide'
           },
           {
             src: '/screenshot-7.webp',
             sizes: '1440x900',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'wide'
           },
           {
             src: '/screenshot-8.webp',
             sizes: '1440x900',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'wide'
           },
           {
             src: '/screenshot-9.webp',
             sizes: '1440x900',
-            type: 'image/webp'
+            type: 'image/webp',
+            form_factor: 'wide'
           }
         ]
       },
@@ -172,10 +182,10 @@ export default defineConfig({
             }
           },
           {
-            urlPattern: /^https:\/\/guisamemo\.vercel\.app\/.*$/,
+            urlPattern: /^https:\/\/guisamemo\.com\/.*$/,
             handler: 'StaleWhileRevalidate',
             options: {
-              cacheName: 'guisamemo-assets'
+              cacheName: 'guisamemo-assets-v1-2-0'
             }
           }
         ]

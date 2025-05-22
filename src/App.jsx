@@ -27,7 +27,9 @@ function App () {
   const { t } = useLanguage()
 
   useEffect(() => {
-    document.title = t('meta.title')
+    if (typeof t === 'function') {
+      document.title = t('meta.title')
+    }
   }, [t])
 
   return (

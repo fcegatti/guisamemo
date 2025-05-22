@@ -26,14 +26,17 @@ The project name is a tribute to **Guísamo**, a village in Galicia, Spain—and
 
 ---
 
-## 📌 Latest Version – v1.1.1
+## 📌 Latest Version – v1.2.0
 
-- 🌐 Added full internationalization system with canonical and alternate hreflang routing (/es, /gl)
-- 🏷️ Open Graph metadata now includes Galician alternate locale for better social visibility
-- ♿ Improved accessibility: modals, keyboard navigation, screen reader support
-- 📣 Automatic announcements of card reveals and player turns
-- 🧭 Focus trap implemented in modals to restrict keyboard navigation
-- 🧼 Visual consistency maintained, behavior improved across devices
+- 🕶️ Added full dark mode with smooth transitions and system preference detection  
+- 🔊 New sound effects for matches, mismatches, flips and game end  
+- 🎇 Celebration effects: confetti (light) and fireworks (dark)  
+- ❌ Penalty system: -1 point for incorrect matches  
+- 📶 OfflineBanner with live connectivity detection  
+- 🧼 Refactored StartScreen into modular components  
+- 🔃 Accessibility upgrades: ARIA regions, keyboard traps, semantic layout  
+- 🧭 Improved PWA: offline fallback via `vite-plugin-pwa`, full asset caching  
+- 🔧 Basic 404 page with language-aware message and fallback image  
 
 ---
 
@@ -49,15 +52,13 @@ The project name is a tribute to **Guísamo**, a village in Galicia, Spain—and
 
 ---
 
-## 🗺️ Roadmap (Post-MVP)
+## 🗺️ Roadmap (v1.2+)
 
-- 🔊 Sound effects and feedback animations  
-- 🌑 Dark mode theme toggle  
 - 🧠 Memory challenge timer or difficulty levels  
 - 📈 Ranking and score history  
 - 🤝 Social invites and card sharing  
-- 🧩 More card styles and visual themes  
-- 🧪 Accessibility and SEO refinements
+- 🧩 More card styles and visual themes 
+- 🔍 Accessibility enhancements (landmarks, keyboard nav – full AAA) 
 
 ---
 

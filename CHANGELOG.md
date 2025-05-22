@@ -1,5 +1,42 @@
 # 📦 Changelog
 
+## [1.2.0] – 2025-05-22
+
+### Added
+- Dark theme support across the entire UI, with automatic system detection and toggle
+- End screen for single player mode, with personalized summary and stats
+- Confetti celebration effects (lazy loaded, reduced-motion aware)
+- Sound effects for match, mismatch, flip and game end using Howler.js
+- Visual feedback for correct and incorrect matches (glow, overlay, vibration)
+- Penalty system for incorrect pairs (-1 point, never below 0)
+- Offline banner with reactive network status detection (`useNetworkStatus`)
+- Orientation hint for large boards on tablets in portrait mode
+- Basic 404 page with fallback UI and localization
+- Landmark roles and ARIA regions (`<main>`, `<nav>`, `<section>`, `<aside>`) for accessibility
+- Role-based announcements and grid semantics in Board component
+
+### Changed
+- Game logic refactored to improve modularity and maintainability:
+  - `handleCardClick`, `handleMatchOutcome`, and `handleMismatchOutcome` extracted to handlers
+  - `updatePlayerScore` and `resolveFlippedCards` moved to logic layer
+  - Avatar name resolution centralized (`getAvatarName`)
+- StartScreen refactored into smaller components: `PlayerForm`, `PlayerList`, `StartGameButton`
+- All modal components now include keyboard trap and ARIA labeling
+- `ThemeContext` added with smooth transitions and `theme--dark` class handling
+- Translations updated with dark mode and accessibility strings
+- PWA improved with `vite-plugin-pwa`: precached assets, manifest injection, offline fallback, and service worker refactor
+- Layout spacing and visual flow optimized on GameScreen and EndScreen
+- New `effects/` folder for animations (`Confetti`, `Fireworks`)
+- GameContext now tracks player turns individually, even in single player mode
+
+### Fixed
+- Prevents Flash of Unstyled Content (FOUC) during initial dark mode load
+- Improved accessible color contrast on buttons and active states
+- Disabled CSS transitions and visual effects when `prefers-reduced-motion` is active
+- Fixed update banner appearance under slow network conditions
+- Fixed animation sync issues in EndScreen with reduced-motion preferences
+- Fixed SPA routing and offline fallback via updated `vercel.json` rewrites
+
 ## [1.1.1] – 2025-04-30
 
 ### Added

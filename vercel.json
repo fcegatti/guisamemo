@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/manifest.webmanifest", "destination": "/manifest.webmanifest" },
     { "source": "/es/manifest.webmanifest", "destination": "/manifest.webmanifest" },
     { "source": "/gl/manifest.webmanifest", "destination": "/manifest.webmanifest" },
     { "source": "/", "destination": "/index.html" },

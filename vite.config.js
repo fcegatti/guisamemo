@@ -182,7 +182,7 @@ export default defineConfig({
             }
           },
           {
-            urlPattern: /^https:\/\/guisamemo\.com\/.*$/,
+            urlPattern: /^https:\/\/*guisamemo\.com\/.*$/,
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'guisamemo-assets-v1-2-0'

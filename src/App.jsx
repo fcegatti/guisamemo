@@ -7,10 +7,12 @@ import StartScreen from '@components/StartScreen'
 import GameScreen from '@components/game/GameScreen'
 import EndScreen from '@components/game/EndScreen'
 import { useNetworkStatus } from '@hooks/useNetworkStatus'
+import { useDocumentMetadata } from '@hooks/useDocumentMetadata'
 
 function AppContent () {
   const { gameStarted, isGameOver } = useGame()
   const isOnline = useNetworkStatus()
+  useDocumentMetadata()
 
   return (
     <main id='main-content'>

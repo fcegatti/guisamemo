@@ -3,12 +3,20 @@
     { "source": "/manifest.webmanifest", "destination": "/manifest.webmanifest" },
     { "source": "/es/manifest.webmanifest", "destination": "/manifest.webmanifest" },
     { "source": "/gl/manifest.webmanifest", "destination": "/manifest.webmanifest" },
+    { "source": "/sw.js", "destination": "/sw.js" },
     { "source": "/es", "destination": "/index.html" },
     { "source": "/gl", "destination": "/index.html" },
     { "source": "/(es|gl)/(.*)", "destination": "/index.html" },
     { "source": "/", "destination": "/index.html" }
   ],
   "headers": [
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [
+        { "key": "Content-Type", "value": "application/manifest+json" },
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [

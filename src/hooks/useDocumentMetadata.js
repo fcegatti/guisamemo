@@ -43,5 +43,23 @@ export function useDocumentMetadata () {
     updateMetaTag('meta[name="twitter:title"]', tFunc('meta.twitter.title'))
     updateMetaTag('meta[name="twitter:description"]', tFunc('meta.twitter.description'))
     updateMetaTag('meta[name="twitter:image:alt"]', tFunc('meta.twitter.imageAlt'))
+
+    // JSON-LD structured data (modifies existing script)
+    const updateJsonLd = () => {
+      const jsonScript = document.querySelector('script[type="application/ld+json"]')
+      if (jsonScript) {
+        try {
+          const data = JSON.parse(jsonScript.textContent)
+          // Update translatable fields only
+          data.description = tFunc('meta.jsonld.description')
+          data.about.name = tFunc('meta.jsonld.about')
+          data.inLanguage = lang
+          jsonScript.textContent = JSON.stringify(data)
+        } catch (error) {
+          console.warn('[useDocumentMetadata] Failed to update JSON-LD:', error)
+        }
+      }
+    }
+    updateJsonLd()
   }, [lang, tFunc])
 }

@@ -149,6 +149,10 @@
       "title": "Guisamemo | Xogo de memoria infantil",
       "description": "Xogo de memoria visual. Ata 4 xogadores. Xoga gratis!",
       "imageAlt": "Taboleiro do xogo Guisamemo con nenos e fichas"
+    },
+    "jsonld": {
+      "description": "Guisamemo é un xogo de memoria visual para 1 a 4 xogadores. Inspirado no Memorama, pensado para nenos.",
+      "about": "Xogo de memoria infantil"
     }
   }
 }

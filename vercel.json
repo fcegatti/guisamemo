@@ -1,9 +1,11 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/(es|gl)/(.*)", "destination": "/index.html" },
+    { "source": "/manifest.webmanifest", "destination": "/manifest.webmanifest" },
     { "source": "/es/manifest.webmanifest", "destination": "/manifest.webmanifest" },
-    { "source": "/gl/manifest.webmanifest", "destination": "/manifest.webmanifest" }
+    { "source": "/gl/manifest.webmanifest", "destination": "/manifest.webmanifest" },
+    { "source": "/(es|gl)/(.*)", "destination": "/index.html" },
+    { "source": "/(es|gl)", "destination": "/index.html" }
   ],
   "headers": [
     {

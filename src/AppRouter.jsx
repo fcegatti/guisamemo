@@ -4,19 +4,18 @@ import LanguageRedirector from '@components/LanguageRedirector'
 import NotFound from '@components/interface/NotFound'
 import TestEndScreen from '@components/test/TestEndScreen'
 
-function LanguageWrapper () {
-  return <App />
-}
-
 export default function AppRouter () {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Automatic redirection from '/' to '/es' */}
+        {/* Root: intelligent redirection based on localStorage/browser */}
         <Route path='/' element={<LanguageRedirector />} />
 
-        {/* Routes per language */}
-        <Route path='/:lang' element={<LanguageWrapper />} />
+        {/* Direct language routes: render App with language from URL */}
+        <Route path='/es' element={<App />} />
+        <Route path='/gl' element={<App />} />
+
+        {/* Development route */}
         {import.meta.env.MODE === 'development' && (
           <Route path='/test-end' element={<TestEndScreen />} />
         )}

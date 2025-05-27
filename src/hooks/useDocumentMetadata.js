@@ -61,5 +61,24 @@ export function useDocumentMetadata () {
       }
     }
     updateJsonLd()
+
+    // Update canonical URL based on current language route
+    const updateCanonical = () => {
+      let canonical = document.querySelector('link[rel="canonical"]')
+      if (!canonical) {
+        canonical = document.createElement('link')
+        canonical.rel = 'canonical'
+        document.head.appendChild(canonical)
+      }
+      
+      const baseUrl = 'https://guisamemo.com'
+      if (window.location.pathname === '/') {
+        canonical.href = baseUrl + '/'
+      } else {
+        canonical.href = baseUrl + '/' + lang
+      }
+    }
+    updateCanonical()
+    
   }, [lang, tFunc])
 }

@@ -142,11 +142,13 @@
     "description": "Guisamemo es un juego de memoria visual para 1 a 4 jugadores. Inspirado en Memorama, pensado para niños.",
     "og": {
       "title": "Guisamemo | Juego de memoria infantil",
-      "description": "Juego de memoria visual inspirado en Memorama. Para 1 a 4 jugadores, pensado para niños."
+      "description": "Juego de memoria visual inspirado en Memorama. Para 1 a 4 jugadores, pensado para niños.",
+      "imageAlt": "Tablero del juego Guisamemo con niños y fichas"
     },
     "twitter": {
       "title": "Guisamemo | Juego de memoria infantil", 
-      "description": "Juego de memoria visual. Hasta 4 jugadores. ¡Juega gratis!"
+      "description": "Juego de memoria visual. Hasta 4 jugadores. ¡Juega gratis!",
+      "imageAlt": "Tablero del juego Guisamemo con niños y fichas"
     }
   }
 }

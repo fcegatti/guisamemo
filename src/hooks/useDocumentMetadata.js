@@ -36,9 +36,12 @@ export function useDocumentMetadata () {
     updateMetaTag('meta[property="og:title"]', tFunc('meta.og.title'))
     updateMetaTag('meta[property="og:description"]', tFunc('meta.og.description'))
     updateMetaTag('meta[property="og:locale"]', lang === 'gl' ? 'gl_ES' : 'es_ES')
+    updateMetaTag('meta[property="og:locale:alternate"]', lang === 'es' ? 'gl_ES' : 'es_ES')
+    updateMetaTag('meta[property="og:image:alt"]', tFunc('meta.og.imageAlt'))
 
     // Twitter metadata (modifies existing tags)
     updateMetaTag('meta[name="twitter:title"]', tFunc('meta.twitter.title'))
     updateMetaTag('meta[name="twitter:description"]', tFunc('meta.twitter.description'))
+    updateMetaTag('meta[name="twitter:image:alt"]', tFunc('meta.twitter.imageAlt'))
   }, [lang, tFunc])
 }

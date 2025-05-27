@@ -2,26 +2,24 @@ import { useEffect } from 'react'
 import { useLanguage } from '@context/LanguageContext'
 
 export function useDocumentMetadata () {
-  const { lang, t } = useLanguage()
+  const { lang, tFunc } = useLanguage()
 
   useEffect(() => {
-    if (lang) {
-      document.documentElement.lang = lang
+    if (!lang || typeof tFunc !== 'function') return
+
+    // Update <html lang="...">
+    document.documentElement.lang = lang
+
+    // Set <title>
+    document.title = tFunc('meta.title')
+
+    // Set or update <meta name="description">
+    let metaDesc = document.querySelector('meta[name="description"]')
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta')
+      metaDesc.name = 'description'
+      document.head.appendChild(metaDesc)
     }
-
-    if (typeof t === 'function') {
-      // Set <title>
-      document.title = t('meta.title')
-
-      // Set <meta name="description">
-      let metaDesc = document.querySelector('meta[name="description"]')
-      if (!metaDesc) {
-        metaDesc = document.createElement('meta')
-        metaDesc.name = 'description'
-        document.head.appendChild(metaDesc)
-      }
-      metaDesc.content = t('meta.description')
-    }
-
-  }, [lang])
+    metaDesc.content = tFunc('meta.description')
+  }, [lang, tFunc])
 }

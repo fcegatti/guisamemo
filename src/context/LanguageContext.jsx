@@ -5,9 +5,18 @@ import { translations } from '@i18n'
 
 const LanguageContext = createContext()
 
+// Translator function for dot notation
+
+function createTranslator (langObj) {
+  return function t (key) {
+    return key.split('.').reduce((obj, part) => (obj && obj[part]) ? obj[part] : undefined, langObj)
+  }
+}
+
 export function LanguageProvider ({ children }) {
   const [lang, setLang] = useState(null)
   const [t, setT] = useState(translations.es)
+  const [tFunc, setTFunc] = useState(() => createTranslator(translations.es))
 
   useEffect(() => {
     const urlLang = window.location.pathname.split('/')[1]
@@ -24,13 +33,15 @@ export function LanguageProvider ({ children }) {
 
   useEffect(() => {
     if (!lang) return
-    setT(translations[lang] || translations.es)
+    const langObj = translations[lang] || translations.es
+    setT(langObj)
+    setTFunc(() => createTranslator(langObj))
     document.documentElement.lang = lang // updates <html lang="...">
     localStorage.setItem('lang', lang)
   }, [lang])
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
+    <LanguageContext.Provider value={{ lang, setLang, t, tFunc }}>
       {children}
     </LanguageContext.Provider>
   )

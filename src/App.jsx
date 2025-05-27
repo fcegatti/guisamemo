@@ -1,12 +1,11 @@
 import { GameProvider, useGame } from '@context/GameContext'
-import { useLanguage } from '@context/LanguageContext'
-import { useEffect } from 'react'
+import { useNetworkStatus } from '@hooks/useNetworkStatus'
+import { useDocumentMetadata } from '@hooks/useDocumentMetadata'
 import UpdateBanner from '@components/UpdateBanner'
 import { OfflineBanner } from '@components/interface/OfflineBanner'
 import StartScreen from '@components/StartScreen'
 import GameScreen from '@components/game/GameScreen'
 import EndScreen from '@components/game/EndScreen'
-import { useNetworkStatus } from '@hooks/useNetworkStatus'
 
 function AppContent () {
   const { gameStarted, isGameOver } = useGame()
@@ -24,13 +23,7 @@ function AppContent () {
 }
 
 function App () {
-  const { t } = useLanguage()
-
-  useEffect(() => {
-    if (typeof t === 'function') {
-      document.title = t('meta.title')
-    }
-  }, [t])
+  useDocumentMetadata()
 
   return (
     <GameProvider>

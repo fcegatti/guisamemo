@@ -1,4 +1,35 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(bot|crawler|spider|crawling|Googlebot|Bingbot|facebookexternalhit).*"
+        },
+        {
+          "type": "header", 
+          "key": "accept-language",
+          "value": "gl.*"
+        }
+      ],
+      "destination": "/gl",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent", 
+          "value": ".*(bot|crawler|spider|crawling|Googlebot|Bingbot|facebookexternalhit).*"
+        }
+      ],
+      "destination": "/es",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/manifest.webmanifest", "destination": "/manifest.webmanifest" },

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { generateDeck } from '@utils/deck'
+import { generateDeck, testShuffleDistribution } from '@utils/deck'
 import { handleCardClick } from '@handlers/handleCardClick'
 import { useGame } from '@context/GameContext'
 import { useLanguage } from '@context/LanguageContext'
@@ -26,6 +26,11 @@ export function useGameEngine () {
   // Generate deck when board size changes
   useEffect(() => {
     setCards(generateDeck(boardSize))
+
+    // 🔬 TEST: only in development
+    if (import.meta.env.MODE === 'development') {
+      testShuffleDistribution()
+    }
   }, [boardSize])
 
   // Handle user clicking a card

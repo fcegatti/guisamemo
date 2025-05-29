@@ -54,3 +54,54 @@ export function generateDeck (boardSize = 'xs') {
   // Shuffle cards randomly
   return rawCards.sort(() => Math.random() - 0.5)
 }
+
+export function testShuffleDistribution() {
+  if (import.meta.env.MODE !== 'development') return;
+  
+  console.log('🔬 TESTING SHUFFLE ALGORITHM');
+  console.log('Browser:', navigator.userAgent.includes('Firefox') ? 'Firefox' : 'Chrome/Other');
+  
+  const testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const results = [];
+  
+  // 100 shuffles to analyze distribution
+  console.log('🔄 Running 100 random shuffles...');
+  for (let i = 0; i < 100; i++) {
+    const shuffled = [...testArray].sort(() => Math.random() - 0.5);
+    results.push(shuffled);
+  }
+  
+  // Analize the distribution of numbers in each position
+  console.log('🔍 Analyzing distribution of shuffled results...');
+  const positionAnalysis = {
+    pos0: {},
+    pos1: {},
+    pos2: {}
+  };
+  
+  results.forEach(result => {
+    positionAnalysis.pos0[result[0]] = (positionAnalysis.pos0[result[0]] || 0) + 1;
+    positionAnalysis.pos1[result[1]] = (positionAnalysis.pos1[result[1]] || 0) + 1;
+    positionAnalysis.pos2[result[2]] = (positionAnalysis.pos2[result[2]] || 0) + 1;
+  });
+  
+  console.log('📊 Position Analysis (should be roughly uniform):');
+  console.log('Position 0:', positionAnalysis.pos0);
+  console.log('Position 1:', positionAnalysis.pos1);
+  console.log('Position 2:', positionAnalysis.pos2);
+  
+  // Detect clusters of consecutive pairs
+  console.log('🔗 Detecting consecutive pairs...')    ;
+  let consecutivePairs = 0;
+  results.forEach(result => {
+    for (let i = 0; i < result.length - 1; i++) {
+      if (Math.abs(result[i] - result[i + 1]) === 1) {
+        consecutivePairs++;
+      }
+    }
+  });
+  
+  console.log('🔗 Consecutive pairs found:', consecutivePairs);
+  console.log('Expected random consecutive pairs: ~', (100 * 14 * 2) / 15); // statistical expectation for 15 unique items
+  return { positionAnalysis, consecutivePairs };  
+}

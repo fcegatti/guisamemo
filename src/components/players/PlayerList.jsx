@@ -52,6 +52,7 @@ function PlayerList ({
           </button>
           {selectingAvatarFor === player.id && (
             <AvatarSelector
+              currentAvatar={player.avatar}
               onSelect={(filename) =>
                 handleAvatarSelectWrapper(player.id, filename)}
             />

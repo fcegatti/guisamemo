@@ -4,9 +4,17 @@ import { AVATAR_INFO } from '@constants/avatars'
 import { useLanguage } from '@context/LanguageContext'
 import { useFocusTrap } from '@hooks/useFocusTrap'
 
-export default function AvatarSelector ({ onSelect }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const currentAvatar = AVATAR_INFO[currentIndex]
+export default function AvatarSelector ({ onSelect, currentAvatar }) {
+    const getInitialIndex = (avatarFilename) => {
+    if (!avatarFilename || avatarFilename === 'avatar-default.webp') {
+      return 0 // Start from Messi for new players
+    }
+    
+    const index = AVATAR_INFO.findIndex(avatar => avatar.filename === avatarFilename)
+    return index !== -1 ? index : 0 // Fallback to 0 if not found
+  }
+  const [currentIndex, setCurrentIndex] = useState(() => getInitialIndex(currentAvatar))
+  const selectedAvatar = AVATAR_INFO[currentIndex]
 
   const { t } = useLanguage()
 
@@ -70,23 +78,23 @@ export default function AvatarSelector ({ onSelect }) {
           onTouchEnd={handleTouchEnd}
         >
           <img
-            src={`/avatars/${currentAvatar.filename}`}
+            src={`/avatars/${selectedAvatar.filename}`}
             alt={t.avatar.imageAlt.replace(
               '{name}',
-              currentAvatar.translationKey
-                ? t.names[currentAvatar.translationKey]
-                : currentAvatar.name
+              selectedAvatar.translationKey
+                ? t.names[selectedAvatar.translationKey]
+                : selectedAvatar.name
             )}
             className='avatarselector__image'
-            onClick={() => onSelect(currentAvatar.filename)}
+            onClick={() => onSelect(selectedAvatar.filename)}
           />
           <span
             className='avatarselector__name'
             aria-live='polite'
           >
-            {currentAvatar.translationKey
-              ? t.names[currentAvatar.translationKey]
-              : currentAvatar.name}
+            {selectedAvatar.translationKey
+              ? t.names[selectedAvatar.translationKey]
+              : selectedAvatar.name}
           </span>
         </div>
 

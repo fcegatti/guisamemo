@@ -14,7 +14,7 @@
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: var(--color-accent);
+  color: var(--button-blue);
 }
 
 .notfound__message {
@@ -29,27 +29,29 @@
 }
 
 .notfound__button {
-  background-color: var(--color-accent);
-  color: white;
+  background-color: var(--button-blue);
+  color: var(--color-text-light);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
   border: none;
   border-radius: var(--button-radius);
-  padding: 0.5rem 1.5rem;
+  padding: var(--button-padding);
   font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.notfound__button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.5);
 }
 
 .notfound__button:hover {
-  background-color: var(--color-accent-hover, #479d63);
+  background-color: var(--button-blue-hover);
 }
 
 /* 🌙 DARK MODE */
 .theme--dark .notfound {
   background-color: var(--color-background-dark);
   color: var(--color-text-light);
-}
-
-.theme--dark .notfound__button {
-  color: white;
 }

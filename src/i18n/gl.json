@@ -125,6 +125,11 @@
     "switchToDark": "Activar modo escuro",
     "switchToLight": "Activar modo claro"
   },
+  "notFound": {
+    "title": "404", 
+    "message": "Páxina non atopada",
+    "button": "Volver ao inicio"
+  },
     "errors": {
     "notFound": "Páxina non atopada",
     "backHome": "Volver ao inicio"

@@ -7,8 +7,8 @@ export default function NotFound () {
 
   return (
     <main className='notfound' role='main' aria-labelledby='notfound-title'>
-      <h1 id='notfiund-title' className='notfound__code'>404</h1>
-      <p className='notfound__message'>{t.errors.notFound}</p>
+      <h1 id='notfound-title' className='notfound__code'>{t.notFound.title}</h1>
+      <p className='notfound__message'>{t.notFound.message}</p>
       <img
         src='/cards/fallback.webp'
         alt=''
@@ -19,7 +19,7 @@ export default function NotFound () {
         onClick={() => navigate('/')}
         className='notfound__button'
       >
-        {t.actions.backHome}
+        {t.notFound.button}
       </button>
     </main>
   )

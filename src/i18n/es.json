@@ -130,10 +130,6 @@
     "message": "Página no encontrada",
     "button": "Volver al inicio"
   },
-  "errors": {
-    "notFound": "Página no encontrada",
-    "backHome": "Volver al inicio"
-  },
   "update": {
     "message": "Se actualizó la aplicación.",
     "instruction": "Recarga la app para usar la nueva versión.",

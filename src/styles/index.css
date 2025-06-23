@@ -22,6 +22,7 @@
 @import '@styles/playerspanel.css';
 @import '@styles/playerstatus.css';
 @import '@styles/notfound.css';
+@import '@styles/firefoxwarning.css';
 
 /* 🌍 Global background for full viewport */
 html,

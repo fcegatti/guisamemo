@@ -133,3 +133,40 @@
     opacity: 0.4;
   }
 }
+
+@supports (-moz-appearance: none) {
+  .gameboard {
+    grid-auto-rows: 1fr;
+  }
+}
+
+/* ================================= 
+   FIREFOX-SPECIFIC RENDERING FIXES 
+   ================================= */
+@supports (-moz-appearance: none) {
+  /* Desktop Firefox (≥600px) */
+  .gameboard {
+    grid-auto-rows: 1fr;
+  }
+  
+  @media (min-width: 600px) {
+    .gameboard {
+      height: calc(100dvh - 140px);
+    }
+    
+    .gameboard__card {
+      max-height: calc((100dvh - 140px) / 6);
+    }
+  }
+  
+  /* Mobile Firefox (≤599px) - usar mismo offset que mobile normal */
+  @media (max-width: 599px) {
+    .gameboard {
+      height: calc(100dvh - 110px); /* Ligero ajuste del 100px original */
+    }
+    
+    .gameboard__card {
+      max-height: calc((100dvh - 110px) / 6);
+    }
+  }
+}

@@ -138,8 +138,9 @@
     "message": "Modo sin conexión"
   },
   "firefox": {
-  "warningMessage": "Para una mejor experiencia, recomendamos usar Chrome, Safari o Edge.",
-  "dismiss": "Entendido"
+    "title": "Navegador no soportado",
+    "warningMessage": "Esta aplicación no está preparada para Firefox. Use Chrome, Safari o Edge para utilizarla.",
+    "dismiss": "Entendido"
   },
   "meta": {
     "title": "Guisamemo | Juego de memoria infantil",

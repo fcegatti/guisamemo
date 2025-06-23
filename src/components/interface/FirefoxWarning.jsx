@@ -22,16 +22,28 @@ export default function FirefoxWarning() {
   if (!isFirefox || dismissed) return null
 
   return (
-    <div className="firefox-warning" role="alert">
-      <div className="firefox-warning__content">
-        <span>⚠️</span>
-        <p>{t.firefox.warningMessage}</p>
-        <button 
+    <div className="firefoxwarning__overlay">
+        
+      <div className="firefoxwarning">
+        <div className="firefoxwarning__icon-container">
+          {/* Logo Firefox */}
+          <div className="firefoxwarning__firefox-logo">🦊</div>
+          {/* X roja */}
+          <div className="firefoxwarning__cross">✕</div>
+        </div>
+
+        <div className="firefoxwarning__message">
+          <h2>{t.firefox.title}</h2>
+          <p>{t.firefox.warningMessage}</p>
+        </div>
+
+        <button
           onClick={handleDismiss}
-          className="firefox-warning__dismiss"
+          className="firefoxwarning__dismiss-btn"
         >
           {t.firefox.dismiss}
         </button>
+        <div className="firefoxwarning__handle" />
       </div>
     </div>
   )

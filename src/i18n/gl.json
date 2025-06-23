@@ -138,7 +138,8 @@
     "message": "Modo sen conexión"
   },
   "firefox": {
-    "warningMessage": "Para unha mellor experiencia, recomendamos usar Chrome, Safari ou Edge.",
+    "title": "Navegador non soportado",
+    "warningMessage": "Esta aplicación non está preparada para Firefox. Use Chrome, Safari ou Edge para utilizala.",
     "dismiss": "Entendido"
   },
   "meta": {

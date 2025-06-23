@@ -25,12 +25,12 @@ export default function FirefoxWarning() {
     <div className="firefoxwarning__overlay">
         
       <div className="firefoxwarning">
-        <div className="firefoxwarning__icon-container">
-          {/* Logo Firefox */}
-          <div className="firefoxwarning__firefox-logo">🦊</div>
-          {/* X roja */}
-          <div className="firefoxwarning__cross">✕</div>
-        </div>
+        <img
+            src='/firefox-logo.webp'
+            alt="Logo de Firefox"
+            className="firefoxwarning__firefox-logo"
+            aria-hidden='true'
+        />
 
         <div className="firefoxwarning__message">
           <h2>{t.firefox.title}</h2>

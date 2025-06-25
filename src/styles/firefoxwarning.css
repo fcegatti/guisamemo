@@ -1,0 +1,121 @@
+.firefoxwarning__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 100;
+}
+
+/* Modal box */
+.firefoxwarning {
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
+  border-radius: 0 0 16px 16px;
+  padding: 1rem 1rem 0.1rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: slideDown 0.3s ease-out;
+  margin-top: 0;
+  border: 1px solid var(--color-border-light);
+  border-top: none;
+}
+
+/* Top drag handle */
+.firefoxwarning__handle {
+  width: 40px;
+  height: 5px;
+  background-color: var(--modal-handle);
+  border-radius: 3px;
+  margin: 1rem auto 0.1rem;
+}
+
+/* Icon image */
+.firefoxwarning__firefox-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* Message text */
+.firefoxwarning__message {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.firefoxwarning__message:focus {
+  outline: none;
+}
+
+.firefoxwarning__message h2 {
+  margin-bottom: 0.5rem;
+}
+
+.firefoxwarning__message p {
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+/* Dismiss button */
+.firefoxwarning__dismiss-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  min-height: 44px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--button-blue);
+  color: var(--color-text-light);
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.firefoxwarning__dismiss-btn:hover {
+  background-color: var(--button-blue-hover);
+}
+
+.firefoxwarning__dismiss-btn:focus {
+  outline: 2px solid var(--accent-yellow);
+  outline-offset: 2px;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* 🌙 DARK MODE */
+.theme--dark .firefoxwarning {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+  border-color: var(--color-border-grey);
+}
+
+.theme--dark .firefoxwarning__message,
+.theme--dark .firefoxwarning__message h2,
+.theme--dark .firefoxwarning__message p {
+  color: var(--color-text-light);
+}
+
+.theme--dark .firefoxwarning__dismiss-btn {
+  background-color: var(--button-blue);
+  color: var(--color-text-light);
+}
+
+.theme--dark .firefoxwarning__dismiss-btn:hover {
+  background-color: var(--button-blue-hover);
+}

@@ -138,6 +138,11 @@
   "offline": {
     "message": "Modo sen conexión"
   },
+  "firefox": {
+    "title": "Navegador non soportado",
+    "warningMessage": "Esta aplicación non está preparada para Firefox. Use Chrome, Safari ou Edge para utilizala.",
+    "dismiss": "Entendido"
+  },
   "meta": {
     "title": "Guisamemo | Xogo de memoria infantil",
     "description": "Guisamemo é un xogo de memoria visual para 1 a 4 xogadores. Inspirado no Memorama, pensado para nenos.",

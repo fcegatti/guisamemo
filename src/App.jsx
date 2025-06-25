@@ -2,6 +2,7 @@ import { GameProvider, useGame } from '@context/GameContext'
 import { useNetworkStatus } from '@hooks/useNetworkStatus'
 import { useDocumentMetadata } from '@hooks/useDocumentMetadata'
 import UpdateBanner from '@components/UpdateBanner'
+import FirefoxWarning from '@components/interface/FirefoxWarning'
 import { OfflineBanner } from '@components/interface/OfflineBanner'
 import StartScreen from '@components/StartScreen'
 import GameScreen from '@components/game/GameScreen'
@@ -13,6 +14,7 @@ function AppContent () {
 
   return (
     <main id='main-content'>
+      <FirefoxWarning />
       {!isOnline && <OfflineBanner />}
       {!gameStarted && <StartScreen />}
       {gameStarted && !isGameOver && <GameScreen />}

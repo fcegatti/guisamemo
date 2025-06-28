@@ -1,25 +1,42 @@
 import { Howl } from 'howler'
 
-const sounds = {
-  match: new Howl({
-    src: ['/sounds/card-match.ogg', '/sounds/card-match.mp3'],
-    volume: 1.0
-  }),
-  mismatch: new Howl({
-    src: ['/sounds/card-mismatch.ogg', '/sounds/card-mismatch.mp3'],
-    volume: 1.0
-  }),
-  end: new Howl({
+const sounds = {}
+let audioInitialized = false
+
+function initializeAudio() {
+  if (audioInitialized) return
+ 
+
+  sounds.match = new Howl({
+      src: ['/sounds/card-match.ogg', '/sounds/card-match.mp3'],
+      volume: 1.0
+    })
+  sounds.mismatch = new Howl({
+      src: ['/sounds/card-mismatch.ogg', '/sounds/card-mismatch.mp3'],
+      volume: 1.0
+    })
+  sounds.end = new Howl({
     src: ['/sounds/end-game.ogg', '/sounds/end-game.mp3'],
     volume: 1.0
-  }),
-  flip: new Howl({
+  })
+  sounds.flip = new Howl({
     src: ['/sounds/card-flip.ogg', '/sounds/card-flip.mp3'],
     volume: 1.0
   })
+
+  audioInitialized = true
+
+  if (import.meta.env.MODE === 'development') {
+    console.log('[SoundManager] Audio initialized on first user interaction')
+  }
 }
 
 export function playSound (type) {
+
+  if (!audioInitialized) {
+    initializeAudio()
+  }
+  
   const sound = sounds[type]
   if (!sound) {
     if (import.meta.env.MODE === 'development') {

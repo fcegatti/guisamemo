@@ -31,12 +31,20 @@ function initializeAudio() {
   }
 }
 
-export function playSound (type) {
+export function preloadGameAudio() {
+  if (!audioInitialized) {
+    initializeAudio()
+    if (import.meta.env.MODE === 'development') {
+      console.log('[SoundManager] Preloading game audio')
+    }
+  }
+}
 
+export function playSound (type) {
   if (!audioInitialized) {
     initializeAudio()
   }
-  
+
   const sound = sounds[type]
   if (!sound) {
     if (import.meta.env.MODE === 'development') {

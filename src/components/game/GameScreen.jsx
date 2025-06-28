@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useGame } from '@context/GameContext'
 import { useMediaQuery } from '@hooks/useMediaQuery'
 import { useLanguage } from '@context/LanguageContext'
+import { preloadGameAudio } from '@utils/soundManager'
 import ExitGameModal from './ExitGameModal'
 import PlayersPanel from '../players/PlayersPanel'
 import PlayerStatus from '../players/PlayerStatus'
@@ -25,6 +26,11 @@ function GameScreen () {
   useEffect(() => {
     sessionStorage.removeItem('hideOrientationHint')
   }, [boardSize])
+
+  // Preload audio on Game Ready
+  useEffect(() => {
+    preloadGameAudio()
+  }, [])
 
   return (
     <section

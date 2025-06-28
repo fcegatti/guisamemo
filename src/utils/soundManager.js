@@ -27,7 +27,7 @@ function initializeAudio() {
   audioInitialized = true
 
   if (import.meta.env.MODE === 'development') {
-    console.log('[SoundManager] Audio initialized on first user interaction')
+    console.log('[SoundManager] Audio initialized for game session')
   }
 }
 

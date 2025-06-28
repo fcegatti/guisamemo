@@ -14,6 +14,8 @@ export default function NotFound () {
         alt=''
         className='notfound__image'
         aria-hidden='true'
+        loading='lazy'
+        decoding='async'
       />
       <button
         onClick={() => navigate('/')}

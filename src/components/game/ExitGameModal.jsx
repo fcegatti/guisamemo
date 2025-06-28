@@ -36,6 +36,8 @@ export default function ExitGameModal ({ onClose, onExit }) {
           alt={t.exitGame.avatarAlt.replace('{name}', currentPlayer.name)}
           className='exitgamemodal__avatar'
           aria-hidden='true'
+          loading='lazy'
+          decoding='async'
         />
 
         <div

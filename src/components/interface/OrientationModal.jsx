@@ -61,6 +61,8 @@ export default function OrientationModal () {
           alt='Icono de rotación de dispositivo'
           className='orientationmodal__icon'
           aria-hidden='true'
+          loading='lazy'
+          decoding='async'
         />
 
         <div

@@ -59,6 +59,8 @@ export default function FirefoxWarning() {
             alt="Logo de Firefox"
             className="firefoxwarning__firefox-logo"
             aria-hidden='true'
+            loading='lazy'
+            decoding='async'
         />
 
         <div 

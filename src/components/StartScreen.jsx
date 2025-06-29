@@ -65,8 +65,8 @@ function StartScreen () {
             See WCAG: https://www.w3.org/WAI/tutorials/images/decorative/
         */}
         <img
-          src='/logo.webp'
-          srcSet='/logo-168.webp 1x, /logo-336.webp 2x'
+          src='/logo-168.webp'
+          srcSet='/logo-168.webp 168w, /logo-336.webp 336w'
           alt='Logo Guisamemo'
           className='startscreen__logo'
           aria-hidden='true'

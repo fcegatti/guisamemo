@@ -66,8 +66,7 @@ function StartScreen () {
         */}
         <img
           src='/logo.webp'
-          width='384'
-          height='384'
+          srcSet='/logo-168.webp 1x, /logo-336.webp 2x'
           alt='Logo Guisamemo'
           className='startscreen__logo'
           aria-hidden='true'

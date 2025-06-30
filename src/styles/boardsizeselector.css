@@ -37,6 +37,16 @@
   cursor: pointer;
   white-space: nowrap;
   transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+}
+
+.boardsizeselector__option::after {
+  content: '';
+  position: absolute;
+  top: -8.5px;
+  bottom: -8.5px;
+  left: 0;
+  right: 0;
 }
 
 /* Hover only applies to non-active buttons */

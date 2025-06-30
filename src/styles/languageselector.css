@@ -1,11 +1,13 @@
 .languageselector__button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   background: transparent;
   border: none;
-  padding: 0;
+  padding: 12px 7px;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 50;
 }
 

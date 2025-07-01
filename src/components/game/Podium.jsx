@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@context/LanguageContext'
+import { useMediaQuery } from '@hooks/useMediaQuery'
 
 export default function Podium ({ players }) {
   const [visibleRanks, setVisibleRanks] = useState([false, false, false])
   const [readRankIndex, setReadRankIndex] = useState(null)
   const { t } = useLanguage()
+  const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
 
   // Progressive animation: third → second → first place
   useEffect(() => {
@@ -20,13 +22,25 @@ export default function Podium ({ players }) {
     return () => timers.forEach(clearTimeout)
   }, [])
 
+  const getBlockClasses = (rankIndex) => {
+    const baseClass = `podium__block podium__${['third', 'second', 'first'][rankIndex]}`
+    const visibleClass = (visibleRanks[rankIndex] || reduceMotion) ? 'visible' : ''
+    const staticClass = reduceMotion ? 'podium__block--static' : ''
+
+    return `${baseClass} ${visibleClass} ${staticClass}`.trim()
+  }
+
+  const getContentClasses = () => {
+    return reduceMotion ? 'podium__content podium__content--static' : 'podium__content'
+  }
+
   return (
     <>
       <div className='podium'>
         {/* Second place (left) */}
-        <div className={`podium__block podium__second ${visibleRanks[1] ? 'visible' : ''}`}>
+        <div className={getBlockClasses(1)}>
           {players[1] && (
-            <div className='podium__content'>
+            <div className={getContentClasses()}>
               <img
                 src={players[1].avatar}
                 alt={t.podium.avatarAlt.replace('{name}', players[1].name)}
@@ -44,9 +58,9 @@ export default function Podium ({ players }) {
         </div>
 
         {/* First place (centre) */}
-        <div className={`podium__block podium__first ${visibleRanks[2] ? 'visible' : ''}`}>
+        <div className={getBlockClasses(2)}>
           {players[0] && (
-            <div className='podium__content'>
+            <div className={getContentClasses()}>
               <img
                 src={players[0].avatar}
                 alt={t.podium.avatarAlt.replace('{name}', players[0].name)}
@@ -64,9 +78,9 @@ export default function Podium ({ players }) {
         </div>
 
         {/* Third place (right) */}
-        <div className={`podium__block podium__third ${visibleRanks[0] ? 'visible' : ''}`}>
+        <div className={getBlockClasses(0)}>
           {players[2] && (
-            <div className='podium__content'>
+            <div className={getContentClasses()}>
               <img
                 src={players[2].avatar}
                 alt={t.podium.avatarAlt.replace('{name}', players[2].name)}
@@ -90,7 +104,7 @@ export default function Podium ({ players }) {
       (
         <p className='sr-only' aria-live='polite'>
           {(() => {
-            const index = players.length - 1 - readRankIndex // invertir para coincidir con la animación
+            const index = players.length - 1 - readRankIndex // Reverse index for screen reader
             const player = players[index]
             const rank = readRankIndex + 1
             const label =

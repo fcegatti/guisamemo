@@ -20,12 +20,7 @@ function Board () {
   console.log('DEBUG Board.jsx:', { boardSize, columns, totalCards })
 
   // Roving tabindex for keyboard navigation
-  const {
-    getTabIndex,
-    getItemRef,
-    handleKeyDown,
-    currentFocusIndex
-  } = useRovingTabIndex({
+  const { getTabIndex, getItemRef, handleKeyDown } = useRovingTabIndex({
     itemCount: totalCards,
     navigationStrategy: 'grid',
     gridColumns: columns,
@@ -76,8 +71,7 @@ function Board () {
               aria-setsize={totalCards}
               className={`gameboard__card
                 ${card.justMatched ? 'gameboard__card--matched' : ''}
-                ${card.justMismatched ? 'gameboard__card--mismatched gameboard__card--mismatched-active' : ''}
-                ${index === currentFocusIndex ? 'gameboard__card--focused' : ''}`}
+                ${card.justMismatched ? 'gameboard__card--mismatched gameboard__card--mismatched-active' : ''}`}
               onClick={() => handleCardClick(card.id)}
             >
               <img

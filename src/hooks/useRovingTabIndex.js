@@ -3,17 +3,17 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 /**
  * Custom hook for implementing roving tabindex pattern
  * Supports both linear (1D) and grid (2D) navigation strategies
- * 
+ *
  * @param {Object} config - Configuration object
  * @param {number} config.itemCount - Total number of items
  * @param {'linear'|'grid'} config.navigationStrategy - Navigation pattern
  * @param {number} [config.gridColumns] - Number of columns (required for grid strategy)
  * @param {number} [config.initialIndex=0] - Initial focused index
  * @param {function} [config.onActivate] - Callback when item is activated (Enter/Space)
- * 
+ *
  * @returns {Object} Hook utilities
  */
-export function useRovingTabIndex({
+export function useRovingTabIndex ({
   itemCount,
   navigationStrategy,
   gridColumns = null,
@@ -32,7 +32,7 @@ export function useRovingTabIndex({
   const calculateNextIndex = useCallback((currentIndex, direction) => {
     if (navigationStrategy === 'linear') {
       return calculateLinearNavigation(currentIndex, direction, itemCount)
-    } else     if (navigationStrategy === 'grid') {
+    } else if (navigationStrategy === 'grid') {
       if (!gridColumns) {
         console.warn('[useRovingTabIndex] gridColumns required for grid navigation')
         return currentIndex
@@ -95,7 +95,7 @@ export function useRovingTabIndex({
           // Ensure target exists (should always be true if currentRow > 0)
           if (targetIndex >= 0) {
             nextIndex = targetIndex
-          } 
+          }
         }
         break
       case 'ArrowDown':
@@ -114,16 +114,16 @@ export function useRovingTabIndex({
         break
     }
 
-  // 🐛 DEBUG: Log result in development mode
-  if (import.meta.env.MODE === 'development' && nextIndex !== currentIndex) {
-    console.log('Grid Navigation RESULT:', { 
-      from: currentIndex, 
-      to: nextIndex,
-      movement: direction,
-      fromPosition: `row ${currentRow}, col ${currentCol}`,
-      toPosition: `row ${Math.floor(nextIndex / columns)}, col ${nextIndex % columns}`
-    })
-  }
+    // 🐛 DEBUG: Log result in development mode
+    if (import.meta.env.MODE === 'development' && nextIndex !== currentIndex) {
+      console.log('Grid Navigation RESULT:', {
+        from: currentIndex,
+        to: nextIndex,
+        movement: direction,
+        fromPosition: `row ${currentRow}, col ${currentCol}`,
+        toPosition: `row ${Math.floor(nextIndex / columns)}, col ${nextIndex % columns}`
+      })
+    }
     return nextIndex
   }
 
@@ -131,7 +131,7 @@ export function useRovingTabIndex({
   const handleKeyDown = useCallback((event) => {
     const { key } = event
 
-      // 🔍 DIAGNÓSTICO: Log TODOS los eventos de teclado que llegan
+    // 🔍 DIAGNÓSTICO: Log TODOS los eventos de teclado que llegan
     console.log('🔍 KEYBOARD EVENT RECEIVED:', {
       key,
       target: event.target.tagName,
@@ -140,12 +140,12 @@ export function useRovingTabIndex({
       screenReaderMode: window.navigator.userAgent.includes('NVDA') || window.speechSynthesis,
       timestamp: Date.now()
     })
-    
+
     // Navigation keys
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(key)) {
       console.log('🎯 ARROW KEY DETECTED - About to preventDefault and navigate')
       event.preventDefault()
-      
+
       setCurrentFocusIndex((prevIndex) => {
         console.log('🔄 SET CURRENT FOCUS INDEX - Calculating next from:', prevIndex)
         const nextIndex = calculateNextIndex(prevIndex, key)

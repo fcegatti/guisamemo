@@ -3,18 +3,17 @@ import { Howl } from 'howler'
 const sounds = {}
 let audioInitialized = false
 
-function initializeAudio() {
+function initializeAudio () {
   if (audioInitialized) return
- 
 
   sounds.match = new Howl({
-      src: ['/sounds/card-match.ogg', '/sounds/card-match.mp3'],
-      volume: 1.0
-    })
+    src: ['/sounds/card-match.ogg', '/sounds/card-match.mp3'],
+    volume: 1.0
+  })
   sounds.mismatch = new Howl({
-      src: ['/sounds/card-mismatch.ogg', '/sounds/card-mismatch.mp3'],
-      volume: 1.0
-    })
+    src: ['/sounds/card-mismatch.ogg', '/sounds/card-mismatch.mp3'],
+    volume: 1.0
+  })
   sounds.end = new Howl({
     src: ['/sounds/end-game.ogg', '/sounds/end-game.mp3'],
     volume: 1.0
@@ -31,7 +30,7 @@ function initializeAudio() {
   }
 }
 
-export function preloadGameAudio() {
+export function preloadGameAudio () {
   if (!audioInitialized) {
     initializeAudio()
     if (import.meta.env.MODE === 'development') {

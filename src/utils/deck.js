@@ -55,7 +55,7 @@ export function generateDeck (boardSize = 'xs') {
   return fisherYatesShuffle(rawCards)
 }
 
-function fisherYatesShuffle(array) {
+function fisherYatesShuffle (array) {
   const result = [...array]
   for (let i = result.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))

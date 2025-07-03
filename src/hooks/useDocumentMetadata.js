@@ -27,7 +27,7 @@ export function useDocumentMetadata () {
       }
       metaTag.content = content
     }
-    
+
     // basic metadata
     document.title = tFunc('meta.title')
     updateMetaTag('meta[name="description"]', tFunc('meta.description'))
@@ -70,7 +70,7 @@ export function useDocumentMetadata () {
         canonical.rel = 'canonical'
         document.head.appendChild(canonical)
       }
-      
+
       const baseUrl = 'https://guisamemo.com'
       if (window.location.pathname === '/') {
         canonical.href = baseUrl + '/'
@@ -79,6 +79,5 @@ export function useDocumentMetadata () {
       }
     }
     updateCanonical()
-    
   }, [lang, tFunc])
 }

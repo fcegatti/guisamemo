@@ -5,11 +5,11 @@ import { useLanguage } from '@context/LanguageContext'
 import { useFocusTrap } from '@hooks/useFocusTrap'
 
 export default function AvatarSelector ({ onSelect, currentAvatar }) {
-    const getInitialIndex = (avatarFilename) => {
+  const getInitialIndex = (avatarFilename) => {
     if (!avatarFilename || avatarFilename === 'avatar-default.webp') {
       return 0 // Start from Messi for new players
     }
-    
+
     const index = AVATAR_INFO.findIndex(avatar => avatar.filename === avatarFilename)
     return index !== -1 ? index : 0 // Fallback to 0 if not found
   }

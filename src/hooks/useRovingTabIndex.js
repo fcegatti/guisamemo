@@ -62,49 +62,132 @@ export function useRovingTabIndex({
     const currentRow = Math.floor(currentIndex / columns)
     const currentCol = currentIndex % columns
 
+    // 🐛 DEBUG: Temporary logging
+    if (import.meta.env.MODE === 'development') {
+      console.log('Grid Navigation INPUT:', {
+        currentIndex,
+        direction,
+        columns,
+        totalItems,
+        rows,
+        currentRow,
+        currentCol,
+        gridLayout: `${rows} rows x ${columns} cols`
+      })
+    }
+
+    let nextIndex = currentIndex
+
     switch (direction) {
       case 'ArrowLeft':
-        return currentCol > 0 ? currentIndex - 1 : currentIndex // Stop at row beginning
+        if (currentCol > 0) {
+          nextIndex = currentIndex - 1
+        }
+        break
       case 'ArrowRight':
-        return currentCol < columns - 1 && currentIndex < totalItems - 1 
-          ? currentIndex + 1 
-          : currentIndex // Stop at row end or last item
+        if (currentCol < columns - 1 && currentIndex < totalItems - 1) {
+          nextIndex = currentIndex + 1
+        }
+        break
       case 'ArrowUp':
-        return currentRow > 0 ? currentIndex - columns : currentIndex // Stop at top
+        if (currentRow > 0) {
+          const targetIndex = currentIndex - columns
+          // Ensure target exists (should always be true if currentRow > 0)
+          if (targetIndex >= 0) {
+            nextIndex = targetIndex
+          } 
+        }
+        break
       case 'ArrowDown':
-        const nextRowIndex = currentIndex + columns
-        return nextRowIndex < totalItems ? nextRowIndex : currentIndex // Stop at bottom
+        // Move down to same column in next row, stop at bottom or if target does not exist
+        if (currentRow < rows - 1) {
+          const targetIndex = currentIndex + columns
+          // Ensure target exists (important for incomplete last row)
+          if (targetIndex < totalItems) {
+            nextIndex = targetIndex
+          }
+        }
+        break
+
       default:
-        return currentIndex
+        // No movement for unknown keys
+        break
     }
+
+  // 🐛 DEBUG: Log result in development mode
+  if (import.meta.env.MODE === 'development' && nextIndex !== currentIndex) {
+    console.log('Grid Navigation RESULT:', { 
+      from: currentIndex, 
+      to: nextIndex,
+      movement: direction,
+      fromPosition: `row ${currentRow}, col ${currentCol}`,
+      toPosition: `row ${Math.floor(nextIndex / columns)}, col ${nextIndex % columns}`
+    })
+  }
+    return nextIndex
   }
 
   // Handle keyboard navigation
   const handleKeyDown = useCallback((event) => {
     const { key } = event
+
+      // 🔍 DIAGNÓSTICO: Log TODOS los eventos de teclado que llegan
+    console.log('🔍 KEYBOARD EVENT RECEIVED:', {
+      key,
+      target: event.target.tagName,
+      currentTarget: event.currentTarget.tagName,
+      defaultPrevented: event.defaultPrevented,
+      screenReaderMode: window.navigator.userAgent.includes('NVDA') || window.speechSynthesis,
+      timestamp: Date.now()
+    })
     
     // Navigation keys
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(key)) {
+      console.log('🎯 ARROW KEY DETECTED - About to preventDefault and navigate')
       event.preventDefault()
-      const nextIndex = calculateNextIndex(currentFocusIndex, key)
       
-      if (nextIndex !== currentFocusIndex) {
-        setCurrentFocusIndex(nextIndex)
-        // Focus the new element
-        const nextElement = itemRefs.current[nextIndex]
-        if (nextElement) {
-          nextElement.focus()
+      setCurrentFocusIndex((prevIndex) => {
+        console.log('🔄 SET CURRENT FOCUS INDEX - Calculating next from:', prevIndex)
+        const nextIndex = calculateNextIndex(prevIndex, key)
+
+        console.log('🎯 CALCULATED NEXT INDEX:', { from: prevIndex, to: nextIndex, key })
+
+        if (nextIndex !== prevIndex) {
+          console.log('🎯 FOCUS WILL CHANGE - Setting timeout for DOM focus')
+          // Focus the new element after state update
+          setTimeout(() => {
+            const nextElement = itemRefs.current[nextIndex]
+            console.log('🎯 ATTEMPTING DOM FOCUS:', {
+              nextIndex,
+              element: nextElement,
+              elementTag: nextElement?.tagName,
+              elementExists: !!nextElement
+            })
+            if (nextElement) {
+              nextElement.focus()
+              console.log('✅ DOM FOCUS APPLIED')
+            } else {
+              console.log('❌ DOM FOCUS FAILED - Element not found')
+            }
+          }, 0)
+        } else {
+          console.log('🎯 NO MOVEMENT - Staying at same index')
         }
-      }
+
+        return nextIndex
+      })
       return
     }
 
     // Activation keys
     if ((key === 'Enter' || key === ' ') && onActivate) {
+      console.log('🎯 ACTIVATION KEY DETECTED:', key)
       event.preventDefault()
       onActivate(currentFocusIndex)
       return
     }
+
+    console.log('🚫 KEY IGNORED:', key)
   }, [currentFocusIndex, calculateNextIndex, onActivate])
 
   // Get tabindex value for an item
@@ -115,7 +198,10 @@ export function useRovingTabIndex({
   // Get ref for an item (to be used in ref={getItemRef(index)})
   const getItemRef = useCallback((index) => {
     return (element) => {
-      itemRefs.current[index] = element
+      if (itemRefs.current[index] !== element) {
+        // Update the ref only if it has changed
+        itemRefs.current[index] = element
+      }
     }
   }, [])
 

@@ -6,6 +6,16 @@ export const FLIP_BACK_DELAY = 1000
 
 export const BOARD_SIZES = ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl']
 
+export const COLUMNS_BY_SIZE = {
+  xs: 5,
+  s: 6,
+  m: 7,
+  l: 8,
+  xl: 9,
+  '2xl': 10,
+  '3xl': 11
+}
+
 export const PAIRS_BY_SIZE = {
   xs: 15,
   s: 18,

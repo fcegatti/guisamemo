@@ -1,7 +1,8 @@
 import React, { memo } from 'react'
 import { useGameEngine } from '@hooks/useGameEngine'
 import { useGame } from '@context/GameContext'
-import { PAIRS_BY_SIZE } from '@constants/game'
+import { useRovingTabIndex } from '@hooks/useRovingTabIndex'
+import { COLUMNS_BY_SIZE, PAIRS_BY_SIZE } from '@constants/game'
 import { useLanguage } from '@context/LanguageContext'
 
 function Board () {
@@ -11,8 +12,31 @@ function Board () {
 
   const totalPairs = PAIRS_BY_SIZE[boardSize] || PAIRS_BY_SIZE.xs
   const totalCards = totalPairs * 2
-  const columns = Math.ceil(totalCards / 6)
+
+
+  const columns = COLUMNS_BY_SIZE[boardSize] || COLUMNS_BY_SIZE.xs
   const boardClass = `gameboard gameboard--cols-${columns}`
+
+    // 🐛 DEBUG: Temporary logging
+  console.log('DEBUG Board.jsx:', { boardSize, columns, totalCards })
+
+  // Roving tabindex for keyboard navigation
+  const {
+    getTabIndex,
+    getItemRef,
+    handleKeyDown,
+    currentFocusIndex
+  } = useRovingTabIndex({
+    itemCount: totalCards,
+    navigationStrategy: 'grid',
+    gridColumns: columns,
+    onActivate: (index) => {
+      const card = cards[index]
+      if (card && !card.flipped && !card.matched) {
+        handleCardClick(card.id)
+      }
+    }
+  })
 
   return (
     <>
@@ -25,41 +49,55 @@ function Board () {
 
       <div
         className={boardClass}
-        role='grid'
+        role='group'
         aria-label={t.access.boardGrid}
+        onKeyDown={handleKeyDown}
       >
-        {cards.map((card) => (
-          <button
-            key={card.id}
-            type='button'
-            className={`gameboard__card
-              ${card.justMatched ? 'gameboard__card--matched' : ''}
-              ${card.justMismatched ? 'gameboard__card--mismatched gameboard__card--mismatched-active' : ''}`}
-            onClick={() => handleCardClick(card.id)}
-            aria-roledescription={t.board.cardRoleDescription}
-            // Prep only: tabindex logic and row/col in v1.2.1
-            // aria-rowindex and aria-colindex will go here
-          >
-            <img
-              src={
-                (card.flipped || card.matched)
-                  ? card.image || '/cards/fallback.webp'
+        {cards.map((card, index) => {
+          const cardName = card.translationKey
+            ? t.names[card.translationKey] || card.name
+            : card.name
+
+          const isRevealed = card.flipped || card.matched
+
+          const cardLabel = isRevealed
+            ? t.board.cardAltRevealed.replace('{name}', cardName)
+            : t.board.cardAltHidden
+
+          return (
+            <button
+              key={card.id}
+              ref={getItemRef(index)}
+              tabIndex={getTabIndex(index)}
+              type='button'
+              role='button'
+              aria-roledescription={t.board.cardRoleDescription}
+              aria-label={cardLabel}
+              aria-posinset={index + 1}
+              aria-setsize={totalCards}
+              className={`gameboard__card
+                ${card.justMatched ? 'gameboard__card--matched' : ''}
+                ${card.justMismatched ? 'gameboard__card--mismatched gameboard__card--mismatched-active' : ''}
+                ${index === currentFocusIndex ? 'gameboard__card--focused' : ''}`}
+              onClick={() => handleCardClick(card.id)}
+            >
+              <img
+                src={
+                  (card.flipped || card.matched)
+                    ? card.image || '/cards/fallback.webp'
                   : '/cards/card-back.webp'
               }
               alt={
-                card.flipped || card.matched
-                  ? t.board.cardAltRevealed.replace(
-                    '{name}',
-                    card.translationKey
-                      ? t.names[card.translationKey] || card.name
-                      : card.name
-                  )
+                (card.flipped || card.matched)
+                  ? t.board.cardAltRevealed.replace('{name}', cardName)
                   : t.board.cardAltHidden
               }
               className='gameboard__card-img'
+              aria-hidden='true'
             />
           </button>
-        ))}
+        )
+      })}
       </div>
     </>
   )

@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react'
 import { MAX_PLAYERS } from '@constants/game'
 import { createPlayer } from '@logic/createPlayer'
+import { incrementPlayerTurn, calculateTotalTurns } from '@handlers/handleTurnCount'
 
 // Create the context
 const GameContext = createContext()
@@ -30,11 +31,10 @@ export function GameProvider ({ children, initialPlayers = [] }) {
     if (players.length === 0) return
 
     setPlayers(prevPlayers =>
-      prevPlayers.map((player, index) =>
-        index === currentTurnIndex
-          ? { ...player, turns: 1 }
-          : player
-      )
+      prevPlayers.map(player => ({
+        ...player,
+        turns: 0
+      }))
     )
 
     setGameStarted(true)
@@ -50,15 +50,29 @@ export function GameProvider ({ children, initialPlayers = [] }) {
 
   const nextTurn = () => {
     const nextIndex = (currentTurnIndex + 1) % players.length
-
-    setPlayers(prevPlayers =>
-      prevPlayers.map((player, index) =>
-        index === nextIndex
-          ? { ...player, turns: player.turns + 1 }
-          : player
-      )
-    )
     setCurrentTurnIndex(nextIndex)
+    
+    if (import.meta.env.MODE === 'development') {
+      console.log('🔄 NEXT TURN:', {
+        previousPlayer: players[currentTurnIndex]?.name,
+        nextPlayer: players[nextIndex]?.name
+      })
+    }
+  }
+
+  const incrementTurn = (eventType = 'mismatch') => {
+    const updatedPlayers = incrementPlayerTurn({
+      players,
+      currentTurnIndex,
+      eventType
+    })
+
+    setPlayers(updatedPlayers)
+
+    const newTurnCount = calculateTotalTurns(updatedPlayers)
+    setTurnCount(newTurnCount)
+
+    return updatedPlayers
   }
 
   const restartGame = () => {
@@ -89,6 +103,7 @@ export function GameProvider ({ children, initialPlayers = [] }) {
     turnCount,
     setTurnCount,
     nextTurn,
+    incrementTurn,
     isGameOver,
     setIsGameOver,
     restartGame

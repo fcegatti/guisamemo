@@ -12,7 +12,7 @@ export function useGameEngine () {
     setPlayers,
     nextTurn,
     setIsGameOver,
-    setTurnCount
+    incrementTurn
   } = useGame()
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
@@ -44,7 +44,7 @@ export function useGameEngine () {
       players,
       currentTurnIndex,
       setPlayers,
-      setTurnCount,
+      incrementTurn,
       nextTurn,
       setIsGameOver
     })

@@ -51,7 +51,7 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   const nextTurn = () => {
     const nextIndex = (currentTurnIndex + 1) % players.length
     setCurrentTurnIndex(nextIndex)
-    
+
     if (import.meta.env.MODE === 'development') {
       console.log('🔄 NEXT TURN:', {
         previousPlayer: players[currentTurnIndex]?.name,

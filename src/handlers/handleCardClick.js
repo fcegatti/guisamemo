@@ -14,7 +14,7 @@ export function handleCardClick ({
   players,
   currentTurnIndex,
   setPlayers,
-  setTurnCount,
+  incrementTurn,
   nextTurn,
   setIsGameOver
 }) {
@@ -64,7 +64,7 @@ export function handleCardClick ({
       setIsGameOver,
       players,
       currentTurnIndex,
-      setTurnCount,
+      incrementTurn,
       setPlayers
     })
   }

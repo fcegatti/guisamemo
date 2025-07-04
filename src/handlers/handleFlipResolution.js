@@ -27,7 +27,7 @@ export function handleFlipResolution ({
   players,
   currentTurnIndex,
   setPlayers,
-  setTurnCount,
+  incrementTurn,
   setIsGameOver
 }) {
   const isMatch = resolveFlippedCards(flippedCards)
@@ -70,20 +70,17 @@ export function handleFlipResolution ({
       setTimeout(() => {
         handlePlaySound('end')
       }, 800)
-      setPlayers(prev =>
-        prev.map((player, index) =>
-          index === currentTurnIndex
-            ? { ...player, turns: player.turns + 1 }
-            : player
-        )
-      )
-      setTurnCount(prev => prev + 1)
+
+      incrementTurn('endGame')
+
       if (import.meta.env.MODE === 'development') {
-        console.log('[END GAME - MATCH]', {
+        console.log('[🏁 GAME END - FINAL TURN]', {
           player: players[currentTurnIndex].name,
-          turnIncremented: true
+          finalMatch: true,
+          endGameTriggered: true
         })
       }
+
       setTimeout(() => setIsGameOver(true), 1800)
     }
     unlockBoard()
@@ -108,7 +105,10 @@ export function handleFlipResolution ({
 
     setPlayers(updatedPlayers)
     if (import.meta.env.MODE === 'development') {
-      console.log('[players] Turns per player:', updatedPlayers.map(p => `${p.name}: ${p.turns}`))
+      console.log('❌ MISMATCH - TURN ENDING:', {
+        player: players[currentTurnIndex].name,
+        aboutToIncrementTurn: true
+      })
     }
     setTimeout(() => {
       const revertedCards = updatedCards.map(card =>
@@ -120,13 +120,7 @@ export function handleFlipResolution ({
       setCards(revertedCards)
       setFlippedCards([])
       unlockBoard()
-      setTurnCount(prev => {
-        const next = prev + 1
-        if (import.meta.env.MODE === 'development') {
-          console.log('[turnCount] New value:', next)
-        }
-        return next
-      })
+      incrementTurn('mismatch')
 
       nextTurn()
     }, FLIP_BACK_DELAY)

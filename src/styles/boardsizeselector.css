@@ -61,6 +61,16 @@
   color: var(--color-text-light);
 }
 
+.boardsizeselector__option:focus-visible {
+  outline: 2px solid var(--button-blue);
+  outline-offset: 2px;
+}
+
+/* Elimina outline en clicks de mouse */
+.boardsizeselector__option:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* Compact layout for short tablets (height ≤ 768px) */
 @media (max-height: 768px) and (min-width: 600px) {
   .boardsizeselector {

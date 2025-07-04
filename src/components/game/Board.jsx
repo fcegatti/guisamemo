@@ -13,20 +13,16 @@ function Board () {
   const totalPairs = PAIRS_BY_SIZE[boardSize] || PAIRS_BY_SIZE.xs
   const totalCards = totalPairs * 2
 
-
   const columns = COLUMNS_BY_SIZE[boardSize] || COLUMNS_BY_SIZE.xs
   const boardClass = `gameboard gameboard--cols-${columns}`
 
-    // 🐛 DEBUG: Temporary logging
-  console.log('DEBUG Board.jsx:', { boardSize, columns, totalCards })
+  // 🐛 DEBUG: Temporary logging
+  if (import.meta.env.MODE === 'development') {
+    console.log('DEBUG Board.jsx:', { boardSize, columns, totalCards })
+  }
 
   // Roving tabindex for keyboard navigation
-  const {
-    getTabIndex,
-    getItemRef,
-    handleKeyDown,
-    currentFocusIndex
-  } = useRovingTabIndex({
+  const { getTabIndex, getItemRef, handleKeyDown } = useRovingTabIndex({
     itemCount: totalCards,
     navigationStrategy: 'grid',
     gridColumns: columns,
@@ -77,27 +73,26 @@ function Board () {
               aria-setsize={totalCards}
               className={`gameboard__card
                 ${card.justMatched ? 'gameboard__card--matched' : ''}
-                ${card.justMismatched ? 'gameboard__card--mismatched gameboard__card--mismatched-active' : ''}
-                ${index === currentFocusIndex ? 'gameboard__card--focused' : ''}`}
+                ${card.justMismatched ? 'gameboard__card--mismatched gameboard__card--mismatched-active' : ''}`}
               onClick={() => handleCardClick(card.id)}
             >
               <img
                 src={
                   (card.flipped || card.matched)
                     ? card.image || '/cards/fallback.webp'
-                  : '/cards/card-back.webp'
+                    : '/cards/card-back.webp'
               }
-              alt={
+                alt={
                 (card.flipped || card.matched)
                   ? t.board.cardAltRevealed.replace('{name}', cardName)
                   : t.board.cardAltHidden
               }
-              className='gameboard__card-img'
-              aria-hidden='true'
-            />
-          </button>
-        )
-      })}
+                className='gameboard__card-img'
+                aria-hidden='true'
+              />
+            </button>
+          )
+        })}
       </div>
     </>
   )

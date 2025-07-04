@@ -3,6 +3,7 @@ import { useSwipe } from '@hooks/useSwipe'
 import { AVATAR_INFO } from '@constants/avatars'
 import { useLanguage } from '@context/LanguageContext'
 import { useFocusTrap } from '@hooks/useFocusTrap'
+import { useRovingTabIndex } from '@hooks/useRovingTabIndex'
 
 export default function AvatarSelector ({ onSelect, currentAvatar }) {
   const getInitialIndex = (avatarFilename) => {
@@ -21,6 +22,20 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
   const modalRef = useRef(null)
   useFocusTrap(modalRef)
 
+  const { getTabIndex, getItemRef, handleKeyDown } = useRovingTabIndex({
+    itemCount: 3,
+    navigationStrategy: 'linear',
+    onActivate: (index) => {
+      if (index === 0) {
+        goToPrev() // Prev button
+      } else if (index === 1) {
+        onSelect(selectedAvatar.filename) // Image selection
+      } else if (index === 2) {
+        goToNext() // Next button
+      }
+    }
+  })
+
   const goToNext = () => {
     setCurrentIndex((prev) =>
       prev === AVATAR_INFO.length - 1 ? 0 : prev + 1
@@ -36,13 +51,13 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
   const { handleTouchStart, handleTouchEnd } = useSwipe(goToNext, goToPrev)
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleEscape = (e) => {
       if (e.key === 'Escape') {
         onSelect(null)
       }
     }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
   }, [onSelect])
 
   useEffect(() => {
@@ -62,8 +77,17 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
         className='avatarselector__modal'
         ref={modalRef}
         tabIndex='-1'
+        onKeyDown={handleKeyDown}
+        aria-describedby='avatar-select'
       >
+        {/* Hidden instructions - read once opened */}
+        <div id='avatar-select' className='sr-only'>
+          {t.avatar.select || 'Use arrow keys to navigate between avatars. Press Enter to select.'}
+        </div>
+
         <button
+          ref={getItemRef(0)}
+          tabIndex={getTabIndex(0)}
           className='avatarselector__nav avatarselector__nav--left'
           onClick={goToPrev}
           aria-label={t.avatar.prev}
@@ -77,20 +101,32 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <img
-            src={`/avatars/${selectedAvatar.filename}`}
-            alt={t.avatar.imageAlt.replace(
-              '{name}',
+          <button
+            ref={getItemRef(1)}
+            tabIndex={getTabIndex(1)}
+            className='avatarselector__image-button'
+            onClick={() => onSelect(selectedAvatar.filename)}
+            aria-label={
               selectedAvatar.translationKey
                 ? t.names[selectedAvatar.translationKey]
                 : selectedAvatar.name
-            )}
-            className='avatarselector__image'
-            onClick={() => onSelect(selectedAvatar.filename)}
-          />
+            }
+          >
+            <img
+              src={`/avatars/${selectedAvatar.filename}`}
+              alt={t.avatar.imageAlt.replace(
+                '{name}',
+                selectedAvatar.translationKey
+                  ? t.names[selectedAvatar.translationKey]
+                  : selectedAvatar.name
+              )}
+              className='avatarselector__image'
+              aria-hidden='true'
+            />
+          </button>
           <span
             className='avatarselector__name'
-            aria-live='polite'
+            aria-hidden='true'
           >
             {selectedAvatar.translationKey
               ? t.names[selectedAvatar.translationKey]
@@ -99,6 +135,8 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
         </div>
 
         <button
+          ref={getItemRef(2)}
+          tabIndex={getTabIndex(2)}
           className='avatarselector__nav avatarselector__nav--right'
           onClick={goToNext}
           aria-label={t.avatar.next}

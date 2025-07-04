@@ -25,6 +25,15 @@
   text-align: center;
 }
 
+.avatarselector__image-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  display: block;
+}
+
 .avatarselector__image {
   width: 100px;
   height: 100px;
@@ -48,7 +57,15 @@
   cursor: pointer;
 }
 
-.avatarselector__nav:focus {
+/* ✅ FOCUS MANAGEMENT - Visible only on keyboard navigation */
+.avatarselector__nav:focus-visible,
+.avatarselector__image-button:focus-visible {
+  outline: 2px solid var(--button-blue);
+  outline-offset: 2px;
+}
+
+.avatarselector__nav:focus:not(:focus-visible),
+.avatarselector__image-button:focus:not(:focus-visible) {
   outline: none;
 }
 
@@ -63,4 +80,10 @@
 
 .theme--dark .avatarselector__nav {
   color: var(--color-text-light);
+}
+
+.theme--dark .avatarselector__nav:focus-visible,
+.theme--dark .avatarselector__image-button:focus-visible {
+  outline: 2px solid var(--button-blue);
+  outline-offset: 2px;
 }

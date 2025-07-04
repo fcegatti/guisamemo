@@ -131,47 +131,65 @@ export function useRovingTabIndex ({
   const handleKeyDown = useCallback((event) => {
     const { key } = event
 
-    // 🔍 DIAGNÓSTICO: Log TODOS los eventos de teclado que llegan
-    console.log('🔍 KEYBOARD EVENT RECEIVED:', {
-      key,
-      target: event.target.tagName,
-      currentTarget: event.currentTarget.tagName,
-      defaultPrevented: event.defaultPrevented,
-      screenReaderMode: window.navigator.userAgent.includes('NVDA') || window.speechSynthesis,
-      timestamp: Date.now()
-    })
+    // 🔍 DIAGNOSTIC: Log EVERY keyboard event received
+    if (import.meta.env.MODE === 'development') {
+      console.log('🔍 KEYBOARD EVENT:', {
+        key,
+        target: event.target.tagName,
+        currentTarget: event.currentTarget.tagName,
+        defaultPrevented: event.defaultPrevented,
+        screenReaderMode: window.navigator.userAgent.includes('NVDA') || window.speechSynthesis,
+        timestamp: Date.now()
+      })
+    }
 
     // Navigation keys
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(key)) {
-      console.log('🎯 ARROW KEY DETECTED - About to preventDefault and navigate')
+      if (import.meta.env.MODE === 'development') {
+        console.log('🎯 ARROW KEY DETECTED - About to preventDefault and navigate')
+      }
       event.preventDefault()
 
       setCurrentFocusIndex((prevIndex) => {
-        console.log('🔄 SET CURRENT FOCUS INDEX - Calculating next from:', prevIndex)
+        if (import.meta.env.MODE === 'development') {
+          console.log('🔄 SET CURRENT FOCUS INDEX - Calculating next from:', prevIndex)
+        }
         const nextIndex = calculateNextIndex(prevIndex, key)
 
-        console.log('🎯 CALCULATED NEXT INDEX:', { from: prevIndex, to: nextIndex, key })
+        if (import.meta.env.MODE === 'development') {
+          console.log('🎯 CALCULATED NEXT INDEX:', { from: prevIndex, to: nextIndex, key })
+        }
 
         if (nextIndex !== prevIndex) {
-          console.log('🎯 FOCUS WILL CHANGE - Setting timeout for DOM focus')
+          if (import.meta.env.MODE === 'development') {
+            console.log('🎯 FOCUS WILL CHANGE - Setting timeout for DOM focus')
+          }
           // Focus the new element after state update
           setTimeout(() => {
             const nextElement = itemRefs.current[nextIndex]
-            console.log('🎯 ATTEMPTING DOM FOCUS:', {
-              nextIndex,
-              element: nextElement,
-              elementTag: nextElement?.tagName,
-              elementExists: !!nextElement
-            })
+            if (import.meta.env.MODE === 'development') {
+              console.log('🎯 ATTEMPTING DOM FOCUS:', {
+                nextIndex,
+                element: nextElement,
+                elementTag: nextElement?.tagName,
+                elementExists: !!nextElement
+              })
+            }
             if (nextElement) {
               nextElement.focus()
-              console.log('✅ DOM FOCUS APPLIED')
+              if (import.meta.env.MODE === 'development') {
+                console.log('✅ DOM FOCUS APPLIED')
+              }
             } else {
-              console.log('❌ DOM FOCUS FAILED - Element not found')
+              if (import.meta.env.MODE === 'development') {
+                console.log('❌ DOM FOCUS FAILED - Element not found')
+              }
             }
           }, 0)
         } else {
-          console.log('🎯 NO MOVEMENT - Staying at same index')
+          if (import.meta.env.MODE === 'development') {
+            console.log('🎯 NO MOVEMENT - Staying at same index')
+          }
         }
 
         return nextIndex
@@ -181,13 +199,17 @@ export function useRovingTabIndex ({
 
     // Activation keys
     if ((key === 'Enter' || key === ' ') && onActivate) {
-      console.log('🎯 ACTIVATION KEY DETECTED:', key)
+      if (import.meta.env.MODE === 'development') {
+        console.log('🎯 ACTIVATION KEY DETECTED:', key)
+      }
       event.preventDefault()
       onActivate(currentFocusIndex)
       return
     }
 
-    console.log('🚫 KEY IGNORED:', key)
+    if (import.meta.env.MODE === 'development') {
+      console.log('🚫 KEY IGNORED:', key)
+    }
   }, [currentFocusIndex, calculateNextIndex, onActivate])
 
   // Get tabindex value for an item

@@ -17,7 +17,9 @@ function Board () {
   const boardClass = `gameboard gameboard--cols-${columns}`
 
   // 🐛 DEBUG: Temporary logging
-  console.log('DEBUG Board.jsx:', { boardSize, columns, totalCards })
+  if (import.meta.env.MODE === 'development') {
+    console.log('DEBUG Board.jsx:', { boardSize, columns, totalCards })
+  }
 
   // Roving tabindex for keyboard navigation
   const { getTabIndex, getItemRef, handleKeyDown } = useRovingTabIndex({

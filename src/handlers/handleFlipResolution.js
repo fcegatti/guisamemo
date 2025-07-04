@@ -78,10 +78,12 @@ export function handleFlipResolution ({
         )
       )
       setTurnCount(prev => prev + 1)
-      console.log('[END GAME - MATCH]', {
-        player: players[currentTurnIndex].name,
-        turnIncremented: true
-      })
+      if (import.meta.env.MODE === 'development') {
+        console.log('[END GAME - MATCH]', {
+          player: players[currentTurnIndex].name,
+          turnIncremented: true
+        })
+      }
       setTimeout(() => setIsGameOver(true), 1800)
     }
     unlockBoard()

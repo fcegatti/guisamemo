@@ -38,14 +38,10 @@
     "flyswatter": "Matamoscas"
   },
   "access": {
-    "gameArea": "Zona de xogo",
-    "restartButton": "Repetir a partida desde o principio",
-    "resetButton": "Volver á pantalla inicial",
-    "exitStay": "Seguir xogando",
-    "exitExit": "Saír da partida",
     "game": {
       "area": "Zona de xogo",
       "exitButton": "Saír do xogo",
+      "exitTooltip": "Saír",
       "restart": "Repetir a partida desde o principio",
       "reset": "Volver á pantalla inicial"
     },
@@ -107,10 +103,6 @@
     "sizeLabel": "Tamaño {size}",
     "tooltip": "{count} tarxetas"
   },
-  "game": {
-    "exitAria": "Saír do xogo",
-    "exitTooltip": "Saír"
-  },
   "endscreen": {
     "titleSingle": " 🎉 Parabéns! 🎉",
     "titleMulti": "🏆 Resultados 🏆",
@@ -145,8 +137,7 @@
     "question": "Estás seguro de que queres saír do xogo?",
     "warning": "Perderás o progreso da partida.",
     "stay": "Seguir xogando",
-    "exit": "Saír",
-    "avatarAlt": "Avatar de {name}"
+    "exit": "Saír"
   },
   "orientation": {
     "message": "O tamaño de taboleiro seleccionado é máis óptimo para pantallas en horizontal. Para unha mellor experiencia, xira o teu dispositivo",

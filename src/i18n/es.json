@@ -38,14 +38,10 @@
     "flyswatter": "Matamoscas"
   },
   "access": {
-    "gameArea": "Zona de juego",
-    "restartButton": "Repetir la partida desde el principio",
-    "resetButton": "Volver al inicio del juego",
-    "exitStay": "Seguir jugando",
-    "exitExit": "Salir de la partida",
     "game": {
       "area": "Zona de juego",
       "exitButton": "Salir del juego",
+      "exitTooltip": "Salir",
       "restart": "Repetir la partida desde el principio",
       "reset": "Volver al inicio del juego"
     },
@@ -107,10 +103,6 @@
     "sizeLabel": "Tamaño {size}",
     "tooltip": "{count} tarjetas"
   },
-  "game": {
-    "exitAria": "Salir del juego",
-    "exitTooltip": "Salir"
-  },
   "endscreen": {
     "titleSingle": "🎉 ¡Felicidades! 🎉",
     "titleMulti": "🏆 Resultados 🏆",
@@ -145,8 +137,7 @@
     "question": "¿Seguro que quieres salir del juego?",
     "warning": "Perderás el progreso de la partida.",
     "stay": "Seguir jugando",
-    "exit": "Salir",
-    "avatarAlt": "Avatar de {name}"
+    "exit": "Salir"
   },
   "orientation": {
   "message": "El tamaño de tablero seleccionado es más óptimo para pantallas horizontales. Para una mejor experiencia, gira tu dispositivo", 

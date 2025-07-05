@@ -36,14 +36,14 @@ function GameScreen () {
     <section
       className='gamescreen'
       role='region'
-      aria-label='t.access.gameArea'
+      aria-label={t.access.game.area}
     >
       {/* Exit button top right */}
       <button
         className='gamescreen__exit-btn'
         onClick={() => setShowExitModal(true)}
-        aria-label={t.game.exitAria}
-        title={t.game.exitTooltip}
+        aria-label={t.access.game.exitButton}
+        title={t.access.game.exitTooltip}
       >
         ✕
       </button>

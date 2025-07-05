@@ -33,7 +33,7 @@ export default function ExitGameModal ({ onClose, onExit }) {
               ? `/avatars/${currentPlayer.avatar}`
               : '/avatar-default.webp'
           }
-          alt={t.exitGame.avatarAlt.replace('{name}', currentPlayer.name)}
+          alt={t.access.avatar.exitModal.alt.replace('{name}', currentPlayer.name)}
           className='exitgamemodal__avatar'
           aria-hidden='true'
           loading='lazy'
@@ -55,14 +55,14 @@ export default function ExitGameModal ({ onClose, onExit }) {
         <button
           className='exitgamemodal__stay-btn'
           onClick={onClose}
-          aria-label={t.access.exitStay}
+          aria-label={t.access.exitModal.stay}
         >
           {t.exitGame.stay}
         </button>
         <button
           className='exitgamemodal__exit-btn'
           onClick={onExit}
-          aria-label={t.access.exitExit}
+          aria-label={t.access.exitModal.exit}
         >
           {t.exitGame.exit}
         </button>

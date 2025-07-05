@@ -40,7 +40,7 @@ export default function EndGameModal () {
         <button
           className='endgamemodal__button'
           onClick={restartGame}
-          aria-label={t.access.restartButton}
+          aria-label={t.access.game.restart}
         >
           {t.endGame.restart}
         </button>
@@ -48,7 +48,7 @@ export default function EndGameModal () {
         <button
           className='endgamemodal__button'
           onClick={resetGame}
-          aria-label={t.access.resetButton}
+          aria-label={t.access.game.reset}
         >
           {t.endGame.reset}
         </button>

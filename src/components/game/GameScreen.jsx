@@ -54,7 +54,7 @@ function GameScreen () {
       {/* 🔵 ARIA-LIVE: turn annoucement */}
       {players.length > 0 && players[currentTurnIndex] && (
         <div className='sr-only' aria-live='polite'>
-          {t.players.turnAnnounce.replace('{name}', players[currentTurnIndex].name)}
+          {t.access.players.turnAnnounce.replace('{name}', players[currentTurnIndex].name)}
         </div>
       )}
 

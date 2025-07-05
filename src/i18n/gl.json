@@ -5,11 +5,7 @@
     "maxReached": "Máximo de xogadores acadado",
     "startGame": "Comezar partida",
     "label": "Nome do xogador",
-    "playerListLabel": "Lista de xogadores engadidos",
     "avatarAlt": "Avatar",
-    "selectAvatar": "Seleccionar avatar",
-    "avatarSelected": "Avatar de {avatar}",
-    "removePlayer": "Eliminar a {name}",
     "errors": {
       "empty": "O nome non pode estar baleiro",
       "tooLong": "O nome non pode superar os {max} caracteres",
@@ -43,7 +39,6 @@
   },
   "access": {
     "gameArea": "Zona de xogo",
-    "playersPanel":"Panel de xogadores",
     "restartButton": "Repetir a partida desde o principio",
     "resetButton": "Volver á pantalla inicial",
     "exitStay": "Seguir xogando",
@@ -105,9 +100,6 @@
       "stay": "Seguir xogando",
       "exit": "Saír da partida"
     }
-  },
-  "players": {
-    "turnAnnounce": "Quenda de {name}"
   },
   "board": {
     "label": "Tamaño do taboleiro",

@@ -15,7 +15,7 @@ function PlayerList ({
     <ul
       className='playerlist'
       role='list'
-      aria-label={t.start.playerListLabel}
+      aria-label={t.access.players.list}
     >
       {players.map((player) => (
         <li
@@ -36,16 +36,16 @@ function PlayerList ({
             aria-labelledby={`player-name-${player.id}`}
             title={
               player.avatar
-                ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
-                : t.start.selectAvatar
+                ? t.access.avatar.selector.selected.replace('{avatar}', getAvatarName(player.avatar))
+                : t.access.avatar.selector.select
             }
           >
             <img
               src={player.avatar ? `/avatars/${player.avatar}` : '/avatar-default.webp'}
               alt={
                 player.avatar
-                  ? t.start.avatarSelected.replace('{avatar}', getAvatarName(player.avatar))
-                  : t.start.selectAvatar
+                  ? t.access.avatar.selector.selected.replace('{avatar}', getAvatarName(player.avatar))
+                  : t.access.avatar.selector.select
               }
               className='playerlist__avatar'
             />
@@ -61,8 +61,8 @@ function PlayerList ({
             type='button'
             className='playerlist__remove-button'
             onClick={() => handleDeletePlayer(player.id)}
-            aria-label={t.start.removePlayer.replace('{name}', player.name)}
-            title={t.start.removePlayer.replace('{name}', player.name)}
+            aria-label={t.access.players.remove.replace('{name}', player.name)}
+            title={t.access.players.remove.replace('{name}', player.name)}
           >
             🗑️
           </button>

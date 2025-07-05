@@ -12,7 +12,7 @@ function PlayersPanel () {
     <aside
       className='playerspanel'
       role='complementary'
-      aria-label={t.access.playersPanel}
+      aria-label={t.access.players.panel}
     >
       {players.map((player) => (
         <PlayerStatus

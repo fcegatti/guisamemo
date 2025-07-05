@@ -12,7 +12,7 @@ export default function LanguageSelector () {
   }
 
   const flagSrc = lang === 'es' ? '/galicia.webp' : '/spain.webp'
-  const flagAlt = lang === 'es' ? t.lang.switchToGl : t.lang.switchToEs
+  const flagAlt = lang === 'es' ? t.access.navigation.langSwitch.gl : t.access.navigation.langSwitch.es
 
   return (
     <button

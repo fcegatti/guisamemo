@@ -74,7 +74,7 @@ function StartScreen () {
           decoding='async'
           loading='eager'
         />
-        <nav aria-label={t.nav.selectors} className='startscreen__nav'>
+        <nav aria-label={t.access.navigation.selectors} className='startscreen__nav'>
           <ThemeSelector />
           <LanguageSelector />
         </nav>

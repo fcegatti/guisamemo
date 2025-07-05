@@ -7,7 +7,7 @@ export default function ThemeSelector () {
 
   const isLight = theme === 'light'
   const icon = isLight ? '🌙' : '☀️'
-  const label = isLight ? t.theme.switchToDark : t.theme.switchToLight
+  const label = isLight ? t.access.navigation.themeSwitch.dark : t.access.navigation.themeSwitch.light
 
   return (
     <button

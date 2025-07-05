@@ -55,7 +55,7 @@
       "reset": "Volver al inicio del juego"
     },
     "navigation": {
-      "selector": "Selector de idioma y tema",
+      "selectors": "Selector de idioma y tema",
       "langSwitch": {
         "gl": "Cambiar a gallego",
         "es": "Cambiar a español"
@@ -160,17 +160,6 @@
   "message": "El tamaño de tablero seleccionado es más óptimo para pantallas horizontales. Para una mejor experiencia, gira tu dispositivo", 
   "confirm": "Entendido",
   "dismiss": "Rechazar" 
-  },
-  "nav": {
-    "selectors": "Selector de idioma y tema"
-  },
-  "lang": {
-    "switchToGl": "Cambiar a gallego",
-    "switchToEs": "Cambiar a español"
-  },
-  "theme": {
-    "switchToDark": "Activar modo oscuro",
-    "switchToLight": "Activar modo claro"
   },
   "notFound": {
     "title": "404",

@@ -64,7 +64,6 @@
     },
     "board": {
       "grid": "Tablero de tarjetas",
-      "sizeSelector": "Tamaño del tablero",
       "size": "Tamaño {size}",
       "card": {
         "revealed": "Carta descubierta: {name}",
@@ -99,8 +98,6 @@
   },
   "board": {
     "label": "Tamaño del tablero",
-    "ariaLabel": "Tamaño del tablero",
-    "sizeLabel": "Tamaño {size}",
     "tooltip": "{count} tarjetas"
   },
   "endscreen": {

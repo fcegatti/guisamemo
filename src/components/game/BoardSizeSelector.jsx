@@ -17,13 +17,13 @@ function BoardSizeSelector () {
 
   return (
     <div className='boardsizeselector'>
-      <h2 className='boardsizeselector__label'>
+      <h2 id='board-size-heading' className='boardsizeselector__label'>
         {t.board.label}
       </h2>
       <div
         className='boardsizeselector__options'
         role='radiogroup'
-        aria-label={t.board.label}
+        aria-labelledby='board-size-heading'
         onKeyDown={handleKeyDown}
       >
         {BOARD_SIZES.map((size, index) => (
@@ -34,7 +34,7 @@ function BoardSizeSelector () {
             type='button'
             role='radio'
             aria-checked={boardSize === size}
-            aria-label={t.board.sizeLabel.replace('{size}', size.toUpperCase())}
+            aria-label={t.access.board.size.replace('{size}', size.toUpperCase())}
             title={t.board.tooltip.replace('{count}', CARDS_PER_SIZE[size])}
             className={`boardsizeselector__option ${boardSize === size ? 'boardsizeselector__option--active' : ''}`}
             onClick={() => setBoardSize(size)}

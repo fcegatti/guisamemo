@@ -64,7 +64,6 @@
     },
     "board": {
       "grid": "Taboleiro de tarxetas",
-      "sizeSelector": "Tamaño do taboleiro",
       "size": "Tamaño {size}",
       "card": {
         "revealed": "Carta descuberta: {name}",
@@ -99,8 +98,6 @@
   },
   "board": {
     "label": "Tamaño do taboleiro",
-    "ariaLabel": "Tamaño do taboleiro",
-    "sizeLabel": "Tamaño {size}",
     "tooltip": "{count} tarxetas"
   },
   "endscreen": {

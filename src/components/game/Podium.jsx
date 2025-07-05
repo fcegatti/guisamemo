@@ -43,7 +43,7 @@ export default function Podium ({ players }) {
             <div className={getContentClasses()}>
               <img
                 src={players[1].avatar}
-                alt={t.podium.avatarAlt.replace('{name}', players[1].name)}
+                alt={t.access.avatar.podium.alt.replace('{name}', players[1].name)}
                 className='podium__avatar'
               />
               <p className='podium__name'>{players[1].name}</p>
@@ -63,7 +63,7 @@ export default function Podium ({ players }) {
             <div className={getContentClasses()}>
               <img
                 src={players[0].avatar}
-                alt={t.podium.avatarAlt.replace('{name}', players[0].name)}
+                alt={t.access.avatar.podium.alt.replace('{name}', players[0].name)}
                 className='podium__avatar'
               />
               <p className='podium__name'>{players[0].name}</p>
@@ -83,7 +83,7 @@ export default function Podium ({ players }) {
             <div className={getContentClasses()}>
               <img
                 src={players[2].avatar}
-                alt={t.podium.avatarAlt.replace('{name}', players[2].name)}
+                alt={t.access.avatar.podium.alt.replace('{name}', players[2].name)}
                 className='podium__avatar'
               />
               <p className='podium__name'>{players[2].name}</p>

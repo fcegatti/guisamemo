@@ -117,11 +117,9 @@
     },
     "points": "Puntos: {points}",
     "prompt": "¿Puedes mejorar tu puntuación?",
-    "share": "Compartir",
-    "avatarAlt": "Avatar del jugador {name}"
+    "share": "Compartir"
   },
   "podium": {
-    "avatarAlt": "Avatar de {name}",
     "points": "puntos",
     "first": "Primer lugar",
     "second": "Segundo lugar",

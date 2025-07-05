@@ -18,7 +18,7 @@ export default function SinglePlayerSummary () {
         <div className='summary__player'>
           <img
             src={`/avatars/${player.avatar || 'avatar-default.webp'}`}
-            alt={t.singleSummary.avatarAlt.replace('{name}', player.name)}
+            alt={t.access.avatar.summary.alt.replace('{name}', player.name)}
             className='summary__avatar'
           />
           <p className='summary__name'>{player.name}</p>

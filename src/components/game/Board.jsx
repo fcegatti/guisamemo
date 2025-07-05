@@ -46,7 +46,7 @@ function Board () {
       <div
         className={boardClass}
         role='group'
-        aria-label={t.access.boardGrid}
+        aria-label={t.access.board.grid}
         onKeyDown={handleKeyDown}
       >
         {cards.map((card, index) => {
@@ -57,8 +57,8 @@ function Board () {
           const isRevealed = card.flipped || card.matched
 
           const cardLabel = isRevealed
-            ? t.board.cardAltRevealed.replace('{name}', cardName)
-            : t.board.cardAltHidden
+            ? t.access.board.card.revealed.replace('{name}', cardName)
+            : t.access.board.card.hidden
 
           return (
             <button
@@ -67,7 +67,7 @@ function Board () {
               tabIndex={getTabIndex(index)}
               type='button'
               role='button'
-              aria-roledescription={t.board.cardRoleDescription}
+              aria-roledescription={t.access.board.card.role}
               aria-label={cardLabel}
               aria-posinset={index + 1}
               aria-setsize={totalCards}
@@ -84,8 +84,8 @@ function Board () {
               }
                 alt={
                 (card.flipped || card.matched)
-                  ? t.board.cardAltRevealed.replace('{name}', cardName)
-                  : t.board.cardAltHidden
+                  ? t.access.board.card.revealed.replace('{name}', cardName)
+                  : t.access.board.card.hidden
               }
                 className='gameboard__card-img'
                 aria-hidden='true'

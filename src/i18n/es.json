@@ -51,7 +51,6 @@
   "access": {
     "gameArea": "Zona de juego",
     "playersPanel": "Panel de jugadores",
-    "boardGrid": "Tablero de tarjetas",
     "restartButton": "Repetir la partida desde el principio",
     "resetButton": "Volver al inicio del juego",
     "exitStay": "Seguir jugando",
@@ -121,10 +120,7 @@
     "label": "Tamaño del tablero",
     "ariaLabel": "Tamaño del tablero",
     "sizeLabel": "Tamaño {size}",
-    "tooltip": "{count} tarjetas",
-    "cardAltRevealed": "Carta descubierta: {name}",
-    "cardAltHidden": "Carta oculta",
-    "cardRoleDescription": "carta"
+    "tooltip": "{count} tarjetas"
   },
   "game": {
     "exitAria": "Salir del juego",

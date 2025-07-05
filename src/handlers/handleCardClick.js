@@ -47,7 +47,7 @@ export function handleCardClick ({
   const cardName = clickedCard.translationKey
     ? t.names[clickedCard.translationKey] || clickedCard.name
     : clickedCard.name
-  setAriaMessage(t.board.cardAltRevealed.replace('{name}', cardName))
+  setAriaMessage(t.access.board.card.revealed.replace('{name}', cardName))
 
   // Evaluate match only when two cards are flipped
   if (updatedFlipped.length === 2) {

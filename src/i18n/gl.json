@@ -51,7 +51,6 @@
   "access": {
     "gameArea": "Zona de xogo",
     "playersPanel":"Panel de xogadores",
-    "boardGrid": "Taboleiro de tarxetas",
     "restartButton": "Repetir a partida desde o principio",
     "resetButton": "Volver á pantalla inicial",
     "exitStay": "Seguir xogando",
@@ -121,10 +120,7 @@
     "label": "Tamaño do taboleiro",
     "ariaLabel": "Tamaño do taboleiro",
     "sizeLabel": "Tamaño {size}",
-    "tooltip": "{count} tarxetas",
-    "cardAltRevealed": "Carta descuberta: {name}",
-    "cardAltHidden": "Carta oculta",
-    "cardRoleDescription": "carta"
+    "tooltip": "{count} tarxetas"
   },
   "game": {
     "exitAria": "Saír do xogo",

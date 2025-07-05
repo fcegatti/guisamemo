@@ -55,7 +55,64 @@
     "restartButton": "Repetir la partida desde el principio",
     "resetButton": "Volver al inicio del juego",
     "exitStay": "Seguir jugando",
-    "exitExit": "Salir de la partida"
+    "exitExit": "Salir de la partida",
+    "game": {
+      "area": "Zona de juego",
+      "exitButton": "Salir del juego",
+      "restart": "Repetir la partida desde el principio",
+      "reset": "Volver al inicio del juego"
+    },
+    "navigation": {
+      "selector": "Selector de idioma y tema",
+      "langSwitch": {
+        "gl": "Cambiar a gallego",
+        "es": "Cambiar a español"
+      },
+      "themeSwitch": {
+        "dark": "Activar modo oscuro",
+        "light": "Activar modo claro"
+      }
+    },
+    "players": {
+      "panel": "Panel de jugadores",
+      "list": "Lista de jugadores añadidos",
+      "remove": "Eliminar a {name}",
+      "turnAnnounce": "Turno de {name}"
+    },
+    "board": {
+      "grid": "Tablero de tarjetas",
+      "sizeSelector": "Tamaño del tablero",
+      "size": "Tamaño {size}",
+      "card": {
+        "revealed": "Carta descubierta: {name}",
+        "hidden": "Carta oculta",
+        "role": "carta"
+      }
+    },
+    "avatar": {
+      "selector": {
+        "dialog": "Selector de avatar",
+        "prev": "Anterior",
+        "next": "Siguiente",
+        "image": "Avatar de {name}",
+        "instructions": "Selección de avatar",
+        "select": "Seleccionar avatar",
+        "selected": "Avatar de {avatar}"
+      },
+      "podium": {
+        "alt": "Avatar de {name}"
+      },
+      "summary": {
+        "alt": "Avatar del jugador {name}"
+      },
+      "exitModal": {
+        "alt": "Avatar de {name}"
+      }
+    },
+    "exitModal": {
+      "stay": "Seguir jugando",
+      "exit": "Salir de la partida"
+    }
   },
   "players": {
     "turnAnnounce": "Turno de {name}"

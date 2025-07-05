@@ -1,13 +1,29 @@
 import { MAX_NAME_LENGTH } from '@constants/game'
 
-export function validatePlayerName (name, currentPlayers, maxPlayers, t) {
-  const trimmed = name.trim()
+/**
+ * Sanitizes player name allowing only safe, aesthetic characters
+ * @param {string} name - Raw player name input
+ * @returns {string} - Sanitized name with only allowed characters
+ */
+function sanitizePlayerName(name) {
+  // 🛡️ DEFENSIVE: Allow only letters, numbers, spaces, and basic punctuation
+  // Preserves international characters while blocking nonsensical symbols
+  return name
+    .replace(/[^a-zA-Z0-9\u00C0-\u017F\u1E00-\u1EFF\s\-.']/g, '') // Keep letters, numbers, spaces, accents, hyphens, periods, apostrophes
+    .replace(/\s+/g, ' ') // Normalize multiple spaces to single space
+    .trim()
+}
 
-  if (!trimmed) {
+export function validatePlayerName (name, currentPlayers, maxPlayers, t) {
+  // 🛡️ SECURITY: Sanitize input before any processing
+  const sanitized = sanitizePlayerName(name)
+
+
+  if (!sanitized) {
     return { valid: false, error: t.start.errors.empty }
   }
 
-  if (trimmed.length > MAX_NAME_LENGTH) {
+  if (sanitized.length > MAX_NAME_LENGTH) {
     return {
       valid: false,
       error: t.start.errors.tooLong.replace('{max}', MAX_NAME_LENGTH)
@@ -21,9 +37,9 @@ export function validatePlayerName (name, currentPlayers, maxPlayers, t) {
     }
   }
 
-  if (currentPlayers.some(p => p.name.toLowerCase() === trimmed.toLowerCase())) {
+  if (currentPlayers.some(p => p.name.toLowerCase() === sanitized.toLowerCase())) {
     return { valid: false, error: t.start.errors.duplicate }
   }
 
-  return { valid: true, name: trimmed }
+  return { valid: true, name: sanitized }
 }

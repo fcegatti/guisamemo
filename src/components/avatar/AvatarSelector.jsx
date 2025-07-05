@@ -71,7 +71,7 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
       className='avatarselector__overlay'
       role='dialog'
       aria-modal='true'
-      aria-label={t.avatar.dialogLabel}
+      aria-label={t.access.avatar.selector.dialog}
     >
       <div
         className='avatarselector__modal'
@@ -82,7 +82,7 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
       >
         {/* Hidden instructions - read once opened */}
         <div id='avatar-select' className='sr-only'>
-          {t.avatar.select || 'Use arrow keys to navigate between avatars. Press Enter to select.'}
+          {t.access.avatar.selector.instructions || 'Use arrow keys to navigate between avatars. Press Enter to select.'}
         </div>
 
         <button
@@ -90,8 +90,8 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
           tabIndex={getTabIndex(0)}
           className='avatarselector__nav avatarselector__nav--left'
           onClick={goToPrev}
-          aria-label={t.avatar.prev}
-          title={t.avatar.prev}
+          aria-label={t.access.avatar.selector.prev}
+          title={t.access.avatar.selector.prev}
         >
           ◀
         </button>
@@ -114,7 +114,7 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
           >
             <img
               src={`/avatars/${selectedAvatar.filename}`}
-              alt={t.avatar.imageAlt.replace(
+              alt={t.access.avatar.selector.image.replace(
                 '{name}',
                 selectedAvatar.translationKey
                   ? t.names[selectedAvatar.translationKey]
@@ -139,8 +139,8 @@ export default function AvatarSelector ({ onSelect, currentAvatar }) {
           tabIndex={getTabIndex(2)}
           className='avatarselector__nav avatarselector__nav--right'
           onClick={goToNext}
-          aria-label={t.avatar.next}
-          title={t.avatar.next}
+          aria-label={t.access.avatar.selector.next}
+          title={t.access.avatar.selector.next}
         >
           ▶
         </button>

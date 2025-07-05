@@ -17,13 +17,6 @@
       "duplicate": "Ese nombre ya está en uso"
     }
   },
-  "avatar": {
-    "dialogLabel": "Selector de avatar",
-    "prev": "Anterior",
-    "next": "Siguiente",
-    "imageAlt": "Avatar de {name}",
-    "select": "Selección de avatar"
-  },
   "names": {
     "mom": "Mamá",
     "dad": "Papá",

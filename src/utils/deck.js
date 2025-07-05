@@ -38,6 +38,7 @@ export function generateDeck (boardSize = 'xs') {
         id: `${i + 1}-a`,
         image: card.image,
         name: card.name,
+        translationKey: card.translationKey,
         flipped: false,
         matched: false
       },
@@ -45,6 +46,7 @@ export function generateDeck (boardSize = 'xs') {
         id: `${i + 1}-b`,
         image: card.image,
         name: card.name,
+        translationKey: card.translationKey,
         flipped: false,
         matched: false
       }

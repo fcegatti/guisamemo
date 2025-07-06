@@ -9,6 +9,13 @@ import {
  * Accepts a result type: 'match' (adds points) or 'penalty' (subtracts 1).
  */
 export function updatePlayerScore ({ players, currentTurnIndex, matchedImage, result }) {
+  // 🛡️ DEFENSIVE: Validate player index bounds against external manipulation
+  if (currentTurnIndex < 0 || currentTurnIndex >= players.length) {
+    if (import.meta.env.MODE === 'development') {
+      console.warn(`[updatePlayerScore] Invalid player index: ${currentTurnIndex} for ${players.length} players`)
+    }
+    return players // Return unchanged to prevent crash
+  }
   const isSpecialPair = SPECIAL_CARDS.includes(matchedImage)
   const basePoints = isSpecialPair ? SPECIAL_PAIR_POINTS : PAIR_POINTS
 

@@ -62,6 +62,14 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   }
 
   const nextTurn = () => {
+    // 🛡️ DEFENSIVE: Prevent division by zero in turn rotation
+    if (players.length === 0) {
+      if (import.meta.env.MODE === 'development') {
+        console.warn('[GameContext] nextTurn called with no players')
+      }
+      return
+    }
+
     const nextIndex = (currentTurnIndex + 1) % players.length
     setCurrentTurnIndex(nextIndex)
 

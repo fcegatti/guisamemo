@@ -10,7 +10,8 @@
       "empty": "El nombre no puede estar vacío",
       "tooLong": "El nombre no puede superar los {max} caracteres",
       "full": "Máximo de {max} jugadores alcanzado",
-      "duplicate": "Ese nombre ya está en uso"
+      "duplicate": "Ese nombre ya está en uso",
+      "invalidCharacters": "Solo se permiten letras, números, espacios y signos básicos"
     }
   },
   "names": {

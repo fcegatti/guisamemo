@@ -10,7 +10,8 @@
       "empty": "O nome non pode estar baleiro",
       "tooLong": "O nome non pode superar os {max} caracteres",
       "full": "Máximo de {max} xogadores acadado",
-      "duplicate": "Ese nome xa está en uso"
+      "duplicate": "Ese nome xa está en uso",
+      "invalidCharacters": "Só se permiten letras, números, espazos e signos básicos"
     }
   },
   "names": {

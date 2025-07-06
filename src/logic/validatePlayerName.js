@@ -16,8 +16,15 @@ function sanitizePlayerName(name) {
 
 export function validatePlayerName (name, currentPlayers, maxPlayers, t) {
   // 🛡️ SECURITY: Sanitize input before any processing
-  const sanitized = sanitizePlayerName(name)
+  const trimmedName = name.trim()
+  const sanitized = sanitizePlayerName(trimmedName)
 
+  if (sanitized !== trimmedName) {
+    return {
+      valid: false,
+      error: t.start.errors.invalidCharacters 
+    }
+  }
 
   if (!sanitized) {
     return { valid: false, error: t.start.errors.empty }

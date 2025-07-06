@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react'
 import { MAX_PLAYERS } from '@constants/game'
 import { createPlayer } from '@logic/createPlayer'
 import { incrementPlayerTurn, calculateTotalTurns } from '@handlers/handleTurnCount'
+import { BOARD_SIZES } from '@constants/game'
 
 // Create the context
 const GameContext = createContext()
@@ -10,7 +11,7 @@ const GameContext = createContext()
 export const useGame = () => useContext(GameContext)
 
 export function GameProvider ({ children, initialPlayers = [] }) {
-  const [boardSize, setBoardSize] = useState('xs')
+  const [boardSize, setBoardSizeState] = useState('xs')
   const [players, setPlayers] = useState(initialPlayers)
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0)
   const [gameStarted, setGameStarted] = useState(false)
@@ -25,6 +26,17 @@ export function GameProvider ({ children, initialPlayers = [] }) {
 
   const removePlayer = (id) => {
     setPlayers((prev) => prev.filter((p) => p.id !== id))
+  }
+
+  // 🛡️ DEFENSIVE: Validate board size before setting
+  const setBoardSize = (size) => {
+    if (!BOARD_SIZES.includes(size)) {
+      if (import.meta.env.MODE === 'development') {
+        console.warn(`[GameContext] Invalid board size attempted: ${size}. Keeping current: ${boardSize}`)
+      }
+      return
+    }
+    setBoardSizeState(size)
   }
 
   const startGame = () => {

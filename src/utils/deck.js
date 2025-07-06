@@ -27,7 +27,7 @@ export function generateDeck (boardSize = 'xs') {
 
     if (!card || !card.image || !card.name) {
       if (import.meta.env.MODE === 'development') {
-        console.warn('[genereateDeck] Invalid card at index', i, card)
+        console.warn('[generateDeck] Invalid card at index', i, card)
       }
       continue
     }

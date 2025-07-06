@@ -16,7 +16,8 @@ export function handleCardClick ({
   setPlayers,
   incrementTurn,
   nextTurn,
-  setIsGameOver
+  setIsGameOver,
+  registerTimer
 }) {
   if (!cardId || !cards || !setCards || !setFlippedCards) return
 
@@ -65,7 +66,8 @@ export function handleCardClick ({
       players,
       currentTurnIndex,
       incrementTurn,
-      setPlayers
+      setPlayers,
+      registerTimer
     })
   }
 }

@@ -28,7 +28,8 @@ export function handleFlipResolution ({
   currentTurnIndex,
   setPlayers,
   incrementTurn,
-  setIsGameOver
+  setIsGameOver,
+  registerTimer
 }) {
   const isMatch = resolveFlippedCards(flippedCards)
 
@@ -51,25 +52,26 @@ export function handleFlipResolution ({
     })
 
     setPlayers(updatedPlayers)
-
     handleMatchOutcome()
 
-    setTimeout(() => {
-      setCards(prev =>
-        prev.map(card =>
-          card.justMatched
-            ? { ...card, justMatched: false }
-            : card
-        )
-      )
+    // 🛡️ DEFENSIVE: Register timer for cleanup
+    const matchCleanupTimer = setTimeout(() => {
+      setCards(prev => prev.map(card =>
+        card.justMatched
+          ? { ...card, justMatched: false }
+          : card
+      ))
     }, 700)
+    registerTimer(matchCleanupTimer)
 
     onMatch(matchedImage, updatedCards)
 
     if (checkEndGame(updatedCards)) {
-      setTimeout(() => {
+      // 🛡️ DEFENSIVE: Register end game timers
+      const endSoundTimer = setTimeout(() => {
         handlePlaySound('end')
       }, 800)
+      registerTimer(endSoundTimer)
 
       incrementTurn('endGame')
 
@@ -81,7 +83,8 @@ export function handleFlipResolution ({
         })
       }
 
-      setTimeout(() => setIsGameOver(true), 1800)
+      const endGameTimer = setTimeout(() => setIsGameOver(true), 1800)
+      registerTimer(endGameTimer)
     }
     unlockBoard()
   } else {
@@ -110,7 +113,9 @@ export function handleFlipResolution ({
         aboutToIncrementTurn: true
       })
     }
-    setTimeout(() => {
+
+    // 🛡️ DEFENSIVE: Register mismatch timers for cleanup
+    const mismatchTimer = setTimeout(() => {
       const revertedCards = updatedCards.map(card =>
         mismatchedIds.includes(card.id)
           ? { ...card, flipped: false, justMismatched: false }
@@ -121,8 +126,8 @@ export function handleFlipResolution ({
       setFlippedCards([])
       unlockBoard()
       incrementTurn('mismatch')
-
       nextTurn()
     }, FLIP_BACK_DELAY)
+    registerTimer(mismatchTimer)
   }
 }

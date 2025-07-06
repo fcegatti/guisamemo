@@ -28,7 +28,20 @@ export function GameProvider ({ children, initialPlayers = [] }) {
   }
 
   const startGame = () => {
-    if (players.length === 0) return
+    // 🛡️ DEFENSIVE: Prevent double game start (idempotent function)
+    if (gameStarted) {
+      if (import.meta.env.MODE === 'development') {
+        console.warn('[GameContext] Attempted to start game that is already started')
+      }
+      return
+    }
+    // 🛡️ DEFENSIVE: Ensure there are players before starting
+    if (players.length === 0) {
+      if (import.meta.env.MODE === 'development') {
+        console.warn('[GameContext] Attempted to start game without players')
+      }
+      return
+    }
 
     setPlayers(prevPlayers =>
       prevPlayers.map(player => ({

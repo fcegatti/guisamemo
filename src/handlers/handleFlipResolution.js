@@ -125,7 +125,7 @@ export function handleFlipResolution ({
       setCards(revertedCards)
       setFlippedCards([])
       unlockBoard()
-      incrementTurn('mismatch')
+      incrementTurn('mismatch', updatedPlayers)
       nextTurn()
     }, FLIP_BACK_DELAY)
     registerTimer(mismatchTimer)

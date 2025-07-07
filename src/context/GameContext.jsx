@@ -93,9 +93,11 @@ export function GameProvider ({ children, initialPlayers = [] }) {
     }
   }
 
-  const incrementTurn = (eventType = 'mismatch') => {
+  const incrementTurn = (eventType = 'mismatch', providedPlayers = null) => {
+    const playersToUse = providedPlayers || players
+    
     const updatedPlayers = incrementPlayerTurn({
-      players,
+      players: playersToUse,
       currentTurnIndex,
       eventType
     })

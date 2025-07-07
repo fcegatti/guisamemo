@@ -3,9 +3,9 @@ import { useGame } from '@context/GameContext'
 import { getPlayersRanking } from '@logic/getPlayersRanking'
 import { useLanguage } from '@context/LanguageContext'
 import { useTheme } from '@context/ThemeContext'
-import Podium from './Podium'
+import Podium from '../game/Podium'
 import EndGameModal from '@components/interface/modals/EndGameModal'
-import SinglePlayerSummary from './SinglePlayerSummary'
+import SinglePlayerSummary from '../game/SinglePlayerSummary'
 import { useMediaQuery } from '@hooks/useMediaQuery'
 
 export default function EndScreen () {

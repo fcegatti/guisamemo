@@ -4,9 +4,9 @@ import { useDocumentMetadata } from '@hooks/useDocumentMetadata'
 import UpdateBanner from '@components/interface/banners/UpdateBanner'
 import FirefoxWarning from '@components/interface/modals/FirefoxWarning'
 import { OfflineBanner } from '@components/interface/banners/OfflineBanner'
-import StartScreen from '@components/StartScreen'
-import GameScreen from '@components/game/GameScreen'
-import EndScreen from '@components/game/EndScreen'
+import StartScreen from '@components/screens/StartScreen'
+import GameScreen from '@components/screens/GameScreen'
+import EndScreen from '@components/screens/EndScreen'
 
 function AppContent () {
   const { gameStarted, isGameOver } = useGame()

@@ -8,7 +8,7 @@ import { preloadGameAudio } from '@utils/soundManager'
 import ExitGameModal from '@components/interface/modals/ExitGameModal'
 import PlayersPanel from '../players/PlayersPanel'
 import PlayerStatus from '../players/PlayerStatus'
-import Board from './Board'
+import Board from '../game/Board'
 import OrientationModal from '@components/interface/modals/OrientationModal'
 
 function GameScreen () {

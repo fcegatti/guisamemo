@@ -1,7 +1,7 @@
 /* global localStorage */
 
 import { useEffect } from 'react'
-import EndScreen from '../game/EndScreen'
+import EndScreen from '../screens/EndScreen'
 import { GameProvider } from '@context/GameContext'
 import { LanguageProvider } from '@context/LanguageContext'
 import { ThemeProvider } from '@context/ThemeContext'

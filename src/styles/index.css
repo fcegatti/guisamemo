@@ -1,4 +1,4 @@
-@import '@styles/variables.css';
+@import '@styles/core/variables.css';
 @import '@styles/updatebanner.css';
 @import '@styles/offlinebanner.css';
 @import '@styles/startscreen.css';

@@ -16,6 +16,14 @@ export function updatePlayerScore ({ players, currentTurnIndex, matchedImage, re
     }
     return players // Return unchanged to prevent crash
   }
+
+  // 🛡️ DEFENSIVE: Validate result type to prevent incorrect scoring
+  if (!['match', 'mismatch'].includes(result)) {
+    if (import.meta.env.MODE === 'development') {
+      console.warn(`[updatePlayerScore] Invalid result type: ${result}. Expected 'match' or 'mismatch'`)
+    }
+    return players // Return unchanged to prevent incorrect score calculation
+  }
   const isSpecialPair = SPECIAL_CARDS.includes(matchedImage)
   const basePoints = isSpecialPair ? SPECIAL_PAIR_POINTS : PAIR_POINTS
 

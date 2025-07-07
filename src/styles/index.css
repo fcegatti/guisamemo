@@ -1,7 +1,7 @@
 @import './core/variables.css';
 @import './components/interface/banners/update-banner.css';
 @import './components/interface/banners/offline-banner.css';
-@import '@styles/startscreen.css';
+@import './components/screens/start-screen.css';
 @import './components/interface/selectors/theme-selector.css';
 @import './components/interface/selectors/language-selector.css';
 @import './components/interface/selectors/board-size-selector.css';
@@ -9,11 +9,11 @@
 @import '@styles/playerform.css';
 @import '@styles/playerlist.css';
 @import './components/interface/start-game-button.css';
-@import './components/game/game-screen.css';
+@import './components/screens/game-screen.css';
 @import './components/game/board.css';
 @import './components/interface/modals/orientation-modal.css';
 @import './components/interface/modals/exit-game-modal.css';
-@import './components/game/end-screen.css';
+@import './components/screens/end-screen.css';
 @import './components/game/single-player-summary.css';
 @import './components/game/podium.css';
 @import './components/interface/modals/end-game-modal.css';

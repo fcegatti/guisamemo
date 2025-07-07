@@ -17,8 +17,8 @@
 @import './components/game/single-player-summary.css';
 @import './components/game/podium.css';
 @import './components/interface/modals/end-game-modal.css';
-@import '@styles/confetti.css';
-@import '@styles/fireworks.css';
+@import './components/effects/confetti.css';
+@import './components/effects/fireworks.css';
 @import './components/players/players-panel.css';
 @import './components/players/player-status.css';
 @import './components/interface/not-found.css';

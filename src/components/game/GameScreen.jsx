@@ -5,11 +5,11 @@ import { useGame } from '@context/GameContext'
 import { useMediaQuery } from '@hooks/useMediaQuery'
 import { useLanguage } from '@context/LanguageContext'
 import { preloadGameAudio } from '@utils/soundManager'
-import ExitGameModal from './ExitGameModal'
+import ExitGameModal from '@components/interface/modals/ExitGameModal'
 import PlayersPanel from '../players/PlayersPanel'
 import PlayerStatus from '../players/PlayerStatus'
 import Board from './Board'
-import OrientationModal from '../interface/OrientationModal'
+import OrientationModal from '@components/interface/modals/OrientationModal'
 
 function GameScreen () {
   const { resetGame, players, currentTurnIndex, boardSize } = useGame()

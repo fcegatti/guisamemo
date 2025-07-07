@@ -4,7 +4,7 @@ import { getPlayersRanking } from '@logic/getPlayersRanking'
 import { useLanguage } from '@context/LanguageContext'
 import { useTheme } from '@context/ThemeContext'
 import Podium from './Podium'
-import EndGameModal from './EndGameModal'
+import EndGameModal from '@components/interface/modals/EndGameModal'
 import SinglePlayerSummary from './SinglePlayerSummary'
 import { useMediaQuery } from '@hooks/useMediaQuery'
 

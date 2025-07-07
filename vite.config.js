@@ -203,7 +203,8 @@ export default defineConfig({
       '@logic': path.resolve(__dirname, 'src/logic'),
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
-      '@i18n': path.resolve(__dirname, 'src/i18n')
+      '@i18n': path.resolve(__dirname, 'src/i18n'),
+      '@dev': path.resolve(__dirname, 'src/dev')
     }
   },
   build: {

@@ -24,7 +24,8 @@
     "build": "vite build",
     "lint": "standard",
     "preview": "vite preview",
-    "serve": "serve dist"
+    "serve": "serve dist",
+    "test": "vitest"
   },
   "dependencies": {
     "canvas-confetti": "1.9.3",

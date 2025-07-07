@@ -8,13 +8,13 @@ import { ThemeProvider } from '@context/ThemeContext'
  * Custom render function that wraps components with necessary providers
  * Usage: renderWithProviders(<MyComponent />, { initialPlayers: [...] })
  */
-export function renderWithProviders(ui, options = {}) {
+export function renderWithProviders (ui, options = {}) {
   const {
     initialPlayers = [],
     ...renderOptions
   } = options
 
-  function Wrapper({ children }) {
+  function Wrapper ({ children }) {
     return (
       <ThemeProvider>
         <LanguageProvider>
@@ -31,19 +31,19 @@ export function renderWithProviders(ui, options = {}) {
 
 // Mock data for testing
 export const mockPlayers = [
-  { 
-    id: 'test-player-1', 
-    name: 'Test Player A', 
-    score: 40, 
-    avatar: 'avatar-1.webp', 
-    turns: 12 
+  {
+    id: 'test-player-1',
+    name: 'Test Player A',
+    score: 40,
+    avatar: 'avatar-1.webp',
+    turns: 12
   },
-  { 
-    id: 'test-player-2', 
-    name: 'Test Player B', 
-    score: 30, 
-    avatar: 'avatar-2.webp', 
-    turns: 10 
+  {
+    id: 'test-player-2',
+    name: 'Test Player B',
+    score: 30,
+    avatar: 'avatar-2.webp',
+    turns: 10
   }
 ]
 

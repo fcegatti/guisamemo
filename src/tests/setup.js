@@ -14,7 +14,7 @@ afterEach(() => {
 // Critical modules identified for future testing priority:
 // HIGH PRIORITY (Unit Tests):
 // - logic/updatePlayerScore.js
-// - logic/validatePlayerName.js  
+// - logic/validatePlayerName.js
 // - logic/resolveFlippedCards.js
 // - utils/deck.js (generateDeck)
 // - handlers/handleTurnCount.js

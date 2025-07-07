@@ -17,13 +17,13 @@ export function handleAvatarSelect ({
     if (import.meta.env.MODE === 'development') {
       console.warn(`[handleAvatarSelect] Player with ID ${playerId} not found`)
     }
-    
+
     setSelectingAvatarFor(null)
     return
- }
+  }
 
   // 🛡️ DEFENSIVE: Validate filename is in allowed avatars or null (deselection)
-  const isValidAvatar = filename === null || 
+  const isValidAvatar = filename === null ||
     AVATAR_INFO.some(avatar => avatar.filename === filename)
 
   if (!isValidAvatar) {

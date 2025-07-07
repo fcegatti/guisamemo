@@ -5,7 +5,7 @@ import { MAX_NAME_LENGTH } from '@constants/game'
  * @param {string} name - Raw player name input
  * @returns {string} - Sanitized name with only allowed characters
  */
-function sanitizePlayerName(name) {
+function sanitizePlayerName (name) {
   // 🛡️ DEFENSIVE: Allow only letters, numbers, spaces, and basic punctuation
   // Preserves international characters while blocking nonsensical symbols
   return name
@@ -22,7 +22,7 @@ export function validatePlayerName (name, currentPlayers, maxPlayers, t) {
   if (sanitized !== trimmedName) {
     return {
       valid: false,
-      error: t.start.errors.invalidCharacters 
+      error: t.start.errors.invalidCharacters
     }
   }
 

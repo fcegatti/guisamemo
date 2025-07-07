@@ -1,8 +1,7 @@
 import { createContext, useContext, useState } from 'react'
-import { MAX_PLAYERS } from '@constants/game'
+import { MAX_PLAYERS, BOARD_SIZES } from '@constants/game'
 import { createPlayer } from '@logic/createPlayer'
 import { incrementPlayerTurn, calculateTotalTurns } from '@handlers/handleTurnCount'
-import { BOARD_SIZES } from '@constants/game'
 
 // Create the context
 const GameContext = createContext()
@@ -95,7 +94,7 @@ export function GameProvider ({ children, initialPlayers = [] }) {
 
   const incrementTurn = (eventType = 'mismatch', providedPlayers = null) => {
     const playersToUse = providedPlayers || players
-    
+
     const updatedPlayers = incrementPlayerTurn({
       players: playersToUse,
       currentTurnIndex,

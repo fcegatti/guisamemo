@@ -36,7 +36,7 @@ export function updatePlayerScore ({ players, currentTurnIndex, matchedImage, re
     const newScore = result === 'mismatch'
       ? Math.max(0, player.score + points)
       : player.score + points
-    
+
     return { ...player, score: newScore }
   })
 }

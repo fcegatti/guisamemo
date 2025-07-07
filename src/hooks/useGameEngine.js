@@ -37,7 +37,7 @@ export function useGameEngine () {
       clearTimeout(timerId)
     })
     activeTimers.current.clear()
-    
+
     if (import.meta.env.MODE === 'development') {
       console.log('[useGameEngine] Cleared all active timers')
     }

@@ -1,6 +1,6 @@
 @import './core/variables.css';
-@import '@styles/updatebanner.css';
-@import '@styles/offlinebanner.css';
+@import './components/interface/banners/update-banner.css';
+@import './components/interface/banners/offline-banner.css';
 @import '@styles/startscreen.css';
 @import './components/interface/selectors/theme-selector.css';
 @import './components/interface/selectors/language-selector.css';

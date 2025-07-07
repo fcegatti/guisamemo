@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App'
-import LanguageRedirector from '@components/LanguageRedirector'
+import LanguageRedirector from '@components/interface/LanguageRedirector'
 import NotFound from '@components/interface/NotFound'
 import TestEndScreen from '@components/test/TestEndScreen'
 

@@ -2,10 +2,10 @@
 @import '@styles/updatebanner.css';
 @import '@styles/offlinebanner.css';
 @import '@styles/startscreen.css';
-@import '@styles/themeselector.css';
-@import '@styles/languageselector.css';
-@import '@styles/boardsizeselector.css';
-@import '@styles/avatarselector.css';
+@import './components/interface/selectors/theme-selector.css';
+@import './components/interface/selectors/language-selector.css';
+@import './components/interface/selectors/board-size-selector.css';
+@import './components/interface/selectors/avatar-selector.css';
 @import '@styles/playerform.css';
 @import '@styles/playerlist.css';
 @import '@styles/startgamebutton.css';

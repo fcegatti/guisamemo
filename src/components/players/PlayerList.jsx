@@ -1,5 +1,5 @@
 import { useLanguage } from '@context/LanguageContext'
-import AvatarSelector from '@components/avatar/AvatarSelector'
+import AvatarSelector from '@components/interface/selectors/AvatarSelector'
 
 function PlayerList ({
   players,

@@ -26,17 +26,16 @@ The project name is a tribute to **Guísamo**, a village in Galicia, Spain—and
 
 ---
 
-## 📌 Latest Version – v1.2.0
+## 📌 Latest Version – v1.2.1
 
-- 🕶️ Added full dark mode with smooth transitions and system preference detection  
-- 🔊 New sound effects for matches, mismatches, flips and game end  
-- 🎇 Celebration effects: confetti (light) and fireworks (dark)  
-- ❌ Penalty system: -1 point for incorrect matches  
-- 📶 OfflineBanner with live connectivity detection  
-- 🧼 Refactored StartScreen into modular components  
-- 🔃 Accessibility upgrades: ARIA regions, keyboard traps, semantic layout  
-- 🧭 Improved PWA: offline fallback via `vite-plugin-pwa`, full asset caching  
-- 🔧 Basic 404 page with language-aware message and fallback image  
+- 🧪 **Testing Infrastructure**: Added Vitest and React Testing Library with comprehensive test utilities
+- 🏗️ **Code Architecture**: Complete reorganization of React components and CSS structure
+- ⌨️ **Enhanced Accessibility**: Roving tabindex keyboard navigation for AAA compliance
+- 🦊 **Firefox Compatibility**: Added browser warning and layout fixes
+- 🎯 **Developer Experience**: Improved maintainability with logical component grouping
+- 📱 **Mobile Optimization**: Enhanced touch targets and progressive loading
+- 🔧 **Code Quality**: Defensive validations and refactored game logic handlers
+- 🎨 **CSS Modernization**: Kebab-case naming and component-mirrored structure
 
 ---
 
@@ -55,10 +54,11 @@ The project name is a tribute to **Guísamo**, a village in Galicia, Spain—and
 ## 🗺️ Roadmap (v1.2+)
 
 - 🧠 Memory challenge timer or difficulty levels  
+- 🧪 Extended test coverage for game logic and UI components
 - 📈 Ranking and score history  
 - 🤝 Social invites and card sharing  
 - 🧩 More card styles and visual themes 
-- 🔍 Accessibility enhancements (landmarks, keyboard nav – full AAA) 
+- 🔍 Advanced accessibility features (enhanced screen reader support - full AAA)
 
 ---
 
@@ -76,6 +76,21 @@ To test the PWA:
 ```bash
 npm run build
 npm run preview
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run test suite
+npm run test
+
+# Run tests in watch mode
+npm run test -- --watch
+
+# Run tests with coverage
+npm run test -- --coverage
 ```
 
 ---

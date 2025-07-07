@@ -1,5 +1,53 @@
 # 📦 Changelog
 
+## [1.2.1] – 2025-07-07
+
+### Added
+- Comprehensive testing infrastructure with Vitest and React Testing Library
+- Test utilities with provider wrappers and mock data for component testing
+- Unit test example for core game logic (`updatePlayerScore`)
+- Script `npm run test` for automated testing execution
+- Development utilities directory (`src/dev/`) for manual testing components
+- Roving tabindex keyboard navigation for game board (AAA accessibility compliance)
+- Roving tabindex navigation for BoardSizeSelector and AvatarSelector components
+- Firefox browser compatibility warning modal with user dismissal option
+- Progressive audio loading optimization for mobile performance
+- Touch target accessibility improvements following WCAG AAA guidelines
+
+### Changed
+- **Major code reorganization**: React component structure reorganized by functionality
+  - Created logical directories: `screens/`, `game/`, `interface/`, `players/`, `effects/`
+  - Grouped related components: `selectors/`, `modals/`, `banners/` under `interface/`
+  - Moved development utilities to dedicated `src/dev/` directory
+- **CSS architecture overhaul**: Complete reorganization mirroring React component structure
+  - All CSS files renamed to kebab-case for style guide compliance
+  - Organized styles by component hierarchy with relative import strategy
+  - Maintained centralized CSS imports through `index.css` for simplicity
+- Enhanced avatar selector to open on currently selected avatar for better UX
+- Replaced problematic shuffle algorithm with Fisher-Yates implementation
+- Turn counting logic refactored into isolated handler (`handleTurnCount`)
+- Defensive validations added to critical game functions without breaking changes
+- All `aria-*` i18n keys normalized under `t.access` namespace for consistency
+- Fixed language source mapping for card names in Galician route
+- Removed provisional CSS `!important` overrides in Podium with semantic class modifiers
+- Updated z-index usage following project style guide for consistency
+- Improved NotFound page styling and responsiveness
+
+### Fixed
+- Firefox-specific layout rendering issues in game board (partially with warning implemented)
+- Circular language redirections in SEO routes (`/es`, `/gl`)
+- Dynamic metadata management with `useDocumentMetadata` hook for better SEO
+- Touch target sizes verified for mobile accessibility compliance
+- Progressive image and font loading optimized for mobile performance
+- Card name translations properly resolved in all language routes
+
+### Technical
+- Established foundation for future CSS modules migration
+- Prepared component structure for enhanced maintainability and scaling
+- Service Worker automatically manages versioning and cache updates
+- Testing framework ready for expanded test coverage in future versions
+- All functionality preserved during structural reorganization
+
 ## [1.2.0] – 2025-05-22
 
 ### Added

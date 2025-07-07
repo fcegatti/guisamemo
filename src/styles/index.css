@@ -8,7 +8,7 @@
 @import './components/interface/selectors/avatar-selector.css';
 @import '@styles/playerform.css';
 @import '@styles/playerlist.css';
-@import '@styles/startgamebutton.css';
+@import './components/interface/start-game-button.css';
 @import './components/game/game-screen.css';
 @import './components/game/board.css';
 @import './components/interface/modals/orientation-modal.css';
@@ -21,7 +21,7 @@
 @import '@styles/fireworks.css';
 @import '@styles/playerspanel.css';
 @import '@styles/playerstatus.css';
-@import '@styles/notfound.css';
+@import './components/interface/not-found.css';
 @import './components/interface/modals/firefox-warning.css';
 
 /* 🌍 Global background for full viewport */
